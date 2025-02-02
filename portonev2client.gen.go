@@ -708,12 +708,6 @@ const (
 	InstantPaymentMethodInputVirtualAccountOptionTypeNORMAL InstantPaymentMethodInputVirtualAccountOptionType = "NORMAL"
 )
 
-// Defines values for IssueCashReceiptPaymentMethodType.
-const (
-	IssueCashReceiptPaymentMethodTypeTRANSFER       IssueCashReceiptPaymentMethodType = "TRANSFER"
-	IssueCashReceiptPaymentMethodTypeVIRTUALACCOUNT IssueCashReceiptPaymentMethodType = "VIRTUAL_ACCOUNT"
-)
-
 // Defines values for PaymentCashReceiptStatus.
 const (
 	PaymentCashReceiptStatusCANCELLED PaymentCashReceiptStatus = "CANCELLED"
@@ -782,12 +776,12 @@ const (
 
 // Defines values for PaymentMethodType.
 const (
-	PaymentMethodTypeCARD            PaymentMethodType = "CARD"
-	PaymentMethodTypeEASYPAY         PaymentMethodType = "EASY_PAY"
-	PaymentMethodTypeGIFTCERTIFICATE PaymentMethodType = "GIFT_CERTIFICATE"
-	PaymentMethodTypeMOBILE          PaymentMethodType = "MOBILE"
-	PaymentMethodTypeTRANSFER        PaymentMethodType = "TRANSFER"
-	PaymentMethodTypeVIRTUALACCOUNT  PaymentMethodType = "VIRTUAL_ACCOUNT"
+	CARD            PaymentMethodType = "CARD"
+	EASYPAY         PaymentMethodType = "EASY_PAY"
+	GIFTCERTIFICATE PaymentMethodType = "GIFT_CERTIFICATE"
+	MOBILE          PaymentMethodType = "MOBILE"
+	TRANSFER        PaymentMethodType = "TRANSFER"
+	VIRTUALACCOUNT  PaymentMethodType = "VIRTUAL_ACCOUNT"
 )
 
 // Defines values for PaymentMethodVirtualAccountRefundStatus.
@@ -3616,11 +3610,8 @@ type IssueBillingKeyResponse struct {
 // IssueCashReceiptBody 현금영수증 발급 요청 양식
 type IssueCashReceiptBody struct {
 	// Amount 금액 세부 입력 정보
-	Amount PaymentAmountInput `json:"amount"`
-
-	// BusinessRegistrationNumber 웰컴페이먼츠의 경우에만 입력합니다.
-	BusinessRegistrationNumber *string `json:"businessRegistrationNumber,omitempty"`
-	ChannelKey                 string  `json:"channelKey"`
+	Amount     PaymentAmountInput `json:"amount"`
+	ChannelKey string             `json:"channelKey"`
 
 	// Currency 통화 단위
 	Currency Currency `json:"currency"`
@@ -3632,9 +3623,6 @@ type IssueCashReceiptBody struct {
 
 	// PaymentId 외부 결제 건에 대한 수동 발급의 경우, 아이디를 직접 채번하여 입력합니다.
 	PaymentId string `json:"paymentId"`
-
-	// PaymentMethod 현금영수증 발급 가능 결제 수단
-	PaymentMethod *IssueCashReceiptPaymentMethodType `json:"paymentMethod,omitempty"`
 
 	// ProductType 상품 유형
 	ProductType *PaymentProductType `json:"productType,omitempty"`
@@ -3658,9 +3646,6 @@ type IssueCashReceiptCustomerInput struct {
 type IssueCashReceiptError struct {
 	union json.RawMessage
 }
-
-// IssueCashReceiptPaymentMethodType 현금영수증 발급 가능 결제 수단
-type IssueCashReceiptPaymentMethodType string
 
 // IssueCashReceiptResponse 현금 영수증 발급 성공 응답
 type IssueCashReceiptResponse struct {
