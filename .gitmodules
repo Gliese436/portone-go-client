@@ -1,0 +1,3 @@
+[submodule "server-sdk"]
+	path = server-sdk
+	url = https://github.com/portone-io/server-sdk.git
