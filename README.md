@@ -16,3 +16,26 @@ $ ./generate-client.sh
 **generate-type.sh 파일은 실험용으로, 필요 시 요청 / 응답 JSON에 대응되는 구조체만 생성하기 위함임**
 
 **사용 시에는 generate-client.sh 파일만 사용하더라도 구조체 역시 생성됨**
+
+## 사용법
+### 설치
+```
+go get github.com/Gliese436/portone-go-client
+```
+### 예시
+```go
+yourStoreId := os.Getenv("PORTONE_STORE_ID")
+
+client, err := portonev2client.NewClient(os.Getenv("PORTONE_URL"))
+if err != nil {
+  log.Panic(err)
+}
+response, err := client.GetPayment(
+  context.Background(),
+  "YOUR_PAYMENT_ID",
+  &portonev2client.GetPaymentParams{
+    StoreId: &yourStoreId,
+  },
+)
+// ... //
+```
