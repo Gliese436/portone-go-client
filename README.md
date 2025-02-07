@@ -26,7 +26,13 @@ go get github.com/Gliese436/portone-go-client
 ```go
 yourStoreId := os.Getenv("PORTONE_STORE_ID")
 
-client, err := portonev2client.NewClient(os.Getenv("PORTONE_URL"))
+client, err := portonev2client.NewClient(
+  os.Getenv("PORTONE_URL"),
+  portonev2client.WithRequestEditorFn(func(ctx context.Context, req *http.Request) error {
+			req.Header.Add("Authorization", "Portone "+os.Getenv("PORTONE_SECRET_KEY"))
+			return nil
+  }),
+)
 if err != nil {
   log.Panic(err)
 }
