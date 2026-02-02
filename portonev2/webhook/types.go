@@ -45,7 +45,7 @@ type Webhook struct {
 	// 타임스탬프 (RFC 3339)
 	Timestamp string `json:"timestamp"`
 	// 트랜잭션 데이터 (Transaction 타입일 때)
-	Data interface{} `json:"data,omitempty"`
+	Data WebhookTransactionData `json:"data,omitempty"`
 }
 
 // IsTransaction 트랜잭션 관련 웹훅인지 확인
