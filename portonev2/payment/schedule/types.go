@@ -1,7 +1,7 @@
 package schedule
 
 import (
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // PaymentScheduleStatus 결제 예약 상태
@@ -90,9 +90,9 @@ func (p *PaymentSchedule) IsRevoked() bool {
 type PaymentScheduleSortBy string
 
 const (
-	PaymentScheduleSortByCREATED_AT    PaymentScheduleSortBy = "CREATED_AT"
-	PaymentScheduleSortByTIME_TO_PAY   PaymentScheduleSortBy = "TIME_TO_PAY"
-	PaymentScheduleSortByCOMPLETED_AT  PaymentScheduleSortBy = "COMPLETED_AT"
+	PaymentScheduleSortByCREATED_AT   PaymentScheduleSortBy = "CREATED_AT"
+	PaymentScheduleSortByTIME_TO_PAY  PaymentScheduleSortBy = "TIME_TO_PAY"
+	PaymentScheduleSortByCOMPLETED_AT PaymentScheduleSortBy = "COMPLETED_AT"
 )
 
 // PaymentScheduleSortInput 결제 예약 정렬 입력

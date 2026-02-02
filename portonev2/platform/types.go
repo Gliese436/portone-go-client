@@ -1,7 +1,7 @@
 package platform
 
 import (
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // PlatformPartnerStatus 플랫폼 파트너 상태
@@ -17,11 +17,11 @@ const (
 type PlatformAccountStatus string
 
 const (
-	PlatformAccountStatusVerified    PlatformAccountStatus = "VERIFIED"
+	PlatformAccountStatusVerified     PlatformAccountStatus = "VERIFIED"
 	PlatformAccountStatusVerifyFailed PlatformAccountStatus = "VERIFY_FAILED"
-	PlatformAccountStatusVerifyError PlatformAccountStatus = "VERIFY_ERROR"
-	PlatformAccountStatusNotVerified PlatformAccountStatus = "NOT_VERIFIED"
-	PlatformAccountStatusUnknown     PlatformAccountStatus = "UNKNOWN"
+	PlatformAccountStatusVerifyError  PlatformAccountStatus = "VERIFY_ERROR"
+	PlatformAccountStatusNotVerified  PlatformAccountStatus = "NOT_VERIFIED"
+	PlatformAccountStatusUnknown      PlatformAccountStatus = "UNKNOWN"
 )
 
 // PlatformPayer 금액 부담 주체
@@ -135,11 +135,11 @@ const (
 type PlatformTransferStatus string
 
 const (
-	PlatformTransferStatusScheduled  PlatformTransferStatus = "SCHEDULED"
-	PlatformTransferStatusInProcess  PlatformTransferStatus = "IN_PROCESS"
-	PlatformTransferStatusWithdrawn  PlatformTransferStatus = "WITHDRAWN"
-	PlatformTransferStatusPaidOut    PlatformTransferStatus = "PAID_OUT"
-	PlatformTransferStatusCancelled  PlatformTransferStatus = "CANCELLED"
+	PlatformTransferStatusScheduled PlatformTransferStatus = "SCHEDULED"
+	PlatformTransferStatusInProcess PlatformTransferStatus = "IN_PROCESS"
+	PlatformTransferStatusWithdrawn PlatformTransferStatus = "WITHDRAWN"
+	PlatformTransferStatusPaidOut   PlatformTransferStatus = "PAID_OUT"
+	PlatformTransferStatusCancelled PlatformTransferStatus = "CANCELLED"
 )
 
 // PlatformContact 플랫폼 파트너 담당자 연락 정보
@@ -167,10 +167,10 @@ type PlatformFee struct {
 
 // PlatformSettlementCycleMethod 정산 주기 계산 방식
 type PlatformSettlementCycleMethod struct {
-	Type       PlatformSettlementCycleMethodType `json:"type"`
-	DaysOfWeek []DayOfWeek                       `json:"daysOfWeek,omitempty"` // WEEKLY
-	DaysOfMonth []int32                          `json:"daysOfMonth,omitempty"` // MONTHLY
-	Dates      []MonthDay                        `json:"dates,omitempty"`       // MANUAL_DATES
+	Type        PlatformSettlementCycleMethodType `json:"type"`
+	DaysOfWeek  []DayOfWeek                       `json:"daysOfWeek,omitempty"`  // WEEKLY
+	DaysOfMonth []int32                           `json:"daysOfMonth,omitempty"` // MONTHLY
+	Dates       []MonthDay                        `json:"dates,omitempty"`       // MANUAL_DATES
 }
 
 // MonthDay 월/일 조합
@@ -191,18 +191,18 @@ type PlatformProperties map[string]string
 
 // PlatformPartnerType 파트너 유형별 추가 정보 (discriminated union)
 type PlatformPartnerType struct {
-	Type                           PlatformPartnerTypeValue                     `json:"type"`
+	Type PlatformPartnerTypeValue `json:"type"`
 	// Business fields
-	CompanyName                    string                                       `json:"companyName,omitempty"`
-	TaxationType                   PlatformPartnerTaxationType                  `json:"taxationType,omitempty"`
-	BusinessStatus                 PlatformPartnerBusinessStatus                `json:"businessStatus,omitempty"`
-	BusinessRegistrationNumber     string                                       `json:"businessRegistrationNumber,omitempty"`
-	RepresentativeName             string                                       `json:"representativeName,omitempty"`
-	CompanyAddress                 *string                                      `json:"companyAddress,omitempty"`
-	BusinessType                   *string                                      `json:"businessType,omitempty"`
-	BusinessClass                  *string                                      `json:"businessClass,omitempty"`
-	MemberCompanyConnectionStatus  PlatformPartnerMemberCompanyConnectionStatus `json:"memberCompanyConnectionStatus,omitempty"`
-	MemberCompanyConnectionFailedReason *string                                 `json:"memberCompanyConnectionFailedReason,omitempty"`
+	CompanyName                         string                                       `json:"companyName,omitempty"`
+	TaxationType                        PlatformPartnerTaxationType                  `json:"taxationType,omitempty"`
+	BusinessStatus                      PlatformPartnerBusinessStatus                `json:"businessStatus,omitempty"`
+	BusinessRegistrationNumber          string                                       `json:"businessRegistrationNumber,omitempty"`
+	RepresentativeName                  string                                       `json:"representativeName,omitempty"`
+	CompanyAddress                      *string                                      `json:"companyAddress,omitempty"`
+	BusinessType                        *string                                      `json:"businessType,omitempty"`
+	BusinessClass                       *string                                      `json:"businessClass,omitempty"`
+	MemberCompanyConnectionStatus       PlatformPartnerMemberCompanyConnectionStatus `json:"memberCompanyConnectionStatus,omitempty"`
+	MemberCompanyConnectionFailedReason *string                                      `json:"memberCompanyConnectionFailedReason,omitempty"`
 	// WhtPayer / NonWhtPayer fields
 	Birthdate *string `json:"birthdate,omitempty"`
 }
@@ -270,14 +270,14 @@ type PlatformAdditionalFeePolicy struct {
 
 // PlatformDiscountSharePolicy 할인 분담 정책
 type PlatformDiscountSharePolicy struct {
-	ID              string  `json:"id"`
-	GraphqlID       string  `json:"graphqlId"`
-	Name            string  `json:"name"`
-	PartnerShareRate int32  `json:"partnerShareRate"`
-	Memo            *string `json:"memo,omitempty"`
-	IsArchived      bool    `json:"isArchived"`
-	AppliedAt       string  `json:"appliedAt"`
-	IsForTest       bool    `json:"isForTest"`
+	ID               string  `json:"id"`
+	GraphqlID        string  `json:"graphqlId"`
+	Name             string  `json:"name"`
+	PartnerShareRate int32   `json:"partnerShareRate"`
+	Memo             *string `json:"memo,omitempty"`
+	IsArchived       bool    `json:"isArchived"`
+	AppliedAt        string  `json:"appliedAt"`
+	IsForTest        bool    `json:"isForTest"`
 }
 
 // PlatformSetting 플랫폼 설정
@@ -299,21 +299,21 @@ type PageInput struct {
 
 // PageInfo 페이지 정보
 type PageInfo struct {
-	Number       int32 `json:"number"`
-	Size         int32 `json:"size"`
-	TotalCount   int64 `json:"totalCount"`
-	TotalPages   int32 `json:"totalPages"`
+	Number     int32 `json:"number"`
+	Size       int32 `json:"size"`
+	TotalCount int64 `json:"totalCount"`
+	TotalPages int32 `json:"totalPages"`
 }
 
 // PlatformPartnerFilterInput 파트너 필터 입력
 type PlatformPartnerFilterInput struct {
-	IDs                    []string                `json:"ids,omitempty"`
-	Keyword                *string                 `json:"keyword,omitempty"`
-	Statuses               []PlatformPartnerStatus `json:"statuses,omitempty"`
-	ContractIDs            []string                `json:"contractIds,omitempty"`
-	Tags                   []string                `json:"tags,omitempty"`
-	IsArchived             *bool                   `json:"isArchived,omitempty"`
-	PartnerTypes           []PlatformPartnerTypeValue `json:"partnerTypes,omitempty"`
+	IDs          []string                   `json:"ids,omitempty"`
+	Keyword      *string                    `json:"keyword,omitempty"`
+	Statuses     []PlatformPartnerStatus    `json:"statuses,omitempty"`
+	ContractIDs  []string                   `json:"contractIds,omitempty"`
+	Tags         []string                   `json:"tags,omitempty"`
+	IsArchived   *bool                      `json:"isArchived,omitempty"`
+	PartnerTypes []PlatformPartnerTypeValue `json:"partnerTypes,omitempty"`
 }
 
 // PlatformContractFilterInput 계약 필터 입력
@@ -339,11 +339,11 @@ type PlatformDiscountSharePolicyFilterInput struct {
 
 // PlatformTransferFilterInput 정산건 필터 입력
 type PlatformTransferFilterInput struct {
-	PartnerIDs      []string                 `json:"partnerIds,omitempty"`
-	ContractIDs     []string                 `json:"contractIds,omitempty"`
-	TransferTypes   []PlatformTransferType   `json:"transferTypes,omitempty"`
+	PartnerIDs       []string                 `json:"partnerIds,omitempty"`
+	ContractIDs      []string                 `json:"contractIds,omitempty"`
+	TransferTypes    []PlatformTransferType   `json:"transferTypes,omitempty"`
 	TransferStatuses []PlatformTransferStatus `json:"transferStatuses,omitempty"`
-	PaymentIDs      []string                 `json:"paymentIds,omitempty"`
+	PaymentIDs       []string                 `json:"paymentIds,omitempty"`
 }
 
 // PlatformUserDefinedPropertyKeyValue 사용자 정의 속성 키-값
@@ -499,11 +499,11 @@ type CreatePlatformPartnerBodyContact struct {
 
 // CreatePlatformPartnerBodyAccount 파트너 생성 계좌 정보
 type CreatePlatformPartnerBodyAccount struct {
-	Bank               common.Bank     `json:"bank"`
-	Currency           common.Currency `json:"currency"`
-	Number             string          `json:"number"`
-	Holder             string          `json:"holder"`
-	AccountVerificationID *string      `json:"accountVerificationId,omitempty"`
+	Bank                  common.Bank     `json:"bank"`
+	Currency              common.Currency `json:"currency"`
+	Number                string          `json:"number"`
+	Holder                string          `json:"holder"`
+	AccountVerificationID *string         `json:"accountVerificationId,omitempty"`
 }
 
 // CreatePlatformPartnerBodyTypeBusiness 사업자 파트너 생성 정보
@@ -547,15 +547,15 @@ type CreatePlatformPartnerBodyType struct {
 
 // CreatePlatformPartnerBody 파트너 생성 요청 바디
 type CreatePlatformPartnerBody struct {
-	ID                    *string                           `json:"id,omitempty"`
-	Name                  string                            `json:"name"`
-	Contact               CreatePlatformPartnerBodyContact  `json:"contact"`
-	Account               CreatePlatformPartnerBodyAccount  `json:"account"`
-	DefaultContractID     string                            `json:"defaultContractId"`
-	Memo                  *string                           `json:"memo,omitempty"`
-	Tags                  []string                          `json:"tags"`
-	Type                  CreatePlatformPartnerBodyType     `json:"type"`
-	UserDefinedProperties PlatformProperties                `json:"userDefinedProperties,omitempty"`
+	ID                    *string                          `json:"id,omitempty"`
+	Name                  string                           `json:"name"`
+	Contact               CreatePlatformPartnerBodyContact `json:"contact"`
+	Account               CreatePlatformPartnerBodyAccount `json:"account"`
+	DefaultContractID     string                           `json:"defaultContractId"`
+	Memo                  *string                          `json:"memo,omitempty"`
+	Tags                  []string                         `json:"tags"`
+	Type                  CreatePlatformPartnerBodyType    `json:"type"`
+	UserDefinedProperties PlatformProperties               `json:"userDefinedProperties,omitempty"`
 }
 
 // UpdatePlatformPartnerBodyContact 파트너 수정 연락처 정보
@@ -617,9 +617,9 @@ type PlatformSettlementCycleMethodInput struct {
 
 // PlatformSettlementCycleInput 정산 주기 입력
 type PlatformSettlementCycleInput struct {
-	LagDays    int32                               `json:"lagDays"`
-	DatePolicy PlatformSettlementCycleDatePolicy   `json:"datePolicy"`
-	Method     PlatformSettlementCycleMethodInput  `json:"method"`
+	LagDays    int32                              `json:"lagDays"`
+	DatePolicy PlatformSettlementCycleDatePolicy  `json:"datePolicy"`
+	Method     PlatformSettlementCycleMethodInput `json:"method"`
 }
 
 // CreatePlatformContractBody 계약 생성 요청 바디
@@ -927,4 +927,3 @@ type GetPlatformBulkAccountTransfersResponse struct {
 	// 상태별 통계
 	Counts PlatformBulkAccountTransferStatusStats `json:"counts"`
 }
-

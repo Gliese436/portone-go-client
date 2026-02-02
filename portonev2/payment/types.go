@@ -3,19 +3,19 @@ package payment
 import (
 	"encoding/json"
 
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // PaymentStatus 결제 상태
 type PaymentStatus string
 
 const (
-	PaymentStatusREADY                 PaymentStatus = "READY"
-	PaymentStatusPAID                  PaymentStatus = "PAID"
-	PaymentStatusFAILED                PaymentStatus = "FAILED"
-	PaymentStatusCANCELLED             PaymentStatus = "CANCELLED"
-	PaymentStatusPARTIAL_CANCELLED     PaymentStatus = "PARTIAL_CANCELLED"
-	PaymentStatusPAY_PENDING           PaymentStatus = "PAY_PENDING"
+	PaymentStatusREADY                  PaymentStatus = "READY"
+	PaymentStatusPAID                   PaymentStatus = "PAID"
+	PaymentStatusFAILED                 PaymentStatus = "FAILED"
+	PaymentStatusCANCELLED              PaymentStatus = "CANCELLED"
+	PaymentStatusPARTIAL_CANCELLED      PaymentStatus = "PARTIAL_CANCELLED"
+	PaymentStatusPAY_PENDING            PaymentStatus = "PAY_PENDING"
 	PaymentStatusVIRTUAL_ACCOUNT_ISSUED PaymentStatus = "VIRTUAL_ACCOUNT_ISSUED"
 )
 
@@ -23,13 +23,13 @@ const (
 type PaymentMethodType string
 
 const (
-	PaymentMethodTypeCard              PaymentMethodType = "PaymentMethodCard"
-	PaymentMethodTypeConvenienceStore  PaymentMethodType = "PaymentMethodConvenienceStore"
-	PaymentMethodTypeEasyPay           PaymentMethodType = "PaymentMethodEasyPay"
-	PaymentMethodTypeGiftCertificate   PaymentMethodType = "PaymentMethodGiftCertificate"
-	PaymentMethodTypeMobile            PaymentMethodType = "PaymentMethodMobile"
-	PaymentMethodTypeTransfer          PaymentMethodType = "PaymentMethodTransfer"
-	PaymentMethodTypeVirtualAccount    PaymentMethodType = "PaymentMethodVirtualAccount"
+	PaymentMethodTypeCard             PaymentMethodType = "PaymentMethodCard"
+	PaymentMethodTypeConvenienceStore PaymentMethodType = "PaymentMethodConvenienceStore"
+	PaymentMethodTypeEasyPay          PaymentMethodType = "PaymentMethodEasyPay"
+	PaymentMethodTypeGiftCertificate  PaymentMethodType = "PaymentMethodGiftCertificate"
+	PaymentMethodTypeMobile           PaymentMethodType = "PaymentMethodMobile"
+	PaymentMethodTypeTransfer         PaymentMethodType = "PaymentMethodTransfer"
+	PaymentMethodTypeVirtualAccount   PaymentMethodType = "PaymentMethodVirtualAccount"
 )
 
 // PaymentAmount 결제 금액 세부 정보
@@ -198,7 +198,7 @@ type PaymentWebhookStatus string
 
 const (
 	PaymentWebhookStatusSUCCEEDED  PaymentWebhookStatus = "SUCCEEDED"
-	PaymentWebhookStatusFAILED    PaymentWebhookStatus = "FAILED"
+	PaymentWebhookStatusFAILED     PaymentWebhookStatus = "FAILED"
 	PaymentWebhookStatusINPROGRESS PaymentWebhookStatus = "IN_PROGRESS"
 )
 
@@ -206,8 +206,8 @@ const (
 type PaymentWebhookTrigger string
 
 const (
-	PaymentWebhookTriggerMANUAL     PaymentWebhookTrigger = "MANUAL"
-	PaymentWebhookTriggerAUTOMATIC  PaymentWebhookTrigger = "AUTOMATIC"
+	PaymentWebhookTriggerMANUAL    PaymentWebhookTrigger = "MANUAL"
+	PaymentWebhookTriggerAUTOMATIC PaymentWebhookTrigger = "AUTOMATIC"
 	PaymentWebhookTriggerVIRTUAL   PaymentWebhookTrigger = "VIRTUAL"
 )
 
@@ -215,12 +215,12 @@ const (
 type PaymentWebhookPaymentStatus string
 
 const (
-	PaymentWebhookPaymentStatusREADY                 PaymentWebhookPaymentStatus = "READY"
-	PaymentWebhookPaymentStatusPAID                  PaymentWebhookPaymentStatus = "PAID"
-	PaymentWebhookPaymentStatusFAILED                PaymentWebhookPaymentStatus = "FAILED"
-	PaymentWebhookPaymentStatusCANCELLED             PaymentWebhookPaymentStatus = "CANCELLED"
-	PaymentWebhookPaymentStatusPARTIAL_CANCELLED     PaymentWebhookPaymentStatus = "PARTIAL_CANCELLED"
-	PaymentWebhookPaymentStatusPAY_PENDING           PaymentWebhookPaymentStatus = "PAY_PENDING"
+	PaymentWebhookPaymentStatusREADY                  PaymentWebhookPaymentStatus = "READY"
+	PaymentWebhookPaymentStatusPAID                   PaymentWebhookPaymentStatus = "PAID"
+	PaymentWebhookPaymentStatusFAILED                 PaymentWebhookPaymentStatus = "FAILED"
+	PaymentWebhookPaymentStatusCANCELLED              PaymentWebhookPaymentStatus = "CANCELLED"
+	PaymentWebhookPaymentStatusPARTIAL_CANCELLED      PaymentWebhookPaymentStatus = "PARTIAL_CANCELLED"
+	PaymentWebhookPaymentStatusPAY_PENDING            PaymentWebhookPaymentStatus = "PAY_PENDING"
 	PaymentWebhookPaymentStatusVIRTUAL_ACCOUNT_ISSUED PaymentWebhookPaymentStatus = "VIRTUAL_ACCOUNT_ISSUED"
 )
 

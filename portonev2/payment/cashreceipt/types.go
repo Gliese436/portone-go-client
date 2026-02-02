@@ -1,7 +1,7 @@
 package cashreceipt
 
 import (
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // CashReceiptStatus 현금영수증 상태

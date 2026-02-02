@@ -3,7 +3,7 @@ package portonev2
 import (
 	"context"
 
-	"github.com/gliese436/portone-go-client/portonev2/auth"
+	"github.com/Gliese436/portone-go-client/portonev2/auth"
 )
 
 // AuthClient 인증 API 클라이언트

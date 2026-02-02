@@ -1,7 +1,7 @@
 package billingkey
 
 import (
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // BillingKeyStatus 빌링키 상태
@@ -103,9 +103,9 @@ type BillingKeyFailure struct {
 type BillingKeySortBy string
 
 const (
-	BillingKeySortByREQUESTED_AT BillingKeySortBy = "REQUESTED_AT"
-	BillingKeySortByISSUED_AT    BillingKeySortBy = "ISSUED_AT"
-	BillingKeySortByDELETED_AT   BillingKeySortBy = "DELETED_AT"
+	BillingKeySortByREQUESTED_AT      BillingKeySortBy = "REQUESTED_AT"
+	BillingKeySortByISSUED_AT         BillingKeySortBy = "ISSUED_AT"
+	BillingKeySortByDELETED_AT        BillingKeySortBy = "DELETED_AT"
 	BillingKeySortBySTATUS_CHANGED_AT BillingKeySortBy = "STATUS_CHANGED_AT"
 )
 

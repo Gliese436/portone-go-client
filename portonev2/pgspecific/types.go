@@ -1,7 +1,7 @@
 package pgspecific
 
 import (
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // KakaopayPaymentOrder 카카오페이 주문 정보

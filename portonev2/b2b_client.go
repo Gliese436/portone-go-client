@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/url"
 
-	"github.com/gliese436/portone-go-client/portonev2/b2b"
+	"github.com/Gliese436/portone-go-client/portonev2/b2b"
 )
 
 // B2BClient B2B API 클라이언트

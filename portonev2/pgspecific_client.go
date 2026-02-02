@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/url"
 
-	"github.com/gliese436/portone-go-client/portonev2/pgspecific"
+	"github.com/Gliese436/portone-go-client/portonev2/pgspecific"
 )
 
 // PgSpecificClient PG사별 API 클라이언트

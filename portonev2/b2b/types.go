@@ -1,20 +1,20 @@
 package b2b
 
 import (
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // B2bTaxInvoiceStatus 세금계산서 상태
 type B2bTaxInvoiceStatus string
 
 const (
-	B2bTaxInvoiceStatusDRAFT       B2bTaxInvoiceStatus = "DRAFT"
-	B2bTaxInvoiceStatusREGISTERED  B2bTaxInvoiceStatus = "REGISTERED"
-	B2bTaxInvoiceStatusISSUED      B2bTaxInvoiceStatus = "ISSUED"
-	B2bTaxInvoiceStatusSENT        B2bTaxInvoiceStatus = "SENT"
-	B2bTaxInvoiceStatusAPPROVED    B2bTaxInvoiceStatus = "APPROVED"
-	B2bTaxInvoiceStatusCANCELLED   B2bTaxInvoiceStatus = "CANCELLED"
-	B2bTaxInvoiceStatusREFUSED     B2bTaxInvoiceStatus = "REFUSED"
+	B2bTaxInvoiceStatusDRAFT        B2bTaxInvoiceStatus = "DRAFT"
+	B2bTaxInvoiceStatusREGISTERED   B2bTaxInvoiceStatus = "REGISTERED"
+	B2bTaxInvoiceStatusISSUED       B2bTaxInvoiceStatus = "ISSUED"
+	B2bTaxInvoiceStatusSENT         B2bTaxInvoiceStatus = "SENT"
+	B2bTaxInvoiceStatusAPPROVED     B2bTaxInvoiceStatus = "APPROVED"
+	B2bTaxInvoiceStatusCANCELLED    B2bTaxInvoiceStatus = "CANCELLED"
+	B2bTaxInvoiceStatusREFUSED      B2bTaxInvoiceStatus = "REFUSED"
 	B2bTaxInvoiceStatusISSUE_FAILED B2bTaxInvoiceStatus = "ISSUE_FAILED"
 )
 
@@ -22,17 +22,17 @@ const (
 type B2bTaxInvoiceType string
 
 const (
-	B2bTaxInvoiceTypeTAX           B2bTaxInvoiceType = "TAX"
-	B2bTaxInvoiceTypeTAX_FREE      B2bTaxInvoiceType = "TAX_FREE"
-	B2bTaxInvoiceTypeZERO_RATE     B2bTaxInvoiceType = "ZERO_RATE"
+	B2bTaxInvoiceTypeTAX       B2bTaxInvoiceType = "TAX"
+	B2bTaxInvoiceTypeTAX_FREE  B2bTaxInvoiceType = "TAX_FREE"
+	B2bTaxInvoiceTypeZERO_RATE B2bTaxInvoiceType = "ZERO_RATE"
 )
 
 // B2bTaxInvoicePurposeType 세금계산서 용도
 type B2bTaxInvoicePurposeType string
 
 const (
-	B2bTaxInvoicePurposeTypeFORWARD  B2bTaxInvoicePurposeType = "FORWARD"
-	B2bTaxInvoicePurposeTypeREVERSE  B2bTaxInvoicePurposeType = "REVERSE"
+	B2bTaxInvoicePurposeTypeFORWARD B2bTaxInvoicePurposeType = "FORWARD"
+	B2bTaxInvoicePurposeTypeREVERSE B2bTaxInvoicePurposeType = "REVERSE"
 )
 
 // B2bCompanyContact 사업자 연락처
@@ -184,10 +184,10 @@ type CancelB2bTaxInvoiceIssuanceResponse struct{}
 type B2bCompanyStateStatus string
 
 const (
-	B2bCompanyStateStatusACTIVE          B2bCompanyStateStatus = "ACTIVE"
-	B2bCompanyStateStatusSUSPENDED       B2bCompanyStateStatus = "SUSPENDED"
-	B2bCompanyStateStatusCLOSED          B2bCompanyStateStatus = "CLOSED"
-	B2bCompanyStateStatusNOT_REGISTERED  B2bCompanyStateStatus = "NOT_REGISTERED"
+	B2bCompanyStateStatusACTIVE         B2bCompanyStateStatus = "ACTIVE"
+	B2bCompanyStateStatusSUSPENDED      B2bCompanyStateStatus = "SUSPENDED"
+	B2bCompanyStateStatusCLOSED         B2bCompanyStateStatus = "CLOSED"
+	B2bCompanyStateStatusNOT_REGISTERED B2bCompanyStateStatus = "NOT_REGISTERED"
 )
 
 // B2bCompanyState 사업자 상태 정보

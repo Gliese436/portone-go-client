@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/gliese436/portone-go-client/portonev2/common"
-	"github.com/gliese436/portone-go-client/portonev2/payment"
-	"github.com/gliese436/portone-go-client/portonev2/payment/billingkey"
-	"github.com/gliese436/portone-go-client/portonev2/payment/cashreceipt"
-	"github.com/gliese436/portone-go-client/portonev2/payment/promotion"
-	"github.com/gliese436/portone-go-client/portonev2/payment/schedule"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/payment"
+	"github.com/Gliese436/portone-go-client/portonev2/payment/billingkey"
+	"github.com/Gliese436/portone-go-client/portonev2/payment/cashreceipt"
+	"github.com/Gliese436/portone-go-client/portonev2/payment/promotion"
+	"github.com/Gliese436/portone-go-client/portonev2/payment/schedule"
 )
 
 // PaymentClient Payment API 클라이언트
@@ -71,7 +71,7 @@ func (c *PaymentClient) GetPayment(ctx context.Context, paymentID string, storeI
 
 // GetPaymentsOptions 결제 목록 조회 옵션
 type GetPaymentsOptions struct {
-	Page   *common.PageInput          `json:"page,omitempty"`
+	Page   *common.PageInput           `json:"page,omitempty"`
 	Filter *payment.PaymentFilterInput `json:"filter,omitempty"`
 }
 
@@ -125,26 +125,26 @@ func (c *PaymentClient) GetAllPaymentsByCursor(ctx context.Context, opts *GetAll
 
 // PayWithBillingKeyOptions 빌링키 결제 옵션
 type PayWithBillingKeyOptions struct {
-	StoreID                     *string                        `json:"storeId,omitempty"`
-	BillingKey                  string                         `json:"billingKey"`
-	ChannelKey                  *string                        `json:"channelKey,omitempty"`
-	OrderName                   string                         `json:"orderName"`
-	Customer                    *common.CustomerInput          `json:"customer,omitempty"`
-	CustomData                  *string                        `json:"customData,omitempty"`
-	Amount                      common.PaymentAmountInput      `json:"amount"`
-	Currency                    common.Currency                `json:"currency"`
-	InstallmentMonth            *int                           `json:"installmentMonth,omitempty"`
-	UseFreeInterestFromMerchant *bool                          `json:"useFreeInterestFromMerchant,omitempty"`
-	UseCardPoint                *bool                          `json:"useCardPoint,omitempty"`
-	CashReceipt                 *common.CashReceiptInput       `json:"cashReceipt,omitempty"`
-	Country                     *common.Country                `json:"country,omitempty"`
-	NoticeUrls                  []string                       `json:"noticeUrls,omitempty"`
-	Products                    []common.PaymentProduct        `json:"products,omitempty"`
-	ProductCount                *int                           `json:"productCount,omitempty"`
-	ProductType                 *common.PaymentProductType     `json:"productType,omitempty"`
-	ShippingAddress             *common.SeparatedAddressInput  `json:"shippingAddress,omitempty"`
-	PromotionId                 *string                        `json:"promotionId,omitempty"`
-	Bypass                      interface{}                    `json:"bypass,omitempty"`
+	StoreID                     *string                       `json:"storeId,omitempty"`
+	BillingKey                  string                        `json:"billingKey"`
+	ChannelKey                  *string                       `json:"channelKey,omitempty"`
+	OrderName                   string                        `json:"orderName"`
+	Customer                    *common.CustomerInput         `json:"customer,omitempty"`
+	CustomData                  *string                       `json:"customData,omitempty"`
+	Amount                      common.PaymentAmountInput     `json:"amount"`
+	Currency                    common.Currency               `json:"currency"`
+	InstallmentMonth            *int                          `json:"installmentMonth,omitempty"`
+	UseFreeInterestFromMerchant *bool                         `json:"useFreeInterestFromMerchant,omitempty"`
+	UseCardPoint                *bool                         `json:"useCardPoint,omitempty"`
+	CashReceipt                 *common.CashReceiptInput      `json:"cashReceipt,omitempty"`
+	Country                     *common.Country               `json:"country,omitempty"`
+	NoticeUrls                  []string                      `json:"noticeUrls,omitempty"`
+	Products                    []common.PaymentProduct       `json:"products,omitempty"`
+	ProductCount                *int                          `json:"productCount,omitempty"`
+	ProductType                 *common.PaymentProductType    `json:"productType,omitempty"`
+	ShippingAddress             *common.SeparatedAddressInput `json:"shippingAddress,omitempty"`
+	PromotionId                 *string                       `json:"promotionId,omitempty"`
+	Bypass                      interface{}                   `json:"bypass,omitempty"`
 }
 
 // PayWithBillingKey 빌링키로 결제합니다.

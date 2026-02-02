@@ -1,7 +1,7 @@
 package promotion
 
 import (
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // PromotionStatus 프로모션 상태

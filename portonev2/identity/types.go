@@ -1,7 +1,7 @@
 package identity
 
 import (
-	"github.com/gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
 )
 
 // IdentityVerificationStatus 본인인증 상태
@@ -26,9 +26,9 @@ const (
 type IdentityVerificationOperator string
 
 const (
-	IdentityVerificationOperatorSKT IdentityVerificationOperator = "SKT"
-	IdentityVerificationOperatorKT  IdentityVerificationOperator = "KT"
-	IdentityVerificationOperatorLGU IdentityVerificationOperator = "LGU"
+	IdentityVerificationOperatorSKT      IdentityVerificationOperator = "SKT"
+	IdentityVerificationOperatorKT       IdentityVerificationOperator = "KT"
+	IdentityVerificationOperatorLGU      IdentityVerificationOperator = "LGU"
 	IdentityVerificationOperatorSKT_MVNO IdentityVerificationOperator = "SKT_MVNO"
 	IdentityVerificationOperatorKT_MVNO  IdentityVerificationOperator = "KT_MVNO"
 	IdentityVerificationOperatorLGU_MVNO IdentityVerificationOperator = "LGU_MVNO"

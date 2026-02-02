@@ -10,8 +10,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/gliese436/portone-go-client/portonev2/common"
-	"github.com/gliese436/portone-go-client/portonev2/platform"
+	"github.com/Gliese436/portone-go-client/portonev2/common"
+	"github.com/Gliese436/portone-go-client/portonev2/platform"
 )
 
 const (

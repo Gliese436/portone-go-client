@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/url"
 
-	"github.com/gliese436/portone-go-client/portonev2/identity"
+	"github.com/Gliese436/portone-go-client/portonev2/identity"
 )
 
 // IdentityVerificationClient 본인인증 API 클라이언트
