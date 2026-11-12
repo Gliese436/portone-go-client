@@ -81,7 +81,8 @@ func VerifyWithTolerance(secret string, payload []byte, headers http.Header, tol
 	// 서명 검증
 	signatures := strings.Split(msgSignature, " ")
 	for _, versionedSignature := range signatures {
-		parts := strings.SplitN(versionedSignature, ",", 2)
+		// JS SDK 와 동일하게 "버전,서명[,기타]" 형식에서 앞의 두 요소만 사용합니다.
+		parts := strings.SplitN(versionedSignature, ",", 3)
 		if len(parts) < 2 {
 			continue
 		}
@@ -110,19 +111,24 @@ func VerifyWithTolerance(secret string, payload []byte, headers http.Header, tol
 	return nil, &WebhookVerificationError{Reason: WebhookVerificationFailureReasonNO_MATCHING_SIGNATURE}
 }
 
-// findHeaderValue 헤더 값을 찾습니다 (대소문자 구분 없음, 단일 값만).
+// findHeaderValue 헤더 값을 찾습니다 (대소문자 구분 없음).
+// JS SDK 와 동일하게 같은 이름의 값이 여러 개면 유효하지 않은 것으로 보고 빈 문자열을 반환합니다.
 func findHeaderValue(headers http.Header, name string) string {
-	nameLower := strings.ToLower(name)
+	found := ""
+	count := 0
 	for key, values := range headers {
-		if strings.ToLower(key) == nameLower {
-			if len(values) == 1 {
-				return values[0]
-			}
-			// 중복 값은 무시
-			return ""
+		if !strings.EqualFold(key, name) {
+			continue
+		}
+		for _, v := range values {
+			found = v
+			count++
 		}
 	}
-	return ""
+	if count != 1 {
+		return ""
+	}
+	return found
 }
 
 // parseSecret 시크릿을 파싱합니다.

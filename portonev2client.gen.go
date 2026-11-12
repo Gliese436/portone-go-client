@@ -42,11 +42,38 @@ const (
 	B2bBulkTaxInvoiceStatusREQUESTPENDING B2bBulkTaxInvoiceStatus = "REQUEST_PENDING"
 )
 
+// Defines values for B2bCertificateType.
+const (
+	B2bCertificateTypeETAX    B2bCertificateType = "E_TAX"
+	B2bCertificateTypeETC     B2bCertificateType = "ETC"
+	B2bCertificateTypePORTONE B2bCertificateType = "PORTONE"
+)
+
 // Defines values for B2bCompanyStateBusinessStatus.
 const (
 	B2bCompanyStateBusinessStatusCLOSED     B2bCompanyStateBusinessStatus = "CLOSED"
 	B2bCompanyStateBusinessStatusINBUSINESS B2bCompanyStateBusinessStatus = "IN_BUSINESS"
 	B2bCompanyStateBusinessStatusSUSPENDED  B2bCompanyStateBusinessStatus = "SUSPENDED"
+)
+
+// Defines values for B2bCounterpartyBusinessStatus.
+const (
+	B2bCounterpartyBusinessStatusCHECKFAILED  B2bCounterpartyBusinessStatus = "CHECK_FAILED"
+	B2bCounterpartyBusinessStatusCHECKPENDING B2bCounterpartyBusinessStatus = "CHECK_PENDING"
+	B2bCounterpartyBusinessStatusCLOSED       B2bCounterpartyBusinessStatus = "CLOSED"
+	B2bCounterpartyBusinessStatusINBUSINESS   B2bCounterpartyBusinessStatus = "IN_BUSINESS"
+	B2bCounterpartyBusinessStatusNOTFOUND     B2bCounterpartyBusinessStatus = "NOT_FOUND"
+	B2bCounterpartyBusinessStatusSUSPENDED    B2bCounterpartyBusinessStatus = "SUSPENDED"
+	B2bCounterpartyBusinessStatusUNKNOWN      B2bCounterpartyBusinessStatus = "UNKNOWN"
+)
+
+// Defines values for B2bNtsConnectionStatus.
+const (
+	B2bNtsConnectionStatusCONNECTED         B2bNtsConnectionStatus = "CONNECTED"
+	B2bNtsConnectionStatusERROR             B2bNtsConnectionStatus = "ERROR"
+	B2bNtsConnectionStatusNOTCONNECTED      B2bNtsConnectionStatus = "NOT_CONNECTED"
+	B2bNtsConnectionStatusPENDINGCONNECT    B2bNtsConnectionStatus = "PENDING_CONNECT"
+	B2bNtsConnectionStatusPENDINGDISCONNECT B2bNtsConnectionStatus = "PENDING_DISCONNECT"
 )
 
 // Defines values for B2bSearchDateType.
@@ -91,9 +118,23 @@ const (
 	B2bTaxInvoicePurposeTypeRECEIPT B2bTaxInvoicePurposeType = "RECEIPT"
 )
 
+// Defines values for B2bTaxInvoiceSortBy.
+const (
+	B2bTaxInvoiceSortByISSUANCEDUEDATE   B2bTaxInvoiceSortBy = "ISSUANCE_DUE_DATE"
+	B2bTaxInvoiceSortByISSUEDAT          B2bTaxInvoiceSortBy = "ISSUED_AT"
+	B2bTaxInvoiceSortByNTSSENTAT         B2bTaxInvoiceSortBy = "NTS_SENT_AT"
+	B2bTaxInvoiceSortByREQUESTEDAT       B2bTaxInvoiceSortBy = "REQUESTED_AT"
+	B2bTaxInvoiceSortBySTATUSUPDATEDAT   B2bTaxInvoiceSortBy = "STATUS_UPDATED_AT"
+	B2bTaxInvoiceSortByTOTALAMOUNT       B2bTaxInvoiceSortBy = "TOTAL_AMOUNT"
+	B2bTaxInvoiceSortByTOTALSUPPLYAMOUNT B2bTaxInvoiceSortBy = "TOTAL_SUPPLY_AMOUNT"
+	B2bTaxInvoiceSortByTOTALTAXAMOUNT    B2bTaxInvoiceSortBy = "TOTAL_TAX_AMOUNT"
+	B2bTaxInvoiceSortByWRITEDATE         B2bTaxInvoiceSortBy = "WRITE_DATE"
+)
+
 // Defines values for B2bTaxInvoiceStatus.
 const (
 	B2bTaxInvoiceStatusBEFORESENDING     B2bTaxInvoiceStatus = "BEFORE_SENDING"
+	B2bTaxInvoiceStatusCANCELPENDING     B2bTaxInvoiceStatus = "CANCEL_PENDING"
 	B2bTaxInvoiceStatusDRAFTED           B2bTaxInvoiceStatus = "DRAFTED"
 	B2bTaxInvoiceStatusDRAFTFAILED       B2bTaxInvoiceStatus = "DRAFT_FAILED"
 	B2bTaxInvoiceStatusDRAFTPENDING      B2bTaxInvoiceStatus = "DRAFT_PENDING"
@@ -109,6 +150,7 @@ const (
 	B2bTaxInvoiceStatusSENDING           B2bTaxInvoiceStatus = "SENDING"
 	B2bTaxInvoiceStatusSENDINGCOMPLETED  B2bTaxInvoiceStatus = "SENDING_COMPLETED"
 	B2bTaxInvoiceStatusSENDINGFAILED     B2bTaxInvoiceStatus = "SENDING_FAILED"
+	B2bTaxInvoiceStatusSENDINGPENDING    B2bTaxInvoiceStatus = "SENDING_PENDING"
 	B2bTaxInvoiceStatusWAITINGSENDING    B2bTaxInvoiceStatus = "WAITING_SENDING"
 )
 
@@ -800,39 +842,61 @@ const (
 
 // Defines values for EasyPayProvider.
 const (
-	EasyPayProviderALIPAY       EasyPayProvider = "ALIPAY"
-	EasyPayProviderAMAZONPAY    EasyPayProvider = "AMAZONPAY"
-	EasyPayProviderAPPLEPAY     EasyPayProvider = "APPLEPAY"
-	EasyPayProviderAUPAY        EasyPayProvider = "AUPAY"
-	EasyPayProviderCHAI         EasyPayProvider = "CHAI"
-	EasyPayProviderDBARAI       EasyPayProvider = "DBARAI"
-	EasyPayProviderGRABPAY      EasyPayProvider = "GRABPAY"
-	EasyPayProviderHYPHEN       EasyPayProvider = "HYPHEN"
-	EasyPayProviderJKOPAY       EasyPayProvider = "JKOPAY"
-	EasyPayProviderKAKAOPAY     EasyPayProvider = "KAKAOPAY"
-	EasyPayProviderKBAPP        EasyPayProvider = "KB_APP"
-	EasyPayProviderKLARNA       EasyPayProvider = "KLARNA"
-	EasyPayProviderKPAY         EasyPayProvider = "KPAY"
-	EasyPayProviderLGPAY        EasyPayProvider = "LGPAY"
-	EasyPayProviderLINEPAY      EasyPayProvider = "LINEPAY"
-	EasyPayProviderLPAY         EasyPayProvider = "LPAY"
-	EasyPayProviderMERPAY       EasyPayProvider = "MERPAY"
-	EasyPayProviderMIR          EasyPayProvider = "MIR"
-	EasyPayProviderNAVERPAY     EasyPayProvider = "NAVERPAY"
-	EasyPayProviderPAYCO        EasyPayProvider = "PAYCO"
-	EasyPayProviderPAYPAL       EasyPayProvider = "PAYPAL"
-	EasyPayProviderPAYPAY       EasyPayProvider = "PAYPAY"
-	EasyPayProviderPINPAY       EasyPayProvider = "PINPAY"
-	EasyPayProviderRAKUTENPAY   EasyPayProvider = "RAKUTENPAY"
-	EasyPayProviderSAMSUNGPAY   EasyPayProvider = "SAMSUNGPAY"
-	EasyPayProviderSHOPEEPAY    EasyPayProvider = "SHOPEEPAY"
-	EasyPayProviderSKPAY        EasyPayProvider = "SKPAY"
-	EasyPayProviderSMILEPAY     EasyPayProvider = "SMILEPAY"
-	EasyPayProviderSSGPAY       EasyPayProvider = "SSGPAY"
-	EasyPayProviderTMONEY       EasyPayProvider = "TMONEY"
-	EasyPayProviderTOSSBRANDPAY EasyPayProvider = "TOSS_BRANDPAY"
-	EasyPayProviderTOSSPAY      EasyPayProvider = "TOSSPAY"
-	EasyPayProviderWECHAT       EasyPayProvider = "WECHAT"
+	EasyPayProviderAKULAKUPAYLATER EasyPayProvider = "AKULAKU_PAY_LATER"
+	EasyPayProviderALIPAY          EasyPayProvider = "ALIPAY"
+	EasyPayProviderALIPAYHK        EasyPayProvider = "ALIPAY_HK"
+	EasyPayProviderAMAZONPAY       EasyPayProvider = "AMAZONPAY"
+	EasyPayProviderAPPLEPAY        EasyPayProvider = "APPLEPAY"
+	EasyPayProviderAUPAY           EasyPayProvider = "AUPAY"
+	EasyPayProviderBILLEASE        EasyPayProvider = "BILL_EASE"
+	EasyPayProviderBOOST           EasyPayProvider = "BOOST"
+	EasyPayProviderBPI             EasyPayProvider = "BPI"
+	EasyPayProviderCHAI            EasyPayProvider = "CHAI"
+	EasyPayProviderDANA            EasyPayProvider = "DANA"
+	EasyPayProviderDBARAI          EasyPayProvider = "DBARAI"
+	EasyPayProviderDOKUWALLET      EasyPayProvider = "DOKU_WALLET"
+	EasyPayProviderGCASH           EasyPayProvider = "G_CASH"
+	EasyPayProviderGRABPAY         EasyPayProvider = "GRABPAY"
+	EasyPayProviderHIPAY           EasyPayProvider = "HIPAY"
+	EasyPayProviderHYPHEN          EasyPayProvider = "HYPHEN"
+	EasyPayProviderJENIUSPAY       EasyPayProvider = "JENIUS_PAY"
+	EasyPayProviderJKOPAY          EasyPayProvider = "JKOPAY"
+	EasyPayProviderKAKAOPAY        EasyPayProvider = "KAKAOPAY"
+	EasyPayProviderKBAPP           EasyPayProvider = "KB_APP"
+	EasyPayProviderKLARNA          EasyPayProvider = "KLARNA"
+	EasyPayProviderKPAY            EasyPayProvider = "KPAY"
+	EasyPayProviderKPLUS           EasyPayProvider = "KPLUS"
+	EasyPayProviderKREDIVO         EasyPayProvider = "KREDIVO"
+	EasyPayProviderLGPAY           EasyPayProvider = "LGPAY"
+	EasyPayProviderLINEPAY         EasyPayProvider = "LINEPAY"
+	EasyPayProviderLPAY            EasyPayProvider = "LPAY"
+	EasyPayProviderMAYA            EasyPayProvider = "MAYA"
+	EasyPayProviderMERPAY          EasyPayProvider = "MERPAY"
+	EasyPayProviderMIR             EasyPayProvider = "MIR"
+	EasyPayProviderMONEYTREE       EasyPayProvider = "MONEYTREE"
+	EasyPayProviderMPAY            EasyPayProvider = "MPAY"
+	EasyPayProviderNAVERPAY        EasyPayProvider = "NAVERPAY"
+	EasyPayProviderOVO             EasyPayProvider = "OVO"
+	EasyPayProviderPAYCO           EasyPayProvider = "PAYCO"
+	EasyPayProviderPAYPAL          EasyPayProvider = "PAYPAL"
+	EasyPayProviderPAYPAY          EasyPayProvider = "PAYPAY"
+	EasyPayProviderPINPAY          EasyPayProvider = "PINPAY"
+	EasyPayProviderQRIS            EasyPayProvider = "QRIS"
+	EasyPayProviderRABBITLINEPAY   EasyPayProvider = "RABBIT_LINE_PAY"
+	EasyPayProviderRAKUTENPAY      EasyPayProvider = "RAKUTENPAY"
+	EasyPayProviderSAMSUNGPAY      EasyPayProvider = "SAMSUNGPAY"
+	EasyPayProviderSHOPEEPAY       EasyPayProvider = "SHOPEEPAY"
+	EasyPayProviderSKPAY           EasyPayProvider = "SKPAY"
+	EasyPayProviderSMILEPAY        EasyPayProvider = "SMILEPAY"
+	EasyPayProviderSSGPAY          EasyPayProvider = "SSGPAY"
+	EasyPayProviderTHAIQR          EasyPayProvider = "THAI_QR"
+	EasyPayProviderTINABA          EasyPayProvider = "TINABA"
+	EasyPayProviderTMONEY          EasyPayProvider = "TMONEY"
+	EasyPayProviderTOSSBRANDPAY    EasyPayProvider = "TOSS_BRANDPAY"
+	EasyPayProviderTOSSPAY         EasyPayProvider = "TOSSPAY"
+	EasyPayProviderTOUCHNGO        EasyPayProvider = "TOUCH_N_GO"
+	EasyPayProviderTRUEMONEY       EasyPayProvider = "TRUE_MONEY"
+	EasyPayProviderWECHAT          EasyPayProvider = "WECHAT"
 )
 
 // Defines values for Gender.
@@ -885,6 +949,13 @@ const (
 const (
 	InstantPaymentMethodInputVirtualAccountOptionTypeFIXED  InstantPaymentMethodInputVirtualAccountOptionType = "FIXED"
 	InstantPaymentMethodInputVirtualAccountOptionTypeNORMAL InstantPaymentMethodInputVirtualAccountOptionType = "NORMAL"
+)
+
+// Defines values for IssueCashReceiptCustomerInputIdentityNumberType.
+const (
+	IssueCashReceiptCustomerInputIdentityNumberTypeBUSINESS IssueCashReceiptCustomerInputIdentityNumberType = "BUSINESS"
+	IssueCashReceiptCustomerInputIdentityNumberTypeCARD     IssueCashReceiptCustomerInputIdentityNumberType = "CARD"
+	IssueCashReceiptCustomerInputIdentityNumberTypePHONE    IssueCashReceiptCustomerInputIdentityNumberType = "PHONE"
 )
 
 // Defines values for IssueCashReceiptPaymentMethodType.
@@ -975,6 +1046,7 @@ const (
 const (
 	PaymentMethodTypeCARD             PaymentMethodType = "CARD"
 	PaymentMethodTypeCONVENIENCESTORE PaymentMethodType = "CONVENIENCE_STORE"
+	PaymentMethodTypeCRYPTO           PaymentMethodType = "CRYPTO"
 	PaymentMethodTypeEASYPAY          PaymentMethodType = "EASY_PAY"
 	PaymentMethodTypeGIFTCERTIFICATE  PaymentMethodType = "GIFT_CERTIFICATE"
 	PaymentMethodTypeMOBILE           PaymentMethodType = "MOBILE"
@@ -996,10 +1068,25 @@ const (
 	PaymentMethodVirtualAccountTypeNORMAL PaymentMethodVirtualAccountType = "NORMAL"
 )
 
+// Defines values for PaymentOriginPlatformType.
+const (
+	PaymentOriginPlatformTypeAPI    PaymentOriginPlatformType = "API"
+	PaymentOriginPlatformTypeMOBILE PaymentOriginPlatformType = "MOBILE"
+	PaymentOriginPlatformTypePC     PaymentOriginPlatformType = "PC"
+)
+
 // Defines values for PaymentProductType.
 const (
-	DIGITAL  PaymentProductType = "DIGITAL"
-	PHYSICAL PaymentProductType = "PHYSICAL"
+	PaymentProductTypeDIGITAL  PaymentProductType = "DIGITAL"
+	PaymentProductTypePHYSICAL PaymentProductType = "PHYSICAL"
+)
+
+// Defines values for PaymentReconciliationStatus.
+const (
+	INCOMPARABLE PaymentReconciliationStatus = "INCOMPARABLE"
+	MATCHED      PaymentReconciliationStatus = "MATCHED"
+	NOTCOLLECTED PaymentReconciliationStatus = "NOT_COLLECTED"
+	NOTMATCHED   PaymentReconciliationStatus = "NOT_MATCHED"
 )
 
 // Defines values for PaymentScheduleSortBy.
@@ -1102,10 +1189,24 @@ const (
 	PaymentWebhookTriggerASYNCCANCELFAILED     PaymentWebhookTrigger = "ASYNC_CANCEL_FAILED"
 	PaymentWebhookTriggerASYNCPAYAPPROVED      PaymentWebhookTrigger = "ASYNC_PAY_APPROVED"
 	PaymentWebhookTriggerASYNCPAYFAILED        PaymentWebhookTrigger = "ASYNC_PAY_FAILED"
+	PaymentWebhookTriggerASYNCPAYPENDING       PaymentWebhookTrigger = "ASYNC_PAY_PENDING"
 	PaymentWebhookTriggerDISPUTECREATED        PaymentWebhookTrigger = "DISPUTE_CREATED"
 	PaymentWebhookTriggerDISPUTERESOLVED       PaymentWebhookTrigger = "DISPUTE_RESOLVED"
 	PaymentWebhookTriggerMANUAL                PaymentWebhookTrigger = "MANUAL"
 	PaymentWebhookTriggerVIRTUALACCOUNTDEPOSIT PaymentWebhookTrigger = "VIRTUAL_ACCOUNT_DEPOSIT"
+)
+
+// Defines values for PaymentwallDeliveryStatus.
+const (
+	DELIVERED    PaymentwallDeliveryStatus = "DELIVERED"
+	ORDERPLACED  PaymentwallDeliveryStatus = "ORDER_PLACED"
+	ORDERSHIPPED PaymentwallDeliveryStatus = "ORDER_SHIPPED"
+)
+
+// Defines values for PaymentwallDeliveryType.
+const (
+	PaymentwallDeliveryTypeDIGITAL  PaymentwallDeliveryType = "DIGITAL"
+	PaymentwallDeliveryTypePHYSICAL PaymentwallDeliveryType = "PHYSICAL"
 )
 
 // Defines values for PgCompany.
@@ -1140,62 +1241,93 @@ const (
 	PgCompanySYRUP        PgCompany = "SYRUP"
 	PgCompanyTOSSPAY      PgCompany = "TOSSPAY"
 	PgCompanyTOSSPAYMENTS PgCompany = "TOSSPAYMENTS"
+	PgCompanyTRIPLEA      PgCompany = "TRIPLE_A"
 	PgCompanyWELCOME      PgCompany = "WELCOME"
+)
+
+// Defines values for PgPromotionCardCompany.
+const (
+	PgPromotionCardCompanyBCCARD               PgPromotionCardCompany = "BC_CARD"
+	PgPromotionCardCompanyCITICARD             PgPromotionCardCompany = "CITI_CARD"
+	PgPromotionCardCompanyEPOST                PgPromotionCardCompany = "EPOST"
+	PgPromotionCardCompanyGWANGJUCARD          PgPromotionCardCompany = "GWANGJU_CARD"
+	PgPromotionCardCompanyHANACARD             PgPromotionCardCompany = "HANA_CARD"
+	PgPromotionCardCompanyHYUNDAICARD          PgPromotionCardCompany = "HYUNDAI_CARD"
+	PgPromotionCardCompanyJEJUCARD             PgPromotionCardCompany = "JEJU_CARD"
+	PgPromotionCardCompanyJEONBUKCARD          PgPromotionCardCompany = "JEONBUK_CARD"
+	PgPromotionCardCompanyKAKAOBANK            PgPromotionCardCompany = "KAKAO_BANK"
+	PgPromotionCardCompanyKBANK                PgPromotionCardCompany = "K_BANK"
+	PgPromotionCardCompanyKFCC                 PgPromotionCardCompany = "KFCC"
+	PgPromotionCardCompanyKOOKMINCARD          PgPromotionCardCompany = "KOOKMIN_CARD"
+	PgPromotionCardCompanyKOREADEVELOPMENTBANK PgPromotionCardCompany = "KOREA_DEVELOPMENT_BANK"
+	PgPromotionCardCompanyLOTTECARD            PgPromotionCardCompany = "LOTTE_CARD"
+	PgPromotionCardCompanyMIRAEASSETSECURITIES PgPromotionCardCompany = "MIRAE_ASSET_SECURITIES"
+	PgPromotionCardCompanyNHCARD               PgPromotionCardCompany = "NH_CARD"
+	PgPromotionCardCompanySAMSUNGCARD          PgPromotionCardCompany = "SAMSUNG_CARD"
+	PgPromotionCardCompanySAVINGSBANKKOREA     PgPromotionCardCompany = "SAVINGS_BANK_KOREA"
+	PgPromotionCardCompanySHINHANCARD          PgPromotionCardCompany = "SHINHAN_CARD"
+	PgPromotionCardCompanySHINHYUP             PgPromotionCardCompany = "SHINHYUP"
+	PgPromotionCardCompanySUHYUPCARD           PgPromotionCardCompany = "SUHYUP_CARD"
+	PgPromotionCardCompanyTOSSBANK             PgPromotionCardCompany = "TOSS_BANK"
+	PgPromotionCardCompanyWOORICARD            PgPromotionCardCompany = "WOORI_CARD"
 )
 
 // Defines values for PgProvider.
 const (
-	ALIPAY          PgProvider = "ALIPAY"
-	BLUEWALNUT      PgProvider = "BLUEWALNUT"
-	CHAI            PgProvider = "CHAI"
-	DANAL           PgProvider = "DANAL"
-	DANALTPAY       PgProvider = "DANAL_TPAY"
-	DAOU            PgProvider = "DAOU"
-	EXIMBAY         PgProvider = "EXIMBAY"
-	EXIMBAYV2       PgProvider = "EXIMBAY_V2"
-	GALAXIA         PgProvider = "GALAXIA"
-	HTML5INICIS     PgProvider = "HTML5_INICIS"
-	HYPHEN          PgProvider = "HYPHEN"
-	INICIS          PgProvider = "INICIS"
-	INICISJP        PgProvider = "INICIS_JP"
-	INICISUNIFIED   PgProvider = "INICIS_UNIFIED"
-	INICISV2        PgProvider = "INICIS_V2"
-	JTNET           PgProvider = "JTNET"
-	KAKAO           PgProvider = "KAKAO"
-	KAKAOPAY        PgProvider = "KAKAOPAY"
-	KCP             PgProvider = "KCP"
-	KCPBILLING      PgProvider = "KCP_BILLING"
-	KCPDIRECT       PgProvider = "KCP_DIRECT"
-	KCPQUICK        PgProvider = "KCP_QUICK"
-	KCPV2           PgProvider = "KCP_V2"
-	KICC            PgProvider = "KICC"
-	KPN             PgProvider = "KPN"
-	KSNET           PgProvider = "KSNET"
-	MOBILIANS       PgProvider = "MOBILIANS"
-	NAVERCO         PgProvider = "NAVERCO"
-	NAVERPAY        PgProvider = "NAVERPAY"
-	NICE            PgProvider = "NICE"
-	NICEV2          PgProvider = "NICE_V2"
-	PAYCO           PgProvider = "PAYCO"
-	PAYLETTERGLOBAL PgProvider = "PAYLETTER_GLOBAL"
-	PAYMENTWALL     PgProvider = "PAYMENTWALL"
-	PAYPAL          PgProvider = "PAYPAL"
-	PAYPALV2        PgProvider = "PAYPAL_V2"
-	PAYPLE          PgProvider = "PAYPLE"
-	PINPAY          PgProvider = "PINPAY"
-	SETTLE          PgProvider = "SETTLE"
-	SETTLEACC       PgProvider = "SETTLE_ACC"
-	SETTLEFIRM      PgProvider = "SETTLE_FIRM"
-	SMARTRO         PgProvider = "SMARTRO"
-	SMARTROV2       PgProvider = "SMARTRO_V2"
-	SMILEPAY        PgProvider = "SMILEPAY"
-	SYRUP           PgProvider = "SYRUP"
-	TOSSBRANDPAY    PgProvider = "TOSS_BRANDPAY"
-	TOSSPAY         PgProvider = "TOSSPAY"
-	TOSSPAYMENTS    PgProvider = "TOSSPAYMENTS"
-	TOSSPAYV2       PgProvider = "TOSSPAY_V2"
-	UPLUS           PgProvider = "UPLUS"
-	WELCOME         PgProvider = "WELCOME"
+	PgProviderALIPAY          PgProvider = "ALIPAY"
+	PgProviderBLUEWALNUT      PgProvider = "BLUEWALNUT"
+	PgProviderCHAI            PgProvider = "CHAI"
+	PgProviderDANAL           PgProvider = "DANAL"
+	PgProviderDANALTPAY       PgProvider = "DANAL_TPAY"
+	PgProviderDAOU            PgProvider = "DAOU"
+	PgProviderEXIMBAY         PgProvider = "EXIMBAY"
+	PgProviderEXIMBAYV2       PgProvider = "EXIMBAY_V2"
+	PgProviderGALAXIA         PgProvider = "GALAXIA"
+	PgProviderHTML5INICIS     PgProvider = "HTML5_INICIS"
+	PgProviderHYPHEN          PgProvider = "HYPHEN"
+	PgProviderINICIS          PgProvider = "INICIS"
+	PgProviderINICISJP        PgProvider = "INICIS_JP"
+	PgProviderINICISUNIFIED   PgProvider = "INICIS_UNIFIED"
+	PgProviderINICISV2        PgProvider = "INICIS_V2"
+	PgProviderJTNET           PgProvider = "JTNET"
+	PgProviderKAKAO           PgProvider = "KAKAO"
+	PgProviderKAKAOPAY        PgProvider = "KAKAOPAY"
+	PgProviderKCP             PgProvider = "KCP"
+	PgProviderKCPBILLING      PgProvider = "KCP_BILLING"
+	PgProviderKCPDIRECT       PgProvider = "KCP_DIRECT"
+	PgProviderKCPQUICK        PgProvider = "KCP_QUICK"
+	PgProviderKCPV2           PgProvider = "KCP_V2"
+	PgProviderKICC            PgProvider = "KICC"
+	PgProviderKICCV2          PgProvider = "KICC_V2"
+	PgProviderKPN             PgProvider = "KPN"
+	PgProviderKSNET           PgProvider = "KSNET"
+	PgProviderMOBILIANS       PgProvider = "MOBILIANS"
+	PgProviderMOBILIANSV2     PgProvider = "MOBILIANS_V2"
+	PgProviderNAVERCO         PgProvider = "NAVERCO"
+	PgProviderNAVERPAY        PgProvider = "NAVERPAY"
+	PgProviderNICE            PgProvider = "NICE"
+	PgProviderNICEV2          PgProvider = "NICE_V2"
+	PgProviderPAYCO           PgProvider = "PAYCO"
+	PgProviderPAYLETTERGLOBAL PgProvider = "PAYLETTER_GLOBAL"
+	PgProviderPAYMENTWALL     PgProvider = "PAYMENTWALL"
+	PgProviderPAYPAL          PgProvider = "PAYPAL"
+	PgProviderPAYPALV2        PgProvider = "PAYPAL_V2"
+	PgProviderPAYPLE          PgProvider = "PAYPLE"
+	PgProviderPINPAY          PgProvider = "PINPAY"
+	PgProviderSETTLE          PgProvider = "SETTLE"
+	PgProviderSETTLEACC       PgProvider = "SETTLE_ACC"
+	PgProviderSETTLEFIRM      PgProvider = "SETTLE_FIRM"
+	PgProviderSMARTRO         PgProvider = "SMARTRO"
+	PgProviderSMARTROV2       PgProvider = "SMARTRO_V2"
+	PgProviderSMILEPAY        PgProvider = "SMILEPAY"
+	PgProviderSYRUP           PgProvider = "SYRUP"
+	PgProviderTOSSBRANDPAY    PgProvider = "TOSS_BRANDPAY"
+	PgProviderTOSSPAY         PgProvider = "TOSSPAY"
+	PgProviderTOSSPAYMENTS    PgProvider = "TOSSPAYMENTS"
+	PgProviderTOSSPAYV2       PgProvider = "TOSSPAY_V2"
+	PgProviderTRIPLEA         PgProvider = "TRIPLE_A"
+	PgProviderUPLUS           PgProvider = "UPLUS"
+	PgProviderWELCOME         PgProvider = "WELCOME"
 )
 
 // Defines values for PlatformAccountStatus.
@@ -1231,6 +1363,14 @@ const (
 	DISCOUNTTAXFREETHANORDERTAXFREE PlatformAmountExceededType = "DISCOUNT_TAX_FREE_THAN_ORDER_TAX_FREE"
 	DISCOUNTTHANORDER               PlatformAmountExceededType = "DISCOUNT_THAN_ORDER"
 	PAYMENTTAXFREETHANPAYMENT       PlatformAmountExceededType = "PAYMENT_TAX_FREE_THAN_PAYMENT"
+)
+
+// Defines values for PlatformBankAccountProvider.
+const (
+	DOZN       PlatformBankAccountProvider = "DOZN"
+	HYPHENDATA PlatformBankAccountProvider = "HYPHEN_DATA"
+	HYPHENFIRM PlatformBankAccountProvider = "HYPHEN_FIRM"
+	MOCK       PlatformBankAccountProvider = "MOCK"
 )
 
 // Defines values for PlatformBulkAccountTransferStatus.
@@ -1270,9 +1410,9 @@ const (
 
 // Defines values for PlatformBusinessStatus.
 const (
-	PlatformBusinessStatusCLOSED     PlatformBusinessStatus = "CLOSED"
-	PlatformBusinessStatusINBUSINESS PlatformBusinessStatus = "IN_BUSINESS"
-	PlatformBusinessStatusSUSPENDED  PlatformBusinessStatus = "SUSPENDED"
+	CLOSED     PlatformBusinessStatus = "CLOSED"
+	INBUSINESS PlatformBusinessStatus = "IN_BUSINESS"
+	SUSPENDED  PlatformBusinessStatus = "SUSPENDED"
 )
 
 // Defines values for PlatformCancellableAmountType.
@@ -1293,11 +1433,11 @@ const (
 
 // Defines values for PlatformPartnerMemberCompanyConnectionStatus.
 const (
-	CONNECTED         PlatformPartnerMemberCompanyConnectionStatus = "CONNECTED"
-	CONNECTFAILED     PlatformPartnerMemberCompanyConnectionStatus = "CONNECT_FAILED"
-	CONNECTPENDING    PlatformPartnerMemberCompanyConnectionStatus = "CONNECT_PENDING"
-	DISCONNECTPENDING PlatformPartnerMemberCompanyConnectionStatus = "DISCONNECT_PENDING"
-	NOTCONNECTED      PlatformPartnerMemberCompanyConnectionStatus = "NOT_CONNECTED"
+	PlatformPartnerMemberCompanyConnectionStatusCONNECTED         PlatformPartnerMemberCompanyConnectionStatus = "CONNECTED"
+	PlatformPartnerMemberCompanyConnectionStatusCONNECTFAILED     PlatformPartnerMemberCompanyConnectionStatus = "CONNECT_FAILED"
+	PlatformPartnerMemberCompanyConnectionStatusCONNECTPENDING    PlatformPartnerMemberCompanyConnectionStatus = "CONNECT_PENDING"
+	PlatformPartnerMemberCompanyConnectionStatusDISCONNECTPENDING PlatformPartnerMemberCompanyConnectionStatus = "DISCONNECT_PENDING"
+	PlatformPartnerMemberCompanyConnectionStatusNOTCONNECTED      PlatformPartnerMemberCompanyConnectionStatus = "NOT_CONNECTED"
 )
 
 // Defines values for PlatformPartnerSettlementStatus.
@@ -1306,6 +1446,7 @@ const (
 	PlatformPartnerSettlementStatusCONFIRMED       PlatformPartnerSettlementStatus = "CONFIRMED"
 	PlatformPartnerSettlementStatusINPAYOUT        PlatformPartnerSettlementStatus = "IN_PAYOUT"
 	PlatformPartnerSettlementStatusPAIDOUT         PlatformPartnerSettlementStatus = "PAID_OUT"
+	PlatformPartnerSettlementStatusPAYOUTEXCLUDED  PlatformPartnerSettlementStatus = "PAYOUT_EXCLUDED"
 	PlatformPartnerSettlementStatusPAYOUTFAILED    PlatformPartnerSettlementStatus = "PAYOUT_FAILED"
 	PlatformPartnerSettlementStatusPAYOUTPREPARED  PlatformPartnerSettlementStatus = "PAYOUT_PREPARED"
 	PlatformPartnerSettlementStatusPAYOUTSCHEDULED PlatformPartnerSettlementStatus = "PAYOUT_SCHEDULED"
@@ -1376,11 +1517,14 @@ const (
 // Defines values for PlatformPayoutTaxInvoiceStatus.
 const (
 	PlatformPayoutTaxInvoiceStatusBEFORESENDING     PlatformPayoutTaxInvoiceStatus = "BEFORE_SENDING"
+	PlatformPayoutTaxInvoiceStatusCANCELPENDING     PlatformPayoutTaxInvoiceStatus = "CANCEL_PENDING"
 	PlatformPayoutTaxInvoiceStatusDRAFTED           PlatformPayoutTaxInvoiceStatus = "DRAFTED"
 	PlatformPayoutTaxInvoiceStatusDRAFTFAILED       PlatformPayoutTaxInvoiceStatus = "DRAFT_FAILED"
 	PlatformPayoutTaxInvoiceStatusDRAFTPENDING      PlatformPayoutTaxInvoiceStatus = "DRAFT_PENDING"
 	PlatformPayoutTaxInvoiceStatusISSUANCECANCELLED PlatformPayoutTaxInvoiceStatus = "ISSUANCE_CANCELLED"
 	PlatformPayoutTaxInvoiceStatusISSUED            PlatformPayoutTaxInvoiceStatus = "ISSUED"
+	PlatformPayoutTaxInvoiceStatusISSUEFAILED       PlatformPayoutTaxInvoiceStatus = "ISSUE_FAILED"
+	PlatformPayoutTaxInvoiceStatusISSUEPENDING      PlatformPayoutTaxInvoiceStatus = "ISSUE_PENDING"
 	PlatformPayoutTaxInvoiceStatusNONE              PlatformPayoutTaxInvoiceStatus = "NONE"
 	PlatformPayoutTaxInvoiceStatusREQUESTCANCELLED  PlatformPayoutTaxInvoiceStatus = "REQUEST_CANCELLED"
 	PlatformPayoutTaxInvoiceStatusREQUESTED         PlatformPayoutTaxInvoiceStatus = "REQUESTED"
@@ -1390,6 +1534,7 @@ const (
 	PlatformPayoutTaxInvoiceStatusSENDING           PlatformPayoutTaxInvoiceStatus = "SENDING"
 	PlatformPayoutTaxInvoiceStatusSENDINGCOMPLETED  PlatformPayoutTaxInvoiceStatus = "SENDING_COMPLETED"
 	PlatformPayoutTaxInvoiceStatusSENDINGFAILED     PlatformPayoutTaxInvoiceStatus = "SENDING_FAILED"
+	PlatformPayoutTaxInvoiceStatusSENDINGPENDING    PlatformPayoutTaxInvoiceStatus = "SENDING_PENDING"
 	PlatformPayoutTaxInvoiceStatusWAITINGSENDING    PlatformPayoutTaxInvoiceStatus = "WAITING_SENDING"
 )
 
@@ -1426,11 +1571,12 @@ const (
 
 // Defines values for PlatformTransferStatus.
 const (
-	PlatformTransferStatusINPAYOUT  PlatformTransferStatus = "IN_PAYOUT"
-	PlatformTransferStatusINPROCESS PlatformTransferStatus = "IN_PROCESS"
-	PlatformTransferStatusPAIDOUT   PlatformTransferStatus = "PAID_OUT"
-	PlatformTransferStatusSCHEDULED PlatformTransferStatus = "SCHEDULED"
-	PlatformTransferStatusSETTLED   PlatformTransferStatus = "SETTLED"
+	PlatformTransferStatusINPAYOUT        PlatformTransferStatus = "IN_PAYOUT"
+	PlatformTransferStatusINPROCESS       PlatformTransferStatus = "IN_PROCESS"
+	PlatformTransferStatusPAIDOUT         PlatformTransferStatus = "PAID_OUT"
+	PlatformTransferStatusPAYOUTCONFIRMED PlatformTransferStatus = "PAYOUT_CONFIRMED"
+	PlatformTransferStatusSCHEDULED       PlatformTransferStatus = "SCHEDULED"
+	PlatformTransferStatusSETTLED         PlatformTransferStatus = "SETTLED"
 )
 
 // Defines values for PlatformTransferSummaryPartnerType.
@@ -1455,15 +1601,15 @@ const (
 
 // Defines values for PromotionCardCompany.
 const (
-	BCCARD      PromotionCardCompany = "BC_CARD"
-	HANACARD    PromotionCardCompany = "HANA_CARD"
-	HYUNDAICARD PromotionCardCompany = "HYUNDAI_CARD"
-	KOOKMINCARD PromotionCardCompany = "KOOKMIN_CARD"
-	LOTTECARD   PromotionCardCompany = "LOTTE_CARD"
-	NHCARD      PromotionCardCompany = "NH_CARD"
-	SAMSUNGCARD PromotionCardCompany = "SAMSUNG_CARD"
-	SHINHANCARD PromotionCardCompany = "SHINHAN_CARD"
-	WOORICARD   PromotionCardCompany = "WOORI_CARD"
+	PromotionCardCompanyBCCARD      PromotionCardCompany = "BC_CARD"
+	PromotionCardCompanyHANACARD    PromotionCardCompany = "HANA_CARD"
+	PromotionCardCompanyHYUNDAICARD PromotionCardCompany = "HYUNDAI_CARD"
+	PromotionCardCompanyKOOKMINCARD PromotionCardCompany = "KOOKMIN_CARD"
+	PromotionCardCompanyLOTTECARD   PromotionCardCompany = "LOTTE_CARD"
+	PromotionCardCompanyNHCARD      PromotionCardCompany = "NH_CARD"
+	PromotionCardCompanySAMSUNGCARD PromotionCardCompany = "SAMSUNG_CARD"
+	PromotionCardCompanySHINHANCARD PromotionCardCompany = "SHINHAN_CARD"
+	PromotionCardCompanyWOORICARD   PromotionCardCompany = "WOORI_CARD"
 )
 
 // Defines values for PromotionDiscountRetainOption.
@@ -1482,6 +1628,31 @@ const (
 	PromotionStatusTERMINATED      PromotionStatus = "TERMINATED"
 )
 
+// Defines values for ReconciliationPgProvider.
+const (
+	DANAL           ReconciliationPgProvider = "DANAL"
+	EXIMBAY         ReconciliationPgProvider = "EXIMBAY"
+	HECTO           ReconciliationPgProvider = "HECTO"
+	HECTOEASY       ReconciliationPgProvider = "HECTO_EASY"
+	HYPHEN          ReconciliationPgProvider = "HYPHEN"
+	INICIS          ReconciliationPgProvider = "INICIS"
+	KAKAOPAY        ReconciliationPgProvider = "KAKAOPAY"
+	KCP             ReconciliationPgProvider = "KCP"
+	KIWOOMPAY       ReconciliationPgProvider = "KIWOOMPAY"
+	KPN             ReconciliationPgProvider = "KPN"
+	KSNET           ReconciliationPgProvider = "KSNET"
+	MOBILIANS       ReconciliationPgProvider = "MOBILIANS"
+	NAVERPAY        ReconciliationPgProvider = "NAVERPAY"
+	NICEPAY         ReconciliationPgProvider = "NICEPAY"
+	PAYCO           ReconciliationPgProvider = "PAYCO"
+	PAYLETTERGLOBAL ReconciliationPgProvider = "PAYLETTER_GLOBAL"
+	PAYMENTWALL     ReconciliationPgProvider = "PAYMENTWALL"
+	PAYPAL          ReconciliationPgProvider = "PAYPAL"
+	TOSSPAY         ReconciliationPgProvider = "TOSSPAY"
+	TOSSPAYMENTS    ReconciliationPgProvider = "TOSSPAYMENTS"
+	UPLUS           ReconciliationPgProvider = "UPLUS"
+)
+
 // Defines values for SelectedChannelType.
 const (
 	LIVE SelectedChannelType = "LIVE"
@@ -1494,6 +1665,17 @@ const (
 	NET   SettlementAmountType = "NET"
 )
 
+// Defines values for SimplifiedPaymentMethodType.
+const (
+	SimplifiedPaymentMethodTypeCARD           SimplifiedPaymentMethodType = "CARD"
+	SimplifiedPaymentMethodTypeCHARGE         SimplifiedPaymentMethodType = "CHARGE"
+	SimplifiedPaymentMethodTypeETC            SimplifiedPaymentMethodType = "ETC"
+	SimplifiedPaymentMethodTypeMOBILE         SimplifiedPaymentMethodType = "MOBILE"
+	SimplifiedPaymentMethodTypePOINT          SimplifiedPaymentMethodType = "POINT"
+	SimplifiedPaymentMethodTypeTRANSFER       SimplifiedPaymentMethodType = "TRANSFER"
+	SimplifiedPaymentMethodTypeVIRTUALACCOUNT SimplifiedPaymentMethodType = "VIRTUAL_ACCOUNT"
+)
+
 // Defines values for SortOrder.
 const (
 	ASC  SortOrder = "ASC"
@@ -1502,39 +1684,45 @@ const (
 
 // Defines values for TaxInvoicesSheetField.
 const (
-	TaxInvoicesSheetFieldBULKTAXINVOICEID         TaxInvoicesSheetField = "BULK_TAX_INVOICE_ID"
-	TaxInvoicesSheetFieldCANCELREASON             TaxInvoicesSheetField = "CANCEL_REASON"
-	TaxInvoicesSheetFieldDOCUMENTMODIFICATIONTYPE TaxInvoicesSheetField = "DOCUMENT_MODIFICATION_TYPE"
-	TaxInvoicesSheetFieldISDELAYED                TaxInvoicesSheetField = "IS_DELAYED"
-	TaxInvoicesSheetFieldISSUANCEDUEDATE          TaxInvoicesSheetField = "ISSUANCE_DUE_DATE"
-	TaxInvoicesSheetFieldISSUANCETYPE             TaxInvoicesSheetField = "ISSUANCE_TYPE"
-	TaxInvoicesSheetFieldISSUEDAT                 TaxInvoicesSheetField = "ISSUED_AT"
-	TaxInvoicesSheetFieldITEMS                    TaxInvoicesSheetField = "ITEMS"
-	TaxInvoicesSheetFieldMEMO                     TaxInvoicesSheetField = "MEMO"
-	TaxInvoicesSheetFieldNTSSENTAT                TaxInvoicesSheetField = "NTS_SENT_AT"
-	TaxInvoicesSheetFieldPARTNERBRN               TaxInvoicesSheetField = "PARTNER_BRN"
-	TaxInvoicesSheetFieldPARTNERNAME              TaxInvoicesSheetField = "PARTNER_NAME"
-	TaxInvoicesSheetFieldPAYOUTID                 TaxInvoicesSheetField = "PAYOUT_ID"
-	TaxInvoicesSheetFieldPLAINID                  TaxInvoicesSheetField = "PLAIN_ID"
-	TaxInvoicesSheetFieldPURPOSETYPE              TaxInvoicesSheetField = "PURPOSE_TYPE"
-	TaxInvoicesSheetFieldRECIPIENTDOCUMENTKEY     TaxInvoicesSheetField = "RECIPIENT_DOCUMENT_KEY"
-	TaxInvoicesSheetFieldREQUESTEDAT              TaxInvoicesSheetField = "REQUESTED_AT"
-	TaxInvoicesSheetFieldSTATUS                   TaxInvoicesSheetField = "STATUS"
-	TaxInvoicesSheetFieldSTATUSUPDATEDAT          TaxInvoicesSheetField = "STATUS_UPDATED_AT"
-	TaxInvoicesSheetFieldSUPPLIERDOCUMENTKEY      TaxInvoicesSheetField = "SUPPLIER_DOCUMENT_KEY"
-	TaxInvoicesSheetFieldTAXATIONTYPE             TaxInvoicesSheetField = "TAXATION_TYPE"
-	TaxInvoicesSheetFieldTOTALAMOUNT              TaxInvoicesSheetField = "TOTAL_AMOUNT"
-	TaxInvoicesSheetFieldTOTALSUPPLYAMOUNT        TaxInvoicesSheetField = "TOTAL_SUPPLY_AMOUNT"
-	TaxInvoicesSheetFieldTOTALTAXAMOUNT           TaxInvoicesSheetField = "TOTAL_TAX_AMOUNT"
-	TaxInvoicesSheetFieldWRITEDATE                TaxInvoicesSheetField = "WRITE_DATE"
+	BULKTAXINVOICEID            TaxInvoicesSheetField = "BULK_TAX_INVOICE_ID"
+	CANCELREASON                TaxInvoicesSheetField = "CANCEL_REASON"
+	DOCUMENTMODIFICATIONTYPE    TaxInvoicesSheetField = "DOCUMENT_MODIFICATION_TYPE"
+	ISDELAYED                   TaxInvoicesSheetField = "IS_DELAYED"
+	ISSUANCEDUEDATE             TaxInvoicesSheetField = "ISSUANCE_DUE_DATE"
+	ISSUANCETYPE                TaxInvoicesSheetField = "ISSUANCE_TYPE"
+	ISSUEDAT                    TaxInvoicesSheetField = "ISSUED_AT"
+	ITEMS                       TaxInvoicesSheetField = "ITEMS"
+	MEMO                        TaxInvoicesSheetField = "MEMO"
+	NTSSENTAT                   TaxInvoicesSheetField = "NTS_SENT_AT"
+	PAYOUTID                    TaxInvoicesSheetField = "PAYOUT_ID"
+	PLAINID                     TaxInvoicesSheetField = "PLAIN_ID"
+	PURPOSETYPE                 TaxInvoicesSheetField = "PURPOSE_TYPE"
+	RECIPIENTBRN                TaxInvoicesSheetField = "RECIPIENT_BRN"
+	RECIPIENTCOMPANYNAME        TaxInvoicesSheetField = "RECIPIENT_COMPANY_NAME"
+	RECIPIENTCOUNTERPARTYID     TaxInvoicesSheetField = "RECIPIENT_COUNTERPARTY_ID"
+	RECIPIENTDOCUMENTKEY        TaxInvoicesSheetField = "RECIPIENT_DOCUMENT_KEY"
+	RECIPIENTREPRESENTATIVENAME TaxInvoicesSheetField = "RECIPIENT_REPRESENTATIVE_NAME"
+	REQUESTEDAT                 TaxInvoicesSheetField = "REQUESTED_AT"
+	STATUS                      TaxInvoicesSheetField = "STATUS"
+	STATUSUPDATEDAT             TaxInvoicesSheetField = "STATUS_UPDATED_AT"
+	SUPPLIERBRN                 TaxInvoicesSheetField = "SUPPLIER_BRN"
+	SUPPLIERCOMPANYNAME         TaxInvoicesSheetField = "SUPPLIER_COMPANY_NAME"
+	SUPPLIERCOUNTERPARTYID      TaxInvoicesSheetField = "SUPPLIER_COUNTERPARTY_ID"
+	SUPPLIERDOCUMENTKEY         TaxInvoicesSheetField = "SUPPLIER_DOCUMENT_KEY"
+	SUPPLIERREPRESENTATIVENAME  TaxInvoicesSheetField = "SUPPLIER_REPRESENTATIVE_NAME"
+	TAXATIONTYPE                TaxInvoicesSheetField = "TAXATION_TYPE"
+	TOTALAMOUNT                 TaxInvoicesSheetField = "TOTAL_AMOUNT"
+	TOTALSUPPLYAMOUNT           TaxInvoicesSheetField = "TOTAL_SUPPLY_AMOUNT"
+	TOTALTAXAMOUNT              TaxInvoicesSheetField = "TOTAL_TAX_AMOUNT"
+	WRITEDATE                   TaxInvoicesSheetField = "WRITE_DATE"
 )
 
 // Defines values for Trigger.
 const (
-	TriggerAPI          Trigger = "API"
-	TriggerCHARGEBACK   Trigger = "CHARGEBACK"
-	TriggerCONSOLE      Trigger = "CONSOLE"
-	TriggerPORTONEADMIN Trigger = "PORTONE_ADMIN"
+	API          Trigger = "API"
+	CHARGEBACK   Trigger = "CHARGEBACK"
+	CONSOLE      Trigger = "CONSOLE"
+	PORTONEADMIN Trigger = "PORTONE_ADMIN"
 )
 
 // Defines values for Type.
@@ -1721,10 +1909,282 @@ type B2bBusinessInfoResult struct {
 	// BusinessInfo 사업자등록 정보
 	BusinessInfo *B2bBusinessInfo `json:"businessInfo,omitempty"`
 	Error        *string          `json:"error,omitempty"`
+
+	// VerificationId 거래처 생성/수정 시 사업자 정보 조회 결과를 재사용하기 위한 ID입니다. 조회 성공 시에만 설정됩니다.
+	VerificationId *string `json:"verificationId,omitempty"`
+}
+
+// B2bCertificate defines model for B2bCertificate.
+type B2bCertificate struct {
+	// CertificateType 인증서 타입
+	CertificateType       B2bCertificateType `json:"certificateType"`
+	ExpiredAt             time.Time          `json:"expiredAt"`
+	IssuerName            string             `json:"issuerName"`
+	Oid                   string             `json:"oid"`
+	RegisteredAt          time.Time          `json:"registeredAt"`
+	RegistrantContactId   string             `json:"registrantContactId"`
+	RegistrantContactName string             `json:"registrantContactName"`
+	SubjectName           string             `json:"subjectName"`
+}
+
+// B2bCertificateType 인증서 타입
+type B2bCertificateType string
+
+// B2bCertificateUnregisteredError 인증서가 등록되어 있지 않은 경우
+type B2bCertificateUnregisteredError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
 }
 
 // B2bCompanyStateBusinessStatus 영업 상태
 type B2bCompanyStateBusinessStatus string
+
+// B2bCounterparty 거래처
+//
+// B2B 거래처 정보입니다.
+type B2bCounterparty struct {
+	// AdditionalContacts 최대 5명까지 등록할 수 있습니다.
+	AdditionalContacts []B2bCounterpartyContact `json:"additionalContacts"`
+	Address            *string                  `json:"address,omitempty"`
+	AppliedAt          *time.Time               `json:"appliedAt,omitempty"`
+
+	// Brn `-` 없이 숫자로만 구성됩니다.
+	Brn           string  `json:"brn"`
+	BusinessClass *string `json:"businessClass,omitempty"`
+
+	// BusinessInfoVerification 거래처 검증 정보
+	BusinessInfoVerification *B2bCounterpartyVerification `json:"businessInfoVerification,omitempty"`
+
+	// BusinessStatus 거래처 휴폐업 상태
+	BusinessStatus          *B2bCounterpartyBusinessStatus `json:"businessStatus,omitempty"`
+	BusinessStatusCheckedAt *time.Time                     `json:"businessStatusCheckedAt,omitempty"`
+
+	// BusinessStatusVerification 거래처 검증 정보
+	BusinessStatusVerification *B2bCounterpartyVerification `json:"businessStatusVerification,omitempty"`
+	BusinessType               *string                      `json:"businessType,omitempty"`
+	CompanyName                string                       `json:"companyName"`
+
+	// Contact 거래처 담당자 정보
+	Contact                   B2bCounterpartyContact `json:"contact"`
+	GraphqlId                 string                 `json:"graphqlId"`
+	Id                        string                 `json:"id"`
+	IsForTest                 bool                   `json:"isForTest"`
+	Memo                      *string                `json:"memo,omitempty"`
+	NtsConnectedAt            *time.Time             `json:"ntsConnectedAt,omitempty"`
+	NtsConnectionFailedReason *string                `json:"ntsConnectionFailedReason,omitempty"`
+
+	// NtsConnectionStatus 국세청 연동 상태
+	NtsConnectionStatus B2bNtsConnectionStatus `json:"ntsConnectionStatus"`
+
+	// PartnerId 파트너 연동 거래처인 경우에만 존재합니다.
+	PartnerId          *string `json:"partnerId,omitempty"`
+	RepresentativeName string  `json:"representativeName"`
+}
+
+// B2bCounterpartyBrnInvalidError 사업자등록번호가 유효하지 않은 경우
+type B2bCounterpartyBrnInvalidError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyBrnModificationNotAllowedError 사업자등록번호 수정이 허용되지 않는 경우
+//
+// 거래처의 사업자등록번호는 수정할 수 없습니다.
+type B2bCounterpartyBrnModificationNotAllowedError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyBusinessStatus 거래처 휴폐업 상태
+type B2bCounterpartyBusinessStatus string
+
+// B2bCounterpartyContact 거래처 담당자 정보
+type B2bCounterpartyContact struct {
+	Email       string  `json:"email"`
+	Memo        *string `json:"memo,omitempty"`
+	Name        string  `json:"name"`
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+}
+
+// B2bCounterpartyContactInput 거래처 담당자 입력 정보
+type B2bCounterpartyContactInput struct {
+	Email       string  `json:"email"`
+	Memo        *string `json:"memo,omitempty"`
+	Name        string  `json:"name"`
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+}
+
+// B2bCounterpartyCreateOptions 거래처 생성 옵션
+type B2bCounterpartyCreateOptions struct {
+	// BusinessInfoVerificationId 이전에 조회한 사업자 정보 조회 결과의 ID를 입력하면 재조회 없이 해당 결과를 사용합니다.
+	BusinessInfoVerificationId *string `json:"businessInfoVerificationId,omitempty"`
+
+	// BusinessStatusVerificationId 이전에 조회한 휴폐업 상태 조회 결과의 ID를 입력하면 재조회 없이 해당 결과를 사용합니다.
+	BusinessStatusVerificationId *string `json:"businessStatusVerificationId,omitempty"`
+
+	// CheckBusinessInfo true인 경우 사업자 정보를 조회하여 거래처에 반영합니다.
+	CheckBusinessInfo *bool `json:"checkBusinessInfo,omitempty"`
+
+	// CheckBusinessStatus true인 경우 휴폐업 상태를 조회하여 거래처에 반영합니다.
+	CheckBusinessStatus *bool `json:"checkBusinessStatus,omitempty"`
+}
+
+// B2bCounterpartyFilter 거래처 검색 필터
+type B2bCounterpartyFilter struct {
+	Brn              *string                          `json:"brn,omitempty"`
+	BusinessStatuses *[]B2bCounterpartyBusinessStatus `json:"businessStatuses,omitempty"`
+
+	// CompanyName 포함 검색
+	CompanyName  *string `json:"companyName,omitempty"`
+	ContactEmail *string `json:"contactEmail,omitempty"`
+	ContactName  *string `json:"contactName,omitempty"`
+	ContactPhone *string `json:"contactPhone,omitempty"`
+
+	// CounterpartyIds 특정 ID 목록으로 필터링
+	CounterpartyIds *[]string `json:"counterpartyIds,omitempty"`
+
+	// Id prefix 검색
+	Id                    *string                   `json:"id,omitempty"`
+	NtsConnectionStatuses *[]B2bNtsConnectionStatus `json:"ntsConnectionStatuses,omitempty"`
+	RepresentativeName    *string                   `json:"representativeName,omitempty"`
+}
+
+// B2bCounterpartyIdAlreadyExistsByPartnerError 파트너 연동으로 생성된 거래처 ID가 이미 사용중인 경우
+//
+// 파트너 연동으로 생성된 거래처 ID는 재사용할 수 없습니다.
+type B2bCounterpartyIdAlreadyExistsByPartnerError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyIdAlreadyExistsError 거래처 ID가 이미 사용중인 경우
+type B2bCounterpartyIdAlreadyExistsError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyInput 거래처 입력 정보
+type B2bCounterpartyInput struct {
+	// AdditionalContacts 최대 5명까지 등록할 수 있습니다.
+	AdditionalContacts *[]B2bCounterpartyContactInput `json:"additionalContacts,omitempty"`
+	Address            *string                        `json:"address,omitempty"`
+
+	// Brn `-` 없이 숫자로만 구성됩니다.
+	Brn           string  `json:"brn"`
+	BusinessClass *string `json:"businessClass,omitempty"`
+	BusinessType  *string `json:"businessType,omitempty"`
+
+	// Contact 거래처 담당자 입력 정보
+	Contact            *B2bCounterpartyContactInput `json:"contact,omitempty"`
+	Memo               *string                      `json:"memo,omitempty"`
+	Name               *string                      `json:"name,omitempty"`
+	RepresentativeName *string                      `json:"representativeName,omitempty"`
+}
+
+// B2bCounterpartyMissingRequiredFieldsError 필수 입력 항목이 누락된 경우
+//
+// 거래처 생성/수정 시 필수 입력 항목이 누락되었습니다.
+type B2bCounterpartyMissingRequiredFieldsError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyNotFoundError 거래처가 존재하지 않는 경우
+type B2bCounterpartyNotFoundError struct {
+	CounterpartyId *string `json:"counterpartyId,omitempty"`
+	Message        *string `json:"message,omitempty"`
+	Type           string  `json:"type"`
+}
+
+// B2bCounterpartyNtsConnectionFailedError 국세청 연동에 실패한 경우
+type B2bCounterpartyNtsConnectionFailedError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyNtsNotConnectedError 국세청에 연동되어 있지 않은 경우
+type B2bCounterpartyNtsNotConnectedError struct {
+	Brn            *string `json:"brn,omitempty"`
+	CounterpartyId *string `json:"counterpartyId,omitempty"`
+	Message        *string `json:"message,omitempty"`
+	Type           string  `json:"type"`
+}
+
+// B2bCounterpartyOngoingTaxInvoiceExistsError 진행 중인 세금계산서가 존재하여 거래처를 삭제할 수 없는 경우
+type B2bCounterpartyOngoingTaxInvoiceExistsError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyPartnerNotConnectableError 파트너 연동 거래처는 국세청 연동이 허용되지 않는 경우
+//
+// 파트너와 연동된 거래처는 국세청 연동을 직접 수행할 수 없습니다.
+type B2bCounterpartyPartnerNotConnectableError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyPartnerNotDeletableError 파트너 연동 거래처는 삭제할 수 없는 경우
+//
+// 파트너와 연동된 거래처는 직접 삭제할 수 없습니다.
+type B2bCounterpartyPartnerNotDeletableError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyPartnerNotUpdatableError 파트너 연동 거래처는 수정할 수 없는 경우
+//
+// 파트너와 연동된 거래처는 직접 수정할 수 없습니다.
+type B2bCounterpartyPartnerNotUpdatableError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartySelfOriginBrnMismatchError 자사 사업자등록번호와 동일한 거래처를 생성할 수 없는 경우
+type B2bCounterpartySelfOriginBrnMismatchError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyTooManyAdditionalContactsError 추가 담당자가 너무 많은 경우
+//
+// 추가 담당자는 최대 5명까지 등록할 수 있습니다.
+type B2bCounterpartyTooManyAdditionalContactsError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyVerification 거래처 검증 정보
+type B2bCounterpartyVerification struct {
+	CheckedAt time.Time `json:"checkedAt"`
+	Id        string    `json:"id"`
+}
+
+// B2bCounterpartyVerificationBrnMismatchError 검증 결과의 사업자등록번호가 일치하지 않는 경우
+type B2bCounterpartyVerificationBrnMismatchError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyVerificationInvalidError 검증 결과가 유효하지 않은 경우
+type B2bCounterpartyVerificationInvalidError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyVerificationNotFoundError 검증 결과를 찾을 수 없는 경우
+//
+// 사업자 정보 검증 결과를 찾을 수 없습니다.
+type B2bCounterpartyVerificationNotFoundError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// B2bCounterpartyVerificationTypeMismatchError 검증 유형이 일치하지 않는 경우
+type B2bCounterpartyVerificationTypeMismatchError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
 
 // B2bDocumentKeyCannotBeChangedError 문서번호 수정이 요청된 경우
 type B2bDocumentKeyCannotBeChangedError struct {
@@ -1768,6 +2228,9 @@ type B2bNotEnabledError struct {
 	Type    string  `json:"type"`
 }
 
+// B2bNtsConnectionStatus 국세청 연동 상태
+type B2bNtsConnectionStatus string
+
 // B2bOriginalTaxInvoiceNotFoundError 원본 세금계산서가 존재하지 않은 경우
 type B2bOriginalTaxInvoiceNotFoundError struct {
 	Message *string `json:"message,omitempty"`
@@ -1776,8 +2239,10 @@ type B2bOriginalTaxInvoiceNotFoundError struct {
 
 // B2bRecipientNotFoundError 공급받는자가 존재하지 않은 경우
 type B2bRecipientNotFoundError struct {
-	Message *string `json:"message,omitempty"`
-	Type    string  `json:"type"`
+	Brn            *string `json:"brn,omitempty"`
+	CounterpartyId *string `json:"counterpartyId,omitempty"`
+	Message        *string `json:"message,omitempty"`
+	Type           string  `json:"type"`
 }
 
 // B2bSearchDateType 조회 기준
@@ -1785,13 +2250,15 @@ type B2bSearchDateType string
 
 // B2bSupplierNotFoundError 공급자가 존재하지 않은 경우
 type B2bSupplierNotFoundError struct {
-	Message *string `json:"message,omitempty"`
-	Type    string  `json:"type"`
+	Brn            *string `json:"brn,omitempty"`
+	CounterpartyId *string `json:"counterpartyId,omitempty"`
+	Message        *string `json:"message,omitempty"`
+	Type           string  `json:"type"`
 }
 
 // B2bTaxInvoice 세금계산서
 type B2bTaxInvoice struct {
-	// AdditionalContacts 최대 3개
+	// AdditionalContacts 최대 5명
 	AdditionalContacts []B2bTaxInvoiceAdditionalContact `json:"additionalContacts"`
 
 	// BookIssue 입력 범위(4자리) : 0 ~ 9999
@@ -1865,7 +2332,8 @@ type B2bTaxInvoiceAdditionalContact struct {
 	Email string `json:"email"`
 
 	// Name 최대 100자
-	Name *string `json:"name,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
 }
 
 // B2bTaxInvoiceAttachment 세금계산서 첨부파일
@@ -1887,7 +2355,7 @@ type B2bTaxInvoiceCompany struct {
 	Address *string `json:"address,omitempty"`
 
 	// Brn `-`를 제외한 10자리
-	Brn string `json:"brn"`
+	Brn *string `json:"brn,omitempty"`
 
 	// BusinessClass 최대 100자
 	BusinessClass *string `json:"businessClass,omitempty"`
@@ -1896,13 +2364,14 @@ type B2bTaxInvoiceCompany struct {
 	BusinessType *string `json:"businessType,omitempty"`
 
 	// Contact 세금계산서 담당자
-	Contact B2bTaxInvoiceContact `json:"contact"`
+	Contact        *B2bTaxInvoiceContact `json:"contact,omitempty"`
+	CounterpartyId *string               `json:"counterpartyId,omitempty"`
 
 	// Name 최대 200자
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 
 	// RepresentativeName 최대 100자
-	RepresentativeName string `json:"representativeName"`
+	RepresentativeName *string `json:"representativeName,omitempty"`
 
 	// TaxRegistrationId 4자리 고정
 	TaxRegistrationId *string `json:"taxRegistrationId,omitempty"`
@@ -1922,7 +2391,7 @@ type B2bTaxInvoiceDocumentModificationType string
 
 // B2bTaxInvoiceInput 세금계산서 생성 요청 정보
 type B2bTaxInvoiceInput struct {
-	// AdditionalContacts 최대 3개
+	// AdditionalContacts 최대 5명
 	AdditionalContacts *[]B2bTaxInvoiceAdditionalContact `json:"additionalContacts,omitempty"`
 	BookIssue          *int32                            `json:"bookIssue,omitempty"`
 	BookVolume         *int32                            `json:"bookVolume,omitempty"`
@@ -1948,9 +2417,9 @@ type B2bTaxInvoiceInput struct {
 	Remarks *[]string `json:"remarks,omitempty"`
 
 	// SendSms 공급자 담당자 휴대폰번호 {supplier.contact.mobile_phone_number} 값으로 문자 전송 전송시 포인트 차감되며, 실패시 환불 처리 기본값은 false
-	SendSms      *bool                `json:"sendSms,omitempty"`
-	SerialNumber *string              `json:"serialNumber,omitempty"`
-	Supplier     B2bTaxInvoiceCompany `json:"supplier"`
+	SendSms      *bool                 `json:"sendSms,omitempty"`
+	SerialNumber *string               `json:"serialNumber,omitempty"`
+	Supplier     *B2bTaxInvoiceCompany `json:"supplier,omitempty"`
 
 	// SupplierDocumentKey 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
 	SupplierDocumentKey *string `json:"supplierDocumentKey,omitempty"`
@@ -1960,6 +2429,9 @@ type B2bTaxInvoiceInput struct {
 	TotalAmount       int64                     `json:"totalAmount"`
 	TotalSupplyAmount int64                     `json:"totalSupplyAmount"`
 	TotalTaxAmount    int64                     `json:"totalTaxAmount"`
+
+	// UseCounterpartyAdditionalContacts true인 경우 거래처의 추가 담당자를 세금계산서 추가 담당자로 사용합니다. additional_contacts가 직접 지정된 경우 무시됩니다.
+	UseCounterpartyAdditionalContacts *bool `json:"useCounterpartyAdditionalContacts,omitempty"`
 
 	// WriteDate 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	WriteDate openapi_types.Date `json:"writeDate"`
@@ -2071,6 +2543,18 @@ type B2bTaxInvoiceRecipientDocumentKeyAlreadyUsedError struct {
 	Type    string  `json:"type"`
 }
 
+// B2bTaxInvoiceSortBy 세금계산서 정렬 기준
+type B2bTaxInvoiceSortBy string
+
+// B2bTaxInvoiceSortInput 세금계산서 다건 조회 시 정렬 조건
+type B2bTaxInvoiceSortInput struct {
+	// By 세금계산서 정렬 기준
+	By *B2bTaxInvoiceSortBy `json:"by,omitempty"`
+
+	// Order 정렬 방식
+	Order *SortOrder `json:"order,omitempty"`
+}
+
 // B2bTaxInvoiceStatus defines model for B2bTaxInvoiceStatus.
 type B2bTaxInvoiceStatus string
 
@@ -2115,6 +2599,7 @@ type B2bTaxInvoiceSummary struct {
 
 	// RecipientClosedSuspendedDate 상태가 CLOSED, SUSPENDED 상태인 경우에만 결과값 반환
 	RecipientClosedSuspendedDate *openapi_types.Date `json:"recipientClosedSuspendedDate,omitempty"`
+	RecipientCounterpartyId      *string             `json:"recipientCounterpartyId,omitempty"`
 	RecipientDocumentKey         *string             `json:"recipientDocumentKey,omitempty"`
 	RecipientName                string              `json:"recipientName"`
 	RecipientRepresentativeName  string              `json:"recipientRepresentativeName"`
@@ -2122,6 +2607,7 @@ type B2bTaxInvoiceSummary struct {
 	Status                       B2bTaxInvoiceStatus `json:"status"`
 	StatusUpdatedAt              time.Time           `json:"statusUpdatedAt"`
 	SupplierBrn                  string              `json:"supplierBrn"`
+	SupplierCounterpartyId       *string             `json:"supplierCounterpartyId,omitempty"`
 	SupplierDocumentKey          *string             `json:"supplierDocumentKey,omitempty"`
 	SupplierName                 string              `json:"supplierName"`
 	SupplierRepresentativeName   string              `json:"supplierRepresentativeName"`
@@ -2298,6 +2784,9 @@ type BillingKeyPaymentInput struct {
 	// ShippingAddress 분리 형식 주소 입력 정보
 	ShippingAddress *SeparatedAddressInput `json:"shippingAddress,omitempty"`
 
+	// SkipWebhook 결제가 성공했을 때 웹훅을 전송하지 않으려면 true로 설정합니다. 가상계좌 입금 완료 등 외부 이벤트로 결제가 완료되는 경우 발생하는 웹훅은 스킵되지 않습니다.
+	SkipWebhook *bool `json:"skipWebhook,omitempty"`
+
 	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
 	StoreId                     *string `json:"storeId,omitempty"`
 	UseCardPoint                *bool   `json:"useCardPoint,omitempty"`
@@ -2358,6 +2847,56 @@ type BillingKeyPaymentMethodTransfer struct {
 
 // BillingKeyPaymentMethodType 빌링키 결제 수단
 type BillingKeyPaymentMethodType string
+
+// BillingKeyPaymentScheduleInput 빌링키 결제 예약 요청 입력 정보
+type BillingKeyPaymentScheduleInput struct {
+	// Amount 금액 세부 입력 정보
+	Amount     PaymentAmountInput      `json:"amount"`
+	BillingKey string                  `json:"billingKey"`
+	Bypass     *map[string]interface{} `json:"bypass,omitempty"`
+
+	// CashReceipt 현금영수증 입력 정보
+	CashReceipt *CashReceiptInput `json:"cashReceipt,omitempty"`
+
+	// ChannelKey 다수 채널에 대해 발급된 빌링키에 대해, 결제 채널을 특정하고 싶을 때 명시
+	ChannelKey *string `json:"channelKey,omitempty"`
+
+	// Country 국가
+	Country *Country `json:"country,omitempty"`
+
+	// Currency 통화 단위
+	Currency   Currency `json:"currency"`
+	CustomData *string  `json:"customData,omitempty"`
+
+	// Customer 고객 정보 입력 정보
+	Customer         *CustomerInput `json:"customer,omitempty"`
+	InstallmentMonth *int32         `json:"installmentMonth,omitempty"`
+
+	// Locale 결제 언어
+	Locale *Locale `json:"locale,omitempty"`
+
+	// NoticeUrls 결제 승인/실패 시 요청을 받을 웹훅 주소입니다.
+	// 상점에 설정되어 있는 값보다 우선적으로 적용됩니다.
+	// 빈 배열은 무시됩니다.
+	NoticeUrls   *[]string `json:"noticeUrls,omitempty"`
+	OrderName    string    `json:"orderName"`
+	ProductCount *int32    `json:"productCount,omitempty"`
+
+	// ProductType 상품 유형
+	ProductType *PaymentProductType `json:"productType,omitempty"`
+
+	// Products 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.
+	Products    *[]PaymentProduct `json:"products,omitempty"`
+	PromotionId *string           `json:"promotionId,omitempty"`
+
+	// ShippingAddress 분리 형식 주소 입력 정보
+	ShippingAddress *SeparatedAddressInput `json:"shippingAddress,omitempty"`
+
+	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
+	StoreId                     *string `json:"storeId,omitempty"`
+	UseCardPoint                *bool   `json:"useCardPoint,omitempty"`
+	UseFreeInterestFromMerchant *bool   `json:"useFreeInterestFromMerchant,omitempty"`
+}
 
 // BillingKeyPaymentSummary 빌링키 결제 완료된 결제 건 요약 정보
 type BillingKeyPaymentSummary struct {
@@ -2455,8 +2994,14 @@ type CancelPaymentBody struct {
 	// RefundAccount 고객 정보 입력 형식
 	RefundAccount *CancelPaymentBodyRefundAccount `json:"refundAccount,omitempty"`
 
+	// RefundEmail Triple-A 결제 환불에 필요합니다. 해당 이메일로 환불 안내가 발송됩니다.
+	RefundEmail *string `json:"refundEmail,omitempty"`
+
 	// Requester 결제 취소 요청 주체
 	Requester *CancelRequester `json:"requester,omitempty"`
+
+	// SkipWebhook 취소가 성공했을 때 웹훅을 전송하지 않으려면 true로 설정합니다.
+	SkipWebhook *bool `json:"skipWebhook,omitempty"`
 
 	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
 	StoreId *string `json:"storeId,omitempty"`
@@ -2607,8 +3152,11 @@ type CancelledPayment struct {
 	MerchantId        string         `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	PaidAt       *time.Time        `json:"paidAt,omitempty"`
 	PgTxId       *string           `json:"pgTxId,omitempty"`
 	ProductCount *int32            `json:"productCount,omitempty"`
@@ -2696,8 +3244,11 @@ type CancelledPaymentEvent struct {
 	MerchantId        string `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	PaymentId    string            `json:"paymentId"`
 	PgTxId       *string           `json:"pgTxId,omitempty"`
 	ProductCount *int32            `json:"productCount,omitempty"`
@@ -3016,6 +3567,33 @@ type CloseVirtualAccountResponse struct {
 	ClosedAt time.Time `json:"closedAt"`
 }
 
+// CompletePlatformPayoutByPartnerSettlementIdsBody defines model for CompletePlatformPayoutByPartnerSettlementIdsBody.
+type CompletePlatformPayoutByPartnerSettlementIdsBody struct {
+	BulkPayoutId string `json:"bulkPayoutId"`
+
+	// CompletedAt 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
+	CompletedAt *openapi_types.Date `json:"completedAt,omitempty"`
+
+	// IsForTest Query Parameter의 test에 값이 제공된 경우 Query Parameter의 test를 사용하고 해당 값은 무시됩니다.
+	// Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
+	IsForTest            *bool    `json:"isForTest,omitempty"`
+	Name                 *string  `json:"name,omitempty"`
+	PartnerSettlementIds []string `json:"partnerSettlementIds"`
+}
+
+// CompletePlatformPayoutByPartnerSettlementIdsError defines model for CompletePlatformPayoutByPartnerSettlementIdsError.
+type CompletePlatformPayoutByPartnerSettlementIdsError struct {
+	union json.RawMessage
+}
+
+// CompletePlatformPayoutByPartnerSettlementIdsResponse 일괄 지급 완료 처리 결과
+type CompletePlatformPayoutByPartnerSettlementIdsResponse struct {
+	BulkPayoutGraphqlId    *string `json:"bulkPayoutGraphqlId,omitempty"`
+	BulkPayoutId           *string `json:"bulkPayoutId,omitempty"`
+	PartnerSettlementCount int32   `json:"partnerSettlementCount"`
+	PayoutCount            int32   `json:"payoutCount"`
+}
+
 // ConfirmBillingKeyBody 빌링키 발급 승인 입력 정보
 type ConfirmBillingKeyBody struct {
 	// BillingIssueToken 빌링키 발급 요청 완료 시 발급된 토큰입니다.
@@ -3023,6 +3601,9 @@ type ConfirmBillingKeyBody struct {
 
 	// IsTest 검증용 파라미터로, 결제 건 테스트 여부와 일치하지 않을 경우 오류가 반환됩니다.
 	IsTest *bool `json:"isTest,omitempty"`
+
+	// SkipWebhook 빌링키 발급이 성공했을 때 웹훅을 전송하지 않으려면 true로 설정합니다.
+	SkipWebhook *bool `json:"skipWebhook,omitempty"`
 
 	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
 	StoreId *string `json:"storeId,omitempty"`
@@ -3046,6 +3627,9 @@ type ConfirmBillingKeyIssueAndPayBody struct {
 
 	// PaymentId 검증용 파라미터로, 결제 건 아이디와 일치하지 않을 경우 오류가 반환됩니다.
 	PaymentId *string `json:"paymentId,omitempty"`
+
+	// SkipWebhook 빌링키 발급 및 결제가 성공했을 때 웹훅을 전송하지 않으려면 true로 설정합니다. 가상계좌 입금 완료 등 외부 이벤트로 결제가 완료되는 경우 발생하는 웹훅은 스킵되지 않습니다.
+	SkipWebhook *bool `json:"skipWebhook,omitempty"`
 
 	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
 	StoreId *string `json:"storeId,omitempty"`
@@ -3113,6 +3697,9 @@ type ConfirmPaymentBody struct {
 	// PaymentToken 인증 완료 시 발급된 토큰입니다.
 	PaymentToken string `json:"paymentToken"`
 
+	// SkipWebhook 결제가 성공했을 때 웹훅을 전송하지 않으려면 true로 설정합니다. 가상계좌 입금 완료 등 외부 이벤트로 결제가 완료되는 경우 발생하는 웹훅은 스킵되지 않습니다.
+	SkipWebhook *bool `json:"skipWebhook,omitempty"`
+
 	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
 	StoreId *string `json:"storeId,omitempty"`
 
@@ -3130,6 +3717,67 @@ type ConfirmPaymentBody struct {
 type ConfirmPaymentError struct {
 	union json.RawMessage
 }
+
+// ConfirmPaymentwallDeliveryBody 페이먼트월 배송 정보 등록 입력 정보
+type ConfirmPaymentwallDeliveryBody struct {
+	// Attachments 배송 증빙 자료의 URL(이미지 등)을 입력합니다. 증빙 자료를 제공하기 어려운 경우 생략할 수 있습니다.
+	Attachments *[]string `json:"attachments,omitempty"`
+
+	// CarrierTrackingId 배송 유형이 PHYSICAL인 경우 필수입니다.
+	CarrierTrackingId *string `json:"carrierTrackingId,omitempty"`
+
+	// CarrierType 배송 유형이 PHYSICAL인 경우 필수입니다.
+	CarrierType *string `json:"carrierType,omitempty"`
+
+	// DeliveryStatus 페이먼트월 배송 상태
+	DeliveryStatus PaymentwallDeliveryStatus `json:"deliveryStatus"`
+
+	// DeliveryType 페이먼트월 배송 유형
+	DeliveryType PaymentwallDeliveryType `json:"deliveryType"`
+	Details      string                  `json:"details"`
+
+	// EstimatedDeliveryDatetime 배송 유형이 DIGITAL인 경우 현재 시각을 입력해도 무방합니다.
+	EstimatedDeliveryDatetime time.Time `json:"estimatedDeliveryDatetime"`
+
+	// EstimatedUpdateDatetime 배송 유형이 DIGITAL인 경우 현재 시각을 입력해도 무방합니다.
+	EstimatedUpdateDatetime time.Time `json:"estimatedUpdateDatetime"`
+	Reason                  *string   `json:"reason,omitempty"`
+	Refundable              bool      `json:"refundable"`
+
+	// ShippingAddressCity 배송 유형이 PHYSICAL인 경우 필수입니다.
+	ShippingAddressCity *string `json:"shippingAddressCity,omitempty"`
+
+	// ShippingAddressCountry 국가
+	ShippingAddressCountry *Country `json:"shippingAddressCountry,omitempty"`
+	ShippingAddressEmail   string   `json:"shippingAddressEmail"`
+
+	// ShippingAddressFirstname 배송 유형이 PHYSICAL인 경우 필수입니다.
+	ShippingAddressFirstname *string `json:"shippingAddressFirstname,omitempty"`
+
+	// ShippingAddressLastname 배송 유형이 PHYSICAL인 경우 필수입니다.
+	ShippingAddressLastname *string `json:"shippingAddressLastname,omitempty"`
+
+	// ShippingAddressPhone 배송 유형이 PHYSICAL인 경우 필수입니다.
+	ShippingAddressPhone *string `json:"shippingAddressPhone,omitempty"`
+
+	// ShippingAddressState 배송 유형이 PHYSICAL인 경우 필수입니다.
+	ShippingAddressState *string `json:"shippingAddressState,omitempty"`
+
+	// ShippingAddressStreet 배송 유형이 PHYSICAL인 경우 필수입니다.
+	ShippingAddressStreet *string `json:"shippingAddressStreet,omitempty"`
+
+	// ShippingAddressZip 배송 유형이 PHYSICAL인 경우 필수입니다.
+	ShippingAddressZip *string `json:"shippingAddressZip,omitempty"`
+	TransactionId      string  `json:"transactionId"`
+}
+
+// ConfirmPaymentwallDeliveryError defines model for ConfirmPaymentwallDeliveryError.
+type ConfirmPaymentwallDeliveryError struct {
+	union json.RawMessage
+}
+
+// ConfirmPaymentwallDeliveryResponse 페이먼트월 배송 정보 등록 성공 응답
+type ConfirmPaymentwallDeliveryResponse = map[string]interface{}
 
 // ConfirmedBillingKeyIssueAndPaySummary 빌링키 발급 및 초회 결제 수동 승인 완료 응답
 type ConfirmedBillingKeyIssueAndPaySummary struct {
@@ -3158,31 +3806,31 @@ type ConfirmedPaymentSummary struct {
 	PgTxId string    `json:"pgTxId"`
 }
 
-// ConnectBulkPartnerMemberCompanyBody 파트너 일괄 국세청 연동 요청 정보
+// ConnectBulkPartnerCounterpartyBody 파트너 일괄 거래처 연동 요청 정보
 //
-// 파트너들을 일괄 국세청 연동합니다.
-type ConnectBulkPartnerMemberCompanyBody struct {
+// 파트너들을 일괄 거래처 연동합니다.
+type ConnectBulkPartnerCounterpartyBody struct {
 	// Filter 파트너 필터 입력 정보
 	Filter *PlatformPartnerFilterInput `json:"filter,omitempty"`
 }
 
-// ConnectBulkPartnerMemberCompanyError defines model for ConnectBulkPartnerMemberCompanyError.
-type ConnectBulkPartnerMemberCompanyError struct {
+// ConnectBulkPartnerCounterpartyError defines model for ConnectBulkPartnerCounterpartyError.
+type ConnectBulkPartnerCounterpartyError struct {
 	union json.RawMessage
 }
 
-// ConnectBulkPartnerMemberCompanyResponse 파트너 일괄 국세청 연동 응답
-type ConnectBulkPartnerMemberCompanyResponse struct {
+// ConnectBulkPartnerCounterpartyResponse 파트너 일괄 거래처 연동 응답
+type ConnectBulkPartnerCounterpartyResponse struct {
 	BulkTask PlatformBulkTask `json:"bulkTask"`
 }
 
-// ConnectPartnerMemberCompanyError defines model for ConnectPartnerMemberCompanyError.
-type ConnectPartnerMemberCompanyError struct {
+// ConnectPartnerCounterpartyError defines model for ConnectPartnerCounterpartyError.
+type ConnectPartnerCounterpartyError struct {
 	union json.RawMessage
 }
 
-// ConnectPartnerMemberCompanyResponse 파트너 국세청 연동 응답
-type ConnectPartnerMemberCompanyResponse struct {
+// ConnectPartnerCounterpartyResponse 파트너 거래처 연동 응답
+type ConnectPartnerCounterpartyResponse struct {
 	// Partner 파트너
 	//
 	// 파트너는 고객사가 정산해주어야 할 대상입니다.
@@ -3195,6 +3843,31 @@ type ConvenienceStoreBrand string
 
 // Country 국가
 type Country string
+
+// CreateB2bCounterpartyBody 거래처 생성 요청 정보
+type CreateB2bCounterpartyBody struct {
+	// Counterparty 거래처 입력 정보
+	Counterparty B2bCounterpartyInput `json:"counterparty"`
+
+	// CounterpartyId 입력하지 않으면 임의의 ID가 채번됩니다.
+	CounterpartyId *string `json:"counterpartyId,omitempty"`
+
+	// Options 거래처 생성 옵션
+	Options *B2bCounterpartyCreateOptions `json:"options,omitempty"`
+}
+
+// CreateB2bCounterpartyError defines model for CreateB2bCounterpartyError.
+type CreateB2bCounterpartyError struct {
+	union json.RawMessage
+}
+
+// CreateB2bCounterpartyResponse 거래처 생성 응답 정보
+type CreateB2bCounterpartyResponse struct {
+	// Counterparty 거래처
+	//
+	// B2B 거래처 정보입니다.
+	Counterparty B2bCounterparty `json:"counterparty"`
+}
 
 // CreateB2bFileUploadUrlBody 파일 업로드 URL 생성 요청 정보
 type CreateB2bFileUploadUrlBody struct {
@@ -3232,9 +3905,9 @@ type CreateOrderTransferResponse struct {
 
 // CreatePaymentScheduleBody 결제 예약 요청 입력 정보
 type CreatePaymentScheduleBody struct {
-	// Payment 빌링키 결제 요청 입력 정보
-	Payment   BillingKeyPaymentInput `json:"payment"`
-	TimeToPay time.Time              `json:"timeToPay"`
+	// Payment 빌링키 결제 예약 요청 입력 정보
+	Payment   BillingKeyPaymentScheduleInput `json:"payment"`
+	TimeToPay time.Time                      `json:"timeToPay"`
 }
 
 // CreatePaymentScheduleError defines model for CreatePaymentScheduleError.
@@ -3342,12 +4015,18 @@ type CreatePlatformDiscountSharePolicyResponse struct {
 
 // CreatePlatformManualTransferBody 수기 정산건 생성을 위한 입력 정보
 type CreatePlatformManualTransferBody struct {
+	// Id 명시하지 않으면 id 가 임의로 생성됩니다.
+	Id *string `json:"id,omitempty"`
+
 	// IsForTest Query Parameter의 test에 값이 제공된 경우 Query Parameter의 test를 사용하고 해당 값은 무시됩니다.
 	// Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
 	IsForTest        *bool   `json:"isForTest,omitempty"`
 	Memo             *string `json:"memo,omitempty"`
 	PartnerId        string  `json:"partnerId"`
 	SettlementAmount int64   `json:"settlementAmount"`
+
+	// SettlementCurrency 통화 단위
+	SettlementCurrency *Currency `json:"settlementCurrency,omitempty"`
 
 	// SettlementDate 날짜를 나타내는 문자열로, `yyyy-MM-dd` 형식을 따릅니다.
 	SettlementDate          openapi_types.Date                     `json:"settlementDate"`
@@ -3365,12 +4044,16 @@ type CreatePlatformManualTransferError struct {
 // 하나의 payment에 하나의 정산 건만 존재하는 경우에는 (partnerId, paymentId)로 취소 정산을 등록하실 수 있습니다.
 // 하나의 payment에 여러 개의 정산 건이 존재하는 경우에는 transferId를 필수로 입력해야 합니다.
 // transferId를 입력한 경우 (partnerId, paymentId)는 생략 가능합니다.
+// id를 입력한 경우 생성될 취소 정산건 아이디로 사용됩니다.
 type CreatePlatformOrderCancelTransferBody struct {
 	CancellationId string                                          `json:"cancellationId"`
 	Discounts      []CreatePlatformOrderCancelTransferBodyDiscount `json:"discounts"`
 
 	// ExternalCancellationDetail 외부 결제 상세 정보
 	ExternalCancellationDetail *CreatePlatformOrderCancelTransferBodyExternalCancellationDetail `json:"externalCancellationDetail,omitempty"`
+
+	// Id 명시하지 않으면 id 가 임의로 생성됩니다.
+	Id *string `json:"id,omitempty"`
 
 	// IsForTest Query Parameter의 test에 값이 제공된 경우 Query Parameter의 test를 사용하고 해당 값은 무시됩니다.
 	// Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
@@ -3443,6 +4126,9 @@ type CreatePlatformOrderTransferBody struct {
 
 	// ExternalPaymentDetail 외부 결제 상세 정보
 	ExternalPaymentDetail *CreatePlatformOrderTransferBodyExternalPaymentDetail `json:"externalPaymentDetail,omitempty"`
+
+	// Id 명시하지 않으면 id 가 임의로 생성됩니다.
+	Id *string `json:"id,omitempty"`
 
 	// IsForTest Query Parameter의 test에 값이 제공된 경우 Query Parameter의 test를 사용하고 해당 값은 무시됩니다.
 	// Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
@@ -3734,6 +4420,17 @@ type Decimal struct {
 	Value int64 `json:"value"`
 }
 
+// DeleteB2bCounterpartyBody 거래처 삭제 요청
+type DeleteB2bCounterpartyBody = map[string]interface{}
+
+// DeleteB2bCounterpartyError defines model for DeleteB2bCounterpartyError.
+type DeleteB2bCounterpartyError struct {
+	union json.RawMessage
+}
+
+// DeleteB2bCounterpartyResponse 거래처 삭제 응답
+type DeleteB2bCounterpartyResponse = map[string]interface{}
+
 // DeleteB2bTaxInvoiceAttachmentError defines model for DeleteB2bTaxInvoiceAttachmentError.
 type DeleteB2bTaxInvoiceAttachmentError struct {
 	union json.RawMessage
@@ -3756,6 +4453,22 @@ type DeleteBillingKeyError struct {
 type DeleteBillingKeyResponse struct {
 	DeletedAt time.Time `json:"deletedAt"`
 }
+
+// DeletePlatformPartnerSettlementsBody defines model for DeletePlatformPartnerSettlementsBody.
+type DeletePlatformPartnerSettlementsBody struct {
+	// IsForTest Query Parameter의 test에 값이 제공된 경우 Query Parameter의 test를 사용하고 해당 값은 무시됩니다.
+	// Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
+	IsForTest            *bool    `json:"isForTest,omitempty"`
+	PartnerSettlementIds []string `json:"partnerSettlementIds"`
+}
+
+// DeletePlatformPartnerSettlementsError defines model for DeletePlatformPartnerSettlementsError.
+type DeletePlatformPartnerSettlementsError struct {
+	union json.RawMessage
+}
+
+// DeletePlatformPartnerSettlementsResponse 정산내역 삭제 결과
+type DeletePlatformPartnerSettlementsResponse = map[string]interface{}
 
 // DeletePlatformTransferError defines model for DeletePlatformTransferError.
 type DeletePlatformTransferError struct {
@@ -3803,31 +4516,31 @@ type DeliveredPaymentEscrow struct {
 	Status        string     `json:"status"`
 }
 
-// DisconnectBulkPartnerMemberCompanyBody 파트너 일괄 국세청 연동 해제 요청 정보
+// DisconnectBulkPartnerCounterpartyBody 파트너 일괄 거래처 연동 해제 요청 정보
 //
-// 파트너들을 일괄 국세청 연동 해제합니다.
-type DisconnectBulkPartnerMemberCompanyBody struct {
+// 파트너들을 일괄 거래처 연동 해제합니다.
+type DisconnectBulkPartnerCounterpartyBody struct {
 	// Filter 파트너 필터 입력 정보
 	Filter *PlatformPartnerFilterInput `json:"filter,omitempty"`
 }
 
-// DisconnectBulkPartnerMemberCompanyError defines model for DisconnectBulkPartnerMemberCompanyError.
-type DisconnectBulkPartnerMemberCompanyError struct {
+// DisconnectBulkPartnerCounterpartyError defines model for DisconnectBulkPartnerCounterpartyError.
+type DisconnectBulkPartnerCounterpartyError struct {
 	union json.RawMessage
 }
 
-// DisconnectBulkPartnerMemberCompanyResponse 파트너 일괄 국세청 연동 해제 응답
-type DisconnectBulkPartnerMemberCompanyResponse struct {
+// DisconnectBulkPartnerCounterpartyResponse 파트너 일괄 거래처 연동 해제 응답
+type DisconnectBulkPartnerCounterpartyResponse struct {
 	BulkTask PlatformBulkTask `json:"bulkTask"`
 }
 
-// DisconnectPartnerMemberCompanyError defines model for DisconnectPartnerMemberCompanyError.
-type DisconnectPartnerMemberCompanyError struct {
+// DisconnectPartnerCounterpartyError defines model for DisconnectPartnerCounterpartyError.
+type DisconnectPartnerCounterpartyError struct {
 	union json.RawMessage
 }
 
-// DisconnectPartnerMemberCompanyResponse 파트너 국세청 연동 해제 응답
-type DisconnectPartnerMemberCompanyResponse struct {
+// DisconnectPartnerCounterpartyResponse 파트너 거래처 연동 해제 응답
+type DisconnectPartnerCounterpartyResponse struct {
 	// Partner 파트너
 	//
 	// 파트너는 고객사가 정산해주어야 할 대상입니다.
@@ -3861,7 +4574,10 @@ type DownloadB2bTaxInvoicesSheetBody struct {
 
 	// Filter 세금계산서 다건 조회 필터
 	Filter *GetB2bTaxInvoicesBodyFilter `json:"filter,omitempty"`
-	Test   *bool                        `json:"test,omitempty"`
+
+	// Sort 세금계산서 다건 조회 시 정렬 조건
+	Sort *B2bTaxInvoiceSortInput `json:"sort,omitempty"`
+	Test *bool                   `json:"test,omitempty"`
 }
 
 // DownloadB2bTaxInvoicesSheetError defines model for DownloadB2bTaxInvoicesSheetError.
@@ -3886,7 +4602,9 @@ type DownloadPlatformTransferSheetError struct {
 
 // DraftB2bTaxInvoiceBody 세금계산서 임시 저장 정보
 type DraftB2bTaxInvoiceBody struct {
-	Memo *string `json:"memo,omitempty"`
+	// CreateRecipientCounterparty true인 경우 공급받는자 정보로 거래처를 자동 생성합니다.
+	CreateRecipientCounterparty *bool   `json:"createRecipientCounterparty,omitempty"`
+	Memo                        *string `json:"memo,omitempty"`
 
 	// Modification 수정 세금계산서 생성 입력 정보
 	Modification *B2bTaxInvoiceModificationCreateBody `json:"modification,omitempty"`
@@ -3921,6 +4639,7 @@ type FailedIdentityVerification struct {
 	// Failure 본인인증 실패 정보
 	Failure     IdentityVerificationFailure `json:"failure"`
 	Id          string                      `json:"id"`
+	PgTxId      *string                     `json:"pgTxId,omitempty"`
 	RequestedAt time.Time                   `json:"requestedAt"`
 
 	// RequestedCustomer 요청 시 고객 정보
@@ -3970,8 +4689,11 @@ type FailedPayment struct {
 	MerchantId        string         `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	ProductCount *int32            `json:"productCount,omitempty"`
 	Products     *[]PaymentProduct `json:"products,omitempty"`
 	PromotionId  *string           `json:"promotionId,omitempty"`
@@ -4203,6 +4925,48 @@ type GetB2bBusinessInfosResponse struct {
 	Result []B2bBusinessInfoResult `json:"result"`
 }
 
+// GetB2bCounterpartiesBody 거래처 검색 요청 정보
+type GetB2bCounterpartiesBody struct {
+	// Filter 거래처 검색 필터
+	Filter *B2bCounterpartyFilter `json:"filter,omitempty"`
+
+	// Page 다건 조회 API 에 사용되는 페이지 입력 정보
+	Page *PageInput `json:"page,omitempty"`
+}
+
+// GetB2bCounterpartiesError defines model for GetB2bCounterpartiesError.
+type GetB2bCounterpartiesError struct {
+	union json.RawMessage
+}
+
+// GetB2bCounterpartiesResponse 거래처 검색 성공 응답
+type GetB2bCounterpartiesResponse struct {
+	Items []B2bCounterparty `json:"items"`
+
+	// Page 반환된 페이지 결과 정보
+	Page PageInfo `json:"page"`
+}
+
+// GetB2bCounterpartyCertificateError defines model for GetB2bCounterpartyCertificateError.
+type GetB2bCounterpartyCertificateError struct {
+	union json.RawMessage
+}
+
+// GetB2bCounterpartyCertificateRegistrationUrlError defines model for GetB2bCounterpartyCertificateRegistrationUrlError.
+type GetB2bCounterpartyCertificateRegistrationUrlError struct {
+	union json.RawMessage
+}
+
+// GetB2bCounterpartyCertificateRegistrationUrlResponse 인증서 등록 URL 조회 응답 정보
+type GetB2bCounterpartyCertificateRegistrationUrlResponse struct {
+	Url string `json:"url"`
+}
+
+// GetB2bCounterpartyError defines model for GetB2bCounterpartyError.
+type GetB2bCounterpartyError struct {
+	union json.RawMessage
+}
+
 // GetB2bTaxInvoiceAttachmentsError defines model for GetB2bTaxInvoiceAttachmentsError.
 type GetB2bTaxInvoiceAttachmentsError struct {
 	union json.RawMessage
@@ -4259,6 +5023,9 @@ type GetB2bTaxInvoicesBody struct {
 	// PageSize 각 페이지 당 포함할 객체 수. 기본 값은 500이며 최대 1000까지 요청가능합니다.
 	PageSize *int32 `json:"pageSize,omitempty"`
 
+	// Sort 세금계산서 다건 조회 시 정렬 조건
+	Sort *B2bTaxInvoiceSortInput `json:"sort,omitempty"`
+
 	// Test true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
 	Test *bool `json:"test,omitempty"`
 }
@@ -4274,9 +5041,14 @@ type GetB2bTaxInvoicesBodyDateFilter struct {
 
 // GetB2bTaxInvoicesBodyFilter 세금계산서 다건 조회 필터
 type GetB2bTaxInvoicesBodyFilter struct {
+	// CounterpartyId 거래처 ID로 필터링합니다. 공급자 또는 공급받는자 거래처 ID에 대해 조회합니다.
+	CounterpartyId            *string                                  `json:"counterpartyId,omitempty"`
 	DocumentModificationTypes *[]B2bTaxInvoiceDocumentModificationType `json:"documentModificationTypes,omitempty"`
-	IsDelayed                 *bool                                    `json:"isDelayed,omitempty"`
-	IssuanceTypes             *[]B2bTaxInvoiceIssuanceType             `json:"issuanceTypes,omitempty"`
+
+	// IncludeBrnMatch counterpartyId 조건과 함께 거래처의 사업자등록번호 매칭 조건을 추가할지 여부입니다.
+	IncludeBrnMatch *bool                        `json:"includeBrnMatch,omitempty"`
+	IsDelayed       *bool                        `json:"isDelayed,omitempty"`
+	IssuanceTypes   *[]B2bTaxInvoiceIssuanceType `json:"issuanceTypes,omitempty"`
 
 	// PartnerBrn 역발행의 경우 공급자 사업자등록번호, 정발행의 경우 공급받는자 사업자등록번호에 대해 조회합니다.
 	PartnerBrn *string `json:"partnerBrn,omitempty"`
@@ -4438,6 +5210,46 @@ type GetPaymentError struct {
 	union json.RawMessage
 }
 
+// GetPaymentReconciliationSettlementVatReportBody defines model for GetPaymentReconciliationSettlementVatReportBody.
+type GetPaymentReconciliationSettlementVatReportBody struct {
+	DateRange DateRange `json:"dateRange"`
+
+	// Filter 거래대사 정산 요약 내역 필터
+	Filter *PaymentReconciliationSettlementSummaryFilterInput `json:"filter,omitempty"`
+}
+
+// GetPaymentReconciliationSettlementVatReportError defines model for GetPaymentReconciliationSettlementVatReportError.
+type GetPaymentReconciliationSettlementVatReportError struct {
+	union json.RawMessage
+}
+
+// GetPaymentReconciliationSettlementVatReportResponse defines model for GetPaymentReconciliationSettlementVatReportResponse.
+type GetPaymentReconciliationSettlementVatReportResponse struct {
+	Items        *[]PaymentReconciliationVatReportItem `json:"items,omitempty"`
+	PgSpecifiers *[]ReconciliationPgSpecifier          `json:"pgSpecifiers,omitempty"`
+	Summary      PaymentReconciliationVatReportSummary `json:"summary"`
+}
+
+// GetPaymentReconciliationTransactionVatReportBody defines model for GetPaymentReconciliationTransactionVatReportBody.
+type GetPaymentReconciliationTransactionVatReportBody struct {
+	DateRange DateRange `json:"dateRange"`
+
+	// Filter 거래대사 거래내역 필터
+	Filter *PaymentReconciliationTransactionSummaryFilterInput `json:"filter,omitempty"`
+}
+
+// GetPaymentReconciliationTransactionVatReportError defines model for GetPaymentReconciliationTransactionVatReportError.
+type GetPaymentReconciliationTransactionVatReportError struct {
+	union json.RawMessage
+}
+
+// GetPaymentReconciliationTransactionVatReportResponse defines model for GetPaymentReconciliationTransactionVatReportResponse.
+type GetPaymentReconciliationTransactionVatReportResponse struct {
+	Items        *[]PaymentReconciliationVatReportItem `json:"items,omitempty"`
+	PgSpecifiers *[]ReconciliationPgSpecifier          `json:"pgSpecifiers,omitempty"`
+	Summary      PaymentReconciliationVatReportSummary `json:"summary"`
+}
+
 // GetPaymentScheduleError defines model for GetPaymentScheduleError.
 type GetPaymentScheduleError struct {
 	union json.RawMessage
@@ -4500,6 +5312,16 @@ type GetPaymentsResponse struct {
 
 	// Page 반환된 페이지 결과 정보
 	Page PageInfo `json:"page"`
+}
+
+// GetPgCardPromotionsError defines model for GetPgCardPromotionsError.
+type GetPgCardPromotionsError struct {
+	union json.RawMessage
+}
+
+// GetPgCardPromotionsResponse PG사 카드 프로모션 조회 응답
+type GetPgCardPromotionsResponse struct {
+	Promotions *[]PgCardPromotion `json:"promotions,omitempty"`
 }
 
 // GetPlatformAccountHolderError defines model for GetPlatformAccountHolderError.
@@ -4996,7 +5818,8 @@ type InstantBillingKeyPaymentMethodInputCard struct {
 // InstantPaymentInput 수기 결제 요청 정보
 type InstantPaymentInput struct {
 	// Amount 금액 세부 입력 정보
-	Amount PaymentAmountInput `json:"amount"`
+	Amount PaymentAmountInput      `json:"amount"`
+	Bypass *map[string]interface{} `json:"bypass,omitempty"`
 
 	// ChannelGroupId 채널 키 또는 채널 그룹 ID 필수
 	ChannelGroupId *string `json:"channelGroupId,omitempty"`
@@ -5041,6 +5864,9 @@ type InstantPaymentInput struct {
 
 	// ShippingAddress 분리 형식 주소 입력 정보
 	ShippingAddress *SeparatedAddressInput `json:"shippingAddress,omitempty"`
+
+	// SkipWebhook 결제가 성공했을 때 웹훅을 전송하지 않으려면 true로 설정합니다. 가상계좌 입금 완료 등 외부 이벤트로 결제가 완료되는 경우 발생하는 웹훅은 스킵되지 않습니다.
+	SkipWebhook *bool `json:"skipWebhook,omitempty"`
 
 	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
 	StoreId *string `json:"storeId,omitempty"`
@@ -5162,7 +5988,9 @@ type IssueB2bTaxInvoiceError struct {
 
 // IssueB2bTaxInvoiceImmediatelyBody 세금계산서 즉시 정발행 요청 정보
 type IssueB2bTaxInvoiceImmediatelyBody struct {
-	Memo *string `json:"memo,omitempty"`
+	// CreateRecipientCounterparty true인 경우 공급받는자 정보로 거래처를 자동 생성합니다.
+	CreateRecipientCounterparty *bool   `json:"createRecipientCounterparty,omitempty"`
+	Memo                        *string `json:"memo,omitempty"`
 
 	// Modification 수정 세금계산서 생성 입력 정보
 	Modification *B2bTaxInvoiceModificationCreateBody `json:"modification,omitempty"`
@@ -5211,6 +6039,9 @@ type IssueBillingKeyBody struct {
 	// 상점에 설정되어 있는 값보다 우선적으로 적용됩니다.
 	// 입력된 값이 없을 경우에는 빈 배열로 해석됩니다.
 	NoticeUrls *[]string `json:"noticeUrls,omitempty"`
+
+	// SkipWebhook 빌링키 발급이 성공했을 때 웹훅을 전송하지 않으려면 true로 설정합니다.
+	SkipWebhook *bool `json:"skipWebhook,omitempty"`
 
 	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
 	StoreId *string `json:"storeId,omitempty"`
@@ -5264,9 +6095,15 @@ type IssueCashReceiptBody struct {
 type IssueCashReceiptCustomerInput struct {
 	Email          *string `json:"email,omitempty"`
 	IdentityNumber string  `json:"identityNumber"`
-	Name           *string `json:"name,omitempty"`
-	PhoneNumber    *string `json:"phoneNumber,omitempty"`
+
+	// IdentityNumberType 현금영수증 발급 시 고객 식별 정보 유형
+	IdentityNumberType *IssueCashReceiptCustomerInputIdentityNumberType `json:"identityNumberType,omitempty"`
+	Name               *string                                          `json:"name,omitempty"`
+	PhoneNumber        *string                                          `json:"phoneNumber,omitempty"`
 }
+
+// IssueCashReceiptCustomerInputIdentityNumberType 현금영수증 발급 시 고객 식별 정보 유형
+type IssueCashReceiptCustomerInputIdentityNumberType string
 
 // IssueCashReceiptError defines model for IssueCashReceiptError.
 type IssueCashReceiptError struct {
@@ -5485,7 +6322,8 @@ type PaidPayment struct {
 	Amount PaymentAmount `json:"amount"`
 
 	// BillingKey 빌링키 결제인 경우에만 존재
-	BillingKey *string `json:"billingKey,omitempty"`
+	BillingKey    *string                `json:"billingKey,omitempty"`
+	Cancellations *[]PaymentCancellation `json:"cancellations,omitempty"`
 
 	// CashReceipt 결제 건 내 현금영수증 정보
 	CashReceipt *PaymentCashReceipt `json:"cashReceipt,omitempty"`
@@ -5516,8 +6354,11 @@ type PaidPayment struct {
 	MerchantId        string         `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	PaidAt       time.Time         `json:"paidAt"`
 	PgResponse   *string           `json:"pgResponse,omitempty"`
 	PgTxId       *string           `json:"pgTxId,omitempty"`
@@ -5577,8 +6418,11 @@ type PaidPaymentEvent struct {
 	MerchantId        string `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	PaymentId    string            `json:"paymentId"`
 	PgResponse   *string           `json:"pgResponse,omitempty"`
 	PgTxId       *string           `json:"pgTxId,omitempty"`
@@ -5702,8 +6546,11 @@ type PartialCancelledPayment struct {
 	MerchantId        string         `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	PaidAt       *time.Time        `json:"paidAt,omitempty"`
 	PgTxId       *string           `json:"pgTxId,omitempty"`
 	ProductCount *int32            `json:"productCount,omitempty"`
@@ -5764,8 +6611,11 @@ type PartialCancelledPaymentEvent struct {
 	MerchantId        string `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	PaymentId    string            `json:"paymentId"`
 	PgTxId       *string           `json:"pgTxId,omitempty"`
 	ProductCount *int32            `json:"productCount,omitempty"`
@@ -5895,8 +6745,11 @@ type PayPendingPayment struct {
 	MerchantId        string         `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	PgTxId       *string           `json:"pgTxId,omitempty"`
 	ProductCount *int32            `json:"productCount,omitempty"`
 	Products     *[]PaymentProduct `json:"products,omitempty"`
@@ -6023,6 +6876,18 @@ type PaymentAmountInput struct {
 // PaymentCancellation 결제 취소 내역
 type PaymentCancellation struct {
 	union json.RawMessage
+}
+
+// PaymentCancellationNotFoundError 결제 취소 내역이 존재하지 않는 경우
+type PaymentCancellationNotFoundError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// PaymentCancellationNotPendingError 결제 취소 내역이 취소 요청 상태가 아닌 경우
+type PaymentCancellationNotPendingError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
 }
 
 // PaymentCashReceipt 결제 건 내 현금영수증 정보
@@ -6170,8 +7035,11 @@ type PaymentFilterInputEscrowStatus string
 
 // PaymentInstallment 할부 정보
 type PaymentInstallment struct {
-	IsInterestFree bool  `json:"isInterestFree"`
-	Month          int32 `json:"month"`
+	IsInterestFree bool `json:"isInterestFree"`
+
+	// IsInterestFreeFromMerchant 정보 필요시 포트원과 협의해 주세요.
+	IsInterestFreeFromMerchant *bool `json:"isInterestFreeFromMerchant,omitempty"`
+	Month                      int32 `json:"month"`
 }
 
 // PaymentLogistics 배송정보
@@ -6216,6 +7084,11 @@ type PaymentMethodConvenienceStore struct {
 	PaymentDeadline       *time.Time             `json:"paymentDeadline,omitempty"`
 	ReceiptNumber         *string                `json:"receiptNumber,omitempty"`
 	Type                  string                 `json:"type"`
+}
+
+// PaymentMethodCrypto 암호화폐 결제 상세 정보
+type PaymentMethodCrypto struct {
+	Type string `json:"type"`
 }
 
 // PaymentMethodEasyPay 간편 결제 상세 정보
@@ -6313,6 +7186,19 @@ type PaymentNotWaitingForDepositError struct {
 	Type    string  `json:"type"`
 }
 
+// PaymentOrigin 결제 출처 정보
+type PaymentOrigin struct {
+	IpAddress string `json:"ipAddress"`
+
+	// PlatformType 플랫폼 타입
+	PlatformType PaymentOriginPlatformType `json:"platformType"`
+	Url          *string                   `json:"url,omitempty"`
+	UserAgent    *string                   `json:"userAgent,omitempty"`
+}
+
+// PaymentOriginPlatformType 플랫폼 타입
+type PaymentOriginPlatformType string
+
 // PaymentProduct 상품 정보
 type PaymentProduct struct {
 	Amount int64   `json:"amount"`
@@ -6330,6 +7216,40 @@ type PaymentProduct struct {
 
 // PaymentProductType 상품 유형
 type PaymentProductType string
+
+// PaymentReconciliationSettlementSummaryFilterInput 거래대사 정산 요약 내역 필터
+type PaymentReconciliationSettlementSummaryFilterInput struct {
+	PgSpecifiers *[]ReconciliationPgSpecifier `json:"pgSpecifiers,omitempty"`
+	StoreIds     *[]string                    `json:"storeIds,omitempty"`
+}
+
+// PaymentReconciliationStatus 결제 건의 대사 상태
+type PaymentReconciliationStatus string
+
+// PaymentReconciliationTransactionSummaryFilterInput 거래대사 거래내역 필터
+type PaymentReconciliationTransactionSummaryFilterInput struct {
+	PgSpecifiers           *[]ReconciliationPgSpecifier   `json:"pgSpecifiers,omitempty"`
+	ReconciliationStatuses *[]PaymentReconciliationStatus `json:"reconciliationStatuses,omitempty"`
+	StoreIds               *[]string                      `json:"storeIds,omitempty"`
+}
+
+// PaymentReconciliationVatReportItem defines model for PaymentReconciliationVatReportItem.
+type PaymentReconciliationVatReportItem struct {
+	// PaymentMethod 간소화된 결제수단 목록
+	PaymentMethod SimplifiedPaymentMethodType `json:"paymentMethod"`
+	SupplyAmount  int64                       `json:"supplyAmount"`
+	TaxFreeAmount int64                       `json:"taxFreeAmount"`
+	TotalAmount   int64                       `json:"totalAmount"`
+	VatAmount     int64                       `json:"vatAmount"`
+}
+
+// PaymentReconciliationVatReportSummary defines model for PaymentReconciliationVatReportSummary.
+type PaymentReconciliationVatReportSummary struct {
+	TotalAmount        int64 `json:"totalAmount"`
+	TotalSupplyAmount  int64 `json:"totalSupplyAmount"`
+	TotalTaxFreeAmount int64 `json:"totalTaxFreeAmount"`
+	TotalVatAmount     int64 `json:"totalVatAmount"`
+}
 
 // PaymentSchedule 결제 예약 건
 type PaymentSchedule struct {
@@ -6496,6 +7416,12 @@ type PaymentWithCursor struct {
 	Payment Payment `json:"payment"`
 }
 
+// PaymentwallDeliveryStatus 페이먼트월 배송 상태
+type PaymentwallDeliveryStatus string
+
+// PaymentwallDeliveryType 페이먼트월 배송 유형
+type PaymentwallDeliveryType string
+
 // PendingPaymentSchedule 결제 완료 대기 상태
 type PendingPaymentSchedule struct {
 	BillingKey  string    `json:"billingKey"`
@@ -6531,8 +7457,32 @@ type PgBillingKeyIssueResponse struct {
 	union json.RawMessage
 }
 
+// PgCardPromotion PG사 카드 프로모션
+//
+// PG사에서 제공하는 카드 프로모션 정보입니다.
+type PgCardPromotion struct {
+	// CardCompany PG 프로모션 카드사
+	//
+	// PG사 프로모션 조회 시 필터링할 수 있는 카드사 목록입니다.
+	CardCompany PgPromotionCardCompany `json:"cardCompany"`
+
+	// DiscountAmount 프로모션 적용 시 할인되는 금액입니다.
+	DiscountAmount int64 `json:"discountAmount"`
+
+	// MinimumPaymentAmount 프로모션이 적용되기 위한 최소 결제 금액입니다.
+	MinimumPaymentAmount int64 `json:"minimumPaymentAmount"`
+
+	// PromotionId PG사에서 부여한 프로모션 식별자입니다.
+	PromotionId string `json:"promotionId"`
+}
+
 // PgCompany PG사
 type PgCompany string
+
+// PgPromotionCardCompany PG 프로모션 카드사
+//
+// PG사 프로모션 조회 시 필터링할 수 있는 카드사 목록입니다.
+type PgPromotionCardCompany string
 
 // PgProvider PG사 결제 모듈
 type PgProvider string
@@ -6755,11 +7705,32 @@ type PlatformArchivedPartnerError struct {
 	Type    string  `json:"type"`
 }
 
+// PlatformArchivedPartnerNtsNotAllowedError 보관된 파트너는 국세청 연동/연동해제를 할 수 없는 경우
+type PlatformArchivedPartnerNtsNotAllowedError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
 // PlatformArchivedPartnersCannotBeScheduledError 보관된 파트너들을 예약 업데이트하려고 하는 경우
 type PlatformArchivedPartnersCannotBeScheduledError struct {
 	Message *string `json:"message,omitempty"`
 	Type    string  `json:"type"`
 }
+
+// PlatformBankAccountDetail 계좌 상세 정보
+type PlatformBankAccountDetail struct {
+	AccountNumber string `json:"accountNumber"`
+
+	// Bank 은행
+	Bank   Bank    `json:"bank"`
+	Holder *string `json:"holder,omitempty"`
+
+	// Provider 제공자
+	Provider PlatformBankAccountProvider `json:"provider"`
+}
+
+// PlatformBankAccountProvider 제공자
+type PlatformBankAccountProvider string
 
 // PlatformBtxNotEnabledError BTX 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
 type PlatformBtxNotEnabledError struct {
@@ -6849,6 +7820,12 @@ type PlatformBulkPayoutFilterInputCriteria struct {
 
 	// TimestampRange 시간 범위
 	TimestampRange *DateTimeRange `json:"timestampRange,omitempty"`
+}
+
+// PlatformBulkPayoutIdAlreadyExistsError 일괄 지급 아이디가 이미 존재하는 경우
+type PlatformBulkPayoutIdAlreadyExistsError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
 }
 
 // PlatformBulkPayoutStats defines model for PlatformBulkPayoutStats.
@@ -7128,6 +8105,24 @@ type PlatformContractsNotFoundError struct {
 	Type       string   `json:"type"`
 }
 
+// PlatformCounterpartyNotConnectableStatusError 파트너 거래처 연동 상태가 연동 가능한 상태가 아닌 경우
+type PlatformCounterpartyNotConnectableStatusError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// PlatformCounterpartyNotConnectedError 파트너가 거래처로 연동 되어있지 않은 경우
+type PlatformCounterpartyNotConnectedError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
+// PlatformCounterpartyOngoingTaxInvoiceExistsError 연동된 거래처에 진행 중인 세금계산서가 있는 경우
+type PlatformCounterpartyOngoingTaxInvoiceExistsError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
 // PlatformCurrencyNotSupportedError 지원 되지 않는 통화를 선택한 경우
 type PlatformCurrencyNotSupportedError struct {
 	Message *string `json:"message,omitempty"`
@@ -7136,10 +8131,13 @@ type PlatformCurrencyNotSupportedError struct {
 
 // PlatformDepositAccountTransfer defines model for PlatformDepositAccountTransfer.
 type PlatformDepositAccountTransfer struct {
-	Amount               int64     `json:"amount"`
-	BankAccountGraphqlId string    `json:"bankAccountGraphqlId"`
-	BankAccountId        string    `json:"bankAccountId"`
-	CreatedAt            time.Time `json:"createdAt"`
+	Amount int64 `json:"amount"`
+
+	// BankAccount 계좌 상세 정보
+	BankAccount          PlatformBankAccountDetail `json:"bankAccount"`
+	BankAccountGraphqlId string                    `json:"bankAccountGraphqlId"`
+	BankAccountId        string                    `json:"bankAccountId"`
+	CreatedAt            time.Time                 `json:"createdAt"`
 
 	// Currency 통화 단위
 	Currency      Currency `json:"currency"`
@@ -7237,6 +8235,12 @@ type PlatformDiscountSharePolicyScheduleAlreadyExistsError struct {
 	Type    string  `json:"type"`
 }
 
+// PlatformDuplicatedPartnerSettlementIdsError 선택된 정산건 아이디에 중복이 있는 경우
+type PlatformDuplicatedPartnerSettlementIdsError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
 // PlatformExternalApiFailedError 외부 api 오류
 type PlatformExternalApiFailedError struct {
 	Message *string `json:"message,omitempty"`
@@ -7310,10 +8314,12 @@ type PlatformManualTransfer struct {
 	//
 	// 파트너는 고객사가 정산해주어야 할 대상입니다.
 	// 기본 사업자 정보와 정산정보, 그리고 적용될 계약의 정보를 등록 및 관리할 수 있습니다.
-	Partner          PlatformPartner `json:"partner"`
-	PayoutGraphqlId  *string         `json:"payoutGraphqlId,omitempty"`
-	PayoutId         *string         `json:"payoutId,omitempty"`
-	SettlementAmount int64           `json:"settlementAmount"`
+	Partner         PlatformPartner `json:"partner"`
+	PayoutGraphqlId *string         `json:"payoutGraphqlId,omitempty"`
+
+	// PayoutId 더 이상 사용되지 않는 값입니다.
+	PayoutId         *string `json:"payoutId,omitempty"`
+	SettlementAmount int64   `json:"settlementAmount"`
 
 	// SettlementCurrency 통화 단위
 	SettlementCurrency Currency `json:"settlementCurrency"`
@@ -7379,16 +8385,32 @@ type PlatformMemberCompanyConnectedPartnersCannotBeScheduledError struct {
 	Type       string   `json:"type"`
 }
 
-// PlatformMemberCompanyNotConnectableStatusError 파트너 연동 사업자 연동 상태가 연동 가능한 상태가 아닌 경우
-type PlatformMemberCompanyNotConnectableStatusError struct {
+// PlatformNegativePayoutAmountPartnersError 지급 금액의 총합이 음수인 파트너가 존재하는 경우
+type PlatformNegativePayoutAmountPartnersError struct {
 	Message *string `json:"message,omitempty"`
 	Type    string  `json:"type"`
 }
 
-// PlatformMemberCompanyNotConnectedError 파트너가 연동 사업자로 연동 되어있지 않은 경우
-type PlatformMemberCompanyNotConnectedError struct {
+// PlatformNoSelectedPartnerSettlementsError 선택된 정산건이 없는 경우
+type PlatformNoSelectedPartnerSettlementsError struct {
 	Message *string `json:"message,omitempty"`
 	Type    string  `json:"type"`
+}
+
+// PlatformNonDeletablePartnerSettlementsError 삭제할 수 없는 정산건이 포함된 경우
+type PlatformNonDeletablePartnerSettlementsError struct {
+	GraphqlIds []string `json:"graphqlIds"`
+	Ids        []string `json:"ids"`
+	Message    *string  `json:"message,omitempty"`
+	Type       string   `json:"type"`
+}
+
+// PlatformNonPayablePartnerSettlementsError 지급할 수 없는 정산건이 포함된 경우
+type PlatformNonPayablePartnerSettlementsError struct {
+	GraphqlIds []string `json:"graphqlIds"`
+	Ids        []string `json:"ids"`
+	Message    *string  `json:"message,omitempty"`
+	Type       string   `json:"type"`
 }
 
 // PlatformNotEnabledError 플랫폼 기능이 활성화되지 않아 요청을 처리할 수 없는 경우
@@ -7443,7 +8465,9 @@ type PlatformOrderCancelTransfer struct {
 	// Payment 결제 정보
 	Payment         PlatformPayment `json:"payment"`
 	PayoutGraphqlId *string         `json:"payoutGraphqlId,omitempty"`
-	PayoutId        *string         `json:"payoutId,omitempty"`
+
+	// PayoutId 더 이상 사용되지 않는 값입니다.
+	PayoutId *string `json:"payoutId,omitempty"`
 
 	// SettlementCurrency 통화 단위
 	SettlementCurrency Currency `json:"settlementCurrency"`
@@ -7561,7 +8585,9 @@ type PlatformOrderTransfer struct {
 	// Payment 결제 정보
 	Payment         PlatformPayment `json:"payment"`
 	PayoutGraphqlId *string         `json:"payoutGraphqlId,omitempty"`
-	PayoutId        *string         `json:"payoutId,omitempty"`
+
+	// PayoutId 더 이상 사용되지 않는 값입니다.
+	PayoutId *string `json:"payoutId,omitempty"`
 
 	// SettlementCurrency 통화 단위
 	SettlementCurrency Currency `json:"settlementCurrency"`
@@ -7837,9 +8863,10 @@ type PlatformPartnerManualSettlement struct {
 	SettlementDate openapi_types.Date `json:"settlementDate"`
 
 	// Status 정산 상태
-	Status        PlatformPartnerSettlementStatus `json:"status"`
-	TaxFreeAmount int64                           `json:"taxFreeAmount"`
-	Type          string                          `json:"type"`
+	Status          PlatformPartnerSettlementStatus `json:"status"`
+	StatusUpdatedAt *time.Time                      `json:"statusUpdatedAt,omitempty"`
+	TaxFreeAmount   int64                           `json:"taxFreeAmount"`
+	Type            string                          `json:"type"`
 }
 
 // PlatformPartnerMemberCompanyConnectionStatus 플랫폼 파트너 연동 사업자 연결 상태
@@ -7882,8 +8909,9 @@ type PlatformPartnerOrderCancelSettlement struct {
 	SettlementStartDateRange DateRange          `json:"settlementStartDateRange"`
 
 	// Status 정산 상태
-	Status PlatformPartnerSettlementStatus `json:"status"`
-	Type   string                          `json:"type"`
+	Status          PlatformPartnerSettlementStatus `json:"status"`
+	StatusUpdatedAt *time.Time                      `json:"statusUpdatedAt,omitempty"`
+	Type            string                          `json:"type"`
 }
 
 // PlatformPartnerOrderSettlement defines model for PlatformPartnerOrderSettlement.
@@ -7917,8 +8945,15 @@ type PlatformPartnerOrderSettlement struct {
 	SettlementStartDateRange DateRange          `json:"settlementStartDateRange"`
 
 	// Status 정산 상태
-	Status PlatformPartnerSettlementStatus `json:"status"`
-	Type   string                          `json:"type"`
+	Status          PlatformPartnerSettlementStatus `json:"status"`
+	StatusUpdatedAt *time.Time                      `json:"statusUpdatedAt,omitempty"`
+	Type            string                          `json:"type"`
+}
+
+// PlatformPartnerPendingNtsOperationError 파트너의 국세청 연동/해제가 진행 중인 경우
+type PlatformPartnerPendingNtsOperationError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
 }
 
 // PlatformPartnerScheduleAlreadyExistsError defines model for PlatformPartnerScheduleAlreadyExistsError.
@@ -7974,6 +9009,7 @@ type PlatformPartnerSettlementStatusStats struct {
 	PaidOut         int64 `json:"paidOut"`
 	PayoutCancelled int64 `json:"payoutCancelled"`
 	PayoutConfirmed int64 `json:"payoutConfirmed"`
+	PayoutExcluded  int64 `json:"payoutExcluded"`
 	PayoutFailed    int64 `json:"payoutFailed"`
 	PayoutPrepared  int64 `json:"payoutPrepared"`
 	PayoutScheduled int64 `json:"payoutScheduled"`
@@ -7982,6 +9018,14 @@ type PlatformPartnerSettlementStatusStats struct {
 
 // PlatformPartnerSettlementType 정산 유형
 type PlatformPartnerSettlementType string
+
+// PlatformPartnerSettlementsNotFoundError 요청한 정산건 목록을 찾을 수 없는 경우
+type PlatformPartnerSettlementsNotFoundError struct {
+	GraphqlIds []string `json:"graphqlIds"`
+	Ids        []string `json:"ids"`
+	Message    *string  `json:"message,omitempty"`
+	Type       string   `json:"type"`
+}
 
 // PlatformPartnerStatus 플랫폼 파트너 상태
 type PlatformPartnerStatus string
@@ -8317,6 +9361,13 @@ type PlatformProductIdNotFoundError struct {
 // PlatformProperties defines model for PlatformProperties.
 type PlatformProperties map[string]PlatformUserDefinedPropertyValue
 
+// PlatformReferencedCancelOrderTransfersExistError 취소 정산건이 참조 중인 정산건이 포함된 경우
+type PlatformReferencedCancelOrderTransfersExistError struct {
+	Ids     []string `json:"ids"`
+	Message *string  `json:"message,omitempty"`
+	Type    string   `json:"type"`
+}
+
 // PlatformSetting 플랫폼 설정
 type PlatformSetting struct {
 	AdjustSettlementDateAfterHolidayIfEarlier bool                 `json:"adjustSettlementDateAfterHolidayIfEarlier"`
@@ -8566,6 +9617,9 @@ type PlatformTransferFilterInput struct {
 
 	// Types 하나 이상의 값이 존재하는 경우 해당 리스트에 포함되는 정산 방식의 정산건만 조회합니다.
 	Types *[]PlatformTransferType `json:"types,omitempty"`
+
+	// UserDefinedProperty 사용자 정의 속성 key/value exact match
+	UserDefinedProperty *PlatformTransferPropertyExactMatchInput `json:"userDefinedProperty,omitempty"`
 }
 
 // PlatformTransferFilterInputKeyword 정산건 검색 키워드 입력 정보
@@ -8606,6 +9660,12 @@ type PlatformTransferFilterInputKeyword struct {
 	TransferMemo *string `json:"transferMemo,omitempty"`
 }
 
+// PlatformTransferIdAlreadyUsedError defines model for PlatformTransferIdAlreadyUsedError.
+type PlatformTransferIdAlreadyUsedError struct {
+	Message *string `json:"message,omitempty"`
+	Type    string  `json:"type"`
+}
+
 // PlatformTransferNonDeletableStatusError defines model for PlatformTransferNonDeletableStatusError.
 type PlatformTransferNonDeletableStatusError struct {
 	Message *string `json:"message,omitempty"`
@@ -8616,6 +9676,12 @@ type PlatformTransferNonDeletableStatusError struct {
 type PlatformTransferNotFoundError struct {
 	Message *string `json:"message,omitempty"`
 	Type    string  `json:"type"`
+}
+
+// PlatformTransferPropertyExactMatchInput 사용자 정의 속성 key/value exact match
+type PlatformTransferPropertyExactMatchInput struct {
+	Key   string `json:"key"`
+	Value string `json:"value"`
 }
 
 // PlatformTransferStatus 정산 상태
@@ -8693,15 +9759,18 @@ type PlatformUserDefinedPropertyValue struct {
 
 // PlatformWithdrawalAccountTransfer defines model for PlatformWithdrawalAccountTransfer.
 type PlatformWithdrawalAccountTransfer struct {
-	Amount                       int64     `json:"amount"`
-	Balance                      *int64    `json:"balance,omitempty"`
-	BankAccountGraphqlId         string    `json:"bankAccountGraphqlId"`
-	BankAccountId                string    `json:"bankAccountId"`
-	BulkAccountTransferGraphqlId *string   `json:"bulkAccountTransferGraphqlId,omitempty"`
-	BulkAccountTransferId        *string   `json:"bulkAccountTransferId,omitempty"`
-	BulkPayoutGraphqlId          *string   `json:"bulkPayoutGraphqlId,omitempty"`
-	BulkPayoutId                 *string   `json:"bulkPayoutId,omitempty"`
-	CreatedAt                    time.Time `json:"createdAt"`
+	Amount  int64  `json:"amount"`
+	Balance *int64 `json:"balance,omitempty"`
+
+	// BankAccount 계좌 상세 정보
+	BankAccount                  PlatformBankAccountDetail `json:"bankAccount"`
+	BankAccountGraphqlId         string                    `json:"bankAccountGraphqlId"`
+	BankAccountId                string                    `json:"bankAccountId"`
+	BulkAccountTransferGraphqlId *string                   `json:"bulkAccountTransferGraphqlId,omitempty"`
+	BulkAccountTransferId        *string                   `json:"bulkAccountTransferId,omitempty"`
+	BulkPayoutGraphqlId          *string                   `json:"bulkPayoutGraphqlId,omitempty"`
+	BulkPayoutId                 *string                   `json:"bulkPayoutId,omitempty"`
+	CreatedAt                    time.Time                 `json:"createdAt"`
 
 	// Currency 통화 단위
 	Currency             Currency `json:"currency"`
@@ -8853,6 +9922,7 @@ type ReadyIdentityVerification struct {
 	Channel     *SelectedChannel `json:"channel,omitempty"`
 	CustomData  *string          `json:"customData,omitempty"`
 	Id          string           `json:"id"`
+	PgTxId      *string          `json:"pgTxId,omitempty"`
 	RequestedAt time.Time        `json:"requestedAt"`
 
 	// RequestedCustomer 요청 시 고객 정보
@@ -8898,8 +9968,11 @@ type ReadyPayment struct {
 	MerchantId        string         `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	ProductCount *int32            `json:"productCount,omitempty"`
 	Products     *[]PaymentProduct `json:"products,omitempty"`
 	PromotionId  *string           `json:"promotionId,omitempty"`
@@ -8973,6 +10046,15 @@ type ReadyPaymentTransaction struct {
 	// Version 포트원 버전
 	Version  PortOneVersion    `json:"version"`
 	Webhooks *[]PaymentWebhook `json:"webhooks,omitempty"`
+}
+
+// ReconciliationPgProvider defines model for ReconciliationPgProvider.
+type ReconciliationPgProvider string
+
+// ReconciliationPgSpecifier 대사용 PG사 가맹점 식별자
+type ReconciliationPgSpecifier struct {
+	PgMerchantId string                   `json:"pgMerchantId"`
+	PgProvider   ReconciliationPgProvider `json:"pgProvider"`
 }
 
 // RecoverPlatformAdditionalFeePolicyError defines model for RecoverPlatformAdditionalFeePolicyError.
@@ -9671,6 +10753,9 @@ type SeparatedAddressInput struct {
 // SettlementAmountType defines model for SettlementAmountType.
 type SettlementAmountType string
 
+// SimplifiedPaymentMethodType 간소화된 결제수단 목록
+type SimplifiedPaymentMethodType string
+
 // SortOrder 정렬 방식
 type SortOrder string
 
@@ -9701,6 +10786,22 @@ type StartedPaymentSchedule struct {
 	TimeToPay         time.Time         `json:"timeToPay"`
 	TotalAmount       int64             `json:"totalAmount"`
 	VatAmount         *int64            `json:"vatAmount,omitempty"`
+}
+
+// StopPaymentCancellationBody 결제 취소 요청 취소 입력 정보
+type StopPaymentCancellationBody struct {
+	// StoreId 접근 권한이 있는 상점 아이디만 입력 가능하며, 미입력시 인증 정보의 상점 아이디를 사용합니다.
+	StoreId *string `json:"storeId,omitempty"`
+}
+
+// StopPaymentCancellationError defines model for StopPaymentCancellationError.
+type StopPaymentCancellationError struct {
+	union json.RawMessage
+}
+
+// StopPaymentCancellationResponse 결제 취소 요청 취소 성공 응답
+type StopPaymentCancellationResponse struct {
+	StoppedAt time.Time `json:"stoppedAt"`
 }
 
 // SucceededPaymentCancellation 취소 완료 상태
@@ -9777,6 +10878,28 @@ type Type string
 type UnauthorizedError struct {
 	Message *string `json:"message,omitempty"`
 	Type    string  `json:"type"`
+}
+
+// UpdateB2bCounterpartyBody 거래처 정보 수정 요청
+type UpdateB2bCounterpartyBody struct {
+	// Counterparty 거래처 입력 정보
+	Counterparty B2bCounterpartyInput `json:"counterparty"`
+
+	// Options 거래처 생성 옵션
+	Options *B2bCounterpartyCreateOptions `json:"options,omitempty"`
+}
+
+// UpdateB2bCounterpartyError defines model for UpdateB2bCounterpartyError.
+type UpdateB2bCounterpartyError struct {
+	union json.RawMessage
+}
+
+// UpdateB2bCounterpartyResponse 거래처 정보 수정 응답
+type UpdateB2bCounterpartyResponse struct {
+	// Counterparty 거래처
+	//
+	// B2B 거래처 정보입니다.
+	Counterparty B2bCounterparty `json:"counterparty"`
 }
 
 // UpdateB2bTaxInvoiceDraftBody 세금계산서 임시저장 수정 정보
@@ -10010,6 +11133,16 @@ type UpdatePlatformSettingResponse struct {
 	Setting PlatformSetting `json:"setting"`
 }
 
+// ValidateB2bCounterpartyCertificateError defines model for ValidateB2bCounterpartyCertificateError.
+type ValidateB2bCounterpartyCertificateError struct {
+	union json.RawMessage
+}
+
+// ValidateB2bCounterpartyCertificateResponse 인증서 유효성 검증 응답 정보
+type ValidateB2bCounterpartyCertificateResponse struct {
+	IsValid bool `json:"isValid"`
+}
+
 // VerifiedIdentityVerification 완료된 본인인증 내역
 type VerifiedIdentityVerification struct {
 	// Channel (결제, 본인인증 등에) 선택된 채널 정보
@@ -10064,8 +11197,11 @@ type VirtualAccountIssuedPayment struct {
 	MerchantId        string         `json:"merchantId"`
 
 	// Method 결제수단 정보
-	Method       *PaymentMethod    `json:"method,omitempty"`
-	OrderName    string            `json:"orderName"`
+	Method    *PaymentMethod `json:"method,omitempty"`
+	OrderName string         `json:"orderName"`
+
+	// Origin 결제 출처 정보
+	Origin       PaymentOrigin     `json:"origin"`
 	PgTxId       *string           `json:"pgTxId,omitempty"`
 	ProductCount *int32            `json:"productCount,omitempty"`
 	Products     *[]PaymentProduct `json:"products,omitempty"`
@@ -10156,6 +11292,79 @@ type RequestB2bTaxInvoiceError struct {
 
 // GetB2bBulkTaxInvoiceParams defines parameters for GetB2bBulkTaxInvoice.
 type GetB2bBulkTaxInvoiceParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// GetB2bBusinessInfosParams defines parameters for GetB2bBusinessInfos.
+type GetB2bBusinessInfosParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// GetB2bCounterpartiesParams defines parameters for GetB2bCounterparties.
+type GetB2bCounterpartiesParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test        *bool                     `form:"test,omitempty" json:"test,omitempty"`
+	RequestBody *GetB2bCounterpartiesBody `form:"requestBody,omitempty" json:"requestBody,omitempty"`
+}
+
+// CreateB2bCounterpartyParams defines parameters for CreateB2bCounterparty.
+type CreateB2bCounterpartyParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// GetB2bCounterpartyCertificateParams defines parameters for GetB2bCounterpartyCertificate.
+type GetB2bCounterpartyCertificateParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// GetB2bCounterpartyCertificateRegistrationUrlParams defines parameters for GetB2bCounterpartyCertificateRegistrationUrl.
+type GetB2bCounterpartyCertificateRegistrationUrlParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// ValidateB2bCounterpartyCertificateParams defines parameters for ValidateB2bCounterpartyCertificate.
+type ValidateB2bCounterpartyCertificateParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// DeleteB2bCounterpartyParams defines parameters for DeleteB2bCounterparty.
+type DeleteB2bCounterpartyParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// GetB2bCounterpartyParams defines parameters for GetB2bCounterparty.
+type GetB2bCounterpartyParams struct {
+	// Test 테스트 모드 여부
+	//
+	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// UpdateB2bCounterpartyParams defines parameters for UpdateB2bCounterparty.
+type UpdateB2bCounterpartyParams struct {
 	// Test 테스트 모드 여부
 	//
 	// true 이면 테스트 모드로 실행되며, false 이거나 주어지지 않은 경우 테스트 모드를 사용하지 않습니다.
@@ -10462,6 +11671,11 @@ type DeleteBillingKeyParams struct {
 	//
 	// 네이버페이: 자동결제 해지 요청 주체입니다. 명시가 필요합니다.
 	Requester *BillingKeyDeleteRequester `form:"requester,omitempty" json:"requester,omitempty"`
+
+	// SkipWebhook 웹훅 생략 여부
+	//
+	// 빌링키 삭제가 성공했을 때 웹훅을 전송하지 않으려면 true로 설정합니다.
+	SkipWebhook *bool `form:"skipWebhook,omitempty" json:"skipWebhook,omitempty"`
 }
 
 // GetBillingKeyInfoParams defines parameters for GetBillingKeyInfo.
@@ -10510,6 +11724,34 @@ type GetKakaopayPaymentOrderParams struct {
 // GetAllPaymentEventsByCursorParams defines parameters for GetAllPaymentEventsByCursor.
 type GetAllPaymentEventsByCursorParams struct {
 	RequestBody *GetAllPaymentEventsByCursorBody `form:"requestBody,omitempty" json:"requestBody,omitempty"`
+}
+
+// GetPgCardPromotionsParams defines parameters for GetPgCardPromotions.
+type GetPgCardPromotionsParams struct {
+	// ChannelKey 채널 키
+	//
+	// 조회하고자 하는 채널의 키
+	ChannelKey string `form:"channelKey" json:"channelKey"`
+
+	// Amount 결제 금액
+	//
+	// 결제 금액입니다. 해당 결제 금액 기준 이용 가능한 프로모션 목록이 조회됩니다.
+	Amount int64 `form:"amount" json:"amount"`
+
+	// CardCompany 카드사 필터
+	//
+	// 조회할 카드사입니다. 값을 입력하지 않으면 카드사 필터링이 적용되지 않습니다.
+	CardCompany *PgPromotionCardCompany `form:"cardCompany,omitempty" json:"cardCompany,omitempty"`
+}
+
+// GetPaymentReconciliationSettlementVatReportParams defines parameters for GetPaymentReconciliationSettlementVatReport.
+type GetPaymentReconciliationSettlementVatReportParams struct {
+	RequestBody GetPaymentReconciliationSettlementVatReportBody `form:"requestBody" json:"requestBody"`
+}
+
+// GetPaymentReconciliationTransactionVatReportParams defines parameters for GetPaymentReconciliationTransactionVatReport.
+type GetPaymentReconciliationTransactionVatReportParams struct {
+	RequestBody GetPaymentReconciliationTransactionVatReportBody `form:"requestBody" json:"requestBody"`
 }
 
 // RevokePaymentSchedulesParams defines parameters for RevokePaymentSchedules.
@@ -10909,6 +12151,22 @@ type GetPlatformPartnerSettlementsParams struct {
 	RequestBody *GetPlatformPartnerSettlementsBody `form:"requestBody,omitempty" json:"requestBody,omitempty"`
 }
 
+// CompletePlatformPayoutByPartnerSettlementIdsParams defines parameters for CompletePlatformPayoutByPartnerSettlementIds.
+type CompletePlatformPayoutByPartnerSettlementIdsParams struct {
+	// Test 테스트 모드 여부
+	//
+	// 테스트 모드 여부를 결정합니다. true 이면 테스트 모드로 실행됩니다. Request Body에도 isForTest가 있을 수 있으나, 둘 다 제공되면 Query Parameter의 test 값을 사용하고, Request Body의 isForTest는 무시됩니다. Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
+// DeletePlatformPartnerSettlementsParams defines parameters for DeletePlatformPartnerSettlements.
+type DeletePlatformPartnerSettlementsParams struct {
+	// Test 테스트 모드 여부
+	//
+	// 테스트 모드 여부를 결정합니다. true 이면 테스트 모드로 실행됩니다. Request Body에도 isForTest가 있을 수 있으나, 둘 다 제공되면 Query Parameter의 test 값을 사용하고, Request Body의 isForTest는 무시됩니다. Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
+	Test *bool `form:"test,omitempty" json:"test,omitempty"`
+}
+
 // GetPlatformPartnersParams defines parameters for GetPlatformPartners.
 type GetPlatformPartnersParams struct {
 	// Test 테스트 모드 여부
@@ -10934,32 +12192,32 @@ type CreatePlatformPartnersParams struct {
 	Test *bool `form:"test,omitempty" json:"test,omitempty"`
 }
 
-// ConnectBulkPartnerMemberCompanyParams defines parameters for ConnectBulkPartnerMemberCompany.
-type ConnectBulkPartnerMemberCompanyParams struct {
+// ConnectBulkPartnerCounterpartyParams defines parameters for ConnectBulkPartnerCounterparty.
+type ConnectBulkPartnerCounterpartyParams struct {
 	// Test 테스트 모드 여부
 	//
 	// 테스트 모드 여부를 결정합니다. true 이면 테스트 모드로 실행됩니다. Request Body에도 isForTest가 있을 수 있으나, 둘 다 제공되면 Query Parameter의 test 값을 사용하고, Request Body의 isForTest는 무시됩니다. Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
 	Test *bool `form:"test,omitempty" json:"test,omitempty"`
 }
 
-// ConnectPartnerMemberCompanyParams defines parameters for ConnectPartnerMemberCompany.
-type ConnectPartnerMemberCompanyParams struct {
+// ConnectPartnerCounterpartyParams defines parameters for ConnectPartnerCounterparty.
+type ConnectPartnerCounterpartyParams struct {
 	// Test 테스트 모드 여부
 	//
 	// 테스트 모드 여부를 결정합니다. true 이면 테스트 모드로 실행됩니다. Request Body에도 isForTest가 있을 수 있으나, 둘 다 제공되면 Query Parameter의 test 값을 사용하고, Request Body의 isForTest는 무시됩니다. Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
 	Test *bool `form:"test,omitempty" json:"test,omitempty"`
 }
 
-// DisconnectBulkPartnerMemberCompanyParams defines parameters for DisconnectBulkPartnerMemberCompany.
-type DisconnectBulkPartnerMemberCompanyParams struct {
+// DisconnectBulkPartnerCounterpartyParams defines parameters for DisconnectBulkPartnerCounterparty.
+type DisconnectBulkPartnerCounterpartyParams struct {
 	// Test 테스트 모드 여부
 	//
 	// 테스트 모드 여부를 결정합니다. true 이면 테스트 모드로 실행됩니다. Request Body에도 isForTest가 있을 수 있으나, 둘 다 제공되면 Query Parameter의 test 값을 사용하고, Request Body의 isForTest는 무시됩니다. Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
 	Test *bool `form:"test,omitempty" json:"test,omitempty"`
 }
 
-// DisconnectPartnerMemberCompanyParams defines parameters for DisconnectPartnerMemberCompany.
-type DisconnectPartnerMemberCompanyParams struct {
+// DisconnectPartnerCounterpartyParams defines parameters for DisconnectPartnerCounterparty.
+type DisconnectPartnerCounterpartyParams struct {
 	// Test 테스트 모드 여부
 	//
 	// 테스트 모드 여부를 결정합니다. true 이면 테스트 모드로 실행됩니다. Request Body에도 isForTest가 있을 수 있으나, 둘 다 제공되면 Query Parameter의 test 값을 사용하고, Request Body의 isForTest는 무시됩니다. Query Parameter의 test와 Request Body의 isForTest에 모두 값이 제공되지 않으면 기본값인 false로 적용됩니다.
@@ -11124,6 +12382,18 @@ type GetPlatformTransferParams struct {
 // GetB2bBusinessInfosJSONRequestBody defines body for GetB2bBusinessInfos for application/json ContentType.
 type GetB2bBusinessInfosJSONRequestBody = GetB2bBusinessInfosBody
 
+// GetB2bCounterpartiesJSONRequestBody defines body for GetB2bCounterparties for application/json ContentType.
+type GetB2bCounterpartiesJSONRequestBody = GetB2bCounterpartiesBody
+
+// CreateB2bCounterpartyJSONRequestBody defines body for CreateB2bCounterparty for application/json ContentType.
+type CreateB2bCounterpartyJSONRequestBody = CreateB2bCounterpartyBody
+
+// DeleteB2bCounterpartyJSONRequestBody defines body for DeleteB2bCounterparty for application/json ContentType.
+type DeleteB2bCounterpartyJSONRequestBody = DeleteB2bCounterpartyBody
+
+// UpdateB2bCounterpartyJSONRequestBody defines body for UpdateB2bCounterparty for application/json ContentType.
+type UpdateB2bCounterpartyJSONRequestBody = UpdateB2bCounterpartyBody
+
 // CreateB2bFileUploadUrlJSONRequestBody defines body for CreateB2bFileUploadUrl for application/json ContentType.
 type CreateB2bFileUploadUrlJSONRequestBody = CreateB2bFileUploadUrlBody
 
@@ -11211,6 +12481,9 @@ type PayWithBillingKeyJSONRequestBody = BillingKeyPaymentInput
 // CancelPaymentJSONRequestBody defines body for CancelPayment for application/json ContentType.
 type CancelPaymentJSONRequestBody = CancelPaymentBody
 
+// StopPaymentCancellationJSONRequestBody defines body for StopPaymentCancellation for application/json ContentType.
+type StopPaymentCancellationJSONRequestBody = StopPaymentCancellationBody
+
 // CapturePaymentJSONRequestBody defines body for CapturePayment for application/json ContentType.
 type CapturePaymentJSONRequestBody = CapturePaymentBody
 
@@ -11240,6 +12513,9 @@ type ResendWebhookJSONRequestBody = ResendWebhookBody
 
 // CreatePaymentScheduleJSONRequestBody defines body for CreatePaymentSchedule for application/json ContentType.
 type CreatePaymentScheduleJSONRequestBody = CreatePaymentScheduleBody
+
+// ConfirmPaymentwallDeliveryJSONRequestBody defines body for ConfirmPaymentwallDelivery for application/json ContentType.
+type ConfirmPaymentwallDeliveryJSONRequestBody = ConfirmPaymentwallDeliveryBody
 
 // GetPlatformAccountTransfersJSONRequestBody defines body for GetPlatformAccountTransfers for application/json ContentType.
 type GetPlatformAccountTransfersJSONRequestBody = GetAccountTransfersBody1
@@ -11298,6 +12574,12 @@ type RescheduleDiscountSharePolicyJSONRequestBody = ReschedulePlatformDiscountSh
 // GetPlatformPartnerSettlementsJSONRequestBody defines body for GetPlatformPartnerSettlements for application/json ContentType.
 type GetPlatformPartnerSettlementsJSONRequestBody = GetPlatformPartnerSettlementsBody
 
+// CompletePlatformPayoutByPartnerSettlementIdsJSONRequestBody defines body for CompletePlatformPayoutByPartnerSettlementIds for application/json ContentType.
+type CompletePlatformPayoutByPartnerSettlementIdsJSONRequestBody = CompletePlatformPayoutByPartnerSettlementIdsBody
+
+// DeletePlatformPartnerSettlementsJSONRequestBody defines body for DeletePlatformPartnerSettlements for application/json ContentType.
+type DeletePlatformPartnerSettlementsJSONRequestBody = DeletePlatformPartnerSettlementsBody
+
 // GetPlatformPartnersJSONRequestBody defines body for GetPlatformPartners for application/json ContentType.
 type GetPlatformPartnersJSONRequestBody = GetPlatformPartnersBody
 
@@ -11307,11 +12589,11 @@ type CreatePlatformPartnerJSONRequestBody = CreatePlatformPartnerBody
 // CreatePlatformPartnersJSONRequestBody defines body for CreatePlatformPartners for application/json ContentType.
 type CreatePlatformPartnersJSONRequestBody = CreatePlatformPartnersBody
 
-// ConnectBulkPartnerMemberCompanyJSONRequestBody defines body for ConnectBulkPartnerMemberCompany for application/json ContentType.
-type ConnectBulkPartnerMemberCompanyJSONRequestBody = ConnectBulkPartnerMemberCompanyBody
+// ConnectBulkPartnerCounterpartyJSONRequestBody defines body for ConnectBulkPartnerCounterparty for application/json ContentType.
+type ConnectBulkPartnerCounterpartyJSONRequestBody = ConnectBulkPartnerCounterpartyBody
 
-// DisconnectBulkPartnerMemberCompanyJSONRequestBody defines body for DisconnectBulkPartnerMemberCompany for application/json ContentType.
-type DisconnectBulkPartnerMemberCompanyJSONRequestBody = DisconnectBulkPartnerMemberCompanyBody
+// DisconnectBulkPartnerCounterpartyJSONRequestBody defines body for DisconnectBulkPartnerCounterparty for application/json ContentType.
+type DisconnectBulkPartnerCounterpartyJSONRequestBody = DisconnectBulkPartnerCounterpartyBody
 
 // SchedulePlatformPartnersJSONRequestBody defines body for SchedulePlatformPartners for application/json ContentType.
 type SchedulePlatformPartnersJSONRequestBody = SchedulePlatformPartnersBody
@@ -12358,6 +13640,34 @@ func (t *ArchivePlatformPartnerError) MergePlatformCannotArchiveScheduledPartner
 	return err
 }
 
+// AsPlatformCounterpartyOngoingTaxInvoiceExistsError returns the union data inside the ArchivePlatformPartnerError as a PlatformCounterpartyOngoingTaxInvoiceExistsError
+func (t ArchivePlatformPartnerError) AsPlatformCounterpartyOngoingTaxInvoiceExistsError() (PlatformCounterpartyOngoingTaxInvoiceExistsError, error) {
+	var body PlatformCounterpartyOngoingTaxInvoiceExistsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformCounterpartyOngoingTaxInvoiceExistsError overwrites any union data inside the ArchivePlatformPartnerError as the provided PlatformCounterpartyOngoingTaxInvoiceExistsError
+func (t *ArchivePlatformPartnerError) FromPlatformCounterpartyOngoingTaxInvoiceExistsError(v PlatformCounterpartyOngoingTaxInvoiceExistsError) error {
+	v.Type = "PLATFORM_COUNTERPARTY_ONGOING_TAX_INVOICE_EXISTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformCounterpartyOngoingTaxInvoiceExistsError performs a merge with any union data inside the ArchivePlatformPartnerError, using the provided PlatformCounterpartyOngoingTaxInvoiceExistsError
+func (t *ArchivePlatformPartnerError) MergePlatformCounterpartyOngoingTaxInvoiceExistsError(v PlatformCounterpartyOngoingTaxInvoiceExistsError) error {
+	v.Type = "PLATFORM_COUNTERPARTY_ONGOING_TAX_INVOICE_EXISTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsPlatformNotEnabledError returns the union data inside the ArchivePlatformPartnerError as a PlatformNotEnabledError
 func (t ArchivePlatformPartnerError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
 	var body PlatformNotEnabledError
@@ -12404,6 +13714,34 @@ func (t *ArchivePlatformPartnerError) FromPlatformPartnerNotFoundError(v Platfor
 // MergePlatformPartnerNotFoundError performs a merge with any union data inside the ArchivePlatformPartnerError, using the provided PlatformPartnerNotFoundError
 func (t *ArchivePlatformPartnerError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
 	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformPartnerPendingNtsOperationError returns the union data inside the ArchivePlatformPartnerError as a PlatformPartnerPendingNtsOperationError
+func (t ArchivePlatformPartnerError) AsPlatformPartnerPendingNtsOperationError() (PlatformPartnerPendingNtsOperationError, error) {
+	var body PlatformPartnerPendingNtsOperationError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformPartnerPendingNtsOperationError overwrites any union data inside the ArchivePlatformPartnerError as the provided PlatformPartnerPendingNtsOperationError
+func (t *ArchivePlatformPartnerError) FromPlatformPartnerPendingNtsOperationError(v PlatformPartnerPendingNtsOperationError) error {
+	v.Type = "PLATFORM_PARTNER_PENDING_NTS_OPERATION"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformPartnerPendingNtsOperationError performs a merge with any union data inside the ArchivePlatformPartnerError, using the provided PlatformPartnerPendingNtsOperationError
+func (t *ArchivePlatformPartnerError) MergePlatformPartnerPendingNtsOperationError(v PlatformPartnerPendingNtsOperationError) error {
+	v.Type = "PLATFORM_PARTNER_PENDING_NTS_OPERATION"
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -12462,10 +13800,14 @@ func (t ArchivePlatformPartnerError) ValueByDiscriminator() (interface{}, error)
 		return t.AsInvalidRequestError()
 	case "PLATFORM_CANNOT_ARCHIVE_SCHEDULED_PARTNER":
 		return t.AsPlatformCannotArchiveScheduledPartnerError()
+	case "PLATFORM_COUNTERPARTY_ONGOING_TAX_INVOICE_EXISTS":
+		return t.AsPlatformCounterpartyOngoingTaxInvoiceExistsError()
 	case "PLATFORM_NOT_ENABLED":
 		return t.AsPlatformNotEnabledError()
 	case "PLATFORM_PARTNER_NOT_FOUND":
 		return t.AsPlatformPartnerNotFoundError()
+	case "PLATFORM_PARTNER_PENDING_NTS_OPERATION":
+		return t.AsPlatformPartnerPendingNtsOperationError()
 	case "UNAUTHORIZED":
 		return t.AsUnauthorizedError()
 	default:
@@ -15647,6 +16989,335 @@ func (t *CloseVirtualAccountError) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsForbiddenError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a ForbiddenError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided ForbiddenError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided ForbiddenError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a InvalidRequestError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided InvalidRequestError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided InvalidRequestError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformBulkPayoutIdAlreadyExistsError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a PlatformBulkPayoutIdAlreadyExistsError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsPlatformBulkPayoutIdAlreadyExistsError() (PlatformBulkPayoutIdAlreadyExistsError, error) {
+	var body PlatformBulkPayoutIdAlreadyExistsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformBulkPayoutIdAlreadyExistsError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided PlatformBulkPayoutIdAlreadyExistsError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromPlatformBulkPayoutIdAlreadyExistsError(v PlatformBulkPayoutIdAlreadyExistsError) error {
+	v.Type = "PLATFORM_BULK_PAYOUT_ID_ALREADY_EXISTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformBulkPayoutIdAlreadyExistsError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided PlatformBulkPayoutIdAlreadyExistsError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergePlatformBulkPayoutIdAlreadyExistsError(v PlatformBulkPayoutIdAlreadyExistsError) error {
+	v.Type = "PLATFORM_BULK_PAYOUT_ID_ALREADY_EXISTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformDuplicatedPartnerSettlementIdsError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a PlatformDuplicatedPartnerSettlementIdsError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsPlatformDuplicatedPartnerSettlementIdsError() (PlatformDuplicatedPartnerSettlementIdsError, error) {
+	var body PlatformDuplicatedPartnerSettlementIdsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformDuplicatedPartnerSettlementIdsError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided PlatformDuplicatedPartnerSettlementIdsError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromPlatformDuplicatedPartnerSettlementIdsError(v PlatformDuplicatedPartnerSettlementIdsError) error {
+	v.Type = "PLATFORM_DUPLICATED_PARTNER_SETTLEMENT_IDS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformDuplicatedPartnerSettlementIdsError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided PlatformDuplicatedPartnerSettlementIdsError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergePlatformDuplicatedPartnerSettlementIdsError(v PlatformDuplicatedPartnerSettlementIdsError) error {
+	v.Type = "PLATFORM_DUPLICATED_PARTNER_SETTLEMENT_IDS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformNegativePayoutAmountPartnersError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a PlatformNegativePayoutAmountPartnersError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsPlatformNegativePayoutAmountPartnersError() (PlatformNegativePayoutAmountPartnersError, error) {
+	var body PlatformNegativePayoutAmountPartnersError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformNegativePayoutAmountPartnersError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided PlatformNegativePayoutAmountPartnersError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromPlatformNegativePayoutAmountPartnersError(v PlatformNegativePayoutAmountPartnersError) error {
+	v.Type = "PLATFORM_CURRENCY_NOT_SUPPORTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformNegativePayoutAmountPartnersError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided PlatformNegativePayoutAmountPartnersError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergePlatformNegativePayoutAmountPartnersError(v PlatformNegativePayoutAmountPartnersError) error {
+	v.Type = "PLATFORM_CURRENCY_NOT_SUPPORTED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformNoSelectedPartnerSettlementsError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a PlatformNoSelectedPartnerSettlementsError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsPlatformNoSelectedPartnerSettlementsError() (PlatformNoSelectedPartnerSettlementsError, error) {
+	var body PlatformNoSelectedPartnerSettlementsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformNoSelectedPartnerSettlementsError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided PlatformNoSelectedPartnerSettlementsError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromPlatformNoSelectedPartnerSettlementsError(v PlatformNoSelectedPartnerSettlementsError) error {
+	v.Type = "PLATFORM_NO_SELECTED_PARTNER_SETTLEMENTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformNoSelectedPartnerSettlementsError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided PlatformNoSelectedPartnerSettlementsError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergePlatformNoSelectedPartnerSettlementsError(v PlatformNoSelectedPartnerSettlementsError) error {
+	v.Type = "PLATFORM_NO_SELECTED_PARTNER_SETTLEMENTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformNonPayablePartnerSettlementsError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a PlatformNonPayablePartnerSettlementsError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsPlatformNonPayablePartnerSettlementsError() (PlatformNonPayablePartnerSettlementsError, error) {
+	var body PlatformNonPayablePartnerSettlementsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformNonPayablePartnerSettlementsError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided PlatformNonPayablePartnerSettlementsError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromPlatformNonPayablePartnerSettlementsError(v PlatformNonPayablePartnerSettlementsError) error {
+	v.Type = "PLATFORM_NON_PAYABLE_PARTNER_SETTLEMENTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformNonPayablePartnerSettlementsError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided PlatformNonPayablePartnerSettlementsError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergePlatformNonPayablePartnerSettlementsError(v PlatformNonPayablePartnerSettlementsError) error {
+	v.Type = "PLATFORM_NON_PAYABLE_PARTNER_SETTLEMENTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformNotEnabledError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a PlatformNotEnabledError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
+	var body PlatformNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformNotEnabledError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided PlatformNotEnabledError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
+	v.Type = "PLATFORM_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformNotEnabledError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided PlatformNotEnabledError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
+	v.Type = "PLATFORM_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformPartnerSettlementsNotFoundError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a PlatformPartnerSettlementsNotFoundError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsPlatformPartnerSettlementsNotFoundError() (PlatformPartnerSettlementsNotFoundError, error) {
+	var body PlatformPartnerSettlementsNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformPartnerSettlementsNotFoundError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided PlatformPartnerSettlementsNotFoundError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromPlatformPartnerSettlementsNotFoundError(v PlatformPartnerSettlementsNotFoundError) error {
+	v.Type = "PLATFORM_PARTNER_SETTLEMENTS_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformPartnerSettlementsNotFoundError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided PlatformPartnerSettlementsNotFoundError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergePlatformPartnerSettlementsNotFoundError(v PlatformPartnerSettlementsNotFoundError) error {
+	v.Type = "PLATFORM_PARTNER_SETTLEMENTS_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as a UnauthorizedError
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError as the provided UnauthorizedError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the CompletePlatformPayoutByPartnerSettlementIdsError, using the provided UnauthorizedError
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "PLATFORM_BULK_PAYOUT_ID_ALREADY_EXISTS":
+		return t.AsPlatformBulkPayoutIdAlreadyExistsError()
+	case "PLATFORM_CURRENCY_NOT_SUPPORTED":
+		return t.AsPlatformNegativePayoutAmountPartnersError()
+	case "PLATFORM_DUPLICATED_PARTNER_SETTLEMENT_IDS":
+		return t.AsPlatformDuplicatedPartnerSettlementIdsError()
+	case "PLATFORM_NON_PAYABLE_PARTNER_SETTLEMENTS":
+		return t.AsPlatformNonPayablePartnerSettlementsError()
+	case "PLATFORM_NOT_ENABLED":
+		return t.AsPlatformNotEnabledError()
+	case "PLATFORM_NO_SELECTED_PARTNER_SETTLEMENTS":
+		return t.AsPlatformNoSelectedPartnerSettlementsError()
+	case "PLATFORM_PARTNER_SETTLEMENTS_NOT_FOUND":
+		return t.AsPlatformPartnerSettlementsNotFoundError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t CompletePlatformPayoutByPartnerSettlementIdsError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *CompletePlatformPayoutByPartnerSettlementIdsError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsBillingKeyAlreadyIssuedError returns the union data inside the ConfirmBillingKeyError as a BillingKeyAlreadyIssuedError
 func (t ConfirmBillingKeyError) AsBillingKeyAlreadyIssuedError() (BillingKeyAlreadyIssuedError, error) {
 	var body BillingKeyAlreadyIssuedError
@@ -16842,51 +18513,23 @@ func (t *ConfirmPaymentError) UnmarshalJSON(b []byte) error {
 	return err
 }
 
-// AsForbiddenError returns the union data inside the ConnectBulkPartnerMemberCompanyError as a ForbiddenError
-func (t ConnectBulkPartnerMemberCompanyError) AsForbiddenError() (ForbiddenError, error) {
-	var body ForbiddenError
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromForbiddenError overwrites any union data inside the ConnectBulkPartnerMemberCompanyError as the provided ForbiddenError
-func (t *ConnectBulkPartnerMemberCompanyError) FromForbiddenError(v ForbiddenError) error {
-	v.Type = "FORBIDDEN"
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeForbiddenError performs a merge with any union data inside the ConnectBulkPartnerMemberCompanyError, using the provided ForbiddenError
-func (t *ConnectBulkPartnerMemberCompanyError) MergeForbiddenError(v ForbiddenError) error {
-	v.Type = "FORBIDDEN"
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsInvalidRequestError returns the union data inside the ConnectBulkPartnerMemberCompanyError as a InvalidRequestError
-func (t ConnectBulkPartnerMemberCompanyError) AsInvalidRequestError() (InvalidRequestError, error) {
+// AsInvalidRequestError returns the union data inside the ConfirmPaymentwallDeliveryError as a InvalidRequestError
+func (t ConfirmPaymentwallDeliveryError) AsInvalidRequestError() (InvalidRequestError, error) {
 	var body InvalidRequestError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromInvalidRequestError overwrites any union data inside the ConnectBulkPartnerMemberCompanyError as the provided InvalidRequestError
-func (t *ConnectBulkPartnerMemberCompanyError) FromInvalidRequestError(v InvalidRequestError) error {
+// FromInvalidRequestError overwrites any union data inside the ConfirmPaymentwallDeliveryError as the provided InvalidRequestError
+func (t *ConfirmPaymentwallDeliveryError) FromInvalidRequestError(v InvalidRequestError) error {
 	v.Type = "INVALID_REQUEST"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeInvalidRequestError performs a merge with any union data inside the ConnectBulkPartnerMemberCompanyError, using the provided InvalidRequestError
-func (t *ConnectBulkPartnerMemberCompanyError) MergeInvalidRequestError(v InvalidRequestError) error {
+// MergeInvalidRequestError performs a merge with any union data inside the ConfirmPaymentwallDeliveryError, using the provided InvalidRequestError
+func (t *ConfirmPaymentwallDeliveryError) MergeInvalidRequestError(v InvalidRequestError) error {
 	v.Type = "INVALID_REQUEST"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -16898,24 +18541,24 @@ func (t *ConnectBulkPartnerMemberCompanyError) MergeInvalidRequestError(v Invali
 	return err
 }
 
-// AsPlatformBtxNotEnabledError returns the union data inside the ConnectBulkPartnerMemberCompanyError as a PlatformBtxNotEnabledError
-func (t ConnectBulkPartnerMemberCompanyError) AsPlatformBtxNotEnabledError() (PlatformBtxNotEnabledError, error) {
-	var body PlatformBtxNotEnabledError
+// AsPaymentNotFoundError returns the union data inside the ConfirmPaymentwallDeliveryError as a PaymentNotFoundError
+func (t ConfirmPaymentwallDeliveryError) AsPaymentNotFoundError() (PaymentNotFoundError, error) {
+	var body PaymentNotFoundError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformBtxNotEnabledError overwrites any union data inside the ConnectBulkPartnerMemberCompanyError as the provided PlatformBtxNotEnabledError
-func (t *ConnectBulkPartnerMemberCompanyError) FromPlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
-	v.Type = "PLATFORM_BTX_NOT_ENABLED"
+// FromPaymentNotFoundError overwrites any union data inside the ConfirmPaymentwallDeliveryError as the provided PaymentNotFoundError
+func (t *ConfirmPaymentwallDeliveryError) FromPaymentNotFoundError(v PaymentNotFoundError) error {
+	v.Type = "PAYMENT_NOT_FOUND"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformBtxNotEnabledError performs a merge with any union data inside the ConnectBulkPartnerMemberCompanyError, using the provided PlatformBtxNotEnabledError
-func (t *ConnectBulkPartnerMemberCompanyError) MergePlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
-	v.Type = "PLATFORM_BTX_NOT_ENABLED"
+// MergePaymentNotFoundError performs a merge with any union data inside the ConfirmPaymentwallDeliveryError, using the provided PaymentNotFoundError
+func (t *ConfirmPaymentwallDeliveryError) MergePaymentNotFoundError(v PaymentNotFoundError) error {
+	v.Type = "PAYMENT_NOT_FOUND"
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -16926,135 +18569,23 @@ func (t *ConnectBulkPartnerMemberCompanyError) MergePlatformBtxNotEnabledError(v
 	return err
 }
 
-// AsPlatformExternalApiFailedError returns the union data inside the ConnectBulkPartnerMemberCompanyError as a PlatformExternalApiFailedError
-func (t ConnectBulkPartnerMemberCompanyError) AsPlatformExternalApiFailedError() (PlatformExternalApiFailedError, error) {
-	var body PlatformExternalApiFailedError
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromPlatformExternalApiFailedError overwrites any union data inside the ConnectBulkPartnerMemberCompanyError as the provided PlatformExternalApiFailedError
-func (t *ConnectBulkPartnerMemberCompanyError) FromPlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
-	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergePlatformExternalApiFailedError performs a merge with any union data inside the ConnectBulkPartnerMemberCompanyError, using the provided PlatformExternalApiFailedError
-func (t *ConnectBulkPartnerMemberCompanyError) MergePlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
-	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsPlatformNotEnabledError returns the union data inside the ConnectBulkPartnerMemberCompanyError as a PlatformNotEnabledError
-func (t ConnectBulkPartnerMemberCompanyError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
-	var body PlatformNotEnabledError
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromPlatformNotEnabledError overwrites any union data inside the ConnectBulkPartnerMemberCompanyError as the provided PlatformNotEnabledError
-func (t *ConnectBulkPartnerMemberCompanyError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
-	v.Type = "PLATFORM_NOT_ENABLED"
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergePlatformNotEnabledError performs a merge with any union data inside the ConnectBulkPartnerMemberCompanyError, using the provided PlatformNotEnabledError
-func (t *ConnectBulkPartnerMemberCompanyError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
-	v.Type = "PLATFORM_NOT_ENABLED"
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsPlatformPartnerNotFoundError returns the union data inside the ConnectBulkPartnerMemberCompanyError as a PlatformPartnerNotFoundError
-func (t ConnectBulkPartnerMemberCompanyError) AsPlatformPartnerNotFoundError() (PlatformPartnerNotFoundError, error) {
-	var body PlatformPartnerNotFoundError
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromPlatformPartnerNotFoundError overwrites any union data inside the ConnectBulkPartnerMemberCompanyError as the provided PlatformPartnerNotFoundError
-func (t *ConnectBulkPartnerMemberCompanyError) FromPlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
-	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergePlatformPartnerNotFoundError performs a merge with any union data inside the ConnectBulkPartnerMemberCompanyError, using the provided PlatformPartnerNotFoundError
-func (t *ConnectBulkPartnerMemberCompanyError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
-	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsPlatformTargetPartnerNotFoundError returns the union data inside the ConnectBulkPartnerMemberCompanyError as a PlatformTargetPartnerNotFoundError
-func (t ConnectBulkPartnerMemberCompanyError) AsPlatformTargetPartnerNotFoundError() (PlatformTargetPartnerNotFoundError, error) {
-	var body PlatformTargetPartnerNotFoundError
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromPlatformTargetPartnerNotFoundError overwrites any union data inside the ConnectBulkPartnerMemberCompanyError as the provided PlatformTargetPartnerNotFoundError
-func (t *ConnectBulkPartnerMemberCompanyError) FromPlatformTargetPartnerNotFoundError(v PlatformTargetPartnerNotFoundError) error {
-	v.Type = "PLATFORM_TARGET_PARTNER_NOT_FOUND"
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergePlatformTargetPartnerNotFoundError performs a merge with any union data inside the ConnectBulkPartnerMemberCompanyError, using the provided PlatformTargetPartnerNotFoundError
-func (t *ConnectBulkPartnerMemberCompanyError) MergePlatformTargetPartnerNotFoundError(v PlatformTargetPartnerNotFoundError) error {
-	v.Type = "PLATFORM_TARGET_PARTNER_NOT_FOUND"
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsUnauthorizedError returns the union data inside the ConnectBulkPartnerMemberCompanyError as a UnauthorizedError
-func (t ConnectBulkPartnerMemberCompanyError) AsUnauthorizedError() (UnauthorizedError, error) {
+// AsUnauthorizedError returns the union data inside the ConfirmPaymentwallDeliveryError as a UnauthorizedError
+func (t ConfirmPaymentwallDeliveryError) AsUnauthorizedError() (UnauthorizedError, error) {
 	var body UnauthorizedError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromUnauthorizedError overwrites any union data inside the ConnectBulkPartnerMemberCompanyError as the provided UnauthorizedError
-func (t *ConnectBulkPartnerMemberCompanyError) FromUnauthorizedError(v UnauthorizedError) error {
+// FromUnauthorizedError overwrites any union data inside the ConfirmPaymentwallDeliveryError as the provided UnauthorizedError
+func (t *ConfirmPaymentwallDeliveryError) FromUnauthorizedError(v UnauthorizedError) error {
 	v.Type = "UNAUTHORIZED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeUnauthorizedError performs a merge with any union data inside the ConnectBulkPartnerMemberCompanyError, using the provided UnauthorizedError
-func (t *ConnectBulkPartnerMemberCompanyError) MergeUnauthorizedError(v UnauthorizedError) error {
+// MergeUnauthorizedError performs a merge with any union data inside the ConfirmPaymentwallDeliveryError, using the provided UnauthorizedError
+func (t *ConfirmPaymentwallDeliveryError) MergeUnauthorizedError(v UnauthorizedError) error {
 	v.Type = "UNAUTHORIZED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17066,7 +18597,7 @@ func (t *ConnectBulkPartnerMemberCompanyError) MergeUnauthorizedError(v Unauthor
 	return err
 }
 
-func (t ConnectBulkPartnerMemberCompanyError) Discriminator() (string, error) {
+func (t ConfirmPaymentwallDeliveryError) Discriminator() (string, error) {
 	var discriminator struct {
 		Discriminator string `json:"type"`
 	}
@@ -17074,7 +18605,266 @@ func (t ConnectBulkPartnerMemberCompanyError) Discriminator() (string, error) {
 	return discriminator.Discriminator, err
 }
 
-func (t ConnectBulkPartnerMemberCompanyError) ValueByDiscriminator() (interface{}, error) {
+func (t ConfirmPaymentwallDeliveryError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "PAYMENT_NOT_FOUND":
+		return t.AsPaymentNotFoundError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t ConfirmPaymentwallDeliveryError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ConfirmPaymentwallDeliveryError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsForbiddenError returns the union data inside the ConnectBulkPartnerCounterpartyError as a ForbiddenError
+func (t ConnectBulkPartnerCounterpartyError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the ConnectBulkPartnerCounterpartyError as the provided ForbiddenError
+func (t *ConnectBulkPartnerCounterpartyError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the ConnectBulkPartnerCounterpartyError, using the provided ForbiddenError
+func (t *ConnectBulkPartnerCounterpartyError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the ConnectBulkPartnerCounterpartyError as a InvalidRequestError
+func (t ConnectBulkPartnerCounterpartyError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the ConnectBulkPartnerCounterpartyError as the provided InvalidRequestError
+func (t *ConnectBulkPartnerCounterpartyError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the ConnectBulkPartnerCounterpartyError, using the provided InvalidRequestError
+func (t *ConnectBulkPartnerCounterpartyError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformBtxNotEnabledError returns the union data inside the ConnectBulkPartnerCounterpartyError as a PlatformBtxNotEnabledError
+func (t ConnectBulkPartnerCounterpartyError) AsPlatformBtxNotEnabledError() (PlatformBtxNotEnabledError, error) {
+	var body PlatformBtxNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformBtxNotEnabledError overwrites any union data inside the ConnectBulkPartnerCounterpartyError as the provided PlatformBtxNotEnabledError
+func (t *ConnectBulkPartnerCounterpartyError) FromPlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
+	v.Type = "PLATFORM_BTX_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformBtxNotEnabledError performs a merge with any union data inside the ConnectBulkPartnerCounterpartyError, using the provided PlatformBtxNotEnabledError
+func (t *ConnectBulkPartnerCounterpartyError) MergePlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
+	v.Type = "PLATFORM_BTX_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformExternalApiFailedError returns the union data inside the ConnectBulkPartnerCounterpartyError as a PlatformExternalApiFailedError
+func (t ConnectBulkPartnerCounterpartyError) AsPlatformExternalApiFailedError() (PlatformExternalApiFailedError, error) {
+	var body PlatformExternalApiFailedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformExternalApiFailedError overwrites any union data inside the ConnectBulkPartnerCounterpartyError as the provided PlatformExternalApiFailedError
+func (t *ConnectBulkPartnerCounterpartyError) FromPlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
+	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformExternalApiFailedError performs a merge with any union data inside the ConnectBulkPartnerCounterpartyError, using the provided PlatformExternalApiFailedError
+func (t *ConnectBulkPartnerCounterpartyError) MergePlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
+	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformNotEnabledError returns the union data inside the ConnectBulkPartnerCounterpartyError as a PlatformNotEnabledError
+func (t ConnectBulkPartnerCounterpartyError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
+	var body PlatformNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformNotEnabledError overwrites any union data inside the ConnectBulkPartnerCounterpartyError as the provided PlatformNotEnabledError
+func (t *ConnectBulkPartnerCounterpartyError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
+	v.Type = "PLATFORM_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformNotEnabledError performs a merge with any union data inside the ConnectBulkPartnerCounterpartyError, using the provided PlatformNotEnabledError
+func (t *ConnectBulkPartnerCounterpartyError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
+	v.Type = "PLATFORM_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformPartnerNotFoundError returns the union data inside the ConnectBulkPartnerCounterpartyError as a PlatformPartnerNotFoundError
+func (t ConnectBulkPartnerCounterpartyError) AsPlatformPartnerNotFoundError() (PlatformPartnerNotFoundError, error) {
+	var body PlatformPartnerNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformPartnerNotFoundError overwrites any union data inside the ConnectBulkPartnerCounterpartyError as the provided PlatformPartnerNotFoundError
+func (t *ConnectBulkPartnerCounterpartyError) FromPlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
+	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformPartnerNotFoundError performs a merge with any union data inside the ConnectBulkPartnerCounterpartyError, using the provided PlatformPartnerNotFoundError
+func (t *ConnectBulkPartnerCounterpartyError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
+	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformTargetPartnerNotFoundError returns the union data inside the ConnectBulkPartnerCounterpartyError as a PlatformTargetPartnerNotFoundError
+func (t ConnectBulkPartnerCounterpartyError) AsPlatformTargetPartnerNotFoundError() (PlatformTargetPartnerNotFoundError, error) {
+	var body PlatformTargetPartnerNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformTargetPartnerNotFoundError overwrites any union data inside the ConnectBulkPartnerCounterpartyError as the provided PlatformTargetPartnerNotFoundError
+func (t *ConnectBulkPartnerCounterpartyError) FromPlatformTargetPartnerNotFoundError(v PlatformTargetPartnerNotFoundError) error {
+	v.Type = "PLATFORM_TARGET_PARTNER_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformTargetPartnerNotFoundError performs a merge with any union data inside the ConnectBulkPartnerCounterpartyError, using the provided PlatformTargetPartnerNotFoundError
+func (t *ConnectBulkPartnerCounterpartyError) MergePlatformTargetPartnerNotFoundError(v PlatformTargetPartnerNotFoundError) error {
+	v.Type = "PLATFORM_TARGET_PARTNER_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the ConnectBulkPartnerCounterpartyError as a UnauthorizedError
+func (t ConnectBulkPartnerCounterpartyError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the ConnectBulkPartnerCounterpartyError as the provided UnauthorizedError
+func (t *ConnectBulkPartnerCounterpartyError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the ConnectBulkPartnerCounterpartyError, using the provided UnauthorizedError
+func (t *ConnectBulkPartnerCounterpartyError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ConnectBulkPartnerCounterpartyError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t ConnectBulkPartnerCounterpartyError) ValueByDiscriminator() (interface{}, error) {
 	discriminator, err := t.Discriminator()
 	if err != nil {
 		return nil, err
@@ -17101,33 +18891,33 @@ func (t ConnectBulkPartnerMemberCompanyError) ValueByDiscriminator() (interface{
 	}
 }
 
-func (t ConnectBulkPartnerMemberCompanyError) MarshalJSON() ([]byte, error) {
+func (t ConnectBulkPartnerCounterpartyError) MarshalJSON() ([]byte, error) {
 	b, err := t.union.MarshalJSON()
 	return b, err
 }
 
-func (t *ConnectBulkPartnerMemberCompanyError) UnmarshalJSON(b []byte) error {
+func (t *ConnectBulkPartnerCounterpartyError) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
 
-// AsForbiddenError returns the union data inside the ConnectPartnerMemberCompanyError as a ForbiddenError
-func (t ConnectPartnerMemberCompanyError) AsForbiddenError() (ForbiddenError, error) {
+// AsForbiddenError returns the union data inside the ConnectPartnerCounterpartyError as a ForbiddenError
+func (t ConnectPartnerCounterpartyError) AsForbiddenError() (ForbiddenError, error) {
 	var body ForbiddenError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromForbiddenError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided ForbiddenError
-func (t *ConnectPartnerMemberCompanyError) FromForbiddenError(v ForbiddenError) error {
+// FromForbiddenError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided ForbiddenError
+func (t *ConnectPartnerCounterpartyError) FromForbiddenError(v ForbiddenError) error {
 	v.Type = "FORBIDDEN"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeForbiddenError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided ForbiddenError
-func (t *ConnectPartnerMemberCompanyError) MergeForbiddenError(v ForbiddenError) error {
+// MergeForbiddenError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided ForbiddenError
+func (t *ConnectPartnerCounterpartyError) MergeForbiddenError(v ForbiddenError) error {
 	v.Type = "FORBIDDEN"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17139,23 +18929,23 @@ func (t *ConnectPartnerMemberCompanyError) MergeForbiddenError(v ForbiddenError)
 	return err
 }
 
-// AsInvalidRequestError returns the union data inside the ConnectPartnerMemberCompanyError as a InvalidRequestError
-func (t ConnectPartnerMemberCompanyError) AsInvalidRequestError() (InvalidRequestError, error) {
+// AsInvalidRequestError returns the union data inside the ConnectPartnerCounterpartyError as a InvalidRequestError
+func (t ConnectPartnerCounterpartyError) AsInvalidRequestError() (InvalidRequestError, error) {
 	var body InvalidRequestError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromInvalidRequestError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided InvalidRequestError
-func (t *ConnectPartnerMemberCompanyError) FromInvalidRequestError(v InvalidRequestError) error {
+// FromInvalidRequestError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided InvalidRequestError
+func (t *ConnectPartnerCounterpartyError) FromInvalidRequestError(v InvalidRequestError) error {
 	v.Type = "INVALID_REQUEST"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeInvalidRequestError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided InvalidRequestError
-func (t *ConnectPartnerMemberCompanyError) MergeInvalidRequestError(v InvalidRequestError) error {
+// MergeInvalidRequestError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided InvalidRequestError
+func (t *ConnectPartnerCounterpartyError) MergeInvalidRequestError(v InvalidRequestError) error {
 	v.Type = "INVALID_REQUEST"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17167,23 +18957,79 @@ func (t *ConnectPartnerMemberCompanyError) MergeInvalidRequestError(v InvalidReq
 	return err
 }
 
-// AsPlatformBtxNotEnabledError returns the union data inside the ConnectPartnerMemberCompanyError as a PlatformBtxNotEnabledError
-func (t ConnectPartnerMemberCompanyError) AsPlatformBtxNotEnabledError() (PlatformBtxNotEnabledError, error) {
+// AsPlatformArchivedPartnerError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformArchivedPartnerError
+func (t ConnectPartnerCounterpartyError) AsPlatformArchivedPartnerError() (PlatformArchivedPartnerError, error) {
+	var body PlatformArchivedPartnerError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformArchivedPartnerError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformArchivedPartnerError
+func (t *ConnectPartnerCounterpartyError) FromPlatformArchivedPartnerError(v PlatformArchivedPartnerError) error {
+	v.Type = "PLATFORM_ARCHIVED_PARTNER"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformArchivedPartnerError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformArchivedPartnerError
+func (t *ConnectPartnerCounterpartyError) MergePlatformArchivedPartnerError(v PlatformArchivedPartnerError) error {
+	v.Type = "PLATFORM_ARCHIVED_PARTNER"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformArchivedPartnerNtsNotAllowedError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformArchivedPartnerNtsNotAllowedError
+func (t ConnectPartnerCounterpartyError) AsPlatformArchivedPartnerNtsNotAllowedError() (PlatformArchivedPartnerNtsNotAllowedError, error) {
+	var body PlatformArchivedPartnerNtsNotAllowedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformArchivedPartnerNtsNotAllowedError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformArchivedPartnerNtsNotAllowedError
+func (t *ConnectPartnerCounterpartyError) FromPlatformArchivedPartnerNtsNotAllowedError(v PlatformArchivedPartnerNtsNotAllowedError) error {
+	v.Type = "PLATFORM_ARCHIVED_PARTNER_NTS_NOT_ALLOWED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformArchivedPartnerNtsNotAllowedError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformArchivedPartnerNtsNotAllowedError
+func (t *ConnectPartnerCounterpartyError) MergePlatformArchivedPartnerNtsNotAllowedError(v PlatformArchivedPartnerNtsNotAllowedError) error {
+	v.Type = "PLATFORM_ARCHIVED_PARTNER_NTS_NOT_ALLOWED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformBtxNotEnabledError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformBtxNotEnabledError
+func (t ConnectPartnerCounterpartyError) AsPlatformBtxNotEnabledError() (PlatformBtxNotEnabledError, error) {
 	var body PlatformBtxNotEnabledError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformBtxNotEnabledError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided PlatformBtxNotEnabledError
-func (t *ConnectPartnerMemberCompanyError) FromPlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
+// FromPlatformBtxNotEnabledError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformBtxNotEnabledError
+func (t *ConnectPartnerCounterpartyError) FromPlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
 	v.Type = "PLATFORM_BTX_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformBtxNotEnabledError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided PlatformBtxNotEnabledError
-func (t *ConnectPartnerMemberCompanyError) MergePlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
+// MergePlatformBtxNotEnabledError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformBtxNotEnabledError
+func (t *ConnectPartnerCounterpartyError) MergePlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
 	v.Type = "PLATFORM_BTX_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17195,23 +19041,51 @@ func (t *ConnectPartnerMemberCompanyError) MergePlatformBtxNotEnabledError(v Pla
 	return err
 }
 
-// AsPlatformExternalApiFailedError returns the union data inside the ConnectPartnerMemberCompanyError as a PlatformExternalApiFailedError
-func (t ConnectPartnerMemberCompanyError) AsPlatformExternalApiFailedError() (PlatformExternalApiFailedError, error) {
+// AsPlatformCounterpartyNotConnectableStatusError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformCounterpartyNotConnectableStatusError
+func (t ConnectPartnerCounterpartyError) AsPlatformCounterpartyNotConnectableStatusError() (PlatformCounterpartyNotConnectableStatusError, error) {
+	var body PlatformCounterpartyNotConnectableStatusError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformCounterpartyNotConnectableStatusError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformCounterpartyNotConnectableStatusError
+func (t *ConnectPartnerCounterpartyError) FromPlatformCounterpartyNotConnectableStatusError(v PlatformCounterpartyNotConnectableStatusError) error {
+	v.Type = "PLATFORM_COUNTERPARTY_NOT_CONNECTABLE_STATUS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformCounterpartyNotConnectableStatusError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformCounterpartyNotConnectableStatusError
+func (t *ConnectPartnerCounterpartyError) MergePlatformCounterpartyNotConnectableStatusError(v PlatformCounterpartyNotConnectableStatusError) error {
+	v.Type = "PLATFORM_COUNTERPARTY_NOT_CONNECTABLE_STATUS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformExternalApiFailedError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformExternalApiFailedError
+func (t ConnectPartnerCounterpartyError) AsPlatformExternalApiFailedError() (PlatformExternalApiFailedError, error) {
 	var body PlatformExternalApiFailedError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformExternalApiFailedError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided PlatformExternalApiFailedError
-func (t *ConnectPartnerMemberCompanyError) FromPlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
+// FromPlatformExternalApiFailedError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformExternalApiFailedError
+func (t *ConnectPartnerCounterpartyError) FromPlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
 	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformExternalApiFailedError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided PlatformExternalApiFailedError
-func (t *ConnectPartnerMemberCompanyError) MergePlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
+// MergePlatformExternalApiFailedError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformExternalApiFailedError
+func (t *ConnectPartnerCounterpartyError) MergePlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
 	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17223,51 +19097,23 @@ func (t *ConnectPartnerMemberCompanyError) MergePlatformExternalApiFailedError(v
 	return err
 }
 
-// AsPlatformMemberCompanyNotConnectableStatusError returns the union data inside the ConnectPartnerMemberCompanyError as a PlatformMemberCompanyNotConnectableStatusError
-func (t ConnectPartnerMemberCompanyError) AsPlatformMemberCompanyNotConnectableStatusError() (PlatformMemberCompanyNotConnectableStatusError, error) {
-	var body PlatformMemberCompanyNotConnectableStatusError
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromPlatformMemberCompanyNotConnectableStatusError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided PlatformMemberCompanyNotConnectableStatusError
-func (t *ConnectPartnerMemberCompanyError) FromPlatformMemberCompanyNotConnectableStatusError(v PlatformMemberCompanyNotConnectableStatusError) error {
-	v.Type = "PLATFORM_MEMBER_COMPANY_NOT_CONNECTABLE_STATUS"
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergePlatformMemberCompanyNotConnectableStatusError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided PlatformMemberCompanyNotConnectableStatusError
-func (t *ConnectPartnerMemberCompanyError) MergePlatformMemberCompanyNotConnectableStatusError(v PlatformMemberCompanyNotConnectableStatusError) error {
-	v.Type = "PLATFORM_MEMBER_COMPANY_NOT_CONNECTABLE_STATUS"
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsPlatformNotEnabledError returns the union data inside the ConnectPartnerMemberCompanyError as a PlatformNotEnabledError
-func (t ConnectPartnerMemberCompanyError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
+// AsPlatformNotEnabledError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformNotEnabledError
+func (t ConnectPartnerCounterpartyError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
 	var body PlatformNotEnabledError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformNotEnabledError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided PlatformNotEnabledError
-func (t *ConnectPartnerMemberCompanyError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
+// FromPlatformNotEnabledError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformNotEnabledError
+func (t *ConnectPartnerCounterpartyError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
 	v.Type = "PLATFORM_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformNotEnabledError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided PlatformNotEnabledError
-func (t *ConnectPartnerMemberCompanyError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
+// MergePlatformNotEnabledError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformNotEnabledError
+func (t *ConnectPartnerCounterpartyError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
 	v.Type = "PLATFORM_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17279,23 +19125,23 @@ func (t *ConnectPartnerMemberCompanyError) MergePlatformNotEnabledError(v Platfo
 	return err
 }
 
-// AsPlatformPartnerNotFoundError returns the union data inside the ConnectPartnerMemberCompanyError as a PlatformPartnerNotFoundError
-func (t ConnectPartnerMemberCompanyError) AsPlatformPartnerNotFoundError() (PlatformPartnerNotFoundError, error) {
+// AsPlatformPartnerNotFoundError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformPartnerNotFoundError
+func (t ConnectPartnerCounterpartyError) AsPlatformPartnerNotFoundError() (PlatformPartnerNotFoundError, error) {
 	var body PlatformPartnerNotFoundError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformPartnerNotFoundError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided PlatformPartnerNotFoundError
-func (t *ConnectPartnerMemberCompanyError) FromPlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
+// FromPlatformPartnerNotFoundError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformPartnerNotFoundError
+func (t *ConnectPartnerCounterpartyError) FromPlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
 	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformPartnerNotFoundError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided PlatformPartnerNotFoundError
-func (t *ConnectPartnerMemberCompanyError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
+// MergePlatformPartnerNotFoundError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformPartnerNotFoundError
+func (t *ConnectPartnerCounterpartyError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
 	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17307,23 +19153,23 @@ func (t *ConnectPartnerMemberCompanyError) MergePlatformPartnerNotFoundError(v P
 	return err
 }
 
-// AsPlatformPartnerScheduleExistsError returns the union data inside the ConnectPartnerMemberCompanyError as a PlatformPartnerScheduleExistsError
-func (t ConnectPartnerMemberCompanyError) AsPlatformPartnerScheduleExistsError() (PlatformPartnerScheduleExistsError, error) {
+// AsPlatformPartnerScheduleExistsError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformPartnerScheduleExistsError
+func (t ConnectPartnerCounterpartyError) AsPlatformPartnerScheduleExistsError() (PlatformPartnerScheduleExistsError, error) {
 	var body PlatformPartnerScheduleExistsError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformPartnerScheduleExistsError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided PlatformPartnerScheduleExistsError
-func (t *ConnectPartnerMemberCompanyError) FromPlatformPartnerScheduleExistsError(v PlatformPartnerScheduleExistsError) error {
+// FromPlatformPartnerScheduleExistsError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformPartnerScheduleExistsError
+func (t *ConnectPartnerCounterpartyError) FromPlatformPartnerScheduleExistsError(v PlatformPartnerScheduleExistsError) error {
 	v.Type = "PLATFORM_PARTNER_SCHEDULE_EXISTS"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformPartnerScheduleExistsError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided PlatformPartnerScheduleExistsError
-func (t *ConnectPartnerMemberCompanyError) MergePlatformPartnerScheduleExistsError(v PlatformPartnerScheduleExistsError) error {
+// MergePlatformPartnerScheduleExistsError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformPartnerScheduleExistsError
+func (t *ConnectPartnerCounterpartyError) MergePlatformPartnerScheduleExistsError(v PlatformPartnerScheduleExistsError) error {
 	v.Type = "PLATFORM_PARTNER_SCHEDULE_EXISTS"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17335,23 +19181,23 @@ func (t *ConnectPartnerMemberCompanyError) MergePlatformPartnerScheduleExistsErr
 	return err
 }
 
-// AsPlatformPartnerTaxationTypeIsSimpleError returns the union data inside the ConnectPartnerMemberCompanyError as a PlatformPartnerTaxationTypeIsSimpleError
-func (t ConnectPartnerMemberCompanyError) AsPlatformPartnerTaxationTypeIsSimpleError() (PlatformPartnerTaxationTypeIsSimpleError, error) {
+// AsPlatformPartnerTaxationTypeIsSimpleError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformPartnerTaxationTypeIsSimpleError
+func (t ConnectPartnerCounterpartyError) AsPlatformPartnerTaxationTypeIsSimpleError() (PlatformPartnerTaxationTypeIsSimpleError, error) {
 	var body PlatformPartnerTaxationTypeIsSimpleError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformPartnerTaxationTypeIsSimpleError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided PlatformPartnerTaxationTypeIsSimpleError
-func (t *ConnectPartnerMemberCompanyError) FromPlatformPartnerTaxationTypeIsSimpleError(v PlatformPartnerTaxationTypeIsSimpleError) error {
+// FromPlatformPartnerTaxationTypeIsSimpleError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformPartnerTaxationTypeIsSimpleError
+func (t *ConnectPartnerCounterpartyError) FromPlatformPartnerTaxationTypeIsSimpleError(v PlatformPartnerTaxationTypeIsSimpleError) error {
 	v.Type = "PLATFORM_PARTNER_TAXATION_TYPE_IS_SIMPLE"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformPartnerTaxationTypeIsSimpleError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided PlatformPartnerTaxationTypeIsSimpleError
-func (t *ConnectPartnerMemberCompanyError) MergePlatformPartnerTaxationTypeIsSimpleError(v PlatformPartnerTaxationTypeIsSimpleError) error {
+// MergePlatformPartnerTaxationTypeIsSimpleError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformPartnerTaxationTypeIsSimpleError
+func (t *ConnectPartnerCounterpartyError) MergePlatformPartnerTaxationTypeIsSimpleError(v PlatformPartnerTaxationTypeIsSimpleError) error {
 	v.Type = "PLATFORM_PARTNER_TAXATION_TYPE_IS_SIMPLE"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17363,23 +19209,23 @@ func (t *ConnectPartnerMemberCompanyError) MergePlatformPartnerTaxationTypeIsSim
 	return err
 }
 
-// AsPlatformPartnerTypeIsNotBusinessError returns the union data inside the ConnectPartnerMemberCompanyError as a PlatformPartnerTypeIsNotBusinessError
-func (t ConnectPartnerMemberCompanyError) AsPlatformPartnerTypeIsNotBusinessError() (PlatformPartnerTypeIsNotBusinessError, error) {
+// AsPlatformPartnerTypeIsNotBusinessError returns the union data inside the ConnectPartnerCounterpartyError as a PlatformPartnerTypeIsNotBusinessError
+func (t ConnectPartnerCounterpartyError) AsPlatformPartnerTypeIsNotBusinessError() (PlatformPartnerTypeIsNotBusinessError, error) {
 	var body PlatformPartnerTypeIsNotBusinessError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformPartnerTypeIsNotBusinessError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided PlatformPartnerTypeIsNotBusinessError
-func (t *ConnectPartnerMemberCompanyError) FromPlatformPartnerTypeIsNotBusinessError(v PlatformPartnerTypeIsNotBusinessError) error {
+// FromPlatformPartnerTypeIsNotBusinessError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided PlatformPartnerTypeIsNotBusinessError
+func (t *ConnectPartnerCounterpartyError) FromPlatformPartnerTypeIsNotBusinessError(v PlatformPartnerTypeIsNotBusinessError) error {
 	v.Type = "PLATFORM_PARTNER_TYPE_IS_NOT_BUSINESS"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformPartnerTypeIsNotBusinessError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided PlatformPartnerTypeIsNotBusinessError
-func (t *ConnectPartnerMemberCompanyError) MergePlatformPartnerTypeIsNotBusinessError(v PlatformPartnerTypeIsNotBusinessError) error {
+// MergePlatformPartnerTypeIsNotBusinessError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided PlatformPartnerTypeIsNotBusinessError
+func (t *ConnectPartnerCounterpartyError) MergePlatformPartnerTypeIsNotBusinessError(v PlatformPartnerTypeIsNotBusinessError) error {
 	v.Type = "PLATFORM_PARTNER_TYPE_IS_NOT_BUSINESS"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17391,23 +19237,23 @@ func (t *ConnectPartnerMemberCompanyError) MergePlatformPartnerTypeIsNotBusiness
 	return err
 }
 
-// AsUnauthorizedError returns the union data inside the ConnectPartnerMemberCompanyError as a UnauthorizedError
-func (t ConnectPartnerMemberCompanyError) AsUnauthorizedError() (UnauthorizedError, error) {
+// AsUnauthorizedError returns the union data inside the ConnectPartnerCounterpartyError as a UnauthorizedError
+func (t ConnectPartnerCounterpartyError) AsUnauthorizedError() (UnauthorizedError, error) {
 	var body UnauthorizedError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromUnauthorizedError overwrites any union data inside the ConnectPartnerMemberCompanyError as the provided UnauthorizedError
-func (t *ConnectPartnerMemberCompanyError) FromUnauthorizedError(v UnauthorizedError) error {
+// FromUnauthorizedError overwrites any union data inside the ConnectPartnerCounterpartyError as the provided UnauthorizedError
+func (t *ConnectPartnerCounterpartyError) FromUnauthorizedError(v UnauthorizedError) error {
 	v.Type = "UNAUTHORIZED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeUnauthorizedError performs a merge with any union data inside the ConnectPartnerMemberCompanyError, using the provided UnauthorizedError
-func (t *ConnectPartnerMemberCompanyError) MergeUnauthorizedError(v UnauthorizedError) error {
+// MergeUnauthorizedError performs a merge with any union data inside the ConnectPartnerCounterpartyError, using the provided UnauthorizedError
+func (t *ConnectPartnerCounterpartyError) MergeUnauthorizedError(v UnauthorizedError) error {
 	v.Type = "UNAUTHORIZED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -17419,7 +19265,7 @@ func (t *ConnectPartnerMemberCompanyError) MergeUnauthorizedError(v Unauthorized
 	return err
 }
 
-func (t ConnectPartnerMemberCompanyError) Discriminator() (string, error) {
+func (t ConnectPartnerCounterpartyError) Discriminator() (string, error) {
 	var discriminator struct {
 		Discriminator string `json:"type"`
 	}
@@ -17427,7 +19273,7 @@ func (t ConnectPartnerMemberCompanyError) Discriminator() (string, error) {
 	return discriminator.Discriminator, err
 }
 
-func (t ConnectPartnerMemberCompanyError) ValueByDiscriminator() (interface{}, error) {
+func (t ConnectPartnerCounterpartyError) ValueByDiscriminator() (interface{}, error) {
 	discriminator, err := t.Discriminator()
 	if err != nil {
 		return nil, err
@@ -17437,12 +19283,16 @@ func (t ConnectPartnerMemberCompanyError) ValueByDiscriminator() (interface{}, e
 		return t.AsForbiddenError()
 	case "INVALID_REQUEST":
 		return t.AsInvalidRequestError()
+	case "PLATFORM_ARCHIVED_PARTNER":
+		return t.AsPlatformArchivedPartnerError()
+	case "PLATFORM_ARCHIVED_PARTNER_NTS_NOT_ALLOWED":
+		return t.AsPlatformArchivedPartnerNtsNotAllowedError()
 	case "PLATFORM_BTX_NOT_ENABLED":
 		return t.AsPlatformBtxNotEnabledError()
+	case "PLATFORM_COUNTERPARTY_NOT_CONNECTABLE_STATUS":
+		return t.AsPlatformCounterpartyNotConnectableStatusError()
 	case "PLATFORM_EXTERNAL_API_FAILED":
 		return t.AsPlatformExternalApiFailedError()
-	case "PLATFORM_MEMBER_COMPANY_NOT_CONNECTABLE_STATUS":
-		return t.AsPlatformMemberCompanyNotConnectableStatusError()
 	case "PLATFORM_NOT_ENABLED":
 		return t.AsPlatformNotEnabledError()
 	case "PLATFORM_PARTNER_NOT_FOUND":
@@ -17460,12 +19310,551 @@ func (t ConnectPartnerMemberCompanyError) ValueByDiscriminator() (interface{}, e
 	}
 }
 
-func (t ConnectPartnerMemberCompanyError) MarshalJSON() ([]byte, error) {
+func (t ConnectPartnerCounterpartyError) MarshalJSON() ([]byte, error) {
 	b, err := t.union.MarshalJSON()
 	return b, err
 }
 
-func (t *ConnectPartnerMemberCompanyError) UnmarshalJSON(b []byte) error {
+func (t *ConnectPartnerCounterpartyError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsB2bCounterpartyBrnInvalidError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyBrnInvalidError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyBrnInvalidError() (B2bCounterpartyBrnInvalidError, error) {
+	var body B2bCounterpartyBrnInvalidError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyBrnInvalidError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyBrnInvalidError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyBrnInvalidError(v B2bCounterpartyBrnInvalidError) error {
+	v.Type = "B2B_COUNTERPARTY_BRN_INVALID"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyBrnInvalidError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyBrnInvalidError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyBrnInvalidError(v B2bCounterpartyBrnInvalidError) error {
+	v.Type = "B2B_COUNTERPARTY_BRN_INVALID"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyIdAlreadyExistsByPartnerError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyIdAlreadyExistsByPartnerError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyIdAlreadyExistsByPartnerError() (B2bCounterpartyIdAlreadyExistsByPartnerError, error) {
+	var body B2bCounterpartyIdAlreadyExistsByPartnerError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyIdAlreadyExistsByPartnerError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyIdAlreadyExistsByPartnerError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyIdAlreadyExistsByPartnerError(v B2bCounterpartyIdAlreadyExistsByPartnerError) error {
+	v.Type = "B2B_COUNTERPARTY_ID_ALREADY_EXISTS_BY_PARTNER"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyIdAlreadyExistsByPartnerError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyIdAlreadyExistsByPartnerError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyIdAlreadyExistsByPartnerError(v B2bCounterpartyIdAlreadyExistsByPartnerError) error {
+	v.Type = "B2B_COUNTERPARTY_ID_ALREADY_EXISTS_BY_PARTNER"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyIdAlreadyExistsError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyIdAlreadyExistsError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyIdAlreadyExistsError() (B2bCounterpartyIdAlreadyExistsError, error) {
+	var body B2bCounterpartyIdAlreadyExistsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyIdAlreadyExistsError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyIdAlreadyExistsError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyIdAlreadyExistsError(v B2bCounterpartyIdAlreadyExistsError) error {
+	v.Type = "B2B_COUNTERPARTY_ID_ALREADY_EXISTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyIdAlreadyExistsError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyIdAlreadyExistsError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyIdAlreadyExistsError(v B2bCounterpartyIdAlreadyExistsError) error {
+	v.Type = "B2B_COUNTERPARTY_ID_ALREADY_EXISTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyMissingRequiredFieldsError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyMissingRequiredFieldsError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyMissingRequiredFieldsError() (B2bCounterpartyMissingRequiredFieldsError, error) {
+	var body B2bCounterpartyMissingRequiredFieldsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyMissingRequiredFieldsError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyMissingRequiredFieldsError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyMissingRequiredFieldsError(v B2bCounterpartyMissingRequiredFieldsError) error {
+	v.Type = "B2B_COUNTERPARTY_MISSING_REQUIRED_FIELDS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyMissingRequiredFieldsError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyMissingRequiredFieldsError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyMissingRequiredFieldsError(v B2bCounterpartyMissingRequiredFieldsError) error {
+	v.Type = "B2B_COUNTERPARTY_MISSING_REQUIRED_FIELDS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNtsConnectionFailedError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyNtsConnectionFailedError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyNtsConnectionFailedError() (B2bCounterpartyNtsConnectionFailedError, error) {
+	var body B2bCounterpartyNtsConnectionFailedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNtsConnectionFailedError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyNtsConnectionFailedError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyNtsConnectionFailedError(v B2bCounterpartyNtsConnectionFailedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_CONNECTION_FAILED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNtsConnectionFailedError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyNtsConnectionFailedError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyNtsConnectionFailedError(v B2bCounterpartyNtsConnectionFailedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_CONNECTION_FAILED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyPartnerNotConnectableError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyPartnerNotConnectableError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyPartnerNotConnectableError() (B2bCounterpartyPartnerNotConnectableError, error) {
+	var body B2bCounterpartyPartnerNotConnectableError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyPartnerNotConnectableError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyPartnerNotConnectableError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyPartnerNotConnectableError(v B2bCounterpartyPartnerNotConnectableError) error {
+	v.Type = "B2B_COUNTERPARTY_PARTNER_NOT_CONNECTABLE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyPartnerNotConnectableError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyPartnerNotConnectableError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyPartnerNotConnectableError(v B2bCounterpartyPartnerNotConnectableError) error {
+	v.Type = "B2B_COUNTERPARTY_PARTNER_NOT_CONNECTABLE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartySelfOriginBrnMismatchError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartySelfOriginBrnMismatchError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartySelfOriginBrnMismatchError() (B2bCounterpartySelfOriginBrnMismatchError, error) {
+	var body B2bCounterpartySelfOriginBrnMismatchError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartySelfOriginBrnMismatchError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartySelfOriginBrnMismatchError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartySelfOriginBrnMismatchError(v B2bCounterpartySelfOriginBrnMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_SELF_ORIGIN_BRN_MISMATCH"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartySelfOriginBrnMismatchError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartySelfOriginBrnMismatchError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartySelfOriginBrnMismatchError(v B2bCounterpartySelfOriginBrnMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_SELF_ORIGIN_BRN_MISMATCH"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyTooManyAdditionalContactsError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyTooManyAdditionalContactsError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyTooManyAdditionalContactsError() (B2bCounterpartyTooManyAdditionalContactsError, error) {
+	var body B2bCounterpartyTooManyAdditionalContactsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyTooManyAdditionalContactsError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyTooManyAdditionalContactsError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyTooManyAdditionalContactsError(v B2bCounterpartyTooManyAdditionalContactsError) error {
+	v.Type = "B2B_COUNTERPARTY_TOO_MANY_ADDITIONAL_CONTACTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyTooManyAdditionalContactsError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyTooManyAdditionalContactsError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyTooManyAdditionalContactsError(v B2bCounterpartyTooManyAdditionalContactsError) error {
+	v.Type = "B2B_COUNTERPARTY_TOO_MANY_ADDITIONAL_CONTACTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyVerificationBrnMismatchError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyVerificationBrnMismatchError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyVerificationBrnMismatchError() (B2bCounterpartyVerificationBrnMismatchError, error) {
+	var body B2bCounterpartyVerificationBrnMismatchError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyVerificationBrnMismatchError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyVerificationBrnMismatchError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyVerificationBrnMismatchError(v B2bCounterpartyVerificationBrnMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_BRN_MISMATCH"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyVerificationBrnMismatchError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyVerificationBrnMismatchError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyVerificationBrnMismatchError(v B2bCounterpartyVerificationBrnMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_BRN_MISMATCH"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyVerificationInvalidError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyVerificationInvalidError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyVerificationInvalidError() (B2bCounterpartyVerificationInvalidError, error) {
+	var body B2bCounterpartyVerificationInvalidError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyVerificationInvalidError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyVerificationInvalidError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyVerificationInvalidError(v B2bCounterpartyVerificationInvalidError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_INVALID"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyVerificationInvalidError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyVerificationInvalidError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyVerificationInvalidError(v B2bCounterpartyVerificationInvalidError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_INVALID"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyVerificationNotFoundError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyVerificationNotFoundError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyVerificationNotFoundError() (B2bCounterpartyVerificationNotFoundError, error) {
+	var body B2bCounterpartyVerificationNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyVerificationNotFoundError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyVerificationNotFoundError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyVerificationNotFoundError(v B2bCounterpartyVerificationNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyVerificationNotFoundError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyVerificationNotFoundError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyVerificationNotFoundError(v B2bCounterpartyVerificationNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyVerificationTypeMismatchError returns the union data inside the CreateB2bCounterpartyError as a B2bCounterpartyVerificationTypeMismatchError
+func (t CreateB2bCounterpartyError) AsB2bCounterpartyVerificationTypeMismatchError() (B2bCounterpartyVerificationTypeMismatchError, error) {
+	var body B2bCounterpartyVerificationTypeMismatchError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyVerificationTypeMismatchError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bCounterpartyVerificationTypeMismatchError
+func (t *CreateB2bCounterpartyError) FromB2bCounterpartyVerificationTypeMismatchError(v B2bCounterpartyVerificationTypeMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_TYPE_MISMATCH"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyVerificationTypeMismatchError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bCounterpartyVerificationTypeMismatchError
+func (t *CreateB2bCounterpartyError) MergeB2bCounterpartyVerificationTypeMismatchError(v B2bCounterpartyVerificationTypeMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_TYPE_MISMATCH"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bExternalServiceError returns the union data inside the CreateB2bCounterpartyError as a B2bExternalServiceError
+func (t CreateB2bCounterpartyError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
+	var body B2bExternalServiceError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bExternalServiceError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bExternalServiceError
+func (t *CreateB2bCounterpartyError) FromB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bExternalServiceError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bExternalServiceError
+func (t *CreateB2bCounterpartyError) MergeB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bNotEnabledError returns the union data inside the CreateB2bCounterpartyError as a B2bNotEnabledError
+func (t CreateB2bCounterpartyError) AsB2bNotEnabledError() (B2bNotEnabledError, error) {
+	var body B2bNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bNotEnabledError overwrites any union data inside the CreateB2bCounterpartyError as the provided B2bNotEnabledError
+func (t *CreateB2bCounterpartyError) FromB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bNotEnabledError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided B2bNotEnabledError
+func (t *CreateB2bCounterpartyError) MergeB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsForbiddenError returns the union data inside the CreateB2bCounterpartyError as a ForbiddenError
+func (t CreateB2bCounterpartyError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the CreateB2bCounterpartyError as the provided ForbiddenError
+func (t *CreateB2bCounterpartyError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided ForbiddenError
+func (t *CreateB2bCounterpartyError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the CreateB2bCounterpartyError as a InvalidRequestError
+func (t CreateB2bCounterpartyError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the CreateB2bCounterpartyError as the provided InvalidRequestError
+func (t *CreateB2bCounterpartyError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided InvalidRequestError
+func (t *CreateB2bCounterpartyError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the CreateB2bCounterpartyError as a UnauthorizedError
+func (t CreateB2bCounterpartyError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the CreateB2bCounterpartyError as the provided UnauthorizedError
+func (t *CreateB2bCounterpartyError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the CreateB2bCounterpartyError, using the provided UnauthorizedError
+func (t *CreateB2bCounterpartyError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t CreateB2bCounterpartyError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t CreateB2bCounterpartyError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "B2B_COUNTERPARTY_BRN_INVALID":
+		return t.AsB2bCounterpartyBrnInvalidError()
+	case "B2B_COUNTERPARTY_ID_ALREADY_EXISTS":
+		return t.AsB2bCounterpartyIdAlreadyExistsError()
+	case "B2B_COUNTERPARTY_ID_ALREADY_EXISTS_BY_PARTNER":
+		return t.AsB2bCounterpartyIdAlreadyExistsByPartnerError()
+	case "B2B_COUNTERPARTY_MISSING_REQUIRED_FIELDS":
+		return t.AsB2bCounterpartyMissingRequiredFieldsError()
+	case "B2B_COUNTERPARTY_NTS_CONNECTION_FAILED":
+		return t.AsB2bCounterpartyNtsConnectionFailedError()
+	case "B2B_COUNTERPARTY_PARTNER_NOT_CONNECTABLE":
+		return t.AsB2bCounterpartyPartnerNotConnectableError()
+	case "B2B_COUNTERPARTY_SELF_ORIGIN_BRN_MISMATCH":
+		return t.AsB2bCounterpartySelfOriginBrnMismatchError()
+	case "B2B_COUNTERPARTY_TOO_MANY_ADDITIONAL_CONTACTS":
+		return t.AsB2bCounterpartyTooManyAdditionalContactsError()
+	case "B2B_COUNTERPARTY_VERIFICATION_BRN_MISMATCH":
+		return t.AsB2bCounterpartyVerificationBrnMismatchError()
+	case "B2B_COUNTERPARTY_VERIFICATION_INVALID":
+		return t.AsB2bCounterpartyVerificationInvalidError()
+	case "B2B_COUNTERPARTY_VERIFICATION_NOT_FOUND":
+		return t.AsB2bCounterpartyVerificationNotFoundError()
+	case "B2B_COUNTERPARTY_VERIFICATION_TYPE_MISMATCH":
+		return t.AsB2bCounterpartyVerificationTypeMismatchError()
+	case "B2B_EXTERNAL_SERVICE":
+		return t.AsB2bExternalServiceError()
+	case "B2B_NOT_ENABLED":
+		return t.AsB2bNotEnabledError()
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t CreateB2bCounterpartyError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *CreateB2bCounterpartyError) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -18511,6 +20900,34 @@ func (t *CreatePlatformManualTransferError) MergeInvalidRequestError(v InvalidRe
 	return err
 }
 
+// AsPlatformCurrencyNotSupportedError returns the union data inside the CreatePlatformManualTransferError as a PlatformCurrencyNotSupportedError
+func (t CreatePlatformManualTransferError) AsPlatformCurrencyNotSupportedError() (PlatformCurrencyNotSupportedError, error) {
+	var body PlatformCurrencyNotSupportedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformCurrencyNotSupportedError overwrites any union data inside the CreatePlatformManualTransferError as the provided PlatformCurrencyNotSupportedError
+func (t *CreatePlatformManualTransferError) FromPlatformCurrencyNotSupportedError(v PlatformCurrencyNotSupportedError) error {
+	v.Type = "PLATFORM_CURRENCY_NOT_SUPPORTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformCurrencyNotSupportedError performs a merge with any union data inside the CreatePlatformManualTransferError, using the provided PlatformCurrencyNotSupportedError
+func (t *CreatePlatformManualTransferError) MergePlatformCurrencyNotSupportedError(v PlatformCurrencyNotSupportedError) error {
+	v.Type = "PLATFORM_CURRENCY_NOT_SUPPORTED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsPlatformNotEnabledError returns the union data inside the CreatePlatformManualTransferError as a PlatformNotEnabledError
 func (t CreatePlatformManualTransferError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
 	var body PlatformNotEnabledError
@@ -18557,6 +20974,34 @@ func (t *CreatePlatformManualTransferError) FromPlatformPartnerNotFoundError(v P
 // MergePlatformPartnerNotFoundError performs a merge with any union data inside the CreatePlatformManualTransferError, using the provided PlatformPartnerNotFoundError
 func (t *CreatePlatformManualTransferError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
 	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformTransferIdAlreadyUsedError returns the union data inside the CreatePlatformManualTransferError as a PlatformTransferIdAlreadyUsedError
+func (t CreatePlatformManualTransferError) AsPlatformTransferIdAlreadyUsedError() (PlatformTransferIdAlreadyUsedError, error) {
+	var body PlatformTransferIdAlreadyUsedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformTransferIdAlreadyUsedError overwrites any union data inside the CreatePlatformManualTransferError as the provided PlatformTransferIdAlreadyUsedError
+func (t *CreatePlatformManualTransferError) FromPlatformTransferIdAlreadyUsedError(v PlatformTransferIdAlreadyUsedError) error {
+	v.Type = "PLATFORM_TRANSFER_ID_ALREADY_USED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformTransferIdAlreadyUsedError performs a merge with any union data inside the CreatePlatformManualTransferError, using the provided PlatformTransferIdAlreadyUsedError
+func (t *CreatePlatformManualTransferError) MergePlatformTransferIdAlreadyUsedError(v PlatformTransferIdAlreadyUsedError) error {
+	v.Type = "PLATFORM_TRANSFER_ID_ALREADY_USED"
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -18641,10 +21086,14 @@ func (t CreatePlatformManualTransferError) ValueByDiscriminator() (interface{}, 
 		return t.AsForbiddenError()
 	case "INVALID_REQUEST":
 		return t.AsInvalidRequestError()
+	case "PLATFORM_CURRENCY_NOT_SUPPORTED":
+		return t.AsPlatformCurrencyNotSupportedError()
 	case "PLATFORM_NOT_ENABLED":
 		return t.AsPlatformNotEnabledError()
 	case "PLATFORM_PARTNER_NOT_FOUND":
 		return t.AsPlatformPartnerNotFoundError()
+	case "PLATFORM_TRANSFER_ID_ALREADY_USED":
+		return t.AsPlatformTransferIdAlreadyUsedError()
 	case "PLATFORM_USER_DEFINED_PROPERTY_NOT_FOUND":
 		return t.AsPlatformUserDefinedPropertyNotFoundError()
 	case "UNAUTHORIZED":
@@ -19252,6 +21701,34 @@ func (t *CreatePlatformOrderCancelTransferError) MergePlatformTransferDiscountSh
 	return err
 }
 
+// AsPlatformTransferIdAlreadyUsedError returns the union data inside the CreatePlatformOrderCancelTransferError as a PlatformTransferIdAlreadyUsedError
+func (t CreatePlatformOrderCancelTransferError) AsPlatformTransferIdAlreadyUsedError() (PlatformTransferIdAlreadyUsedError, error) {
+	var body PlatformTransferIdAlreadyUsedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformTransferIdAlreadyUsedError overwrites any union data inside the CreatePlatformOrderCancelTransferError as the provided PlatformTransferIdAlreadyUsedError
+func (t *CreatePlatformOrderCancelTransferError) FromPlatformTransferIdAlreadyUsedError(v PlatformTransferIdAlreadyUsedError) error {
+	v.Type = "PLATFORM_TRANSFER_ID_ALREADY_USED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformTransferIdAlreadyUsedError performs a merge with any union data inside the CreatePlatformOrderCancelTransferError, using the provided PlatformTransferIdAlreadyUsedError
+func (t *CreatePlatformOrderCancelTransferError) MergePlatformTransferIdAlreadyUsedError(v PlatformTransferIdAlreadyUsedError) error {
+	v.Type = "PLATFORM_TRANSFER_ID_ALREADY_USED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsPlatformTransferNotFoundError returns the union data inside the CreatePlatformOrderCancelTransferError as a PlatformTransferNotFoundError
 func (t CreatePlatformOrderCancelTransferError) AsPlatformTransferNotFoundError() (PlatformTransferNotFoundError, error) {
 	var body PlatformTransferNotFoundError
@@ -19392,6 +21869,8 @@ func (t CreatePlatformOrderCancelTransferError) ValueByDiscriminator() (interfac
 		return t.AsPlatformTransferAlreadyExistsError()
 	case "PLATFORM_TRANSFER_DISCOUNT_SHARE_POLICY_NOT_FOUND":
 		return t.AsPlatformTransferDiscountSharePolicyNotFoundError()
+	case "PLATFORM_TRANSFER_ID_ALREADY_USED":
+		return t.AsPlatformTransferIdAlreadyUsedError()
 	case "PLATFORM_TRANSFER_NOT_FOUND":
 		return t.AsPlatformTransferNotFoundError()
 	case "PLATFORM_USER_DEFINED_PROPERTY_NOT_FOUND":
@@ -19945,6 +22424,34 @@ func (t *CreatePlatformOrderTransferError) MergePlatformTransferAlreadyExistsErr
 	return err
 }
 
+// AsPlatformTransferIdAlreadyUsedError returns the union data inside the CreatePlatformOrderTransferError as a PlatformTransferIdAlreadyUsedError
+func (t CreatePlatformOrderTransferError) AsPlatformTransferIdAlreadyUsedError() (PlatformTransferIdAlreadyUsedError, error) {
+	var body PlatformTransferIdAlreadyUsedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformTransferIdAlreadyUsedError overwrites any union data inside the CreatePlatformOrderTransferError as the provided PlatformTransferIdAlreadyUsedError
+func (t *CreatePlatformOrderTransferError) FromPlatformTransferIdAlreadyUsedError(v PlatformTransferIdAlreadyUsedError) error {
+	v.Type = "PLATFORM_TRANSFER_ID_ALREADY_USED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformTransferIdAlreadyUsedError performs a merge with any union data inside the CreatePlatformOrderTransferError, using the provided PlatformTransferIdAlreadyUsedError
+func (t *CreatePlatformOrderTransferError) MergePlatformTransferIdAlreadyUsedError(v PlatformTransferIdAlreadyUsedError) error {
+	v.Type = "PLATFORM_TRANSFER_ID_ALREADY_USED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsPlatformUserDefinedPropertyNotFoundError returns the union data inside the CreatePlatformOrderTransferError as a PlatformUserDefinedPropertyNotFoundError
 func (t CreatePlatformOrderTransferError) AsPlatformUserDefinedPropertyNotFoundError() (PlatformUserDefinedPropertyNotFoundError, error) {
 	var body PlatformUserDefinedPropertyNotFoundError
@@ -20053,6 +22560,8 @@ func (t CreatePlatformOrderTransferError) ValueByDiscriminator() (interface{}, e
 		return t.AsPlatformSettlementTaxFreeAmountExceededPortOnePaymentError()
 	case "PLATFORM_TRANSFER_ALREADY_EXISTS":
 		return t.AsPlatformTransferAlreadyExistsError()
+	case "PLATFORM_TRANSFER_ID_ALREADY_USED":
+		return t.AsPlatformTransferIdAlreadyUsedError()
 	case "PLATFORM_USER_DEFINED_PROPERTY_NOT_FOUND":
 		return t.AsPlatformUserDefinedPropertyNotFoundError()
 	case "UNAUTHORIZED":
@@ -20756,6 +23265,275 @@ func (t CreatePlatformPartnersError) MarshalJSON() ([]byte, error) {
 }
 
 func (t *CreatePlatformPartnersError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsB2bCounterpartyNotFoundError returns the union data inside the DeleteB2bCounterpartyError as a B2bCounterpartyNotFoundError
+func (t DeleteB2bCounterpartyError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the DeleteB2bCounterpartyError as the provided B2bCounterpartyNotFoundError
+func (t *DeleteB2bCounterpartyError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the DeleteB2bCounterpartyError, using the provided B2bCounterpartyNotFoundError
+func (t *DeleteB2bCounterpartyError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyOngoingTaxInvoiceExistsError returns the union data inside the DeleteB2bCounterpartyError as a B2bCounterpartyOngoingTaxInvoiceExistsError
+func (t DeleteB2bCounterpartyError) AsB2bCounterpartyOngoingTaxInvoiceExistsError() (B2bCounterpartyOngoingTaxInvoiceExistsError, error) {
+	var body B2bCounterpartyOngoingTaxInvoiceExistsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyOngoingTaxInvoiceExistsError overwrites any union data inside the DeleteB2bCounterpartyError as the provided B2bCounterpartyOngoingTaxInvoiceExistsError
+func (t *DeleteB2bCounterpartyError) FromB2bCounterpartyOngoingTaxInvoiceExistsError(v B2bCounterpartyOngoingTaxInvoiceExistsError) error {
+	v.Type = "B2B_COUNTERPARTY_ONGOING_TAX_INVOICE_EXISTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyOngoingTaxInvoiceExistsError performs a merge with any union data inside the DeleteB2bCounterpartyError, using the provided B2bCounterpartyOngoingTaxInvoiceExistsError
+func (t *DeleteB2bCounterpartyError) MergeB2bCounterpartyOngoingTaxInvoiceExistsError(v B2bCounterpartyOngoingTaxInvoiceExistsError) error {
+	v.Type = "B2B_COUNTERPARTY_ONGOING_TAX_INVOICE_EXISTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyPartnerNotDeletableError returns the union data inside the DeleteB2bCounterpartyError as a B2bCounterpartyPartnerNotDeletableError
+func (t DeleteB2bCounterpartyError) AsB2bCounterpartyPartnerNotDeletableError() (B2bCounterpartyPartnerNotDeletableError, error) {
+	var body B2bCounterpartyPartnerNotDeletableError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyPartnerNotDeletableError overwrites any union data inside the DeleteB2bCounterpartyError as the provided B2bCounterpartyPartnerNotDeletableError
+func (t *DeleteB2bCounterpartyError) FromB2bCounterpartyPartnerNotDeletableError(v B2bCounterpartyPartnerNotDeletableError) error {
+	v.Type = "B2B_COUNTERPARTY_PARTNER_NOT_DELETABLE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyPartnerNotDeletableError performs a merge with any union data inside the DeleteB2bCounterpartyError, using the provided B2bCounterpartyPartnerNotDeletableError
+func (t *DeleteB2bCounterpartyError) MergeB2bCounterpartyPartnerNotDeletableError(v B2bCounterpartyPartnerNotDeletableError) error {
+	v.Type = "B2B_COUNTERPARTY_PARTNER_NOT_DELETABLE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bExternalServiceError returns the union data inside the DeleteB2bCounterpartyError as a B2bExternalServiceError
+func (t DeleteB2bCounterpartyError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
+	var body B2bExternalServiceError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bExternalServiceError overwrites any union data inside the DeleteB2bCounterpartyError as the provided B2bExternalServiceError
+func (t *DeleteB2bCounterpartyError) FromB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bExternalServiceError performs a merge with any union data inside the DeleteB2bCounterpartyError, using the provided B2bExternalServiceError
+func (t *DeleteB2bCounterpartyError) MergeB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bNotEnabledError returns the union data inside the DeleteB2bCounterpartyError as a B2bNotEnabledError
+func (t DeleteB2bCounterpartyError) AsB2bNotEnabledError() (B2bNotEnabledError, error) {
+	var body B2bNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bNotEnabledError overwrites any union data inside the DeleteB2bCounterpartyError as the provided B2bNotEnabledError
+func (t *DeleteB2bCounterpartyError) FromB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bNotEnabledError performs a merge with any union data inside the DeleteB2bCounterpartyError, using the provided B2bNotEnabledError
+func (t *DeleteB2bCounterpartyError) MergeB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsForbiddenError returns the union data inside the DeleteB2bCounterpartyError as a ForbiddenError
+func (t DeleteB2bCounterpartyError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the DeleteB2bCounterpartyError as the provided ForbiddenError
+func (t *DeleteB2bCounterpartyError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the DeleteB2bCounterpartyError, using the provided ForbiddenError
+func (t *DeleteB2bCounterpartyError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the DeleteB2bCounterpartyError as a InvalidRequestError
+func (t DeleteB2bCounterpartyError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the DeleteB2bCounterpartyError as the provided InvalidRequestError
+func (t *DeleteB2bCounterpartyError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the DeleteB2bCounterpartyError, using the provided InvalidRequestError
+func (t *DeleteB2bCounterpartyError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the DeleteB2bCounterpartyError as a UnauthorizedError
+func (t DeleteB2bCounterpartyError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the DeleteB2bCounterpartyError as the provided UnauthorizedError
+func (t *DeleteB2bCounterpartyError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the DeleteB2bCounterpartyError, using the provided UnauthorizedError
+func (t *DeleteB2bCounterpartyError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DeleteB2bCounterpartyError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t DeleteB2bCounterpartyError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_ONGOING_TAX_INVOICE_EXISTS":
+		return t.AsB2bCounterpartyOngoingTaxInvoiceExistsError()
+	case "B2B_COUNTERPARTY_PARTNER_NOT_DELETABLE":
+		return t.AsB2bCounterpartyPartnerNotDeletableError()
+	case "B2B_EXTERNAL_SERVICE":
+		return t.AsB2bExternalServiceError()
+	case "B2B_NOT_ENABLED":
+		return t.AsB2bNotEnabledError()
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t DeleteB2bCounterpartyError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DeleteB2bCounterpartyError) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -21597,6 +24375,245 @@ func (t *DeleteBillingKeyError) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsForbiddenError returns the union data inside the DeletePlatformPartnerSettlementsError as a ForbiddenError
+func (t DeletePlatformPartnerSettlementsError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the DeletePlatformPartnerSettlementsError as the provided ForbiddenError
+func (t *DeletePlatformPartnerSettlementsError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the DeletePlatformPartnerSettlementsError, using the provided ForbiddenError
+func (t *DeletePlatformPartnerSettlementsError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the DeletePlatformPartnerSettlementsError as a InvalidRequestError
+func (t DeletePlatformPartnerSettlementsError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the DeletePlatformPartnerSettlementsError as the provided InvalidRequestError
+func (t *DeletePlatformPartnerSettlementsError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the DeletePlatformPartnerSettlementsError, using the provided InvalidRequestError
+func (t *DeletePlatformPartnerSettlementsError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformNonDeletablePartnerSettlementsError returns the union data inside the DeletePlatformPartnerSettlementsError as a PlatformNonDeletablePartnerSettlementsError
+func (t DeletePlatformPartnerSettlementsError) AsPlatformNonDeletablePartnerSettlementsError() (PlatformNonDeletablePartnerSettlementsError, error) {
+	var body PlatformNonDeletablePartnerSettlementsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformNonDeletablePartnerSettlementsError overwrites any union data inside the DeletePlatformPartnerSettlementsError as the provided PlatformNonDeletablePartnerSettlementsError
+func (t *DeletePlatformPartnerSettlementsError) FromPlatformNonDeletablePartnerSettlementsError(v PlatformNonDeletablePartnerSettlementsError) error {
+	v.Type = "PLATFORM_NON_DELETABLE_PARTNER_SETTLEMENTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformNonDeletablePartnerSettlementsError performs a merge with any union data inside the DeletePlatformPartnerSettlementsError, using the provided PlatformNonDeletablePartnerSettlementsError
+func (t *DeletePlatformPartnerSettlementsError) MergePlatformNonDeletablePartnerSettlementsError(v PlatformNonDeletablePartnerSettlementsError) error {
+	v.Type = "PLATFORM_NON_DELETABLE_PARTNER_SETTLEMENTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformNotEnabledError returns the union data inside the DeletePlatformPartnerSettlementsError as a PlatformNotEnabledError
+func (t DeletePlatformPartnerSettlementsError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
+	var body PlatformNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformNotEnabledError overwrites any union data inside the DeletePlatformPartnerSettlementsError as the provided PlatformNotEnabledError
+func (t *DeletePlatformPartnerSettlementsError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
+	v.Type = "PLATFORM_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformNotEnabledError performs a merge with any union data inside the DeletePlatformPartnerSettlementsError, using the provided PlatformNotEnabledError
+func (t *DeletePlatformPartnerSettlementsError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
+	v.Type = "PLATFORM_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformPartnerSettlementsNotFoundError returns the union data inside the DeletePlatformPartnerSettlementsError as a PlatformPartnerSettlementsNotFoundError
+func (t DeletePlatformPartnerSettlementsError) AsPlatformPartnerSettlementsNotFoundError() (PlatformPartnerSettlementsNotFoundError, error) {
+	var body PlatformPartnerSettlementsNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformPartnerSettlementsNotFoundError overwrites any union data inside the DeletePlatformPartnerSettlementsError as the provided PlatformPartnerSettlementsNotFoundError
+func (t *DeletePlatformPartnerSettlementsError) FromPlatformPartnerSettlementsNotFoundError(v PlatformPartnerSettlementsNotFoundError) error {
+	v.Type = "PLATFORM_PARTNER_SETTLEMENTS_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformPartnerSettlementsNotFoundError performs a merge with any union data inside the DeletePlatformPartnerSettlementsError, using the provided PlatformPartnerSettlementsNotFoundError
+func (t *DeletePlatformPartnerSettlementsError) MergePlatformPartnerSettlementsNotFoundError(v PlatformPartnerSettlementsNotFoundError) error {
+	v.Type = "PLATFORM_PARTNER_SETTLEMENTS_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformReferencedCancelOrderTransfersExistError returns the union data inside the DeletePlatformPartnerSettlementsError as a PlatformReferencedCancelOrderTransfersExistError
+func (t DeletePlatformPartnerSettlementsError) AsPlatformReferencedCancelOrderTransfersExistError() (PlatformReferencedCancelOrderTransfersExistError, error) {
+	var body PlatformReferencedCancelOrderTransfersExistError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformReferencedCancelOrderTransfersExistError overwrites any union data inside the DeletePlatformPartnerSettlementsError as the provided PlatformReferencedCancelOrderTransfersExistError
+func (t *DeletePlatformPartnerSettlementsError) FromPlatformReferencedCancelOrderTransfersExistError(v PlatformReferencedCancelOrderTransfersExistError) error {
+	v.Type = "PLATFORM_REFERENCED_CANCEL_ORDER_TRANSFERS_EXIST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformReferencedCancelOrderTransfersExistError performs a merge with any union data inside the DeletePlatformPartnerSettlementsError, using the provided PlatformReferencedCancelOrderTransfersExistError
+func (t *DeletePlatformPartnerSettlementsError) MergePlatformReferencedCancelOrderTransfersExistError(v PlatformReferencedCancelOrderTransfersExistError) error {
+	v.Type = "PLATFORM_REFERENCED_CANCEL_ORDER_TRANSFERS_EXIST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the DeletePlatformPartnerSettlementsError as a UnauthorizedError
+func (t DeletePlatformPartnerSettlementsError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the DeletePlatformPartnerSettlementsError as the provided UnauthorizedError
+func (t *DeletePlatformPartnerSettlementsError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the DeletePlatformPartnerSettlementsError, using the provided UnauthorizedError
+func (t *DeletePlatformPartnerSettlementsError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DeletePlatformPartnerSettlementsError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t DeletePlatformPartnerSettlementsError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "PLATFORM_NON_DELETABLE_PARTNER_SETTLEMENTS":
+		return t.AsPlatformNonDeletablePartnerSettlementsError()
+	case "PLATFORM_NOT_ENABLED":
+		return t.AsPlatformNotEnabledError()
+	case "PLATFORM_PARTNER_SETTLEMENTS_NOT_FOUND":
+		return t.AsPlatformPartnerSettlementsNotFoundError()
+	case "PLATFORM_REFERENCED_CANCEL_ORDER_TRANSFERS_EXIST":
+		return t.AsPlatformReferencedCancelOrderTransfersExistError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t DeletePlatformPartnerSettlementsError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DeletePlatformPartnerSettlementsError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsForbiddenError returns the union data inside the DeletePlatformTransferError as a ForbiddenError
 func (t DeletePlatformTransferError) AsForbiddenError() (ForbiddenError, error) {
 	var body ForbiddenError
@@ -21836,23 +24853,23 @@ func (t *DeletePlatformTransferError) UnmarshalJSON(b []byte) error {
 	return err
 }
 
-// AsForbiddenError returns the union data inside the DisconnectBulkPartnerMemberCompanyError as a ForbiddenError
-func (t DisconnectBulkPartnerMemberCompanyError) AsForbiddenError() (ForbiddenError, error) {
+// AsForbiddenError returns the union data inside the DisconnectBulkPartnerCounterpartyError as a ForbiddenError
+func (t DisconnectBulkPartnerCounterpartyError) AsForbiddenError() (ForbiddenError, error) {
 	var body ForbiddenError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromForbiddenError overwrites any union data inside the DisconnectBulkPartnerMemberCompanyError as the provided ForbiddenError
-func (t *DisconnectBulkPartnerMemberCompanyError) FromForbiddenError(v ForbiddenError) error {
+// FromForbiddenError overwrites any union data inside the DisconnectBulkPartnerCounterpartyError as the provided ForbiddenError
+func (t *DisconnectBulkPartnerCounterpartyError) FromForbiddenError(v ForbiddenError) error {
 	v.Type = "FORBIDDEN"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeForbiddenError performs a merge with any union data inside the DisconnectBulkPartnerMemberCompanyError, using the provided ForbiddenError
-func (t *DisconnectBulkPartnerMemberCompanyError) MergeForbiddenError(v ForbiddenError) error {
+// MergeForbiddenError performs a merge with any union data inside the DisconnectBulkPartnerCounterpartyError, using the provided ForbiddenError
+func (t *DisconnectBulkPartnerCounterpartyError) MergeForbiddenError(v ForbiddenError) error {
 	v.Type = "FORBIDDEN"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -21864,23 +24881,23 @@ func (t *DisconnectBulkPartnerMemberCompanyError) MergeForbiddenError(v Forbidde
 	return err
 }
 
-// AsInvalidRequestError returns the union data inside the DisconnectBulkPartnerMemberCompanyError as a InvalidRequestError
-func (t DisconnectBulkPartnerMemberCompanyError) AsInvalidRequestError() (InvalidRequestError, error) {
+// AsInvalidRequestError returns the union data inside the DisconnectBulkPartnerCounterpartyError as a InvalidRequestError
+func (t DisconnectBulkPartnerCounterpartyError) AsInvalidRequestError() (InvalidRequestError, error) {
 	var body InvalidRequestError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromInvalidRequestError overwrites any union data inside the DisconnectBulkPartnerMemberCompanyError as the provided InvalidRequestError
-func (t *DisconnectBulkPartnerMemberCompanyError) FromInvalidRequestError(v InvalidRequestError) error {
+// FromInvalidRequestError overwrites any union data inside the DisconnectBulkPartnerCounterpartyError as the provided InvalidRequestError
+func (t *DisconnectBulkPartnerCounterpartyError) FromInvalidRequestError(v InvalidRequestError) error {
 	v.Type = "INVALID_REQUEST"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeInvalidRequestError performs a merge with any union data inside the DisconnectBulkPartnerMemberCompanyError, using the provided InvalidRequestError
-func (t *DisconnectBulkPartnerMemberCompanyError) MergeInvalidRequestError(v InvalidRequestError) error {
+// MergeInvalidRequestError performs a merge with any union data inside the DisconnectBulkPartnerCounterpartyError, using the provided InvalidRequestError
+func (t *DisconnectBulkPartnerCounterpartyError) MergeInvalidRequestError(v InvalidRequestError) error {
 	v.Type = "INVALID_REQUEST"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -21892,23 +24909,23 @@ func (t *DisconnectBulkPartnerMemberCompanyError) MergeInvalidRequestError(v Inv
 	return err
 }
 
-// AsPlatformBtxNotEnabledError returns the union data inside the DisconnectBulkPartnerMemberCompanyError as a PlatformBtxNotEnabledError
-func (t DisconnectBulkPartnerMemberCompanyError) AsPlatformBtxNotEnabledError() (PlatformBtxNotEnabledError, error) {
+// AsPlatformBtxNotEnabledError returns the union data inside the DisconnectBulkPartnerCounterpartyError as a PlatformBtxNotEnabledError
+func (t DisconnectBulkPartnerCounterpartyError) AsPlatformBtxNotEnabledError() (PlatformBtxNotEnabledError, error) {
 	var body PlatformBtxNotEnabledError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformBtxNotEnabledError overwrites any union data inside the DisconnectBulkPartnerMemberCompanyError as the provided PlatformBtxNotEnabledError
-func (t *DisconnectBulkPartnerMemberCompanyError) FromPlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
+// FromPlatformBtxNotEnabledError overwrites any union data inside the DisconnectBulkPartnerCounterpartyError as the provided PlatformBtxNotEnabledError
+func (t *DisconnectBulkPartnerCounterpartyError) FromPlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
 	v.Type = "PLATFORM_BTX_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformBtxNotEnabledError performs a merge with any union data inside the DisconnectBulkPartnerMemberCompanyError, using the provided PlatformBtxNotEnabledError
-func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
+// MergePlatformBtxNotEnabledError performs a merge with any union data inside the DisconnectBulkPartnerCounterpartyError, using the provided PlatformBtxNotEnabledError
+func (t *DisconnectBulkPartnerCounterpartyError) MergePlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
 	v.Type = "PLATFORM_BTX_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -21920,23 +24937,23 @@ func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformBtxNotEnabledErro
 	return err
 }
 
-// AsPlatformExternalApiFailedError returns the union data inside the DisconnectBulkPartnerMemberCompanyError as a PlatformExternalApiFailedError
-func (t DisconnectBulkPartnerMemberCompanyError) AsPlatformExternalApiFailedError() (PlatformExternalApiFailedError, error) {
+// AsPlatformExternalApiFailedError returns the union data inside the DisconnectBulkPartnerCounterpartyError as a PlatformExternalApiFailedError
+func (t DisconnectBulkPartnerCounterpartyError) AsPlatformExternalApiFailedError() (PlatformExternalApiFailedError, error) {
 	var body PlatformExternalApiFailedError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformExternalApiFailedError overwrites any union data inside the DisconnectBulkPartnerMemberCompanyError as the provided PlatformExternalApiFailedError
-func (t *DisconnectBulkPartnerMemberCompanyError) FromPlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
+// FromPlatformExternalApiFailedError overwrites any union data inside the DisconnectBulkPartnerCounterpartyError as the provided PlatformExternalApiFailedError
+func (t *DisconnectBulkPartnerCounterpartyError) FromPlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
 	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformExternalApiFailedError performs a merge with any union data inside the DisconnectBulkPartnerMemberCompanyError, using the provided PlatformExternalApiFailedError
-func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
+// MergePlatformExternalApiFailedError performs a merge with any union data inside the DisconnectBulkPartnerCounterpartyError, using the provided PlatformExternalApiFailedError
+func (t *DisconnectBulkPartnerCounterpartyError) MergePlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
 	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -21948,23 +24965,23 @@ func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformExternalApiFailed
 	return err
 }
 
-// AsPlatformNotEnabledError returns the union data inside the DisconnectBulkPartnerMemberCompanyError as a PlatformNotEnabledError
-func (t DisconnectBulkPartnerMemberCompanyError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
+// AsPlatformNotEnabledError returns the union data inside the DisconnectBulkPartnerCounterpartyError as a PlatformNotEnabledError
+func (t DisconnectBulkPartnerCounterpartyError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
 	var body PlatformNotEnabledError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformNotEnabledError overwrites any union data inside the DisconnectBulkPartnerMemberCompanyError as the provided PlatformNotEnabledError
-func (t *DisconnectBulkPartnerMemberCompanyError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
+// FromPlatformNotEnabledError overwrites any union data inside the DisconnectBulkPartnerCounterpartyError as the provided PlatformNotEnabledError
+func (t *DisconnectBulkPartnerCounterpartyError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
 	v.Type = "PLATFORM_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformNotEnabledError performs a merge with any union data inside the DisconnectBulkPartnerMemberCompanyError, using the provided PlatformNotEnabledError
-func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
+// MergePlatformNotEnabledError performs a merge with any union data inside the DisconnectBulkPartnerCounterpartyError, using the provided PlatformNotEnabledError
+func (t *DisconnectBulkPartnerCounterpartyError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
 	v.Type = "PLATFORM_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -21976,23 +24993,23 @@ func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformNotEnabledError(v
 	return err
 }
 
-// AsPlatformPartnerNotFoundError returns the union data inside the DisconnectBulkPartnerMemberCompanyError as a PlatformPartnerNotFoundError
-func (t DisconnectBulkPartnerMemberCompanyError) AsPlatformPartnerNotFoundError() (PlatformPartnerNotFoundError, error) {
+// AsPlatformPartnerNotFoundError returns the union data inside the DisconnectBulkPartnerCounterpartyError as a PlatformPartnerNotFoundError
+func (t DisconnectBulkPartnerCounterpartyError) AsPlatformPartnerNotFoundError() (PlatformPartnerNotFoundError, error) {
 	var body PlatformPartnerNotFoundError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformPartnerNotFoundError overwrites any union data inside the DisconnectBulkPartnerMemberCompanyError as the provided PlatformPartnerNotFoundError
-func (t *DisconnectBulkPartnerMemberCompanyError) FromPlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
+// FromPlatformPartnerNotFoundError overwrites any union data inside the DisconnectBulkPartnerCounterpartyError as the provided PlatformPartnerNotFoundError
+func (t *DisconnectBulkPartnerCounterpartyError) FromPlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
 	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformPartnerNotFoundError performs a merge with any union data inside the DisconnectBulkPartnerMemberCompanyError, using the provided PlatformPartnerNotFoundError
-func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
+// MergePlatformPartnerNotFoundError performs a merge with any union data inside the DisconnectBulkPartnerCounterpartyError, using the provided PlatformPartnerNotFoundError
+func (t *DisconnectBulkPartnerCounterpartyError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
 	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22004,23 +25021,23 @@ func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformPartnerNotFoundEr
 	return err
 }
 
-// AsPlatformTargetPartnerNotFoundError returns the union data inside the DisconnectBulkPartnerMemberCompanyError as a PlatformTargetPartnerNotFoundError
-func (t DisconnectBulkPartnerMemberCompanyError) AsPlatformTargetPartnerNotFoundError() (PlatformTargetPartnerNotFoundError, error) {
+// AsPlatformTargetPartnerNotFoundError returns the union data inside the DisconnectBulkPartnerCounterpartyError as a PlatformTargetPartnerNotFoundError
+func (t DisconnectBulkPartnerCounterpartyError) AsPlatformTargetPartnerNotFoundError() (PlatformTargetPartnerNotFoundError, error) {
 	var body PlatformTargetPartnerNotFoundError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformTargetPartnerNotFoundError overwrites any union data inside the DisconnectBulkPartnerMemberCompanyError as the provided PlatformTargetPartnerNotFoundError
-func (t *DisconnectBulkPartnerMemberCompanyError) FromPlatformTargetPartnerNotFoundError(v PlatformTargetPartnerNotFoundError) error {
+// FromPlatformTargetPartnerNotFoundError overwrites any union data inside the DisconnectBulkPartnerCounterpartyError as the provided PlatformTargetPartnerNotFoundError
+func (t *DisconnectBulkPartnerCounterpartyError) FromPlatformTargetPartnerNotFoundError(v PlatformTargetPartnerNotFoundError) error {
 	v.Type = "PLATFORM_TARGET_PARTNER_NOT_FOUND"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformTargetPartnerNotFoundError performs a merge with any union data inside the DisconnectBulkPartnerMemberCompanyError, using the provided PlatformTargetPartnerNotFoundError
-func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformTargetPartnerNotFoundError(v PlatformTargetPartnerNotFoundError) error {
+// MergePlatformTargetPartnerNotFoundError performs a merge with any union data inside the DisconnectBulkPartnerCounterpartyError, using the provided PlatformTargetPartnerNotFoundError
+func (t *DisconnectBulkPartnerCounterpartyError) MergePlatformTargetPartnerNotFoundError(v PlatformTargetPartnerNotFoundError) error {
 	v.Type = "PLATFORM_TARGET_PARTNER_NOT_FOUND"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22032,23 +25049,23 @@ func (t *DisconnectBulkPartnerMemberCompanyError) MergePlatformTargetPartnerNotF
 	return err
 }
 
-// AsUnauthorizedError returns the union data inside the DisconnectBulkPartnerMemberCompanyError as a UnauthorizedError
-func (t DisconnectBulkPartnerMemberCompanyError) AsUnauthorizedError() (UnauthorizedError, error) {
+// AsUnauthorizedError returns the union data inside the DisconnectBulkPartnerCounterpartyError as a UnauthorizedError
+func (t DisconnectBulkPartnerCounterpartyError) AsUnauthorizedError() (UnauthorizedError, error) {
 	var body UnauthorizedError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromUnauthorizedError overwrites any union data inside the DisconnectBulkPartnerMemberCompanyError as the provided UnauthorizedError
-func (t *DisconnectBulkPartnerMemberCompanyError) FromUnauthorizedError(v UnauthorizedError) error {
+// FromUnauthorizedError overwrites any union data inside the DisconnectBulkPartnerCounterpartyError as the provided UnauthorizedError
+func (t *DisconnectBulkPartnerCounterpartyError) FromUnauthorizedError(v UnauthorizedError) error {
 	v.Type = "UNAUTHORIZED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeUnauthorizedError performs a merge with any union data inside the DisconnectBulkPartnerMemberCompanyError, using the provided UnauthorizedError
-func (t *DisconnectBulkPartnerMemberCompanyError) MergeUnauthorizedError(v UnauthorizedError) error {
+// MergeUnauthorizedError performs a merge with any union data inside the DisconnectBulkPartnerCounterpartyError, using the provided UnauthorizedError
+func (t *DisconnectBulkPartnerCounterpartyError) MergeUnauthorizedError(v UnauthorizedError) error {
 	v.Type = "UNAUTHORIZED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22060,7 +25077,7 @@ func (t *DisconnectBulkPartnerMemberCompanyError) MergeUnauthorizedError(v Unaut
 	return err
 }
 
-func (t DisconnectBulkPartnerMemberCompanyError) Discriminator() (string, error) {
+func (t DisconnectBulkPartnerCounterpartyError) Discriminator() (string, error) {
 	var discriminator struct {
 		Discriminator string `json:"type"`
 	}
@@ -22068,7 +25085,7 @@ func (t DisconnectBulkPartnerMemberCompanyError) Discriminator() (string, error)
 	return discriminator.Discriminator, err
 }
 
-func (t DisconnectBulkPartnerMemberCompanyError) ValueByDiscriminator() (interface{}, error) {
+func (t DisconnectBulkPartnerCounterpartyError) ValueByDiscriminator() (interface{}, error) {
 	discriminator, err := t.Discriminator()
 	if err != nil {
 		return nil, err
@@ -22095,33 +25112,33 @@ func (t DisconnectBulkPartnerMemberCompanyError) ValueByDiscriminator() (interfa
 	}
 }
 
-func (t DisconnectBulkPartnerMemberCompanyError) MarshalJSON() ([]byte, error) {
+func (t DisconnectBulkPartnerCounterpartyError) MarshalJSON() ([]byte, error) {
 	b, err := t.union.MarshalJSON()
 	return b, err
 }
 
-func (t *DisconnectBulkPartnerMemberCompanyError) UnmarshalJSON(b []byte) error {
+func (t *DisconnectBulkPartnerCounterpartyError) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
 
-// AsForbiddenError returns the union data inside the DisconnectPartnerMemberCompanyError as a ForbiddenError
-func (t DisconnectPartnerMemberCompanyError) AsForbiddenError() (ForbiddenError, error) {
+// AsForbiddenError returns the union data inside the DisconnectPartnerCounterpartyError as a ForbiddenError
+func (t DisconnectPartnerCounterpartyError) AsForbiddenError() (ForbiddenError, error) {
 	var body ForbiddenError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromForbiddenError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided ForbiddenError
-func (t *DisconnectPartnerMemberCompanyError) FromForbiddenError(v ForbiddenError) error {
+// FromForbiddenError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided ForbiddenError
+func (t *DisconnectPartnerCounterpartyError) FromForbiddenError(v ForbiddenError) error {
 	v.Type = "FORBIDDEN"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeForbiddenError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided ForbiddenError
-func (t *DisconnectPartnerMemberCompanyError) MergeForbiddenError(v ForbiddenError) error {
+// MergeForbiddenError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided ForbiddenError
+func (t *DisconnectPartnerCounterpartyError) MergeForbiddenError(v ForbiddenError) error {
 	v.Type = "FORBIDDEN"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22133,23 +25150,23 @@ func (t *DisconnectPartnerMemberCompanyError) MergeForbiddenError(v ForbiddenErr
 	return err
 }
 
-// AsInvalidRequestError returns the union data inside the DisconnectPartnerMemberCompanyError as a InvalidRequestError
-func (t DisconnectPartnerMemberCompanyError) AsInvalidRequestError() (InvalidRequestError, error) {
+// AsInvalidRequestError returns the union data inside the DisconnectPartnerCounterpartyError as a InvalidRequestError
+func (t DisconnectPartnerCounterpartyError) AsInvalidRequestError() (InvalidRequestError, error) {
 	var body InvalidRequestError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromInvalidRequestError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided InvalidRequestError
-func (t *DisconnectPartnerMemberCompanyError) FromInvalidRequestError(v InvalidRequestError) error {
+// FromInvalidRequestError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided InvalidRequestError
+func (t *DisconnectPartnerCounterpartyError) FromInvalidRequestError(v InvalidRequestError) error {
 	v.Type = "INVALID_REQUEST"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeInvalidRequestError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided InvalidRequestError
-func (t *DisconnectPartnerMemberCompanyError) MergeInvalidRequestError(v InvalidRequestError) error {
+// MergeInvalidRequestError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided InvalidRequestError
+func (t *DisconnectPartnerCounterpartyError) MergeInvalidRequestError(v InvalidRequestError) error {
 	v.Type = "INVALID_REQUEST"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22161,23 +25178,51 @@ func (t *DisconnectPartnerMemberCompanyError) MergeInvalidRequestError(v Invalid
 	return err
 }
 
-// AsPlatformBtxNotEnabledError returns the union data inside the DisconnectPartnerMemberCompanyError as a PlatformBtxNotEnabledError
-func (t DisconnectPartnerMemberCompanyError) AsPlatformBtxNotEnabledError() (PlatformBtxNotEnabledError, error) {
+// AsPlatformArchivedPartnerNtsNotAllowedError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformArchivedPartnerNtsNotAllowedError
+func (t DisconnectPartnerCounterpartyError) AsPlatformArchivedPartnerNtsNotAllowedError() (PlatformArchivedPartnerNtsNotAllowedError, error) {
+	var body PlatformArchivedPartnerNtsNotAllowedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformArchivedPartnerNtsNotAllowedError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformArchivedPartnerNtsNotAllowedError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformArchivedPartnerNtsNotAllowedError(v PlatformArchivedPartnerNtsNotAllowedError) error {
+	v.Type = "PLATFORM_ARCHIVED_PARTNER_NTS_NOT_ALLOWED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformArchivedPartnerNtsNotAllowedError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformArchivedPartnerNtsNotAllowedError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformArchivedPartnerNtsNotAllowedError(v PlatformArchivedPartnerNtsNotAllowedError) error {
+	v.Type = "PLATFORM_ARCHIVED_PARTNER_NTS_NOT_ALLOWED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformBtxNotEnabledError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformBtxNotEnabledError
+func (t DisconnectPartnerCounterpartyError) AsPlatformBtxNotEnabledError() (PlatformBtxNotEnabledError, error) {
 	var body PlatformBtxNotEnabledError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformBtxNotEnabledError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided PlatformBtxNotEnabledError
-func (t *DisconnectPartnerMemberCompanyError) FromPlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
+// FromPlatformBtxNotEnabledError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformBtxNotEnabledError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
 	v.Type = "PLATFORM_BTX_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformBtxNotEnabledError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided PlatformBtxNotEnabledError
-func (t *DisconnectPartnerMemberCompanyError) MergePlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
+// MergePlatformBtxNotEnabledError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformBtxNotEnabledError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformBtxNotEnabledError(v PlatformBtxNotEnabledError) error {
 	v.Type = "PLATFORM_BTX_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22189,23 +25234,51 @@ func (t *DisconnectPartnerMemberCompanyError) MergePlatformBtxNotEnabledError(v 
 	return err
 }
 
-// AsPlatformExternalApiFailedError returns the union data inside the DisconnectPartnerMemberCompanyError as a PlatformExternalApiFailedError
-func (t DisconnectPartnerMemberCompanyError) AsPlatformExternalApiFailedError() (PlatformExternalApiFailedError, error) {
+// AsPlatformCounterpartyNotConnectedError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformCounterpartyNotConnectedError
+func (t DisconnectPartnerCounterpartyError) AsPlatformCounterpartyNotConnectedError() (PlatformCounterpartyNotConnectedError, error) {
+	var body PlatformCounterpartyNotConnectedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformCounterpartyNotConnectedError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformCounterpartyNotConnectedError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformCounterpartyNotConnectedError(v PlatformCounterpartyNotConnectedError) error {
+	v.Type = "PLATFORM_COUNTERPARTY_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformCounterpartyNotConnectedError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformCounterpartyNotConnectedError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformCounterpartyNotConnectedError(v PlatformCounterpartyNotConnectedError) error {
+	v.Type = "PLATFORM_COUNTERPARTY_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPlatformExternalApiFailedError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformExternalApiFailedError
+func (t DisconnectPartnerCounterpartyError) AsPlatformExternalApiFailedError() (PlatformExternalApiFailedError, error) {
 	var body PlatformExternalApiFailedError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformExternalApiFailedError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided PlatformExternalApiFailedError
-func (t *DisconnectPartnerMemberCompanyError) FromPlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
+// FromPlatformExternalApiFailedError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformExternalApiFailedError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
 	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformExternalApiFailedError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided PlatformExternalApiFailedError
-func (t *DisconnectPartnerMemberCompanyError) MergePlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
+// MergePlatformExternalApiFailedError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformExternalApiFailedError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformExternalApiFailedError(v PlatformExternalApiFailedError) error {
 	v.Type = "PLATFORM_EXTERNAL_API_FAILED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22217,51 +25290,23 @@ func (t *DisconnectPartnerMemberCompanyError) MergePlatformExternalApiFailedErro
 	return err
 }
 
-// AsPlatformMemberCompanyNotConnectedError returns the union data inside the DisconnectPartnerMemberCompanyError as a PlatformMemberCompanyNotConnectedError
-func (t DisconnectPartnerMemberCompanyError) AsPlatformMemberCompanyNotConnectedError() (PlatformMemberCompanyNotConnectedError, error) {
-	var body PlatformMemberCompanyNotConnectedError
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromPlatformMemberCompanyNotConnectedError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided PlatformMemberCompanyNotConnectedError
-func (t *DisconnectPartnerMemberCompanyError) FromPlatformMemberCompanyNotConnectedError(v PlatformMemberCompanyNotConnectedError) error {
-	v.Type = "PLATFORM_MEMBER_COMPANY_NOT_CONNECTED"
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergePlatformMemberCompanyNotConnectedError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided PlatformMemberCompanyNotConnectedError
-func (t *DisconnectPartnerMemberCompanyError) MergePlatformMemberCompanyNotConnectedError(v PlatformMemberCompanyNotConnectedError) error {
-	v.Type = "PLATFORM_MEMBER_COMPANY_NOT_CONNECTED"
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsPlatformNotEnabledError returns the union data inside the DisconnectPartnerMemberCompanyError as a PlatformNotEnabledError
-func (t DisconnectPartnerMemberCompanyError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
+// AsPlatformNotEnabledError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformNotEnabledError
+func (t DisconnectPartnerCounterpartyError) AsPlatformNotEnabledError() (PlatformNotEnabledError, error) {
 	var body PlatformNotEnabledError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformNotEnabledError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided PlatformNotEnabledError
-func (t *DisconnectPartnerMemberCompanyError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
+// FromPlatformNotEnabledError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformNotEnabledError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformNotEnabledError(v PlatformNotEnabledError) error {
 	v.Type = "PLATFORM_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformNotEnabledError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided PlatformNotEnabledError
-func (t *DisconnectPartnerMemberCompanyError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
+// MergePlatformNotEnabledError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformNotEnabledError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformNotEnabledError(v PlatformNotEnabledError) error {
 	v.Type = "PLATFORM_NOT_ENABLED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22273,23 +25318,23 @@ func (t *DisconnectPartnerMemberCompanyError) MergePlatformNotEnabledError(v Pla
 	return err
 }
 
-// AsPlatformOngoingTaxInvoiceExistsError returns the union data inside the DisconnectPartnerMemberCompanyError as a PlatformOngoingTaxInvoiceExistsError
-func (t DisconnectPartnerMemberCompanyError) AsPlatformOngoingTaxInvoiceExistsError() (PlatformOngoingTaxInvoiceExistsError, error) {
+// AsPlatformOngoingTaxInvoiceExistsError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformOngoingTaxInvoiceExistsError
+func (t DisconnectPartnerCounterpartyError) AsPlatformOngoingTaxInvoiceExistsError() (PlatformOngoingTaxInvoiceExistsError, error) {
 	var body PlatformOngoingTaxInvoiceExistsError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformOngoingTaxInvoiceExistsError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided PlatformOngoingTaxInvoiceExistsError
-func (t *DisconnectPartnerMemberCompanyError) FromPlatformOngoingTaxInvoiceExistsError(v PlatformOngoingTaxInvoiceExistsError) error {
+// FromPlatformOngoingTaxInvoiceExistsError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformOngoingTaxInvoiceExistsError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformOngoingTaxInvoiceExistsError(v PlatformOngoingTaxInvoiceExistsError) error {
 	v.Type = "PLATFORM_ONGOING_TAX_INVOICE_EXISTS"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformOngoingTaxInvoiceExistsError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided PlatformOngoingTaxInvoiceExistsError
-func (t *DisconnectPartnerMemberCompanyError) MergePlatformOngoingTaxInvoiceExistsError(v PlatformOngoingTaxInvoiceExistsError) error {
+// MergePlatformOngoingTaxInvoiceExistsError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformOngoingTaxInvoiceExistsError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformOngoingTaxInvoiceExistsError(v PlatformOngoingTaxInvoiceExistsError) error {
 	v.Type = "PLATFORM_ONGOING_TAX_INVOICE_EXISTS"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22301,23 +25346,23 @@ func (t *DisconnectPartnerMemberCompanyError) MergePlatformOngoingTaxInvoiceExis
 	return err
 }
 
-// AsPlatformPartnerNotFoundError returns the union data inside the DisconnectPartnerMemberCompanyError as a PlatformPartnerNotFoundError
-func (t DisconnectPartnerMemberCompanyError) AsPlatformPartnerNotFoundError() (PlatformPartnerNotFoundError, error) {
+// AsPlatformPartnerNotFoundError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformPartnerNotFoundError
+func (t DisconnectPartnerCounterpartyError) AsPlatformPartnerNotFoundError() (PlatformPartnerNotFoundError, error) {
 	var body PlatformPartnerNotFoundError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformPartnerNotFoundError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided PlatformPartnerNotFoundError
-func (t *DisconnectPartnerMemberCompanyError) FromPlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
+// FromPlatformPartnerNotFoundError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformPartnerNotFoundError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
 	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformPartnerNotFoundError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided PlatformPartnerNotFoundError
-func (t *DisconnectPartnerMemberCompanyError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
+// MergePlatformPartnerNotFoundError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformPartnerNotFoundError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformPartnerNotFoundError(v PlatformPartnerNotFoundError) error {
 	v.Type = "PLATFORM_PARTNER_NOT_FOUND"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22329,23 +25374,23 @@ func (t *DisconnectPartnerMemberCompanyError) MergePlatformPartnerNotFoundError(
 	return err
 }
 
-// AsPlatformPartnerTaxationTypeIsSimpleError returns the union data inside the DisconnectPartnerMemberCompanyError as a PlatformPartnerTaxationTypeIsSimpleError
-func (t DisconnectPartnerMemberCompanyError) AsPlatformPartnerTaxationTypeIsSimpleError() (PlatformPartnerTaxationTypeIsSimpleError, error) {
+// AsPlatformPartnerTaxationTypeIsSimpleError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformPartnerTaxationTypeIsSimpleError
+func (t DisconnectPartnerCounterpartyError) AsPlatformPartnerTaxationTypeIsSimpleError() (PlatformPartnerTaxationTypeIsSimpleError, error) {
 	var body PlatformPartnerTaxationTypeIsSimpleError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformPartnerTaxationTypeIsSimpleError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided PlatformPartnerTaxationTypeIsSimpleError
-func (t *DisconnectPartnerMemberCompanyError) FromPlatformPartnerTaxationTypeIsSimpleError(v PlatformPartnerTaxationTypeIsSimpleError) error {
+// FromPlatformPartnerTaxationTypeIsSimpleError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformPartnerTaxationTypeIsSimpleError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformPartnerTaxationTypeIsSimpleError(v PlatformPartnerTaxationTypeIsSimpleError) error {
 	v.Type = "PLATFORM_PARTNER_TAXATION_TYPE_IS_SIMPLE"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformPartnerTaxationTypeIsSimpleError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided PlatformPartnerTaxationTypeIsSimpleError
-func (t *DisconnectPartnerMemberCompanyError) MergePlatformPartnerTaxationTypeIsSimpleError(v PlatformPartnerTaxationTypeIsSimpleError) error {
+// MergePlatformPartnerTaxationTypeIsSimpleError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformPartnerTaxationTypeIsSimpleError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformPartnerTaxationTypeIsSimpleError(v PlatformPartnerTaxationTypeIsSimpleError) error {
 	v.Type = "PLATFORM_PARTNER_TAXATION_TYPE_IS_SIMPLE"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22357,23 +25402,23 @@ func (t *DisconnectPartnerMemberCompanyError) MergePlatformPartnerTaxationTypeIs
 	return err
 }
 
-// AsPlatformPartnerTypeIsNotBusinessError returns the union data inside the DisconnectPartnerMemberCompanyError as a PlatformPartnerTypeIsNotBusinessError
-func (t DisconnectPartnerMemberCompanyError) AsPlatformPartnerTypeIsNotBusinessError() (PlatformPartnerTypeIsNotBusinessError, error) {
+// AsPlatformPartnerTypeIsNotBusinessError returns the union data inside the DisconnectPartnerCounterpartyError as a PlatformPartnerTypeIsNotBusinessError
+func (t DisconnectPartnerCounterpartyError) AsPlatformPartnerTypeIsNotBusinessError() (PlatformPartnerTypeIsNotBusinessError, error) {
 	var body PlatformPartnerTypeIsNotBusinessError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromPlatformPartnerTypeIsNotBusinessError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided PlatformPartnerTypeIsNotBusinessError
-func (t *DisconnectPartnerMemberCompanyError) FromPlatformPartnerTypeIsNotBusinessError(v PlatformPartnerTypeIsNotBusinessError) error {
+// FromPlatformPartnerTypeIsNotBusinessError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided PlatformPartnerTypeIsNotBusinessError
+func (t *DisconnectPartnerCounterpartyError) FromPlatformPartnerTypeIsNotBusinessError(v PlatformPartnerTypeIsNotBusinessError) error {
 	v.Type = "PLATFORM_PARTNER_TYPE_IS_NOT_BUSINESS"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergePlatformPartnerTypeIsNotBusinessError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided PlatformPartnerTypeIsNotBusinessError
-func (t *DisconnectPartnerMemberCompanyError) MergePlatformPartnerTypeIsNotBusinessError(v PlatformPartnerTypeIsNotBusinessError) error {
+// MergePlatformPartnerTypeIsNotBusinessError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided PlatformPartnerTypeIsNotBusinessError
+func (t *DisconnectPartnerCounterpartyError) MergePlatformPartnerTypeIsNotBusinessError(v PlatformPartnerTypeIsNotBusinessError) error {
 	v.Type = "PLATFORM_PARTNER_TYPE_IS_NOT_BUSINESS"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22385,23 +25430,23 @@ func (t *DisconnectPartnerMemberCompanyError) MergePlatformPartnerTypeIsNotBusin
 	return err
 }
 
-// AsUnauthorizedError returns the union data inside the DisconnectPartnerMemberCompanyError as a UnauthorizedError
-func (t DisconnectPartnerMemberCompanyError) AsUnauthorizedError() (UnauthorizedError, error) {
+// AsUnauthorizedError returns the union data inside the DisconnectPartnerCounterpartyError as a UnauthorizedError
+func (t DisconnectPartnerCounterpartyError) AsUnauthorizedError() (UnauthorizedError, error) {
 	var body UnauthorizedError
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromUnauthorizedError overwrites any union data inside the DisconnectPartnerMemberCompanyError as the provided UnauthorizedError
-func (t *DisconnectPartnerMemberCompanyError) FromUnauthorizedError(v UnauthorizedError) error {
+// FromUnauthorizedError overwrites any union data inside the DisconnectPartnerCounterpartyError as the provided UnauthorizedError
+func (t *DisconnectPartnerCounterpartyError) FromUnauthorizedError(v UnauthorizedError) error {
 	v.Type = "UNAUTHORIZED"
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeUnauthorizedError performs a merge with any union data inside the DisconnectPartnerMemberCompanyError, using the provided UnauthorizedError
-func (t *DisconnectPartnerMemberCompanyError) MergeUnauthorizedError(v UnauthorizedError) error {
+// MergeUnauthorizedError performs a merge with any union data inside the DisconnectPartnerCounterpartyError, using the provided UnauthorizedError
+func (t *DisconnectPartnerCounterpartyError) MergeUnauthorizedError(v UnauthorizedError) error {
 	v.Type = "UNAUTHORIZED"
 	b, err := json.Marshal(v)
 	if err != nil {
@@ -22413,7 +25458,7 @@ func (t *DisconnectPartnerMemberCompanyError) MergeUnauthorizedError(v Unauthori
 	return err
 }
 
-func (t DisconnectPartnerMemberCompanyError) Discriminator() (string, error) {
+func (t DisconnectPartnerCounterpartyError) Discriminator() (string, error) {
 	var discriminator struct {
 		Discriminator string `json:"type"`
 	}
@@ -22421,7 +25466,7 @@ func (t DisconnectPartnerMemberCompanyError) Discriminator() (string, error) {
 	return discriminator.Discriminator, err
 }
 
-func (t DisconnectPartnerMemberCompanyError) ValueByDiscriminator() (interface{}, error) {
+func (t DisconnectPartnerCounterpartyError) ValueByDiscriminator() (interface{}, error) {
 	discriminator, err := t.Discriminator()
 	if err != nil {
 		return nil, err
@@ -22431,12 +25476,14 @@ func (t DisconnectPartnerMemberCompanyError) ValueByDiscriminator() (interface{}
 		return t.AsForbiddenError()
 	case "INVALID_REQUEST":
 		return t.AsInvalidRequestError()
+	case "PLATFORM_ARCHIVED_PARTNER_NTS_NOT_ALLOWED":
+		return t.AsPlatformArchivedPartnerNtsNotAllowedError()
 	case "PLATFORM_BTX_NOT_ENABLED":
 		return t.AsPlatformBtxNotEnabledError()
+	case "PLATFORM_COUNTERPARTY_NOT_CONNECTED":
+		return t.AsPlatformCounterpartyNotConnectedError()
 	case "PLATFORM_EXTERNAL_API_FAILED":
 		return t.AsPlatformExternalApiFailedError()
-	case "PLATFORM_MEMBER_COMPANY_NOT_CONNECTED":
-		return t.AsPlatformMemberCompanyNotConnectedError()
 	case "PLATFORM_NOT_ENABLED":
 		return t.AsPlatformNotEnabledError()
 	case "PLATFORM_ONGOING_TAX_INVOICE_EXISTS":
@@ -22454,12 +25501,12 @@ func (t DisconnectPartnerMemberCompanyError) ValueByDiscriminator() (interface{}
 	}
 }
 
-func (t DisconnectPartnerMemberCompanyError) MarshalJSON() ([]byte, error) {
+func (t DisconnectPartnerCounterpartyError) MarshalJSON() ([]byte, error) {
 	b, err := t.union.MarshalJSON()
 	return b, err
 }
 
-func (t *DisconnectPartnerMemberCompanyError) UnmarshalJSON(b []byte) error {
+func (t *DisconnectPartnerCounterpartyError) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -22688,6 +25735,62 @@ func (t *DraftB2bTaxInvoiceError) FromB2BTaxInvoiceStatusNotSendingCompletedErro
 // MergeB2BTaxInvoiceStatusNotSendingCompletedError performs a merge with any union data inside the DraftB2bTaxInvoiceError, using the provided B2BTaxInvoiceStatusNotSendingCompletedError
 func (t *DraftB2bTaxInvoiceError) MergeB2BTaxInvoiceStatusNotSendingCompletedError(v B2BTaxInvoiceStatusNotSendingCompletedError) error {
 	v.Type = "B2B_TAX_INVOICE_STATUS_NOT_SENDING_COMPLETED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNotFoundError returns the union data inside the DraftB2bTaxInvoiceError as a B2bCounterpartyNotFoundError
+func (t DraftB2bTaxInvoiceError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the DraftB2bTaxInvoiceError as the provided B2bCounterpartyNotFoundError
+func (t *DraftB2bTaxInvoiceError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the DraftB2bTaxInvoiceError, using the provided B2bCounterpartyNotFoundError
+func (t *DraftB2bTaxInvoiceError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNtsNotConnectedError returns the union data inside the DraftB2bTaxInvoiceError as a B2bCounterpartyNtsNotConnectedError
+func (t DraftB2bTaxInvoiceError) AsB2bCounterpartyNtsNotConnectedError() (B2bCounterpartyNtsNotConnectedError, error) {
+	var body B2bCounterpartyNtsNotConnectedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNtsNotConnectedError overwrites any union data inside the DraftB2bTaxInvoiceError as the provided B2bCounterpartyNtsNotConnectedError
+func (t *DraftB2bTaxInvoiceError) FromB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNtsNotConnectedError performs a merge with any union data inside the DraftB2bTaxInvoiceError, using the provided B2bCounterpartyNtsNotConnectedError
+func (t *DraftB2bTaxInvoiceError) MergeB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -23106,6 +26209,10 @@ func (t DraftB2bTaxInvoiceError) ValueByDiscriminator() (interface{}, error) {
 	switch discriminator {
 	case "B2B_CANNOT_CHANGE_TAX_TYPE":
 		return t.AsB2BCannotChangeTaxTypeError()
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_NTS_NOT_CONNECTED":
+		return t.AsB2bCounterpartyNtsNotConnectedError()
 	case "B2B_EXTERNAL_SERVICE":
 		return t.AsB2bExternalServiceError()
 	case "B2B_ID_ALREADY_EXISTS":
@@ -23773,6 +26880,902 @@ func (t GetB2bBusinessInfosError) MarshalJSON() ([]byte, error) {
 }
 
 func (t *GetB2bBusinessInfosError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsB2bExternalServiceError returns the union data inside the GetB2bCounterpartiesError as a B2bExternalServiceError
+func (t GetB2bCounterpartiesError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
+	var body B2bExternalServiceError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bExternalServiceError overwrites any union data inside the GetB2bCounterpartiesError as the provided B2bExternalServiceError
+func (t *GetB2bCounterpartiesError) FromB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bExternalServiceError performs a merge with any union data inside the GetB2bCounterpartiesError, using the provided B2bExternalServiceError
+func (t *GetB2bCounterpartiesError) MergeB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bNotEnabledError returns the union data inside the GetB2bCounterpartiesError as a B2bNotEnabledError
+func (t GetB2bCounterpartiesError) AsB2bNotEnabledError() (B2bNotEnabledError, error) {
+	var body B2bNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bNotEnabledError overwrites any union data inside the GetB2bCounterpartiesError as the provided B2bNotEnabledError
+func (t *GetB2bCounterpartiesError) FromB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bNotEnabledError performs a merge with any union data inside the GetB2bCounterpartiesError, using the provided B2bNotEnabledError
+func (t *GetB2bCounterpartiesError) MergeB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsForbiddenError returns the union data inside the GetB2bCounterpartiesError as a ForbiddenError
+func (t GetB2bCounterpartiesError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the GetB2bCounterpartiesError as the provided ForbiddenError
+func (t *GetB2bCounterpartiesError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the GetB2bCounterpartiesError, using the provided ForbiddenError
+func (t *GetB2bCounterpartiesError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the GetB2bCounterpartiesError as a InvalidRequestError
+func (t GetB2bCounterpartiesError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the GetB2bCounterpartiesError as the provided InvalidRequestError
+func (t *GetB2bCounterpartiesError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the GetB2bCounterpartiesError, using the provided InvalidRequestError
+func (t *GetB2bCounterpartiesError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the GetB2bCounterpartiesError as a UnauthorizedError
+func (t GetB2bCounterpartiesError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the GetB2bCounterpartiesError as the provided UnauthorizedError
+func (t *GetB2bCounterpartiesError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the GetB2bCounterpartiesError, using the provided UnauthorizedError
+func (t *GetB2bCounterpartiesError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetB2bCounterpartiesError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetB2bCounterpartiesError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "B2B_EXTERNAL_SERVICE":
+		return t.AsB2bExternalServiceError()
+	case "B2B_NOT_ENABLED":
+		return t.AsB2bNotEnabledError()
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetB2bCounterpartiesError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetB2bCounterpartiesError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsB2bCertificateUnregisteredError returns the union data inside the GetB2bCounterpartyCertificateError as a B2bCertificateUnregisteredError
+func (t GetB2bCounterpartyCertificateError) AsB2bCertificateUnregisteredError() (B2bCertificateUnregisteredError, error) {
+	var body B2bCertificateUnregisteredError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCertificateUnregisteredError overwrites any union data inside the GetB2bCounterpartyCertificateError as the provided B2bCertificateUnregisteredError
+func (t *GetB2bCounterpartyCertificateError) FromB2bCertificateUnregisteredError(v B2bCertificateUnregisteredError) error {
+	v.Type = "B2B_CERTIFICATE_UNREGISTERED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCertificateUnregisteredError performs a merge with any union data inside the GetB2bCounterpartyCertificateError, using the provided B2bCertificateUnregisteredError
+func (t *GetB2bCounterpartyCertificateError) MergeB2bCertificateUnregisteredError(v B2bCertificateUnregisteredError) error {
+	v.Type = "B2B_CERTIFICATE_UNREGISTERED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNotFoundError returns the union data inside the GetB2bCounterpartyCertificateError as a B2bCounterpartyNotFoundError
+func (t GetB2bCounterpartyCertificateError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the GetB2bCounterpartyCertificateError as the provided B2bCounterpartyNotFoundError
+func (t *GetB2bCounterpartyCertificateError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the GetB2bCounterpartyCertificateError, using the provided B2bCounterpartyNotFoundError
+func (t *GetB2bCounterpartyCertificateError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNtsNotConnectedError returns the union data inside the GetB2bCounterpartyCertificateError as a B2bCounterpartyNtsNotConnectedError
+func (t GetB2bCounterpartyCertificateError) AsB2bCounterpartyNtsNotConnectedError() (B2bCounterpartyNtsNotConnectedError, error) {
+	var body B2bCounterpartyNtsNotConnectedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNtsNotConnectedError overwrites any union data inside the GetB2bCounterpartyCertificateError as the provided B2bCounterpartyNtsNotConnectedError
+func (t *GetB2bCounterpartyCertificateError) FromB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNtsNotConnectedError performs a merge with any union data inside the GetB2bCounterpartyCertificateError, using the provided B2bCounterpartyNtsNotConnectedError
+func (t *GetB2bCounterpartyCertificateError) MergeB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bExternalServiceError returns the union data inside the GetB2bCounterpartyCertificateError as a B2bExternalServiceError
+func (t GetB2bCounterpartyCertificateError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
+	var body B2bExternalServiceError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bExternalServiceError overwrites any union data inside the GetB2bCounterpartyCertificateError as the provided B2bExternalServiceError
+func (t *GetB2bCounterpartyCertificateError) FromB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bExternalServiceError performs a merge with any union data inside the GetB2bCounterpartyCertificateError, using the provided B2bExternalServiceError
+func (t *GetB2bCounterpartyCertificateError) MergeB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bNotEnabledError returns the union data inside the GetB2bCounterpartyCertificateError as a B2bNotEnabledError
+func (t GetB2bCounterpartyCertificateError) AsB2bNotEnabledError() (B2bNotEnabledError, error) {
+	var body B2bNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bNotEnabledError overwrites any union data inside the GetB2bCounterpartyCertificateError as the provided B2bNotEnabledError
+func (t *GetB2bCounterpartyCertificateError) FromB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bNotEnabledError performs a merge with any union data inside the GetB2bCounterpartyCertificateError, using the provided B2bNotEnabledError
+func (t *GetB2bCounterpartyCertificateError) MergeB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsForbiddenError returns the union data inside the GetB2bCounterpartyCertificateError as a ForbiddenError
+func (t GetB2bCounterpartyCertificateError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the GetB2bCounterpartyCertificateError as the provided ForbiddenError
+func (t *GetB2bCounterpartyCertificateError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the GetB2bCounterpartyCertificateError, using the provided ForbiddenError
+func (t *GetB2bCounterpartyCertificateError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the GetB2bCounterpartyCertificateError as a InvalidRequestError
+func (t GetB2bCounterpartyCertificateError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the GetB2bCounterpartyCertificateError as the provided InvalidRequestError
+func (t *GetB2bCounterpartyCertificateError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the GetB2bCounterpartyCertificateError, using the provided InvalidRequestError
+func (t *GetB2bCounterpartyCertificateError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the GetB2bCounterpartyCertificateError as a UnauthorizedError
+func (t GetB2bCounterpartyCertificateError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the GetB2bCounterpartyCertificateError as the provided UnauthorizedError
+func (t *GetB2bCounterpartyCertificateError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the GetB2bCounterpartyCertificateError, using the provided UnauthorizedError
+func (t *GetB2bCounterpartyCertificateError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetB2bCounterpartyCertificateError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetB2bCounterpartyCertificateError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "B2B_CERTIFICATE_UNREGISTERED":
+		return t.AsB2bCertificateUnregisteredError()
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_NTS_NOT_CONNECTED":
+		return t.AsB2bCounterpartyNtsNotConnectedError()
+	case "B2B_EXTERNAL_SERVICE":
+		return t.AsB2bExternalServiceError()
+	case "B2B_NOT_ENABLED":
+		return t.AsB2bNotEnabledError()
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetB2bCounterpartyCertificateError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetB2bCounterpartyCertificateError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsB2bCounterpartyNotFoundError returns the union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as a B2bCounterpartyNotFoundError
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as the provided B2bCounterpartyNotFoundError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError, using the provided B2bCounterpartyNotFoundError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNtsNotConnectedError returns the union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as a B2bCounterpartyNtsNotConnectedError
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) AsB2bCounterpartyNtsNotConnectedError() (B2bCounterpartyNtsNotConnectedError, error) {
+	var body B2bCounterpartyNtsNotConnectedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNtsNotConnectedError overwrites any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as the provided B2bCounterpartyNtsNotConnectedError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) FromB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNtsNotConnectedError performs a merge with any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError, using the provided B2bCounterpartyNtsNotConnectedError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) MergeB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bExternalServiceError returns the union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as a B2bExternalServiceError
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
+	var body B2bExternalServiceError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bExternalServiceError overwrites any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as the provided B2bExternalServiceError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) FromB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bExternalServiceError performs a merge with any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError, using the provided B2bExternalServiceError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) MergeB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bNotEnabledError returns the union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as a B2bNotEnabledError
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) AsB2bNotEnabledError() (B2bNotEnabledError, error) {
+	var body B2bNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bNotEnabledError overwrites any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as the provided B2bNotEnabledError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) FromB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bNotEnabledError performs a merge with any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError, using the provided B2bNotEnabledError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) MergeB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsForbiddenError returns the union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as a ForbiddenError
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as the provided ForbiddenError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError, using the provided ForbiddenError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as a InvalidRequestError
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as the provided InvalidRequestError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError, using the provided InvalidRequestError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as a UnauthorizedError
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError as the provided UnauthorizedError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the GetB2bCounterpartyCertificateRegistrationUrlError, using the provided UnauthorizedError
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_NTS_NOT_CONNECTED":
+		return t.AsB2bCounterpartyNtsNotConnectedError()
+	case "B2B_EXTERNAL_SERVICE":
+		return t.AsB2bExternalServiceError()
+	case "B2B_NOT_ENABLED":
+		return t.AsB2bNotEnabledError()
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetB2bCounterpartyCertificateRegistrationUrlError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetB2bCounterpartyCertificateRegistrationUrlError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsB2bCounterpartyNotFoundError returns the union data inside the GetB2bCounterpartyError as a B2bCounterpartyNotFoundError
+func (t GetB2bCounterpartyError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the GetB2bCounterpartyError as the provided B2bCounterpartyNotFoundError
+func (t *GetB2bCounterpartyError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the GetB2bCounterpartyError, using the provided B2bCounterpartyNotFoundError
+func (t *GetB2bCounterpartyError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bExternalServiceError returns the union data inside the GetB2bCounterpartyError as a B2bExternalServiceError
+func (t GetB2bCounterpartyError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
+	var body B2bExternalServiceError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bExternalServiceError overwrites any union data inside the GetB2bCounterpartyError as the provided B2bExternalServiceError
+func (t *GetB2bCounterpartyError) FromB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bExternalServiceError performs a merge with any union data inside the GetB2bCounterpartyError, using the provided B2bExternalServiceError
+func (t *GetB2bCounterpartyError) MergeB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bNotEnabledError returns the union data inside the GetB2bCounterpartyError as a B2bNotEnabledError
+func (t GetB2bCounterpartyError) AsB2bNotEnabledError() (B2bNotEnabledError, error) {
+	var body B2bNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bNotEnabledError overwrites any union data inside the GetB2bCounterpartyError as the provided B2bNotEnabledError
+func (t *GetB2bCounterpartyError) FromB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bNotEnabledError performs a merge with any union data inside the GetB2bCounterpartyError, using the provided B2bNotEnabledError
+func (t *GetB2bCounterpartyError) MergeB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsForbiddenError returns the union data inside the GetB2bCounterpartyError as a ForbiddenError
+func (t GetB2bCounterpartyError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the GetB2bCounterpartyError as the provided ForbiddenError
+func (t *GetB2bCounterpartyError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the GetB2bCounterpartyError, using the provided ForbiddenError
+func (t *GetB2bCounterpartyError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the GetB2bCounterpartyError as a InvalidRequestError
+func (t GetB2bCounterpartyError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the GetB2bCounterpartyError as the provided InvalidRequestError
+func (t *GetB2bCounterpartyError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the GetB2bCounterpartyError, using the provided InvalidRequestError
+func (t *GetB2bCounterpartyError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the GetB2bCounterpartyError as a UnauthorizedError
+func (t GetB2bCounterpartyError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the GetB2bCounterpartyError as the provided UnauthorizedError
+func (t *GetB2bCounterpartyError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the GetB2bCounterpartyError, using the provided UnauthorizedError
+func (t *GetB2bCounterpartyError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetB2bCounterpartyError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetB2bCounterpartyError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_EXTERNAL_SERVICE":
+		return t.AsB2bExternalServiceError()
+	case "B2B_NOT_ENABLED":
+		return t.AsB2bNotEnabledError()
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetB2bCounterpartyError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetB2bCounterpartyError) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -26132,6 +30135,244 @@ func (t *GetPaymentError) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsForbiddenError returns the union data inside the GetPaymentReconciliationSettlementVatReportError as a ForbiddenError
+func (t GetPaymentReconciliationSettlementVatReportError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the GetPaymentReconciliationSettlementVatReportError as the provided ForbiddenError
+func (t *GetPaymentReconciliationSettlementVatReportError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the GetPaymentReconciliationSettlementVatReportError, using the provided ForbiddenError
+func (t *GetPaymentReconciliationSettlementVatReportError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the GetPaymentReconciliationSettlementVatReportError as a InvalidRequestError
+func (t GetPaymentReconciliationSettlementVatReportError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the GetPaymentReconciliationSettlementVatReportError as the provided InvalidRequestError
+func (t *GetPaymentReconciliationSettlementVatReportError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the GetPaymentReconciliationSettlementVatReportError, using the provided InvalidRequestError
+func (t *GetPaymentReconciliationSettlementVatReportError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the GetPaymentReconciliationSettlementVatReportError as a UnauthorizedError
+func (t GetPaymentReconciliationSettlementVatReportError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the GetPaymentReconciliationSettlementVatReportError as the provided UnauthorizedError
+func (t *GetPaymentReconciliationSettlementVatReportError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the GetPaymentReconciliationSettlementVatReportError, using the provided UnauthorizedError
+func (t *GetPaymentReconciliationSettlementVatReportError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetPaymentReconciliationSettlementVatReportError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetPaymentReconciliationSettlementVatReportError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetPaymentReconciliationSettlementVatReportError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetPaymentReconciliationSettlementVatReportError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsForbiddenError returns the union data inside the GetPaymentReconciliationTransactionVatReportError as a ForbiddenError
+func (t GetPaymentReconciliationTransactionVatReportError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the GetPaymentReconciliationTransactionVatReportError as the provided ForbiddenError
+func (t *GetPaymentReconciliationTransactionVatReportError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the GetPaymentReconciliationTransactionVatReportError, using the provided ForbiddenError
+func (t *GetPaymentReconciliationTransactionVatReportError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the GetPaymentReconciliationTransactionVatReportError as a InvalidRequestError
+func (t GetPaymentReconciliationTransactionVatReportError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the GetPaymentReconciliationTransactionVatReportError as the provided InvalidRequestError
+func (t *GetPaymentReconciliationTransactionVatReportError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the GetPaymentReconciliationTransactionVatReportError, using the provided InvalidRequestError
+func (t *GetPaymentReconciliationTransactionVatReportError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the GetPaymentReconciliationTransactionVatReportError as a UnauthorizedError
+func (t GetPaymentReconciliationTransactionVatReportError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the GetPaymentReconciliationTransactionVatReportError as the provided UnauthorizedError
+func (t *GetPaymentReconciliationTransactionVatReportError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the GetPaymentReconciliationTransactionVatReportError, using the provided UnauthorizedError
+func (t *GetPaymentReconciliationTransactionVatReportError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetPaymentReconciliationTransactionVatReportError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetPaymentReconciliationTransactionVatReportError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetPaymentReconciliationTransactionVatReportError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetPaymentReconciliationTransactionVatReportError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsForbiddenError returns the union data inside the GetPaymentScheduleError as a ForbiddenError
 func (t GetPaymentScheduleError) AsForbiddenError() (ForbiddenError, error) {
 	var body ForbiddenError
@@ -26664,6 +30905,155 @@ func (t GetPaymentsError) MarshalJSON() ([]byte, error) {
 }
 
 func (t *GetPaymentsError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsChannelNotFoundError returns the union data inside the GetPgCardPromotionsError as a ChannelNotFoundError
+func (t GetPgCardPromotionsError) AsChannelNotFoundError() (ChannelNotFoundError, error) {
+	var body ChannelNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromChannelNotFoundError overwrites any union data inside the GetPgCardPromotionsError as the provided ChannelNotFoundError
+func (t *GetPgCardPromotionsError) FromChannelNotFoundError(v ChannelNotFoundError) error {
+	v.Type = "CHANNEL_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeChannelNotFoundError performs a merge with any union data inside the GetPgCardPromotionsError, using the provided ChannelNotFoundError
+func (t *GetPgCardPromotionsError) MergeChannelNotFoundError(v ChannelNotFoundError) error {
+	v.Type = "CHANNEL_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the GetPgCardPromotionsError as a InvalidRequestError
+func (t GetPgCardPromotionsError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the GetPgCardPromotionsError as the provided InvalidRequestError
+func (t *GetPgCardPromotionsError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the GetPgCardPromotionsError, using the provided InvalidRequestError
+func (t *GetPgCardPromotionsError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPgProviderError returns the union data inside the GetPgCardPromotionsError as a PgProviderError
+func (t GetPgCardPromotionsError) AsPgProviderError() (PgProviderError, error) {
+	var body PgProviderError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPgProviderError overwrites any union data inside the GetPgCardPromotionsError as the provided PgProviderError
+func (t *GetPgCardPromotionsError) FromPgProviderError(v PgProviderError) error {
+	v.Type = "PG_PROVIDER"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePgProviderError performs a merge with any union data inside the GetPgCardPromotionsError, using the provided PgProviderError
+func (t *GetPgCardPromotionsError) MergePgProviderError(v PgProviderError) error {
+	v.Type = "PG_PROVIDER"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the GetPgCardPromotionsError as a UnauthorizedError
+func (t GetPgCardPromotionsError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the GetPgCardPromotionsError as the provided UnauthorizedError
+func (t *GetPgCardPromotionsError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the GetPgCardPromotionsError, using the provided UnauthorizedError
+func (t *GetPgCardPromotionsError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t GetPgCardPromotionsError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t GetPgCardPromotionsError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "CHANNEL_NOT_FOUND":
+		return t.AsChannelNotFoundError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "PG_PROVIDER":
+		return t.AsPgProviderError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t GetPgCardPromotionsError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *GetPgCardPromotionsError) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -31287,6 +35677,62 @@ func (t *IssueB2bTaxInvoiceImmediatelyError) MergeB2BTaxInvoiceStatusNotSendingC
 	return err
 }
 
+// AsB2bCounterpartyNotFoundError returns the union data inside the IssueB2bTaxInvoiceImmediatelyError as a B2bCounterpartyNotFoundError
+func (t IssueB2bTaxInvoiceImmediatelyError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the IssueB2bTaxInvoiceImmediatelyError as the provided B2bCounterpartyNotFoundError
+func (t *IssueB2bTaxInvoiceImmediatelyError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the IssueB2bTaxInvoiceImmediatelyError, using the provided B2bCounterpartyNotFoundError
+func (t *IssueB2bTaxInvoiceImmediatelyError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNtsNotConnectedError returns the union data inside the IssueB2bTaxInvoiceImmediatelyError as a B2bCounterpartyNtsNotConnectedError
+func (t IssueB2bTaxInvoiceImmediatelyError) AsB2bCounterpartyNtsNotConnectedError() (B2bCounterpartyNtsNotConnectedError, error) {
+	var body B2bCounterpartyNtsNotConnectedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNtsNotConnectedError overwrites any union data inside the IssueB2bTaxInvoiceImmediatelyError as the provided B2bCounterpartyNtsNotConnectedError
+func (t *IssueB2bTaxInvoiceImmediatelyError) FromB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNtsNotConnectedError performs a merge with any union data inside the IssueB2bTaxInvoiceImmediatelyError, using the provided B2bCounterpartyNtsNotConnectedError
+func (t *IssueB2bTaxInvoiceImmediatelyError) MergeB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsB2bExternalServiceError returns the union data inside the IssueB2bTaxInvoiceImmediatelyError as a B2bExternalServiceError
 func (t IssueB2bTaxInvoiceImmediatelyError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
 	var body B2bExternalServiceError
@@ -31695,6 +36141,10 @@ func (t IssueB2bTaxInvoiceImmediatelyError) ValueByDiscriminator() (interface{},
 	switch discriminator {
 	case "B2B_CANNOT_CHANGE_TAX_TYPE":
 		return t.AsB2BCannotChangeTaxTypeError()
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_NTS_NOT_CONNECTED":
+		return t.AsB2bCounterpartyNtsNotConnectedError()
 	case "B2B_EXTERNAL_SERVICE":
 		return t.AsB2bExternalServiceError()
 	case "B2B_ID_ALREADY_EXISTS":
@@ -34095,6 +38545,34 @@ func (t *PaymentMethod) MergePaymentMethodConvenienceStore(v PaymentMethodConven
 	return err
 }
 
+// AsPaymentMethodCrypto returns the union data inside the PaymentMethod as a PaymentMethodCrypto
+func (t PaymentMethod) AsPaymentMethodCrypto() (PaymentMethodCrypto, error) {
+	var body PaymentMethodCrypto
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPaymentMethodCrypto overwrites any union data inside the PaymentMethod as the provided PaymentMethodCrypto
+func (t *PaymentMethod) FromPaymentMethodCrypto(v PaymentMethodCrypto) error {
+	v.Type = "PaymentMethodCrypto"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePaymentMethodCrypto performs a merge with any union data inside the PaymentMethod, using the provided PaymentMethodCrypto
+func (t *PaymentMethod) MergePaymentMethodCrypto(v PaymentMethodCrypto) error {
+	v.Type = "PaymentMethodCrypto"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsPaymentMethodEasyPay returns the union data inside the PaymentMethod as a PaymentMethodEasyPay
 func (t PaymentMethod) AsPaymentMethodEasyPay() (PaymentMethodEasyPay, error) {
 	var body PaymentMethodEasyPay
@@ -34253,6 +38731,8 @@ func (t PaymentMethod) ValueByDiscriminator() (interface{}, error) {
 		return t.AsPaymentMethodCard()
 	case "PaymentMethodConvenienceStore":
 		return t.AsPaymentMethodConvenienceStore()
+	case "PaymentMethodCrypto":
+		return t.AsPaymentMethodCrypto()
 	case "PaymentMethodEasyPay":
 		return t.AsPaymentMethodEasyPay()
 	case "PaymentMethodGiftCertificate":
@@ -37248,6 +41728,34 @@ func (t *RecoverPlatformPartnerError) MergePlatformPartnerNotFoundError(v Platfo
 	return err
 }
 
+// AsPlatformPartnerPendingNtsOperationError returns the union data inside the RecoverPlatformPartnerError as a PlatformPartnerPendingNtsOperationError
+func (t RecoverPlatformPartnerError) AsPlatformPartnerPendingNtsOperationError() (PlatformPartnerPendingNtsOperationError, error) {
+	var body PlatformPartnerPendingNtsOperationError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPlatformPartnerPendingNtsOperationError overwrites any union data inside the RecoverPlatformPartnerError as the provided PlatformPartnerPendingNtsOperationError
+func (t *RecoverPlatformPartnerError) FromPlatformPartnerPendingNtsOperationError(v PlatformPartnerPendingNtsOperationError) error {
+	v.Type = "PLATFORM_PARTNER_PENDING_NTS_OPERATION"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePlatformPartnerPendingNtsOperationError performs a merge with any union data inside the RecoverPlatformPartnerError, using the provided PlatformPartnerPendingNtsOperationError
+func (t *RecoverPlatformPartnerError) MergePlatformPartnerPendingNtsOperationError(v PlatformPartnerPendingNtsOperationError) error {
+	v.Type = "PLATFORM_PARTNER_PENDING_NTS_OPERATION"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsUnauthorizedError returns the union data inside the RecoverPlatformPartnerError as a UnauthorizedError
 func (t RecoverPlatformPartnerError) AsUnauthorizedError() (UnauthorizedError, error) {
 	var body UnauthorizedError
@@ -37298,6 +41806,8 @@ func (t RecoverPlatformPartnerError) ValueByDiscriminator() (interface{}, error)
 		return t.AsPlatformNotEnabledError()
 	case "PLATFORM_PARTNER_NOT_FOUND":
 		return t.AsPlatformPartnerNotFoundError()
+	case "PLATFORM_PARTNER_PENDING_NTS_OPERATION":
+		return t.AsPlatformPartnerPendingNtsOperationError()
 	case "UNAUTHORIZED":
 		return t.AsUnauthorizedError()
 	default:
@@ -37938,6 +42448,62 @@ func (t *RequestB2bTaxInvoiceReverseIssuanceError) MergeB2BTaxInvoiceStatusNotSe
 	return err
 }
 
+// AsB2bCounterpartyNotFoundError returns the union data inside the RequestB2bTaxInvoiceReverseIssuanceError as a B2bCounterpartyNotFoundError
+func (t RequestB2bTaxInvoiceReverseIssuanceError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the RequestB2bTaxInvoiceReverseIssuanceError as the provided B2bCounterpartyNotFoundError
+func (t *RequestB2bTaxInvoiceReverseIssuanceError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the RequestB2bTaxInvoiceReverseIssuanceError, using the provided B2bCounterpartyNotFoundError
+func (t *RequestB2bTaxInvoiceReverseIssuanceError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNtsNotConnectedError returns the union data inside the RequestB2bTaxInvoiceReverseIssuanceError as a B2bCounterpartyNtsNotConnectedError
+func (t RequestB2bTaxInvoiceReverseIssuanceError) AsB2bCounterpartyNtsNotConnectedError() (B2bCounterpartyNtsNotConnectedError, error) {
+	var body B2bCounterpartyNtsNotConnectedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNtsNotConnectedError overwrites any union data inside the RequestB2bTaxInvoiceReverseIssuanceError as the provided B2bCounterpartyNtsNotConnectedError
+func (t *RequestB2bTaxInvoiceReverseIssuanceError) FromB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNtsNotConnectedError performs a merge with any union data inside the RequestB2bTaxInvoiceReverseIssuanceError, using the provided B2bCounterpartyNtsNotConnectedError
+func (t *RequestB2bTaxInvoiceReverseIssuanceError) MergeB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
 // AsB2bExternalServiceError returns the union data inside the RequestB2bTaxInvoiceReverseIssuanceError as a B2bExternalServiceError
 func (t RequestB2bTaxInvoiceReverseIssuanceError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
 	var body B2bExternalServiceError
@@ -38346,6 +42912,10 @@ func (t RequestB2bTaxInvoiceReverseIssuanceError) ValueByDiscriminator() (interf
 	switch discriminator {
 	case "B2B_CANNOT_CHANGE_TAX_TYPE":
 		return t.AsB2BCannotChangeTaxTypeError()
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_NTS_NOT_CONNECTED":
+		return t.AsB2bCounterpartyNtsNotConnectedError()
 	case "B2B_EXTERNAL_SERVICE":
 		return t.AsB2bExternalServiceError()
 	case "B2B_ID_ALREADY_EXISTS":
@@ -41977,6 +46547,694 @@ func (t *SendToNtsB2bTaxInvoiceError) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsForbiddenError returns the union data inside the StopPaymentCancellationError as a ForbiddenError
+func (t StopPaymentCancellationError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the StopPaymentCancellationError as the provided ForbiddenError
+func (t *StopPaymentCancellationError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the StopPaymentCancellationError, using the provided ForbiddenError
+func (t *StopPaymentCancellationError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the StopPaymentCancellationError as a InvalidRequestError
+func (t StopPaymentCancellationError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the StopPaymentCancellationError as the provided InvalidRequestError
+func (t *StopPaymentCancellationError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the StopPaymentCancellationError, using the provided InvalidRequestError
+func (t *StopPaymentCancellationError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPaymentCancellationNotFoundError returns the union data inside the StopPaymentCancellationError as a PaymentCancellationNotFoundError
+func (t StopPaymentCancellationError) AsPaymentCancellationNotFoundError() (PaymentCancellationNotFoundError, error) {
+	var body PaymentCancellationNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPaymentCancellationNotFoundError overwrites any union data inside the StopPaymentCancellationError as the provided PaymentCancellationNotFoundError
+func (t *StopPaymentCancellationError) FromPaymentCancellationNotFoundError(v PaymentCancellationNotFoundError) error {
+	v.Type = "PAYMENT_CANCELLATION_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePaymentCancellationNotFoundError performs a merge with any union data inside the StopPaymentCancellationError, using the provided PaymentCancellationNotFoundError
+func (t *StopPaymentCancellationError) MergePaymentCancellationNotFoundError(v PaymentCancellationNotFoundError) error {
+	v.Type = "PAYMENT_CANCELLATION_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPaymentCancellationNotPendingError returns the union data inside the StopPaymentCancellationError as a PaymentCancellationNotPendingError
+func (t StopPaymentCancellationError) AsPaymentCancellationNotPendingError() (PaymentCancellationNotPendingError, error) {
+	var body PaymentCancellationNotPendingError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPaymentCancellationNotPendingError overwrites any union data inside the StopPaymentCancellationError as the provided PaymentCancellationNotPendingError
+func (t *StopPaymentCancellationError) FromPaymentCancellationNotPendingError(v PaymentCancellationNotPendingError) error {
+	v.Type = "PAYMENT_CANCELLATION_NOT_PENDING"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePaymentCancellationNotPendingError performs a merge with any union data inside the StopPaymentCancellationError, using the provided PaymentCancellationNotPendingError
+func (t *StopPaymentCancellationError) MergePaymentCancellationNotPendingError(v PaymentCancellationNotPendingError) error {
+	v.Type = "PAYMENT_CANCELLATION_NOT_PENDING"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPaymentNotFoundError returns the union data inside the StopPaymentCancellationError as a PaymentNotFoundError
+func (t StopPaymentCancellationError) AsPaymentNotFoundError() (PaymentNotFoundError, error) {
+	var body PaymentNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPaymentNotFoundError overwrites any union data inside the StopPaymentCancellationError as the provided PaymentNotFoundError
+func (t *StopPaymentCancellationError) FromPaymentNotFoundError(v PaymentNotFoundError) error {
+	v.Type = "PAYMENT_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePaymentNotFoundError performs a merge with any union data inside the StopPaymentCancellationError, using the provided PaymentNotFoundError
+func (t *StopPaymentCancellationError) MergePaymentNotFoundError(v PaymentNotFoundError) error {
+	v.Type = "PAYMENT_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsPgProviderError returns the union data inside the StopPaymentCancellationError as a PgProviderError
+func (t StopPaymentCancellationError) AsPgProviderError() (PgProviderError, error) {
+	var body PgProviderError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromPgProviderError overwrites any union data inside the StopPaymentCancellationError as the provided PgProviderError
+func (t *StopPaymentCancellationError) FromPgProviderError(v PgProviderError) error {
+	v.Type = "PG_PROVIDER"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergePgProviderError performs a merge with any union data inside the StopPaymentCancellationError, using the provided PgProviderError
+func (t *StopPaymentCancellationError) MergePgProviderError(v PgProviderError) error {
+	v.Type = "PG_PROVIDER"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the StopPaymentCancellationError as a UnauthorizedError
+func (t StopPaymentCancellationError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the StopPaymentCancellationError as the provided UnauthorizedError
+func (t *StopPaymentCancellationError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the StopPaymentCancellationError, using the provided UnauthorizedError
+func (t *StopPaymentCancellationError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t StopPaymentCancellationError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t StopPaymentCancellationError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "PAYMENT_CANCELLATION_NOT_FOUND":
+		return t.AsPaymentCancellationNotFoundError()
+	case "PAYMENT_CANCELLATION_NOT_PENDING":
+		return t.AsPaymentCancellationNotPendingError()
+	case "PAYMENT_NOT_FOUND":
+		return t.AsPaymentNotFoundError()
+	case "PG_PROVIDER":
+		return t.AsPgProviderError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t StopPaymentCancellationError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *StopPaymentCancellationError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsB2bCounterpartyBrnModificationNotAllowedError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyBrnModificationNotAllowedError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyBrnModificationNotAllowedError() (B2bCounterpartyBrnModificationNotAllowedError, error) {
+	var body B2bCounterpartyBrnModificationNotAllowedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyBrnModificationNotAllowedError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyBrnModificationNotAllowedError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyBrnModificationNotAllowedError(v B2bCounterpartyBrnModificationNotAllowedError) error {
+	v.Type = "B2B_COUNTERPARTY_BRN_MODIFICATION_NOT_ALLOWED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyBrnModificationNotAllowedError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyBrnModificationNotAllowedError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyBrnModificationNotAllowedError(v B2bCounterpartyBrnModificationNotAllowedError) error {
+	v.Type = "B2B_COUNTERPARTY_BRN_MODIFICATION_NOT_ALLOWED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyMissingRequiredFieldsError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyMissingRequiredFieldsError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyMissingRequiredFieldsError() (B2bCounterpartyMissingRequiredFieldsError, error) {
+	var body B2bCounterpartyMissingRequiredFieldsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyMissingRequiredFieldsError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyMissingRequiredFieldsError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyMissingRequiredFieldsError(v B2bCounterpartyMissingRequiredFieldsError) error {
+	v.Type = "B2B_COUNTERPARTY_MISSING_REQUIRED_FIELDS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyMissingRequiredFieldsError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyMissingRequiredFieldsError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyMissingRequiredFieldsError(v B2bCounterpartyMissingRequiredFieldsError) error {
+	v.Type = "B2B_COUNTERPARTY_MISSING_REQUIRED_FIELDS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNotFoundError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyNotFoundError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyNotFoundError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyNotFoundError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyPartnerNotUpdatableError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyPartnerNotUpdatableError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyPartnerNotUpdatableError() (B2bCounterpartyPartnerNotUpdatableError, error) {
+	var body B2bCounterpartyPartnerNotUpdatableError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyPartnerNotUpdatableError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyPartnerNotUpdatableError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyPartnerNotUpdatableError(v B2bCounterpartyPartnerNotUpdatableError) error {
+	v.Type = "B2B_COUNTERPARTY_PARTNER_NOT_UPDATABLE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyPartnerNotUpdatableError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyPartnerNotUpdatableError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyPartnerNotUpdatableError(v B2bCounterpartyPartnerNotUpdatableError) error {
+	v.Type = "B2B_COUNTERPARTY_PARTNER_NOT_UPDATABLE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyTooManyAdditionalContactsError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyTooManyAdditionalContactsError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyTooManyAdditionalContactsError() (B2bCounterpartyTooManyAdditionalContactsError, error) {
+	var body B2bCounterpartyTooManyAdditionalContactsError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyTooManyAdditionalContactsError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyTooManyAdditionalContactsError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyTooManyAdditionalContactsError(v B2bCounterpartyTooManyAdditionalContactsError) error {
+	v.Type = "B2B_COUNTERPARTY_TOO_MANY_ADDITIONAL_CONTACTS"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyTooManyAdditionalContactsError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyTooManyAdditionalContactsError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyTooManyAdditionalContactsError(v B2bCounterpartyTooManyAdditionalContactsError) error {
+	v.Type = "B2B_COUNTERPARTY_TOO_MANY_ADDITIONAL_CONTACTS"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyVerificationBrnMismatchError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyVerificationBrnMismatchError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyVerificationBrnMismatchError() (B2bCounterpartyVerificationBrnMismatchError, error) {
+	var body B2bCounterpartyVerificationBrnMismatchError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyVerificationBrnMismatchError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyVerificationBrnMismatchError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyVerificationBrnMismatchError(v B2bCounterpartyVerificationBrnMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_BRN_MISMATCH"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyVerificationBrnMismatchError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyVerificationBrnMismatchError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyVerificationBrnMismatchError(v B2bCounterpartyVerificationBrnMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_BRN_MISMATCH"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyVerificationInvalidError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyVerificationInvalidError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyVerificationInvalidError() (B2bCounterpartyVerificationInvalidError, error) {
+	var body B2bCounterpartyVerificationInvalidError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyVerificationInvalidError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyVerificationInvalidError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyVerificationInvalidError(v B2bCounterpartyVerificationInvalidError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_INVALID"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyVerificationInvalidError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyVerificationInvalidError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyVerificationInvalidError(v B2bCounterpartyVerificationInvalidError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_INVALID"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyVerificationNotFoundError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyVerificationNotFoundError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyVerificationNotFoundError() (B2bCounterpartyVerificationNotFoundError, error) {
+	var body B2bCounterpartyVerificationNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyVerificationNotFoundError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyVerificationNotFoundError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyVerificationNotFoundError(v B2bCounterpartyVerificationNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyVerificationNotFoundError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyVerificationNotFoundError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyVerificationNotFoundError(v B2bCounterpartyVerificationNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyVerificationTypeMismatchError returns the union data inside the UpdateB2bCounterpartyError as a B2bCounterpartyVerificationTypeMismatchError
+func (t UpdateB2bCounterpartyError) AsB2bCounterpartyVerificationTypeMismatchError() (B2bCounterpartyVerificationTypeMismatchError, error) {
+	var body B2bCounterpartyVerificationTypeMismatchError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyVerificationTypeMismatchError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bCounterpartyVerificationTypeMismatchError
+func (t *UpdateB2bCounterpartyError) FromB2bCounterpartyVerificationTypeMismatchError(v B2bCounterpartyVerificationTypeMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_TYPE_MISMATCH"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyVerificationTypeMismatchError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bCounterpartyVerificationTypeMismatchError
+func (t *UpdateB2bCounterpartyError) MergeB2bCounterpartyVerificationTypeMismatchError(v B2bCounterpartyVerificationTypeMismatchError) error {
+	v.Type = "B2B_COUNTERPARTY_VERIFICATION_TYPE_MISMATCH"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bExternalServiceError returns the union data inside the UpdateB2bCounterpartyError as a B2bExternalServiceError
+func (t UpdateB2bCounterpartyError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
+	var body B2bExternalServiceError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bExternalServiceError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bExternalServiceError
+func (t *UpdateB2bCounterpartyError) FromB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bExternalServiceError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bExternalServiceError
+func (t *UpdateB2bCounterpartyError) MergeB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bNotEnabledError returns the union data inside the UpdateB2bCounterpartyError as a B2bNotEnabledError
+func (t UpdateB2bCounterpartyError) AsB2bNotEnabledError() (B2bNotEnabledError, error) {
+	var body B2bNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bNotEnabledError overwrites any union data inside the UpdateB2bCounterpartyError as the provided B2bNotEnabledError
+func (t *UpdateB2bCounterpartyError) FromB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bNotEnabledError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided B2bNotEnabledError
+func (t *UpdateB2bCounterpartyError) MergeB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsForbiddenError returns the union data inside the UpdateB2bCounterpartyError as a ForbiddenError
+func (t UpdateB2bCounterpartyError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the UpdateB2bCounterpartyError as the provided ForbiddenError
+func (t *UpdateB2bCounterpartyError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided ForbiddenError
+func (t *UpdateB2bCounterpartyError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the UpdateB2bCounterpartyError as a InvalidRequestError
+func (t UpdateB2bCounterpartyError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the UpdateB2bCounterpartyError as the provided InvalidRequestError
+func (t *UpdateB2bCounterpartyError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided InvalidRequestError
+func (t *UpdateB2bCounterpartyError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the UpdateB2bCounterpartyError as a UnauthorizedError
+func (t UpdateB2bCounterpartyError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the UpdateB2bCounterpartyError as the provided UnauthorizedError
+func (t *UpdateB2bCounterpartyError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the UpdateB2bCounterpartyError, using the provided UnauthorizedError
+func (t *UpdateB2bCounterpartyError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t UpdateB2bCounterpartyError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t UpdateB2bCounterpartyError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "B2B_COUNTERPARTY_BRN_MODIFICATION_NOT_ALLOWED":
+		return t.AsB2bCounterpartyBrnModificationNotAllowedError()
+	case "B2B_COUNTERPARTY_MISSING_REQUIRED_FIELDS":
+		return t.AsB2bCounterpartyMissingRequiredFieldsError()
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_PARTNER_NOT_UPDATABLE":
+		return t.AsB2bCounterpartyPartnerNotUpdatableError()
+	case "B2B_COUNTERPARTY_TOO_MANY_ADDITIONAL_CONTACTS":
+		return t.AsB2bCounterpartyTooManyAdditionalContactsError()
+	case "B2B_COUNTERPARTY_VERIFICATION_BRN_MISMATCH":
+		return t.AsB2bCounterpartyVerificationBrnMismatchError()
+	case "B2B_COUNTERPARTY_VERIFICATION_INVALID":
+		return t.AsB2bCounterpartyVerificationInvalidError()
+	case "B2B_COUNTERPARTY_VERIFICATION_NOT_FOUND":
+		return t.AsB2bCounterpartyVerificationNotFoundError()
+	case "B2B_COUNTERPARTY_VERIFICATION_TYPE_MISMATCH":
+		return t.AsB2bCounterpartyVerificationTypeMismatchError()
+	case "B2B_EXTERNAL_SERVICE":
+		return t.AsB2bExternalServiceError()
+	case "B2B_NOT_ENABLED":
+		return t.AsB2bNotEnabledError()
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t UpdateB2bCounterpartyError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *UpdateB2bCounterpartyError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsB2BCannotChangeTaxTypeError returns the union data inside the UpdateB2bTaxInvoiceDraftError as a B2BCannotChangeTaxTypeError
 func (t UpdateB2bTaxInvoiceDraftError) AsB2BCannotChangeTaxTypeError() (B2BCannotChangeTaxTypeError, error) {
 	var body B2BCannotChangeTaxTypeError
@@ -42023,6 +47281,62 @@ func (t *UpdateB2bTaxInvoiceDraftError) FromB2BTaxInvoiceStatusNotSendingComplet
 // MergeB2BTaxInvoiceStatusNotSendingCompletedError performs a merge with any union data inside the UpdateB2bTaxInvoiceDraftError, using the provided B2BTaxInvoiceStatusNotSendingCompletedError
 func (t *UpdateB2bTaxInvoiceDraftError) MergeB2BTaxInvoiceStatusNotSendingCompletedError(v B2BTaxInvoiceStatusNotSendingCompletedError) error {
 	v.Type = "B2B_TAX_INVOICE_STATUS_NOT_SENDING_COMPLETED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNotFoundError returns the union data inside the UpdateB2bTaxInvoiceDraftError as a B2bCounterpartyNotFoundError
+func (t UpdateB2bTaxInvoiceDraftError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the UpdateB2bTaxInvoiceDraftError as the provided B2bCounterpartyNotFoundError
+func (t *UpdateB2bTaxInvoiceDraftError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the UpdateB2bTaxInvoiceDraftError, using the provided B2bCounterpartyNotFoundError
+func (t *UpdateB2bTaxInvoiceDraftError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNtsNotConnectedError returns the union data inside the UpdateB2bTaxInvoiceDraftError as a B2bCounterpartyNtsNotConnectedError
+func (t UpdateB2bTaxInvoiceDraftError) AsB2bCounterpartyNtsNotConnectedError() (B2bCounterpartyNtsNotConnectedError, error) {
+	var body B2bCounterpartyNtsNotConnectedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNtsNotConnectedError overwrites any union data inside the UpdateB2bTaxInvoiceDraftError as the provided B2bCounterpartyNtsNotConnectedError
+func (t *UpdateB2bTaxInvoiceDraftError) FromB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNtsNotConnectedError performs a merge with any union data inside the UpdateB2bTaxInvoiceDraftError, using the provided B2bCounterpartyNtsNotConnectedError
+func (t *UpdateB2bTaxInvoiceDraftError) MergeB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -42497,6 +47811,10 @@ func (t UpdateB2bTaxInvoiceDraftError) ValueByDiscriminator() (interface{}, erro
 	switch discriminator {
 	case "B2B_CANNOT_CHANGE_TAX_TYPE":
 		return t.AsB2BCannotChangeTaxTypeError()
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_NTS_NOT_CONNECTED":
+		return t.AsB2bCounterpartyNtsNotConnectedError()
 	case "B2B_DOCUMENT_KEY_CANNOT_BE_CHANGED":
 		return t.AsB2bDocumentKeyCannotBeChangedError()
 	case "B2B_EXTERNAL_SERVICE":
@@ -43801,6 +49119,275 @@ func (t *UpdatePlatformSettingError) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsB2bCertificateUnregisteredError returns the union data inside the ValidateB2bCounterpartyCertificateError as a B2bCertificateUnregisteredError
+func (t ValidateB2bCounterpartyCertificateError) AsB2bCertificateUnregisteredError() (B2bCertificateUnregisteredError, error) {
+	var body B2bCertificateUnregisteredError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCertificateUnregisteredError overwrites any union data inside the ValidateB2bCounterpartyCertificateError as the provided B2bCertificateUnregisteredError
+func (t *ValidateB2bCounterpartyCertificateError) FromB2bCertificateUnregisteredError(v B2bCertificateUnregisteredError) error {
+	v.Type = "B2B_CERTIFICATE_UNREGISTERED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCertificateUnregisteredError performs a merge with any union data inside the ValidateB2bCounterpartyCertificateError, using the provided B2bCertificateUnregisteredError
+func (t *ValidateB2bCounterpartyCertificateError) MergeB2bCertificateUnregisteredError(v B2bCertificateUnregisteredError) error {
+	v.Type = "B2B_CERTIFICATE_UNREGISTERED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNotFoundError returns the union data inside the ValidateB2bCounterpartyCertificateError as a B2bCounterpartyNotFoundError
+func (t ValidateB2bCounterpartyCertificateError) AsB2bCounterpartyNotFoundError() (B2bCounterpartyNotFoundError, error) {
+	var body B2bCounterpartyNotFoundError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNotFoundError overwrites any union data inside the ValidateB2bCounterpartyCertificateError as the provided B2bCounterpartyNotFoundError
+func (t *ValidateB2bCounterpartyCertificateError) FromB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNotFoundError performs a merge with any union data inside the ValidateB2bCounterpartyCertificateError, using the provided B2bCounterpartyNotFoundError
+func (t *ValidateB2bCounterpartyCertificateError) MergeB2bCounterpartyNotFoundError(v B2bCounterpartyNotFoundError) error {
+	v.Type = "B2B_COUNTERPARTY_NOT_FOUND"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bCounterpartyNtsNotConnectedError returns the union data inside the ValidateB2bCounterpartyCertificateError as a B2bCounterpartyNtsNotConnectedError
+func (t ValidateB2bCounterpartyCertificateError) AsB2bCounterpartyNtsNotConnectedError() (B2bCounterpartyNtsNotConnectedError, error) {
+	var body B2bCounterpartyNtsNotConnectedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bCounterpartyNtsNotConnectedError overwrites any union data inside the ValidateB2bCounterpartyCertificateError as the provided B2bCounterpartyNtsNotConnectedError
+func (t *ValidateB2bCounterpartyCertificateError) FromB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bCounterpartyNtsNotConnectedError performs a merge with any union data inside the ValidateB2bCounterpartyCertificateError, using the provided B2bCounterpartyNtsNotConnectedError
+func (t *ValidateB2bCounterpartyCertificateError) MergeB2bCounterpartyNtsNotConnectedError(v B2bCounterpartyNtsNotConnectedError) error {
+	v.Type = "B2B_COUNTERPARTY_NTS_NOT_CONNECTED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bExternalServiceError returns the union data inside the ValidateB2bCounterpartyCertificateError as a B2bExternalServiceError
+func (t ValidateB2bCounterpartyCertificateError) AsB2bExternalServiceError() (B2bExternalServiceError, error) {
+	var body B2bExternalServiceError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bExternalServiceError overwrites any union data inside the ValidateB2bCounterpartyCertificateError as the provided B2bExternalServiceError
+func (t *ValidateB2bCounterpartyCertificateError) FromB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bExternalServiceError performs a merge with any union data inside the ValidateB2bCounterpartyCertificateError, using the provided B2bExternalServiceError
+func (t *ValidateB2bCounterpartyCertificateError) MergeB2bExternalServiceError(v B2bExternalServiceError) error {
+	v.Type = "B2B_EXTERNAL_SERVICE"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsB2bNotEnabledError returns the union data inside the ValidateB2bCounterpartyCertificateError as a B2bNotEnabledError
+func (t ValidateB2bCounterpartyCertificateError) AsB2bNotEnabledError() (B2bNotEnabledError, error) {
+	var body B2bNotEnabledError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromB2bNotEnabledError overwrites any union data inside the ValidateB2bCounterpartyCertificateError as the provided B2bNotEnabledError
+func (t *ValidateB2bCounterpartyCertificateError) FromB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeB2bNotEnabledError performs a merge with any union data inside the ValidateB2bCounterpartyCertificateError, using the provided B2bNotEnabledError
+func (t *ValidateB2bCounterpartyCertificateError) MergeB2bNotEnabledError(v B2bNotEnabledError) error {
+	v.Type = "B2B_NOT_ENABLED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsForbiddenError returns the union data inside the ValidateB2bCounterpartyCertificateError as a ForbiddenError
+func (t ValidateB2bCounterpartyCertificateError) AsForbiddenError() (ForbiddenError, error) {
+	var body ForbiddenError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromForbiddenError overwrites any union data inside the ValidateB2bCounterpartyCertificateError as the provided ForbiddenError
+func (t *ValidateB2bCounterpartyCertificateError) FromForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeForbiddenError performs a merge with any union data inside the ValidateB2bCounterpartyCertificateError, using the provided ForbiddenError
+func (t *ValidateB2bCounterpartyCertificateError) MergeForbiddenError(v ForbiddenError) error {
+	v.Type = "FORBIDDEN"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsInvalidRequestError returns the union data inside the ValidateB2bCounterpartyCertificateError as a InvalidRequestError
+func (t ValidateB2bCounterpartyCertificateError) AsInvalidRequestError() (InvalidRequestError, error) {
+	var body InvalidRequestError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromInvalidRequestError overwrites any union data inside the ValidateB2bCounterpartyCertificateError as the provided InvalidRequestError
+func (t *ValidateB2bCounterpartyCertificateError) FromInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeInvalidRequestError performs a merge with any union data inside the ValidateB2bCounterpartyCertificateError, using the provided InvalidRequestError
+func (t *ValidateB2bCounterpartyCertificateError) MergeInvalidRequestError(v InvalidRequestError) error {
+	v.Type = "INVALID_REQUEST"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsUnauthorizedError returns the union data inside the ValidateB2bCounterpartyCertificateError as a UnauthorizedError
+func (t ValidateB2bCounterpartyCertificateError) AsUnauthorizedError() (UnauthorizedError, error) {
+	var body UnauthorizedError
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromUnauthorizedError overwrites any union data inside the ValidateB2bCounterpartyCertificateError as the provided UnauthorizedError
+func (t *ValidateB2bCounterpartyCertificateError) FromUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeUnauthorizedError performs a merge with any union data inside the ValidateB2bCounterpartyCertificateError, using the provided UnauthorizedError
+func (t *ValidateB2bCounterpartyCertificateError) MergeUnauthorizedError(v UnauthorizedError) error {
+	v.Type = "UNAUTHORIZED"
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ValidateB2bCounterpartyCertificateError) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t ValidateB2bCounterpartyCertificateError) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "B2B_CERTIFICATE_UNREGISTERED":
+		return t.AsB2bCertificateUnregisteredError()
+	case "B2B_COUNTERPARTY_NOT_FOUND":
+		return t.AsB2bCounterpartyNotFoundError()
+	case "B2B_COUNTERPARTY_NTS_NOT_CONNECTED":
+		return t.AsB2bCounterpartyNtsNotConnectedError()
+	case "B2B_EXTERNAL_SERVICE":
+		return t.AsB2bExternalServiceError()
+	case "B2B_NOT_ENABLED":
+		return t.AsB2bNotEnabledError()
+	case "FORBIDDEN":
+		return t.AsForbiddenError()
+	case "INVALID_REQUEST":
+		return t.AsInvalidRequestError()
+	case "UNAUTHORIZED":
+		return t.AsUnauthorizedError()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t ValidateB2bCounterpartyCertificateError) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ValidateB2bCounterpartyCertificateError) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsB2BCannotChangeTaxTypeError returns the union data inside the RequestB2bTaxInvoiceError as a B2BCannotChangeTaxTypeError
 func (t RequestB2bTaxInvoiceError) AsB2BCannotChangeTaxTypeError() (B2BCannotChangeTaxTypeError, error) {
 	var body B2BCannotChangeTaxTypeError
@@ -44297,9 +49884,41 @@ type ClientInterface interface {
 	GetB2bBulkTaxInvoice(ctx context.Context, bulkTaxInvoiceId string, params *GetB2bBulkTaxInvoiceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetB2bBusinessInfosWithBody request with any body
-	GetB2bBusinessInfosWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	GetB2bBusinessInfosWithBody(ctx context.Context, params *GetB2bBusinessInfosParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	GetB2bBusinessInfos(ctx context.Context, body GetB2bBusinessInfosJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	GetB2bBusinessInfos(ctx context.Context, params *GetB2bBusinessInfosParams, body GetB2bBusinessInfosJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetB2bCounterpartiesWithBody request with any body
+	GetB2bCounterpartiesWithBody(ctx context.Context, params *GetB2bCounterpartiesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	GetB2bCounterparties(ctx context.Context, params *GetB2bCounterpartiesParams, body GetB2bCounterpartiesJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateB2bCounterpartyWithBody request with any body
+	CreateB2bCounterpartyWithBody(ctx context.Context, params *CreateB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CreateB2bCounterparty(ctx context.Context, params *CreateB2bCounterpartyParams, body CreateB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetB2bCounterpartyCertificate request
+	GetB2bCounterpartyCertificate(ctx context.Context, brn string, params *GetB2bCounterpartyCertificateParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetB2bCounterpartyCertificateRegistrationUrl request
+	GetB2bCounterpartyCertificateRegistrationUrl(ctx context.Context, brn string, params *GetB2bCounterpartyCertificateRegistrationUrlParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ValidateB2bCounterpartyCertificate request
+	ValidateB2bCounterpartyCertificate(ctx context.Context, brn string, params *ValidateB2bCounterpartyCertificateParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DeleteB2bCounterpartyWithBody request with any body
+	DeleteB2bCounterpartyWithBody(ctx context.Context, counterpartyId string, params *DeleteB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	DeleteB2bCounterparty(ctx context.Context, counterpartyId string, params *DeleteB2bCounterpartyParams, body DeleteB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetB2bCounterparty request
+	GetB2bCounterparty(ctx context.Context, counterpartyId string, params *GetB2bCounterpartyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateB2bCounterpartyWithBody request with any body
+	UpdateB2bCounterpartyWithBody(ctx context.Context, counterpartyId string, params *UpdateB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	UpdateB2bCounterparty(ctx context.Context, counterpartyId string, params *UpdateB2bCounterpartyParams, body UpdateB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreateB2bFileUploadUrlWithBody request with any body
 	CreateB2bFileUploadUrlWithBody(ctx context.Context, params *CreateB2bFileUploadUrlParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -44461,6 +50080,15 @@ type ClientInterface interface {
 
 	GetAllPaymentEventsByCursor(ctx context.Context, params *GetAllPaymentEventsByCursorParams, body GetAllPaymentEventsByCursorJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetPgCardPromotions request
+	GetPgCardPromotions(ctx context.Context, params *GetPgCardPromotionsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetPaymentReconciliationSettlementVatReport request
+	GetPaymentReconciliationSettlementVatReport(ctx context.Context, params *GetPaymentReconciliationSettlementVatReportParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetPaymentReconciliationTransactionVatReport request
+	GetPaymentReconciliationTransactionVatReport(ctx context.Context, params *GetPaymentReconciliationTransactionVatReportParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// RevokePaymentSchedulesWithBody request with any body
 	RevokePaymentSchedulesWithBody(ctx context.Context, params *RevokePaymentSchedulesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -44496,6 +50124,11 @@ type ClientInterface interface {
 	CancelPaymentWithBody(ctx context.Context, paymentId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	CancelPayment(ctx context.Context, paymentId string, body CancelPaymentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StopPaymentCancellationWithBody request with any body
+	StopPaymentCancellationWithBody(ctx context.Context, paymentId string, cancellationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	StopPaymentCancellation(ctx context.Context, paymentId string, cancellationId string, body StopPaymentCancellationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CapturePaymentWithBody request with any body
 	CapturePaymentWithBody(ctx context.Context, paymentId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -44558,6 +50191,11 @@ type ClientInterface interface {
 
 	// CloseVirtualAccount request
 	CloseVirtualAccount(ctx context.Context, paymentId string, params *CloseVirtualAccountParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ConfirmPaymentwallDeliveryWithBody request with any body
+	ConfirmPaymentwallDeliveryWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	ConfirmPaymentwallDelivery(ctx context.Context, body ConfirmPaymentwallDeliveryJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetPlatformAccountTransfersWithBody request with any body
 	GetPlatformAccountTransfersWithBody(ctx context.Context, params *GetPlatformAccountTransfersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -44711,6 +50349,16 @@ type ClientInterface interface {
 
 	GetPlatformPartnerSettlements(ctx context.Context, params *GetPlatformPartnerSettlementsParams, body GetPlatformPartnerSettlementsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CompletePlatformPayoutByPartnerSettlementIdsWithBody request with any body
+	CompletePlatformPayoutByPartnerSettlementIdsWithBody(ctx context.Context, params *CompletePlatformPayoutByPartnerSettlementIdsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CompletePlatformPayoutByPartnerSettlementIds(ctx context.Context, params *CompletePlatformPayoutByPartnerSettlementIdsParams, body CompletePlatformPayoutByPartnerSettlementIdsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DeletePlatformPartnerSettlementsWithBody request with any body
+	DeletePlatformPartnerSettlementsWithBody(ctx context.Context, params *DeletePlatformPartnerSettlementsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	DeletePlatformPartnerSettlements(ctx context.Context, params *DeletePlatformPartnerSettlementsParams, body DeletePlatformPartnerSettlementsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetPlatformPartnersWithBody request with any body
 	GetPlatformPartnersWithBody(ctx context.Context, params *GetPlatformPartnersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -44726,21 +50374,21 @@ type ClientInterface interface {
 
 	CreatePlatformPartners(ctx context.Context, params *CreatePlatformPartnersParams, body CreatePlatformPartnersJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ConnectBulkPartnerMemberCompanyWithBody request with any body
-	ConnectBulkPartnerMemberCompanyWithBody(ctx context.Context, params *ConnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// ConnectBulkPartnerCounterpartyWithBody request with any body
+	ConnectBulkPartnerCounterpartyWithBody(ctx context.Context, params *ConnectBulkPartnerCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ConnectBulkPartnerMemberCompany(ctx context.Context, params *ConnectBulkPartnerMemberCompanyParams, body ConnectBulkPartnerMemberCompanyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	ConnectBulkPartnerCounterparty(ctx context.Context, params *ConnectBulkPartnerCounterpartyParams, body ConnectBulkPartnerCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ConnectPartnerMemberCompany request
-	ConnectPartnerMemberCompany(ctx context.Context, id string, params *ConnectPartnerMemberCompanyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// ConnectPartnerCounterparty request
+	ConnectPartnerCounterparty(ctx context.Context, id string, params *ConnectPartnerCounterpartyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// DisconnectBulkPartnerMemberCompanyWithBody request with any body
-	DisconnectBulkPartnerMemberCompanyWithBody(ctx context.Context, params *DisconnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// DisconnectBulkPartnerCounterpartyWithBody request with any body
+	DisconnectBulkPartnerCounterpartyWithBody(ctx context.Context, params *DisconnectBulkPartnerCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	DisconnectBulkPartnerMemberCompany(ctx context.Context, params *DisconnectBulkPartnerMemberCompanyParams, body DisconnectBulkPartnerMemberCompanyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	DisconnectBulkPartnerCounterparty(ctx context.Context, params *DisconnectBulkPartnerCounterpartyParams, body DisconnectBulkPartnerCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// DisconnectPartnerMemberCompany request
-	DisconnectPartnerMemberCompany(ctx context.Context, id string, params *DisconnectPartnerMemberCompanyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// DisconnectPartnerCounterparty request
+	DisconnectPartnerCounterparty(ctx context.Context, id string, params *DisconnectPartnerCounterpartyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SchedulePlatformPartnersWithBody request with any body
 	SchedulePlatformPartnersWithBody(ctx context.Context, params *SchedulePlatformPartnersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -44842,8 +50490,8 @@ func (c *Client) GetB2bBulkTaxInvoice(ctx context.Context, bulkTaxInvoiceId stri
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetB2bBusinessInfosWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetB2bBusinessInfosRequestWithBody(c.Server, contentType, body)
+func (c *Client) GetB2bBusinessInfosWithBody(ctx context.Context, params *GetB2bBusinessInfosParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetB2bBusinessInfosRequestWithBody(c.Server, params, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -44854,8 +50502,152 @@ func (c *Client) GetB2bBusinessInfosWithBody(ctx context.Context, contentType st
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetB2bBusinessInfos(ctx context.Context, body GetB2bBusinessInfosJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetB2bBusinessInfosRequest(c.Server, body)
+func (c *Client) GetB2bBusinessInfos(ctx context.Context, params *GetB2bBusinessInfosParams, body GetB2bBusinessInfosJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetB2bBusinessInfosRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetB2bCounterpartiesWithBody(ctx context.Context, params *GetB2bCounterpartiesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetB2bCounterpartiesRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetB2bCounterparties(ctx context.Context, params *GetB2bCounterpartiesParams, body GetB2bCounterpartiesJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetB2bCounterpartiesRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CreateB2bCounterpartyWithBody(ctx context.Context, params *CreateB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateB2bCounterpartyRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CreateB2bCounterparty(ctx context.Context, params *CreateB2bCounterpartyParams, body CreateB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateB2bCounterpartyRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetB2bCounterpartyCertificate(ctx context.Context, brn string, params *GetB2bCounterpartyCertificateParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetB2bCounterpartyCertificateRequest(c.Server, brn, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetB2bCounterpartyCertificateRegistrationUrl(ctx context.Context, brn string, params *GetB2bCounterpartyCertificateRegistrationUrlParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetB2bCounterpartyCertificateRegistrationUrlRequest(c.Server, brn, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ValidateB2bCounterpartyCertificate(ctx context.Context, brn string, params *ValidateB2bCounterpartyCertificateParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewValidateB2bCounterpartyCertificateRequest(c.Server, brn, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) DeleteB2bCounterpartyWithBody(ctx context.Context, counterpartyId string, params *DeleteB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteB2bCounterpartyRequestWithBody(c.Server, counterpartyId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) DeleteB2bCounterparty(ctx context.Context, counterpartyId string, params *DeleteB2bCounterpartyParams, body DeleteB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteB2bCounterpartyRequest(c.Server, counterpartyId, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetB2bCounterparty(ctx context.Context, counterpartyId string, params *GetB2bCounterpartyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetB2bCounterpartyRequest(c.Server, counterpartyId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) UpdateB2bCounterpartyWithBody(ctx context.Context, counterpartyId string, params *UpdateB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateB2bCounterpartyRequestWithBody(c.Server, counterpartyId, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) UpdateB2bCounterparty(ctx context.Context, counterpartyId string, params *UpdateB2bCounterpartyParams, body UpdateB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateB2bCounterpartyRequest(c.Server, counterpartyId, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -45598,6 +51390,42 @@ func (c *Client) GetAllPaymentEventsByCursor(ctx context.Context, params *GetAll
 	return c.Client.Do(req)
 }
 
+func (c *Client) GetPgCardPromotions(ctx context.Context, params *GetPgCardPromotionsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetPgCardPromotionsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetPaymentReconciliationSettlementVatReport(ctx context.Context, params *GetPaymentReconciliationSettlementVatReportParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetPaymentReconciliationSettlementVatReportRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetPaymentReconciliationTransactionVatReport(ctx context.Context, params *GetPaymentReconciliationTransactionVatReportParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetPaymentReconciliationTransactionVatReportRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) RevokePaymentSchedulesWithBody(ctx context.Context, params *RevokePaymentSchedulesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewRevokePaymentSchedulesRequestWithBody(c.Server, params, contentType, body)
 	if err != nil {
@@ -45756,6 +51584,30 @@ func (c *Client) CancelPaymentWithBody(ctx context.Context, paymentId string, co
 
 func (c *Client) CancelPayment(ctx context.Context, paymentId string, body CancelPaymentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCancelPaymentRequest(c.Server, paymentId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) StopPaymentCancellationWithBody(ctx context.Context, paymentId string, cancellationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewStopPaymentCancellationRequestWithBody(c.Server, paymentId, cancellationId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) StopPaymentCancellation(ctx context.Context, paymentId string, cancellationId string, body StopPaymentCancellationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewStopPaymentCancellationRequest(c.Server, paymentId, cancellationId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -46044,6 +51896,30 @@ func (c *Client) GetPaymentTransactions(ctx context.Context, paymentId string, p
 
 func (c *Client) CloseVirtualAccount(ctx context.Context, paymentId string, params *CloseVirtualAccountParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCloseVirtualAccountRequest(c.Server, paymentId, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ConfirmPaymentwallDeliveryWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewConfirmPaymentwallDeliveryRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ConfirmPaymentwallDelivery(ctx context.Context, body ConfirmPaymentwallDeliveryJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewConfirmPaymentwallDeliveryRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -46738,6 +52614,54 @@ func (c *Client) GetPlatformPartnerSettlements(ctx context.Context, params *GetP
 	return c.Client.Do(req)
 }
 
+func (c *Client) CompletePlatformPayoutByPartnerSettlementIdsWithBody(ctx context.Context, params *CompletePlatformPayoutByPartnerSettlementIdsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCompletePlatformPayoutByPartnerSettlementIdsRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CompletePlatformPayoutByPartnerSettlementIds(ctx context.Context, params *CompletePlatformPayoutByPartnerSettlementIdsParams, body CompletePlatformPayoutByPartnerSettlementIdsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCompletePlatformPayoutByPartnerSettlementIdsRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) DeletePlatformPartnerSettlementsWithBody(ctx context.Context, params *DeletePlatformPartnerSettlementsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeletePlatformPartnerSettlementsRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) DeletePlatformPartnerSettlements(ctx context.Context, params *DeletePlatformPartnerSettlementsParams, body DeletePlatformPartnerSettlementsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeletePlatformPartnerSettlementsRequest(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) GetPlatformPartnersWithBody(ctx context.Context, params *GetPlatformPartnersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetPlatformPartnersRequestWithBody(c.Server, params, contentType, body)
 	if err != nil {
@@ -46810,8 +52734,8 @@ func (c *Client) CreatePlatformPartners(ctx context.Context, params *CreatePlatf
 	return c.Client.Do(req)
 }
 
-func (c *Client) ConnectBulkPartnerMemberCompanyWithBody(ctx context.Context, params *ConnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewConnectBulkPartnerMemberCompanyRequestWithBody(c.Server, params, contentType, body)
+func (c *Client) ConnectBulkPartnerCounterpartyWithBody(ctx context.Context, params *ConnectBulkPartnerCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewConnectBulkPartnerCounterpartyRequestWithBody(c.Server, params, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -46822,8 +52746,8 @@ func (c *Client) ConnectBulkPartnerMemberCompanyWithBody(ctx context.Context, pa
 	return c.Client.Do(req)
 }
 
-func (c *Client) ConnectBulkPartnerMemberCompany(ctx context.Context, params *ConnectBulkPartnerMemberCompanyParams, body ConnectBulkPartnerMemberCompanyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewConnectBulkPartnerMemberCompanyRequest(c.Server, params, body)
+func (c *Client) ConnectBulkPartnerCounterparty(ctx context.Context, params *ConnectBulkPartnerCounterpartyParams, body ConnectBulkPartnerCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewConnectBulkPartnerCounterpartyRequest(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -46834,8 +52758,8 @@ func (c *Client) ConnectBulkPartnerMemberCompany(ctx context.Context, params *Co
 	return c.Client.Do(req)
 }
 
-func (c *Client) ConnectPartnerMemberCompany(ctx context.Context, id string, params *ConnectPartnerMemberCompanyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewConnectPartnerMemberCompanyRequest(c.Server, id, params)
+func (c *Client) ConnectPartnerCounterparty(ctx context.Context, id string, params *ConnectPartnerCounterpartyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewConnectPartnerCounterpartyRequest(c.Server, id, params)
 	if err != nil {
 		return nil, err
 	}
@@ -46846,8 +52770,8 @@ func (c *Client) ConnectPartnerMemberCompany(ctx context.Context, id string, par
 	return c.Client.Do(req)
 }
 
-func (c *Client) DisconnectBulkPartnerMemberCompanyWithBody(ctx context.Context, params *DisconnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewDisconnectBulkPartnerMemberCompanyRequestWithBody(c.Server, params, contentType, body)
+func (c *Client) DisconnectBulkPartnerCounterpartyWithBody(ctx context.Context, params *DisconnectBulkPartnerCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDisconnectBulkPartnerCounterpartyRequestWithBody(c.Server, params, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -46858,8 +52782,8 @@ func (c *Client) DisconnectBulkPartnerMemberCompanyWithBody(ctx context.Context,
 	return c.Client.Do(req)
 }
 
-func (c *Client) DisconnectBulkPartnerMemberCompany(ctx context.Context, params *DisconnectBulkPartnerMemberCompanyParams, body DisconnectBulkPartnerMemberCompanyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewDisconnectBulkPartnerMemberCompanyRequest(c.Server, params, body)
+func (c *Client) DisconnectBulkPartnerCounterparty(ctx context.Context, params *DisconnectBulkPartnerCounterpartyParams, body DisconnectBulkPartnerCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDisconnectBulkPartnerCounterpartyRequest(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -46870,8 +52794,8 @@ func (c *Client) DisconnectBulkPartnerMemberCompany(ctx context.Context, params 
 	return c.Client.Do(req)
 }
 
-func (c *Client) DisconnectPartnerMemberCompany(ctx context.Context, id string, params *DisconnectPartnerMemberCompanyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewDisconnectPartnerMemberCompanyRequest(c.Server, id, params)
+func (c *Client) DisconnectPartnerCounterparty(ctx context.Context, id string, params *DisconnectPartnerCounterpartyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDisconnectPartnerCounterpartyRequest(c.Server, id, params)
 	if err != nil {
 		return nil, err
 	}
@@ -47335,18 +53259,18 @@ func NewGetB2bBulkTaxInvoiceRequest(server string, bulkTaxInvoiceId string, para
 }
 
 // NewGetB2bBusinessInfosRequest calls the generic GetB2bBusinessInfos builder with application/json body
-func NewGetB2bBusinessInfosRequest(server string, body GetB2bBusinessInfosJSONRequestBody) (*http.Request, error) {
+func NewGetB2bBusinessInfosRequest(server string, params *GetB2bBusinessInfosParams, body GetB2bBusinessInfosJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewGetB2bBusinessInfosRequestWithBody(server, "application/json", bodyReader)
+	return NewGetB2bBusinessInfosRequestWithBody(server, params, "application/json", bodyReader)
 }
 
 // NewGetB2bBusinessInfosRequestWithBody generates requests for GetB2bBusinessInfos with any type of body
-func NewGetB2bBusinessInfosRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+func NewGetB2bBusinessInfosRequestWithBody(server string, params *GetB2bBusinessInfosParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -47364,7 +53288,525 @@ func NewGetB2bBusinessInfosRequestWithBody(server string, contentType string, bo
 		return nil, err
 	}
 
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
 	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGetB2bCounterpartiesRequest calls the generic GetB2bCounterparties builder with application/json body
+func NewGetB2bCounterpartiesRequest(server string, params *GetB2bCounterpartiesParams, body GetB2bCounterpartiesJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewGetB2bCounterpartiesRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewGetB2bCounterpartiesRequestWithBody generates requests for GetB2bCounterparties with any type of body
+func NewGetB2bCounterpartiesRequestWithBody(server string, params *GetB2bCounterpartiesParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/b2b/counterparties")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.RequestBody != nil {
+
+			if queryParamBuf, err := json.Marshal(*params.RequestBody); err != nil {
+				return nil, err
+			} else {
+				queryValues.Add("requestBody", string(queryParamBuf))
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCreateB2bCounterpartyRequest calls the generic CreateB2bCounterparty builder with application/json body
+func NewCreateB2bCounterpartyRequest(server string, params *CreateB2bCounterpartyParams, body CreateB2bCounterpartyJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateB2bCounterpartyRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewCreateB2bCounterpartyRequestWithBody generates requests for CreateB2bCounterparty with any type of body
+func NewCreateB2bCounterpartyRequestWithBody(server string, params *CreateB2bCounterpartyParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/b2b/counterparties")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGetB2bCounterpartyCertificateRequest generates requests for GetB2bCounterpartyCertificate
+func NewGetB2bCounterpartyCertificateRequest(server string, brn string, params *GetB2bCounterpartyCertificateParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "brn", runtime.ParamLocationPath, brn)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/b2b/counterparties/%s/certificate", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetB2bCounterpartyCertificateRegistrationUrlRequest generates requests for GetB2bCounterpartyCertificateRegistrationUrl
+func NewGetB2bCounterpartyCertificateRegistrationUrlRequest(server string, brn string, params *GetB2bCounterpartyCertificateRegistrationUrlParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "brn", runtime.ParamLocationPath, brn)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/b2b/counterparties/%s/certificate/registration-url", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewValidateB2bCounterpartyCertificateRequest generates requests for ValidateB2bCounterpartyCertificate
+func NewValidateB2bCounterpartyCertificateRequest(server string, brn string, params *ValidateB2bCounterpartyCertificateParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "brn", runtime.ParamLocationPath, brn)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/b2b/counterparties/%s/certificate/validate", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewDeleteB2bCounterpartyRequest calls the generic DeleteB2bCounterparty builder with application/json body
+func NewDeleteB2bCounterpartyRequest(server string, counterpartyId string, params *DeleteB2bCounterpartyParams, body DeleteB2bCounterpartyJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewDeleteB2bCounterpartyRequestWithBody(server, counterpartyId, params, "application/json", bodyReader)
+}
+
+// NewDeleteB2bCounterpartyRequestWithBody generates requests for DeleteB2bCounterparty with any type of body
+func NewDeleteB2bCounterpartyRequestWithBody(server string, counterpartyId string, params *DeleteB2bCounterpartyParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "counterpartyId", runtime.ParamLocationPath, counterpartyId)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/b2b/counterparties/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGetB2bCounterpartyRequest generates requests for GetB2bCounterparty
+func NewGetB2bCounterpartyRequest(server string, counterpartyId string, params *GetB2bCounterpartyParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "counterpartyId", runtime.ParamLocationPath, counterpartyId)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/b2b/counterparties/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewUpdateB2bCounterpartyRequest calls the generic UpdateB2bCounterparty builder with application/json body
+func NewUpdateB2bCounterpartyRequest(server string, counterpartyId string, params *UpdateB2bCounterpartyParams, body UpdateB2bCounterpartyJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateB2bCounterpartyRequestWithBody(server, counterpartyId, params, "application/json", bodyReader)
+}
+
+// NewUpdateB2bCounterpartyRequestWithBody generates requests for UpdateB2bCounterparty with any type of body
+func NewUpdateB2bCounterpartyRequestWithBody(server string, counterpartyId string, params *UpdateB2bCounterpartyParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "counterpartyId", runtime.ParamLocationPath, counterpartyId)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/b2b/counterparties/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("PATCH", queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
@@ -49396,6 +55838,22 @@ func NewDeleteBillingKeyRequest(server string, billingKey string, params *Delete
 
 		}
 
+		if params.SkipWebhook != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "skipWebhook", runtime.ParamLocationQuery, *params.SkipWebhook); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
 		queryURL.RawQuery = queryValues.Encode()
 	}
 
@@ -49974,6 +56432,157 @@ func NewGetAllPaymentEventsByCursorRequestWithBody(server string, params *GetAll
 	return req, nil
 }
 
+// NewGetPgCardPromotionsRequest generates requests for GetPgCardPromotions
+func NewGetPgCardPromotionsRequest(server string, params *GetPgCardPromotionsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/payment-gateways/card-promotion")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "channelKey", runtime.ParamLocationQuery, params.ChannelKey); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "amount", runtime.ParamLocationQuery, params.Amount); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		if params.CardCompany != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cardCompany", runtime.ParamLocationQuery, *params.CardCompany); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetPaymentReconciliationSettlementVatReportRequest generates requests for GetPaymentReconciliationSettlementVatReport
+func NewGetPaymentReconciliationSettlementVatReportRequest(server string, params *GetPaymentReconciliationSettlementVatReportParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/payment-reconciliations/settlements/vat-report")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if queryParamBuf, err := json.Marshal(params.RequestBody); err != nil {
+			return nil, err
+		} else {
+			queryValues.Add("requestBody", string(queryParamBuf))
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetPaymentReconciliationTransactionVatReportRequest generates requests for GetPaymentReconciliationTransactionVatReport
+func NewGetPaymentReconciliationTransactionVatReportRequest(server string, params *GetPaymentReconciliationTransactionVatReportParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/payment-reconciliations/transactions/vat-report")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if queryParamBuf, err := json.Marshal(params.RequestBody); err != nil {
+			return nil, err
+		} else {
+			queryValues.Add("requestBody", string(queryParamBuf))
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewRevokePaymentSchedulesRequest calls the generic RevokePaymentSchedules builder with application/json body
 func NewRevokePaymentSchedulesRequest(server string, params *RevokePaymentSchedulesParams, body RevokePaymentSchedulesJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -50385,6 +56994,60 @@ func NewCancelPaymentRequestWithBody(server string, paymentId string, contentTyp
 	}
 
 	operationPath := fmt.Sprintf("/payments/%s/cancel", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewStopPaymentCancellationRequest calls the generic StopPaymentCancellation builder with application/json body
+func NewStopPaymentCancellationRequest(server string, paymentId string, cancellationId string, body StopPaymentCancellationJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewStopPaymentCancellationRequestWithBody(server, paymentId, cancellationId, "application/json", bodyReader)
+}
+
+// NewStopPaymentCancellationRequestWithBody generates requests for StopPaymentCancellation with any type of body
+func NewStopPaymentCancellationRequestWithBody(server string, paymentId string, cancellationId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "paymentId", runtime.ParamLocationPath, paymentId)
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithLocation("simple", false, "cancellationId", runtime.ParamLocationPath, cancellationId)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/payments/%s/cancellations/%s/stop", pathParam0, pathParam1)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -51094,6 +57757,46 @@ func NewCloseVirtualAccountRequest(server string, paymentId string, params *Clos
 	if err != nil {
 		return nil, err
 	}
+
+	return req, nil
+}
+
+// NewConfirmPaymentwallDeliveryRequest calls the generic ConfirmPaymentwallDelivery builder with application/json body
+func NewConfirmPaymentwallDeliveryRequest(server string, body ConfirmPaymentwallDeliveryJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewConfirmPaymentwallDeliveryRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewConfirmPaymentwallDeliveryRequestWithBody generates requests for ConfirmPaymentwallDelivery with any type of body
+func NewConfirmPaymentwallDeliveryRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/paymentwall/delivery/confirm")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -53530,6 +60233,130 @@ func NewGetPlatformPartnerSettlementsRequestWithBody(server string, params *GetP
 	return req, nil
 }
 
+// NewCompletePlatformPayoutByPartnerSettlementIdsRequest calls the generic CompletePlatformPayoutByPartnerSettlementIds builder with application/json body
+func NewCompletePlatformPayoutByPartnerSettlementIdsRequest(server string, params *CompletePlatformPayoutByPartnerSettlementIdsParams, body CompletePlatformPayoutByPartnerSettlementIdsJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCompletePlatformPayoutByPartnerSettlementIdsRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewCompletePlatformPayoutByPartnerSettlementIdsRequestWithBody generates requests for CompletePlatformPayoutByPartnerSettlementIds with any type of body
+func NewCompletePlatformPayoutByPartnerSettlementIdsRequestWithBody(server string, params *CompletePlatformPayoutByPartnerSettlementIdsParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/platform/partner-settlements/complete-payout")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewDeletePlatformPartnerSettlementsRequest calls the generic DeletePlatformPartnerSettlements builder with application/json body
+func NewDeletePlatformPartnerSettlementsRequest(server string, params *DeletePlatformPartnerSettlementsParams, body DeletePlatformPartnerSettlementsJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewDeletePlatformPartnerSettlementsRequestWithBody(server, params, "application/json", bodyReader)
+}
+
+// NewDeletePlatformPartnerSettlementsRequestWithBody generates requests for DeletePlatformPartnerSettlements with any type of body
+func NewDeletePlatformPartnerSettlementsRequestWithBody(server string, params *DeletePlatformPartnerSettlementsParams, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/platform/partner-settlements/delete")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Test != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "test", runtime.ParamLocationQuery, *params.Test); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewGetPlatformPartnersRequest calls the generic GetPlatformPartners builder with application/json body
 func NewGetPlatformPartnersRequest(server string, params *GetPlatformPartnersParams, body GetPlatformPartnersJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -53726,19 +60553,19 @@ func NewCreatePlatformPartnersRequestWithBody(server string, params *CreatePlatf
 	return req, nil
 }
 
-// NewConnectBulkPartnerMemberCompanyRequest calls the generic ConnectBulkPartnerMemberCompany builder with application/json body
-func NewConnectBulkPartnerMemberCompanyRequest(server string, params *ConnectBulkPartnerMemberCompanyParams, body ConnectBulkPartnerMemberCompanyJSONRequestBody) (*http.Request, error) {
+// NewConnectBulkPartnerCounterpartyRequest calls the generic ConnectBulkPartnerCounterparty builder with application/json body
+func NewConnectBulkPartnerCounterpartyRequest(server string, params *ConnectBulkPartnerCounterpartyParams, body ConnectBulkPartnerCounterpartyJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewConnectBulkPartnerMemberCompanyRequestWithBody(server, params, "application/json", bodyReader)
+	return NewConnectBulkPartnerCounterpartyRequestWithBody(server, params, "application/json", bodyReader)
 }
 
-// NewConnectBulkPartnerMemberCompanyRequestWithBody generates requests for ConnectBulkPartnerMemberCompany with any type of body
-func NewConnectBulkPartnerMemberCompanyRequestWithBody(server string, params *ConnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader) (*http.Request, error) {
+// NewConnectBulkPartnerCounterpartyRequestWithBody generates requests for ConnectBulkPartnerCounterparty with any type of body
+func NewConnectBulkPartnerCounterpartyRequestWithBody(server string, params *ConnectBulkPartnerCounterpartyParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -53746,7 +60573,7 @@ func NewConnectBulkPartnerMemberCompanyRequestWithBody(server string, params *Co
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/platform/partners/member-company-connect")
+	operationPath := fmt.Sprintf("/platform/partners/counterparty-connect")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -53788,8 +60615,8 @@ func NewConnectBulkPartnerMemberCompanyRequestWithBody(server string, params *Co
 	return req, nil
 }
 
-// NewConnectPartnerMemberCompanyRequest generates requests for ConnectPartnerMemberCompany
-func NewConnectPartnerMemberCompanyRequest(server string, id string, params *ConnectPartnerMemberCompanyParams) (*http.Request, error) {
+// NewConnectPartnerCounterpartyRequest generates requests for ConnectPartnerCounterparty
+func NewConnectPartnerCounterpartyRequest(server string, id string, params *ConnectPartnerCounterpartyParams) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -53804,7 +60631,7 @@ func NewConnectPartnerMemberCompanyRequest(server string, id string, params *Con
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/platform/partners/member-company-connect/%s", pathParam0)
+	operationPath := fmt.Sprintf("/platform/partners/counterparty-connect/%s", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -53844,19 +60671,19 @@ func NewConnectPartnerMemberCompanyRequest(server string, id string, params *Con
 	return req, nil
 }
 
-// NewDisconnectBulkPartnerMemberCompanyRequest calls the generic DisconnectBulkPartnerMemberCompany builder with application/json body
-func NewDisconnectBulkPartnerMemberCompanyRequest(server string, params *DisconnectBulkPartnerMemberCompanyParams, body DisconnectBulkPartnerMemberCompanyJSONRequestBody) (*http.Request, error) {
+// NewDisconnectBulkPartnerCounterpartyRequest calls the generic DisconnectBulkPartnerCounterparty builder with application/json body
+func NewDisconnectBulkPartnerCounterpartyRequest(server string, params *DisconnectBulkPartnerCounterpartyParams, body DisconnectBulkPartnerCounterpartyJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewDisconnectBulkPartnerMemberCompanyRequestWithBody(server, params, "application/json", bodyReader)
+	return NewDisconnectBulkPartnerCounterpartyRequestWithBody(server, params, "application/json", bodyReader)
 }
 
-// NewDisconnectBulkPartnerMemberCompanyRequestWithBody generates requests for DisconnectBulkPartnerMemberCompany with any type of body
-func NewDisconnectBulkPartnerMemberCompanyRequestWithBody(server string, params *DisconnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader) (*http.Request, error) {
+// NewDisconnectBulkPartnerCounterpartyRequestWithBody generates requests for DisconnectBulkPartnerCounterparty with any type of body
+func NewDisconnectBulkPartnerCounterpartyRequestWithBody(server string, params *DisconnectBulkPartnerCounterpartyParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -53864,7 +60691,7 @@ func NewDisconnectBulkPartnerMemberCompanyRequestWithBody(server string, params 
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/platform/partners/member-company-disconnect")
+	operationPath := fmt.Sprintf("/platform/partners/counterparty-disconnect")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -53906,8 +60733,8 @@ func NewDisconnectBulkPartnerMemberCompanyRequestWithBody(server string, params 
 	return req, nil
 }
 
-// NewDisconnectPartnerMemberCompanyRequest generates requests for DisconnectPartnerMemberCompany
-func NewDisconnectPartnerMemberCompanyRequest(server string, id string, params *DisconnectPartnerMemberCompanyParams) (*http.Request, error) {
+// NewDisconnectPartnerCounterpartyRequest generates requests for DisconnectPartnerCounterparty
+func NewDisconnectPartnerCounterpartyRequest(server string, id string, params *DisconnectPartnerCounterpartyParams) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -53922,7 +60749,7 @@ func NewDisconnectPartnerMemberCompanyRequest(server string, id string, params *
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/platform/partners/member-company-disconnect/%s", pathParam0)
+	operationPath := fmt.Sprintf("/platform/partners/counterparty-disconnect/%s", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -55257,9 +62084,41 @@ type ClientWithResponsesInterface interface {
 	GetB2bBulkTaxInvoiceWithResponse(ctx context.Context, bulkTaxInvoiceId string, params *GetB2bBulkTaxInvoiceParams, reqEditors ...RequestEditorFn) (*GetB2bBulkTaxInvoiceHTTPResponse, error)
 
 	// GetB2bBusinessInfosWithBodyWithResponse request with any body
-	GetB2bBusinessInfosWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetB2bBusinessInfosHTTPResponse, error)
+	GetB2bBusinessInfosWithBodyWithResponse(ctx context.Context, params *GetB2bBusinessInfosParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetB2bBusinessInfosHTTPResponse, error)
 
-	GetB2bBusinessInfosWithResponse(ctx context.Context, body GetB2bBusinessInfosJSONRequestBody, reqEditors ...RequestEditorFn) (*GetB2bBusinessInfosHTTPResponse, error)
+	GetB2bBusinessInfosWithResponse(ctx context.Context, params *GetB2bBusinessInfosParams, body GetB2bBusinessInfosJSONRequestBody, reqEditors ...RequestEditorFn) (*GetB2bBusinessInfosHTTPResponse, error)
+
+	// GetB2bCounterpartiesWithBodyWithResponse request with any body
+	GetB2bCounterpartiesWithBodyWithResponse(ctx context.Context, params *GetB2bCounterpartiesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetB2bCounterpartiesHTTPResponse, error)
+
+	GetB2bCounterpartiesWithResponse(ctx context.Context, params *GetB2bCounterpartiesParams, body GetB2bCounterpartiesJSONRequestBody, reqEditors ...RequestEditorFn) (*GetB2bCounterpartiesHTTPResponse, error)
+
+	// CreateB2bCounterpartyWithBodyWithResponse request with any body
+	CreateB2bCounterpartyWithBodyWithResponse(ctx context.Context, params *CreateB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateB2bCounterpartyHTTPResponse, error)
+
+	CreateB2bCounterpartyWithResponse(ctx context.Context, params *CreateB2bCounterpartyParams, body CreateB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateB2bCounterpartyHTTPResponse, error)
+
+	// GetB2bCounterpartyCertificateWithResponse request
+	GetB2bCounterpartyCertificateWithResponse(ctx context.Context, brn string, params *GetB2bCounterpartyCertificateParams, reqEditors ...RequestEditorFn) (*GetB2bCounterpartyCertificateHTTPResponse, error)
+
+	// GetB2bCounterpartyCertificateRegistrationUrlWithResponse request
+	GetB2bCounterpartyCertificateRegistrationUrlWithResponse(ctx context.Context, brn string, params *GetB2bCounterpartyCertificateRegistrationUrlParams, reqEditors ...RequestEditorFn) (*GetB2bCounterpartyCertificateRegistrationUrlHTTPResponse, error)
+
+	// ValidateB2bCounterpartyCertificateWithResponse request
+	ValidateB2bCounterpartyCertificateWithResponse(ctx context.Context, brn string, params *ValidateB2bCounterpartyCertificateParams, reqEditors ...RequestEditorFn) (*ValidateB2bCounterpartyCertificateHTTPResponse, error)
+
+	// DeleteB2bCounterpartyWithBodyWithResponse request with any body
+	DeleteB2bCounterpartyWithBodyWithResponse(ctx context.Context, counterpartyId string, params *DeleteB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DeleteB2bCounterpartyHTTPResponse, error)
+
+	DeleteB2bCounterpartyWithResponse(ctx context.Context, counterpartyId string, params *DeleteB2bCounterpartyParams, body DeleteB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*DeleteB2bCounterpartyHTTPResponse, error)
+
+	// GetB2bCounterpartyWithResponse request
+	GetB2bCounterpartyWithResponse(ctx context.Context, counterpartyId string, params *GetB2bCounterpartyParams, reqEditors ...RequestEditorFn) (*GetB2bCounterpartyHTTPResponse, error)
+
+	// UpdateB2bCounterpartyWithBodyWithResponse request with any body
+	UpdateB2bCounterpartyWithBodyWithResponse(ctx context.Context, counterpartyId string, params *UpdateB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateB2bCounterpartyHTTPResponse, error)
+
+	UpdateB2bCounterpartyWithResponse(ctx context.Context, counterpartyId string, params *UpdateB2bCounterpartyParams, body UpdateB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateB2bCounterpartyHTTPResponse, error)
 
 	// CreateB2bFileUploadUrlWithBodyWithResponse request with any body
 	CreateB2bFileUploadUrlWithBodyWithResponse(ctx context.Context, params *CreateB2bFileUploadUrlParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateB2bFileUploadUrlHTTPResponse, error)
@@ -55421,6 +62280,15 @@ type ClientWithResponsesInterface interface {
 
 	GetAllPaymentEventsByCursorWithResponse(ctx context.Context, params *GetAllPaymentEventsByCursorParams, body GetAllPaymentEventsByCursorJSONRequestBody, reqEditors ...RequestEditorFn) (*GetAllPaymentEventsByCursorHTTPResponse, error)
 
+	// GetPgCardPromotionsWithResponse request
+	GetPgCardPromotionsWithResponse(ctx context.Context, params *GetPgCardPromotionsParams, reqEditors ...RequestEditorFn) (*GetPgCardPromotionsHTTPResponse, error)
+
+	// GetPaymentReconciliationSettlementVatReportWithResponse request
+	GetPaymentReconciliationSettlementVatReportWithResponse(ctx context.Context, params *GetPaymentReconciliationSettlementVatReportParams, reqEditors ...RequestEditorFn) (*GetPaymentReconciliationSettlementVatReportHTTPResponse, error)
+
+	// GetPaymentReconciliationTransactionVatReportWithResponse request
+	GetPaymentReconciliationTransactionVatReportWithResponse(ctx context.Context, params *GetPaymentReconciliationTransactionVatReportParams, reqEditors ...RequestEditorFn) (*GetPaymentReconciliationTransactionVatReportHTTPResponse, error)
+
 	// RevokePaymentSchedulesWithBodyWithResponse request with any body
 	RevokePaymentSchedulesWithBodyWithResponse(ctx context.Context, params *RevokePaymentSchedulesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*RevokePaymentSchedulesHTTPResponse, error)
 
@@ -55456,6 +62324,11 @@ type ClientWithResponsesInterface interface {
 	CancelPaymentWithBodyWithResponse(ctx context.Context, paymentId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CancelPaymentHTTPResponse, error)
 
 	CancelPaymentWithResponse(ctx context.Context, paymentId string, body CancelPaymentJSONRequestBody, reqEditors ...RequestEditorFn) (*CancelPaymentHTTPResponse, error)
+
+	// StopPaymentCancellationWithBodyWithResponse request with any body
+	StopPaymentCancellationWithBodyWithResponse(ctx context.Context, paymentId string, cancellationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StopPaymentCancellationHTTPResponse, error)
+
+	StopPaymentCancellationWithResponse(ctx context.Context, paymentId string, cancellationId string, body StopPaymentCancellationJSONRequestBody, reqEditors ...RequestEditorFn) (*StopPaymentCancellationHTTPResponse, error)
 
 	// CapturePaymentWithBodyWithResponse request with any body
 	CapturePaymentWithBodyWithResponse(ctx context.Context, paymentId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CapturePaymentHTTPResponse, error)
@@ -55518,6 +62391,11 @@ type ClientWithResponsesInterface interface {
 
 	// CloseVirtualAccountWithResponse request
 	CloseVirtualAccountWithResponse(ctx context.Context, paymentId string, params *CloseVirtualAccountParams, reqEditors ...RequestEditorFn) (*CloseVirtualAccountHTTPResponse, error)
+
+	// ConfirmPaymentwallDeliveryWithBodyWithResponse request with any body
+	ConfirmPaymentwallDeliveryWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ConfirmPaymentwallDeliveryHTTPResponse, error)
+
+	ConfirmPaymentwallDeliveryWithResponse(ctx context.Context, body ConfirmPaymentwallDeliveryJSONRequestBody, reqEditors ...RequestEditorFn) (*ConfirmPaymentwallDeliveryHTTPResponse, error)
 
 	// GetPlatformAccountTransfersWithBodyWithResponse request with any body
 	GetPlatformAccountTransfersWithBodyWithResponse(ctx context.Context, params *GetPlatformAccountTransfersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetPlatformAccountTransfersHTTPResponse, error)
@@ -55671,6 +62549,16 @@ type ClientWithResponsesInterface interface {
 
 	GetPlatformPartnerSettlementsWithResponse(ctx context.Context, params *GetPlatformPartnerSettlementsParams, body GetPlatformPartnerSettlementsJSONRequestBody, reqEditors ...RequestEditorFn) (*GetPlatformPartnerSettlementsHTTPResponse, error)
 
+	// CompletePlatformPayoutByPartnerSettlementIdsWithBodyWithResponse request with any body
+	CompletePlatformPayoutByPartnerSettlementIdsWithBodyWithResponse(ctx context.Context, params *CompletePlatformPayoutByPartnerSettlementIdsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse, error)
+
+	CompletePlatformPayoutByPartnerSettlementIdsWithResponse(ctx context.Context, params *CompletePlatformPayoutByPartnerSettlementIdsParams, body CompletePlatformPayoutByPartnerSettlementIdsJSONRequestBody, reqEditors ...RequestEditorFn) (*CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse, error)
+
+	// DeletePlatformPartnerSettlementsWithBodyWithResponse request with any body
+	DeletePlatformPartnerSettlementsWithBodyWithResponse(ctx context.Context, params *DeletePlatformPartnerSettlementsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DeletePlatformPartnerSettlementsHTTPResponse, error)
+
+	DeletePlatformPartnerSettlementsWithResponse(ctx context.Context, params *DeletePlatformPartnerSettlementsParams, body DeletePlatformPartnerSettlementsJSONRequestBody, reqEditors ...RequestEditorFn) (*DeletePlatformPartnerSettlementsHTTPResponse, error)
+
 	// GetPlatformPartnersWithBodyWithResponse request with any body
 	GetPlatformPartnersWithBodyWithResponse(ctx context.Context, params *GetPlatformPartnersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetPlatformPartnersHTTPResponse, error)
 
@@ -55686,21 +62574,21 @@ type ClientWithResponsesInterface interface {
 
 	CreatePlatformPartnersWithResponse(ctx context.Context, params *CreatePlatformPartnersParams, body CreatePlatformPartnersJSONRequestBody, reqEditors ...RequestEditorFn) (*CreatePlatformPartnersHTTPResponse, error)
 
-	// ConnectBulkPartnerMemberCompanyWithBodyWithResponse request with any body
-	ConnectBulkPartnerMemberCompanyWithBodyWithResponse(ctx context.Context, params *ConnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ConnectBulkPartnerMemberCompanyHTTPResponse, error)
+	// ConnectBulkPartnerCounterpartyWithBodyWithResponse request with any body
+	ConnectBulkPartnerCounterpartyWithBodyWithResponse(ctx context.Context, params *ConnectBulkPartnerCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ConnectBulkPartnerCounterpartyHTTPResponse, error)
 
-	ConnectBulkPartnerMemberCompanyWithResponse(ctx context.Context, params *ConnectBulkPartnerMemberCompanyParams, body ConnectBulkPartnerMemberCompanyJSONRequestBody, reqEditors ...RequestEditorFn) (*ConnectBulkPartnerMemberCompanyHTTPResponse, error)
+	ConnectBulkPartnerCounterpartyWithResponse(ctx context.Context, params *ConnectBulkPartnerCounterpartyParams, body ConnectBulkPartnerCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*ConnectBulkPartnerCounterpartyHTTPResponse, error)
 
-	// ConnectPartnerMemberCompanyWithResponse request
-	ConnectPartnerMemberCompanyWithResponse(ctx context.Context, id string, params *ConnectPartnerMemberCompanyParams, reqEditors ...RequestEditorFn) (*ConnectPartnerMemberCompanyHTTPResponse, error)
+	// ConnectPartnerCounterpartyWithResponse request
+	ConnectPartnerCounterpartyWithResponse(ctx context.Context, id string, params *ConnectPartnerCounterpartyParams, reqEditors ...RequestEditorFn) (*ConnectPartnerCounterpartyHTTPResponse, error)
 
-	// DisconnectBulkPartnerMemberCompanyWithBodyWithResponse request with any body
-	DisconnectBulkPartnerMemberCompanyWithBodyWithResponse(ctx context.Context, params *DisconnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DisconnectBulkPartnerMemberCompanyHTTPResponse, error)
+	// DisconnectBulkPartnerCounterpartyWithBodyWithResponse request with any body
+	DisconnectBulkPartnerCounterpartyWithBodyWithResponse(ctx context.Context, params *DisconnectBulkPartnerCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DisconnectBulkPartnerCounterpartyHTTPResponse, error)
 
-	DisconnectBulkPartnerMemberCompanyWithResponse(ctx context.Context, params *DisconnectBulkPartnerMemberCompanyParams, body DisconnectBulkPartnerMemberCompanyJSONRequestBody, reqEditors ...RequestEditorFn) (*DisconnectBulkPartnerMemberCompanyHTTPResponse, error)
+	DisconnectBulkPartnerCounterpartyWithResponse(ctx context.Context, params *DisconnectBulkPartnerCounterpartyParams, body DisconnectBulkPartnerCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*DisconnectBulkPartnerCounterpartyHTTPResponse, error)
 
-	// DisconnectPartnerMemberCompanyWithResponse request
-	DisconnectPartnerMemberCompanyWithResponse(ctx context.Context, id string, params *DisconnectPartnerMemberCompanyParams, reqEditors ...RequestEditorFn) (*DisconnectPartnerMemberCompanyHTTPResponse, error)
+	// DisconnectPartnerCounterpartyWithResponse request
+	DisconnectPartnerCounterpartyWithResponse(ctx context.Context, id string, params *DisconnectPartnerCounterpartyParams, reqEditors ...RequestEditorFn) (*DisconnectPartnerCounterpartyHTTPResponse, error)
 
 	// SchedulePlatformPartnersWithBodyWithResponse request with any body
 	SchedulePlatformPartnersWithBodyWithResponse(ctx context.Context, params *SchedulePlatformPartnersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SchedulePlatformPartnersHTTPResponse, error)
@@ -55837,6 +62725,223 @@ func (r GetB2bBusinessInfosHTTPResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetB2bBusinessInfosHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetB2bCounterpartiesHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GetB2bCounterpartiesResponse
+	JSON400      *GetB2bCounterpartiesError
+	JSON401      *GetB2bCounterpartiesError
+	JSON403      *GetB2bCounterpartiesError
+	JSON502      *GetB2bCounterpartiesError
+}
+
+// Status returns HTTPResponse.Status
+func (r GetB2bCounterpartiesHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetB2bCounterpartiesHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CreateB2bCounterpartyHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CreateB2bCounterpartyResponse
+	JSON400      *CreateB2bCounterpartyError
+	JSON401      *CreateB2bCounterpartyError
+	JSON403      *CreateB2bCounterpartyError
+	JSON404      *CreateB2bCounterpartyError
+	JSON409      *CreateB2bCounterpartyError
+	JSON502      *CreateB2bCounterpartyError
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateB2bCounterpartyHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateB2bCounterpartyHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetB2bCounterpartyCertificateHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *B2bCertificate
+	JSON400      *GetB2bCounterpartyCertificateError
+	JSON401      *GetB2bCounterpartyCertificateError
+	JSON403      *GetB2bCounterpartyCertificateError
+	JSON404      *GetB2bCounterpartyCertificateError
+	JSON502      *GetB2bCounterpartyCertificateError
+}
+
+// Status returns HTTPResponse.Status
+func (r GetB2bCounterpartyCertificateHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetB2bCounterpartyCertificateHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetB2bCounterpartyCertificateRegistrationUrlHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GetB2bCounterpartyCertificateRegistrationUrlResponse
+	JSON400      *GetB2bCounterpartyCertificateRegistrationUrlError
+	JSON401      *GetB2bCounterpartyCertificateRegistrationUrlError
+	JSON403      *GetB2bCounterpartyCertificateRegistrationUrlError
+	JSON404      *GetB2bCounterpartyCertificateRegistrationUrlError
+	JSON502      *GetB2bCounterpartyCertificateRegistrationUrlError
+}
+
+// Status returns HTTPResponse.Status
+func (r GetB2bCounterpartyCertificateRegistrationUrlHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetB2bCounterpartyCertificateRegistrationUrlHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ValidateB2bCounterpartyCertificateHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *ValidateB2bCounterpartyCertificateResponse
+	JSON400      *ValidateB2bCounterpartyCertificateError
+	JSON401      *ValidateB2bCounterpartyCertificateError
+	JSON403      *ValidateB2bCounterpartyCertificateError
+	JSON404      *ValidateB2bCounterpartyCertificateError
+	JSON502      *ValidateB2bCounterpartyCertificateError
+}
+
+// Status returns HTTPResponse.Status
+func (r ValidateB2bCounterpartyCertificateHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ValidateB2bCounterpartyCertificateHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type DeleteB2bCounterpartyHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DeleteB2bCounterpartyResponse
+	JSON400      *DeleteB2bCounterpartyError
+	JSON401      *DeleteB2bCounterpartyError
+	JSON403      *DeleteB2bCounterpartyError
+	JSON404      *DeleteB2bCounterpartyError
+	JSON409      *DeleteB2bCounterpartyError
+	JSON502      *DeleteB2bCounterpartyError
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteB2bCounterpartyHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteB2bCounterpartyHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetB2bCounterpartyHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *B2bCounterparty
+	JSON400      *GetB2bCounterpartyError
+	JSON401      *GetB2bCounterpartyError
+	JSON403      *GetB2bCounterpartyError
+	JSON404      *GetB2bCounterpartyError
+	JSON502      *GetB2bCounterpartyError
+}
+
+// Status returns HTTPResponse.Status
+func (r GetB2bCounterpartyHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetB2bCounterpartyHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type UpdateB2bCounterpartyHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *UpdateB2bCounterpartyResponse
+	JSON400      *UpdateB2bCounterpartyError
+	JSON401      *UpdateB2bCounterpartyError
+	JSON403      *UpdateB2bCounterpartyError
+	JSON404      *UpdateB2bCounterpartyError
+	JSON502      *UpdateB2bCounterpartyError
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateB2bCounterpartyHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateB2bCounterpartyHTTPResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -56853,6 +63958,82 @@ func (r GetAllPaymentEventsByCursorHTTPResponse) StatusCode() int {
 	return 0
 }
 
+type GetPgCardPromotionsHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GetPgCardPromotionsResponse
+	JSON400      *GetPgCardPromotionsError
+	JSON401      *GetPgCardPromotionsError
+	JSON404      *GetPgCardPromotionsError
+	JSON502      *GetPgCardPromotionsError
+}
+
+// Status returns HTTPResponse.Status
+func (r GetPgCardPromotionsHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetPgCardPromotionsHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetPaymentReconciliationSettlementVatReportHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GetPaymentReconciliationSettlementVatReportResponse
+	JSON400      *GetPaymentReconciliationSettlementVatReportError
+	JSON401      *GetPaymentReconciliationSettlementVatReportError
+	JSON403      *GetPaymentReconciliationSettlementVatReportError
+}
+
+// Status returns HTTPResponse.Status
+func (r GetPaymentReconciliationSettlementVatReportHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetPaymentReconciliationSettlementVatReportHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetPaymentReconciliationTransactionVatReportHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GetPaymentReconciliationTransactionVatReportResponse
+	JSON400      *GetPaymentReconciliationTransactionVatReportError
+	JSON401      *GetPaymentReconciliationTransactionVatReportError
+	JSON403      *GetPaymentReconciliationTransactionVatReportError
+}
+
+// Status returns HTTPResponse.Status
+func (r GetPaymentReconciliationTransactionVatReportHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetPaymentReconciliationTransactionVatReportHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type RevokePaymentSchedulesHTTPResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -57057,6 +64238,34 @@ func (r CancelPaymentHTTPResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r CancelPaymentHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type StopPaymentCancellationHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *StopPaymentCancellationResponse
+	JSON400      *StopPaymentCancellationError
+	JSON401      *StopPaymentCancellationError
+	JSON403      *StopPaymentCancellationError
+	JSON404      *StopPaymentCancellationError
+	JSON409      *StopPaymentCancellationError
+	JSON502      *StopPaymentCancellationError
+}
+
+// Status returns HTTPResponse.Status
+func (r StopPaymentCancellationHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StopPaymentCancellationHTTPResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -57439,6 +64648,31 @@ func (r CloseVirtualAccountHTTPResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r CloseVirtualAccountHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ConfirmPaymentwallDeliveryHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *ConfirmPaymentwallDeliveryResponse
+	JSON400      *ConfirmPaymentwallDeliveryError
+	JSON401      *ConfirmPaymentwallDeliveryError
+	JSON404      *ConfirmPaymentwallDeliveryError
+}
+
+// Status returns HTTPResponse.Status
+func (r ConfirmPaymentwallDeliveryHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ConfirmPaymentwallDeliveryHTTPResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -58434,6 +65668,59 @@ func (r GetPlatformPartnerSettlementsHTTPResponse) StatusCode() int {
 	return 0
 }
 
+type CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CompletePlatformPayoutByPartnerSettlementIdsResponse
+	JSON400      *CompletePlatformPayoutByPartnerSettlementIdsError
+	JSON401      *CompletePlatformPayoutByPartnerSettlementIdsError
+	JSON403      *CompletePlatformPayoutByPartnerSettlementIdsError
+	JSON404      *CompletePlatformPayoutByPartnerSettlementIdsError
+	JSON409      *CompletePlatformPayoutByPartnerSettlementIdsError
+}
+
+// Status returns HTTPResponse.Status
+func (r CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type DeletePlatformPartnerSettlementsHTTPResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DeletePlatformPartnerSettlementsResponse
+	JSON400      *DeletePlatformPartnerSettlementsError
+	JSON401      *DeletePlatformPartnerSettlementsError
+	JSON403      *DeletePlatformPartnerSettlementsError
+	JSON404      *DeletePlatformPartnerSettlementsError
+}
+
+// Status returns HTTPResponse.Status
+func (r DeletePlatformPartnerSettlementsHTTPResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeletePlatformPartnerSettlementsHTTPResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type GetPlatformPartnersHTTPResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -58513,19 +65800,19 @@ func (r CreatePlatformPartnersHTTPResponse) StatusCode() int {
 	return 0
 }
 
-type ConnectBulkPartnerMemberCompanyHTTPResponse struct {
+type ConnectBulkPartnerCounterpartyHTTPResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *ConnectBulkPartnerMemberCompanyResponse
-	JSON400      *ConnectBulkPartnerMemberCompanyError
-	JSON401      *ConnectBulkPartnerMemberCompanyError
-	JSON403      *ConnectBulkPartnerMemberCompanyError
-	JSON404      *ConnectBulkPartnerMemberCompanyError
-	JSON503      *ConnectBulkPartnerMemberCompanyError
+	JSON200      *ConnectBulkPartnerCounterpartyResponse
+	JSON400      *ConnectBulkPartnerCounterpartyError
+	JSON401      *ConnectBulkPartnerCounterpartyError
+	JSON403      *ConnectBulkPartnerCounterpartyError
+	JSON404      *ConnectBulkPartnerCounterpartyError
+	JSON503      *ConnectBulkPartnerCounterpartyError
 }
 
 // Status returns HTTPResponse.Status
-func (r ConnectBulkPartnerMemberCompanyHTTPResponse) Status() string {
+func (r ConnectBulkPartnerCounterpartyHTTPResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -58533,27 +65820,27 @@ func (r ConnectBulkPartnerMemberCompanyHTTPResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ConnectBulkPartnerMemberCompanyHTTPResponse) StatusCode() int {
+func (r ConnectBulkPartnerCounterpartyHTTPResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ConnectPartnerMemberCompanyHTTPResponse struct {
+type ConnectPartnerCounterpartyHTTPResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *ConnectPartnerMemberCompanyResponse
-	JSON400      *ConnectPartnerMemberCompanyError
-	JSON401      *ConnectPartnerMemberCompanyError
-	JSON403      *ConnectPartnerMemberCompanyError
-	JSON404      *ConnectPartnerMemberCompanyError
-	JSON409      *ConnectPartnerMemberCompanyError
-	JSON503      *ConnectPartnerMemberCompanyError
+	JSON200      *ConnectPartnerCounterpartyResponse
+	JSON400      *ConnectPartnerCounterpartyError
+	JSON401      *ConnectPartnerCounterpartyError
+	JSON403      *ConnectPartnerCounterpartyError
+	JSON404      *ConnectPartnerCounterpartyError
+	JSON409      *ConnectPartnerCounterpartyError
+	JSON503      *ConnectPartnerCounterpartyError
 }
 
 // Status returns HTTPResponse.Status
-func (r ConnectPartnerMemberCompanyHTTPResponse) Status() string {
+func (r ConnectPartnerCounterpartyHTTPResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -58561,26 +65848,26 @@ func (r ConnectPartnerMemberCompanyHTTPResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ConnectPartnerMemberCompanyHTTPResponse) StatusCode() int {
+func (r ConnectPartnerCounterpartyHTTPResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type DisconnectBulkPartnerMemberCompanyHTTPResponse struct {
+type DisconnectBulkPartnerCounterpartyHTTPResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *DisconnectBulkPartnerMemberCompanyResponse
-	JSON400      *DisconnectBulkPartnerMemberCompanyError
-	JSON401      *DisconnectBulkPartnerMemberCompanyError
-	JSON403      *DisconnectBulkPartnerMemberCompanyError
-	JSON404      *DisconnectBulkPartnerMemberCompanyError
-	JSON503      *DisconnectBulkPartnerMemberCompanyError
+	JSON200      *DisconnectBulkPartnerCounterpartyResponse
+	JSON400      *DisconnectBulkPartnerCounterpartyError
+	JSON401      *DisconnectBulkPartnerCounterpartyError
+	JSON403      *DisconnectBulkPartnerCounterpartyError
+	JSON404      *DisconnectBulkPartnerCounterpartyError
+	JSON503      *DisconnectBulkPartnerCounterpartyError
 }
 
 // Status returns HTTPResponse.Status
-func (r DisconnectBulkPartnerMemberCompanyHTTPResponse) Status() string {
+func (r DisconnectBulkPartnerCounterpartyHTTPResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -58588,27 +65875,27 @@ func (r DisconnectBulkPartnerMemberCompanyHTTPResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r DisconnectBulkPartnerMemberCompanyHTTPResponse) StatusCode() int {
+func (r DisconnectBulkPartnerCounterpartyHTTPResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type DisconnectPartnerMemberCompanyHTTPResponse struct {
+type DisconnectPartnerCounterpartyHTTPResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *DisconnectPartnerMemberCompanyResponse
-	JSON400      *DisconnectPartnerMemberCompanyError
-	JSON401      *DisconnectPartnerMemberCompanyError
-	JSON403      *DisconnectPartnerMemberCompanyError
-	JSON404      *DisconnectPartnerMemberCompanyError
-	JSON409      *DisconnectPartnerMemberCompanyError
-	JSON503      *DisconnectPartnerMemberCompanyError
+	JSON200      *DisconnectPartnerCounterpartyResponse
+	JSON400      *DisconnectPartnerCounterpartyError
+	JSON401      *DisconnectPartnerCounterpartyError
+	JSON403      *DisconnectPartnerCounterpartyError
+	JSON404      *DisconnectPartnerCounterpartyError
+	JSON409      *DisconnectPartnerCounterpartyError
+	JSON503      *DisconnectPartnerCounterpartyError
 }
 
 // Status returns HTTPResponse.Status
-func (r DisconnectPartnerMemberCompanyHTTPResponse) Status() string {
+func (r DisconnectPartnerCounterpartyHTTPResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -58616,7 +65903,7 @@ func (r DisconnectPartnerMemberCompanyHTTPResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r DisconnectPartnerMemberCompanyHTTPResponse) StatusCode() int {
+func (r DisconnectPartnerCounterpartyHTTPResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -58738,6 +66025,7 @@ type RecoverPlatformPartnerHTTPResponse struct {
 	JSON401      *RecoverPlatformPartnerError
 	JSON403      *RecoverPlatformPartnerError
 	JSON404      *RecoverPlatformPartnerError
+	JSON409      *RecoverPlatformPartnerError
 }
 
 // Status returns HTTPResponse.Status
@@ -58993,6 +66281,7 @@ type CreatePlatformManualTransferHTTPResponse struct {
 	JSON401      *CreatePlatformManualTransferError
 	JSON403      *CreatePlatformManualTransferError
 	JSON404      *CreatePlatformManualTransferError
+	JSON409      *CreatePlatformManualTransferError
 }
 
 // Status returns HTTPResponse.Status
@@ -59177,20 +66466,124 @@ func (c *ClientWithResponses) GetB2bBulkTaxInvoiceWithResponse(ctx context.Conte
 }
 
 // GetB2bBusinessInfosWithBodyWithResponse request with arbitrary body returning *GetB2bBusinessInfosHTTPResponse
-func (c *ClientWithResponses) GetB2bBusinessInfosWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetB2bBusinessInfosHTTPResponse, error) {
-	rsp, err := c.GetB2bBusinessInfosWithBody(ctx, contentType, body, reqEditors...)
+func (c *ClientWithResponses) GetB2bBusinessInfosWithBodyWithResponse(ctx context.Context, params *GetB2bBusinessInfosParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetB2bBusinessInfosHTTPResponse, error) {
+	rsp, err := c.GetB2bBusinessInfosWithBody(ctx, params, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
 	return ParseGetB2bBusinessInfosHTTPResponse(rsp)
 }
 
-func (c *ClientWithResponses) GetB2bBusinessInfosWithResponse(ctx context.Context, body GetB2bBusinessInfosJSONRequestBody, reqEditors ...RequestEditorFn) (*GetB2bBusinessInfosHTTPResponse, error) {
-	rsp, err := c.GetB2bBusinessInfos(ctx, body, reqEditors...)
+func (c *ClientWithResponses) GetB2bBusinessInfosWithResponse(ctx context.Context, params *GetB2bBusinessInfosParams, body GetB2bBusinessInfosJSONRequestBody, reqEditors ...RequestEditorFn) (*GetB2bBusinessInfosHTTPResponse, error) {
+	rsp, err := c.GetB2bBusinessInfos(ctx, params, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
 	return ParseGetB2bBusinessInfosHTTPResponse(rsp)
+}
+
+// GetB2bCounterpartiesWithBodyWithResponse request with arbitrary body returning *GetB2bCounterpartiesHTTPResponse
+func (c *ClientWithResponses) GetB2bCounterpartiesWithBodyWithResponse(ctx context.Context, params *GetB2bCounterpartiesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetB2bCounterpartiesHTTPResponse, error) {
+	rsp, err := c.GetB2bCounterpartiesWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetB2bCounterpartiesHTTPResponse(rsp)
+}
+
+func (c *ClientWithResponses) GetB2bCounterpartiesWithResponse(ctx context.Context, params *GetB2bCounterpartiesParams, body GetB2bCounterpartiesJSONRequestBody, reqEditors ...RequestEditorFn) (*GetB2bCounterpartiesHTTPResponse, error) {
+	rsp, err := c.GetB2bCounterparties(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetB2bCounterpartiesHTTPResponse(rsp)
+}
+
+// CreateB2bCounterpartyWithBodyWithResponse request with arbitrary body returning *CreateB2bCounterpartyHTTPResponse
+func (c *ClientWithResponses) CreateB2bCounterpartyWithBodyWithResponse(ctx context.Context, params *CreateB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateB2bCounterpartyHTTPResponse, error) {
+	rsp, err := c.CreateB2bCounterpartyWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateB2bCounterpartyHTTPResponse(rsp)
+}
+
+func (c *ClientWithResponses) CreateB2bCounterpartyWithResponse(ctx context.Context, params *CreateB2bCounterpartyParams, body CreateB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateB2bCounterpartyHTTPResponse, error) {
+	rsp, err := c.CreateB2bCounterparty(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateB2bCounterpartyHTTPResponse(rsp)
+}
+
+// GetB2bCounterpartyCertificateWithResponse request returning *GetB2bCounterpartyCertificateHTTPResponse
+func (c *ClientWithResponses) GetB2bCounterpartyCertificateWithResponse(ctx context.Context, brn string, params *GetB2bCounterpartyCertificateParams, reqEditors ...RequestEditorFn) (*GetB2bCounterpartyCertificateHTTPResponse, error) {
+	rsp, err := c.GetB2bCounterpartyCertificate(ctx, brn, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetB2bCounterpartyCertificateHTTPResponse(rsp)
+}
+
+// GetB2bCounterpartyCertificateRegistrationUrlWithResponse request returning *GetB2bCounterpartyCertificateRegistrationUrlHTTPResponse
+func (c *ClientWithResponses) GetB2bCounterpartyCertificateRegistrationUrlWithResponse(ctx context.Context, brn string, params *GetB2bCounterpartyCertificateRegistrationUrlParams, reqEditors ...RequestEditorFn) (*GetB2bCounterpartyCertificateRegistrationUrlHTTPResponse, error) {
+	rsp, err := c.GetB2bCounterpartyCertificateRegistrationUrl(ctx, brn, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetB2bCounterpartyCertificateRegistrationUrlHTTPResponse(rsp)
+}
+
+// ValidateB2bCounterpartyCertificateWithResponse request returning *ValidateB2bCounterpartyCertificateHTTPResponse
+func (c *ClientWithResponses) ValidateB2bCounterpartyCertificateWithResponse(ctx context.Context, brn string, params *ValidateB2bCounterpartyCertificateParams, reqEditors ...RequestEditorFn) (*ValidateB2bCounterpartyCertificateHTTPResponse, error) {
+	rsp, err := c.ValidateB2bCounterpartyCertificate(ctx, brn, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseValidateB2bCounterpartyCertificateHTTPResponse(rsp)
+}
+
+// DeleteB2bCounterpartyWithBodyWithResponse request with arbitrary body returning *DeleteB2bCounterpartyHTTPResponse
+func (c *ClientWithResponses) DeleteB2bCounterpartyWithBodyWithResponse(ctx context.Context, counterpartyId string, params *DeleteB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DeleteB2bCounterpartyHTTPResponse, error) {
+	rsp, err := c.DeleteB2bCounterpartyWithBody(ctx, counterpartyId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteB2bCounterpartyHTTPResponse(rsp)
+}
+
+func (c *ClientWithResponses) DeleteB2bCounterpartyWithResponse(ctx context.Context, counterpartyId string, params *DeleteB2bCounterpartyParams, body DeleteB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*DeleteB2bCounterpartyHTTPResponse, error) {
+	rsp, err := c.DeleteB2bCounterparty(ctx, counterpartyId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteB2bCounterpartyHTTPResponse(rsp)
+}
+
+// GetB2bCounterpartyWithResponse request returning *GetB2bCounterpartyHTTPResponse
+func (c *ClientWithResponses) GetB2bCounterpartyWithResponse(ctx context.Context, counterpartyId string, params *GetB2bCounterpartyParams, reqEditors ...RequestEditorFn) (*GetB2bCounterpartyHTTPResponse, error) {
+	rsp, err := c.GetB2bCounterparty(ctx, counterpartyId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetB2bCounterpartyHTTPResponse(rsp)
+}
+
+// UpdateB2bCounterpartyWithBodyWithResponse request with arbitrary body returning *UpdateB2bCounterpartyHTTPResponse
+func (c *ClientWithResponses) UpdateB2bCounterpartyWithBodyWithResponse(ctx context.Context, counterpartyId string, params *UpdateB2bCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateB2bCounterpartyHTTPResponse, error) {
+	rsp, err := c.UpdateB2bCounterpartyWithBody(ctx, counterpartyId, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateB2bCounterpartyHTTPResponse(rsp)
+}
+
+func (c *ClientWithResponses) UpdateB2bCounterpartyWithResponse(ctx context.Context, counterpartyId string, params *UpdateB2bCounterpartyParams, body UpdateB2bCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateB2bCounterpartyHTTPResponse, error) {
+	rsp, err := c.UpdateB2bCounterparty(ctx, counterpartyId, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateB2bCounterpartyHTTPResponse(rsp)
 }
 
 // CreateB2bFileUploadUrlWithBodyWithResponse request with arbitrary body returning *CreateB2bFileUploadUrlHTTPResponse
@@ -59719,6 +67112,33 @@ func (c *ClientWithResponses) GetAllPaymentEventsByCursorWithResponse(ctx contex
 	return ParseGetAllPaymentEventsByCursorHTTPResponse(rsp)
 }
 
+// GetPgCardPromotionsWithResponse request returning *GetPgCardPromotionsHTTPResponse
+func (c *ClientWithResponses) GetPgCardPromotionsWithResponse(ctx context.Context, params *GetPgCardPromotionsParams, reqEditors ...RequestEditorFn) (*GetPgCardPromotionsHTTPResponse, error) {
+	rsp, err := c.GetPgCardPromotions(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetPgCardPromotionsHTTPResponse(rsp)
+}
+
+// GetPaymentReconciliationSettlementVatReportWithResponse request returning *GetPaymentReconciliationSettlementVatReportHTTPResponse
+func (c *ClientWithResponses) GetPaymentReconciliationSettlementVatReportWithResponse(ctx context.Context, params *GetPaymentReconciliationSettlementVatReportParams, reqEditors ...RequestEditorFn) (*GetPaymentReconciliationSettlementVatReportHTTPResponse, error) {
+	rsp, err := c.GetPaymentReconciliationSettlementVatReport(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetPaymentReconciliationSettlementVatReportHTTPResponse(rsp)
+}
+
+// GetPaymentReconciliationTransactionVatReportWithResponse request returning *GetPaymentReconciliationTransactionVatReportHTTPResponse
+func (c *ClientWithResponses) GetPaymentReconciliationTransactionVatReportWithResponse(ctx context.Context, params *GetPaymentReconciliationTransactionVatReportParams, reqEditors ...RequestEditorFn) (*GetPaymentReconciliationTransactionVatReportHTTPResponse, error) {
+	rsp, err := c.GetPaymentReconciliationTransactionVatReport(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetPaymentReconciliationTransactionVatReportHTTPResponse(rsp)
+}
+
 // RevokePaymentSchedulesWithBodyWithResponse request with arbitrary body returning *RevokePaymentSchedulesHTTPResponse
 func (c *ClientWithResponses) RevokePaymentSchedulesWithBodyWithResponse(ctx context.Context, params *RevokePaymentSchedulesParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*RevokePaymentSchedulesHTTPResponse, error) {
 	rsp, err := c.RevokePaymentSchedulesWithBody(ctx, params, contentType, body, reqEditors...)
@@ -59837,6 +67257,23 @@ func (c *ClientWithResponses) CancelPaymentWithResponse(ctx context.Context, pay
 		return nil, err
 	}
 	return ParseCancelPaymentHTTPResponse(rsp)
+}
+
+// StopPaymentCancellationWithBodyWithResponse request with arbitrary body returning *StopPaymentCancellationHTTPResponse
+func (c *ClientWithResponses) StopPaymentCancellationWithBodyWithResponse(ctx context.Context, paymentId string, cancellationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StopPaymentCancellationHTTPResponse, error) {
+	rsp, err := c.StopPaymentCancellationWithBody(ctx, paymentId, cancellationId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseStopPaymentCancellationHTTPResponse(rsp)
+}
+
+func (c *ClientWithResponses) StopPaymentCancellationWithResponse(ctx context.Context, paymentId string, cancellationId string, body StopPaymentCancellationJSONRequestBody, reqEditors ...RequestEditorFn) (*StopPaymentCancellationHTTPResponse, error) {
+	rsp, err := c.StopPaymentCancellation(ctx, paymentId, cancellationId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseStopPaymentCancellationHTTPResponse(rsp)
 }
 
 // CapturePaymentWithBodyWithResponse request with arbitrary body returning *CapturePaymentHTTPResponse
@@ -60043,6 +67480,23 @@ func (c *ClientWithResponses) CloseVirtualAccountWithResponse(ctx context.Contex
 		return nil, err
 	}
 	return ParseCloseVirtualAccountHTTPResponse(rsp)
+}
+
+// ConfirmPaymentwallDeliveryWithBodyWithResponse request with arbitrary body returning *ConfirmPaymentwallDeliveryHTTPResponse
+func (c *ClientWithResponses) ConfirmPaymentwallDeliveryWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ConfirmPaymentwallDeliveryHTTPResponse, error) {
+	rsp, err := c.ConfirmPaymentwallDeliveryWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseConfirmPaymentwallDeliveryHTTPResponse(rsp)
+}
+
+func (c *ClientWithResponses) ConfirmPaymentwallDeliveryWithResponse(ctx context.Context, body ConfirmPaymentwallDeliveryJSONRequestBody, reqEditors ...RequestEditorFn) (*ConfirmPaymentwallDeliveryHTTPResponse, error) {
+	rsp, err := c.ConfirmPaymentwallDelivery(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseConfirmPaymentwallDeliveryHTTPResponse(rsp)
 }
 
 // GetPlatformAccountTransfersWithBodyWithResponse request with arbitrary body returning *GetPlatformAccountTransfersHTTPResponse
@@ -60539,6 +67993,40 @@ func (c *ClientWithResponses) GetPlatformPartnerSettlementsWithResponse(ctx cont
 	return ParseGetPlatformPartnerSettlementsHTTPResponse(rsp)
 }
 
+// CompletePlatformPayoutByPartnerSettlementIdsWithBodyWithResponse request with arbitrary body returning *CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse
+func (c *ClientWithResponses) CompletePlatformPayoutByPartnerSettlementIdsWithBodyWithResponse(ctx context.Context, params *CompletePlatformPayoutByPartnerSettlementIdsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse, error) {
+	rsp, err := c.CompletePlatformPayoutByPartnerSettlementIdsWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCompletePlatformPayoutByPartnerSettlementIdsHTTPResponse(rsp)
+}
+
+func (c *ClientWithResponses) CompletePlatformPayoutByPartnerSettlementIdsWithResponse(ctx context.Context, params *CompletePlatformPayoutByPartnerSettlementIdsParams, body CompletePlatformPayoutByPartnerSettlementIdsJSONRequestBody, reqEditors ...RequestEditorFn) (*CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse, error) {
+	rsp, err := c.CompletePlatformPayoutByPartnerSettlementIds(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCompletePlatformPayoutByPartnerSettlementIdsHTTPResponse(rsp)
+}
+
+// DeletePlatformPartnerSettlementsWithBodyWithResponse request with arbitrary body returning *DeletePlatformPartnerSettlementsHTTPResponse
+func (c *ClientWithResponses) DeletePlatformPartnerSettlementsWithBodyWithResponse(ctx context.Context, params *DeletePlatformPartnerSettlementsParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DeletePlatformPartnerSettlementsHTTPResponse, error) {
+	rsp, err := c.DeletePlatformPartnerSettlementsWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeletePlatformPartnerSettlementsHTTPResponse(rsp)
+}
+
+func (c *ClientWithResponses) DeletePlatformPartnerSettlementsWithResponse(ctx context.Context, params *DeletePlatformPartnerSettlementsParams, body DeletePlatformPartnerSettlementsJSONRequestBody, reqEditors ...RequestEditorFn) (*DeletePlatformPartnerSettlementsHTTPResponse, error) {
+	rsp, err := c.DeletePlatformPartnerSettlements(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeletePlatformPartnerSettlementsHTTPResponse(rsp)
+}
+
 // GetPlatformPartnersWithBodyWithResponse request with arbitrary body returning *GetPlatformPartnersHTTPResponse
 func (c *ClientWithResponses) GetPlatformPartnersWithBodyWithResponse(ctx context.Context, params *GetPlatformPartnersParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GetPlatformPartnersHTTPResponse, error) {
 	rsp, err := c.GetPlatformPartnersWithBody(ctx, params, contentType, body, reqEditors...)
@@ -60590,56 +68078,56 @@ func (c *ClientWithResponses) CreatePlatformPartnersWithResponse(ctx context.Con
 	return ParseCreatePlatformPartnersHTTPResponse(rsp)
 }
 
-// ConnectBulkPartnerMemberCompanyWithBodyWithResponse request with arbitrary body returning *ConnectBulkPartnerMemberCompanyHTTPResponse
-func (c *ClientWithResponses) ConnectBulkPartnerMemberCompanyWithBodyWithResponse(ctx context.Context, params *ConnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ConnectBulkPartnerMemberCompanyHTTPResponse, error) {
-	rsp, err := c.ConnectBulkPartnerMemberCompanyWithBody(ctx, params, contentType, body, reqEditors...)
+// ConnectBulkPartnerCounterpartyWithBodyWithResponse request with arbitrary body returning *ConnectBulkPartnerCounterpartyHTTPResponse
+func (c *ClientWithResponses) ConnectBulkPartnerCounterpartyWithBodyWithResponse(ctx context.Context, params *ConnectBulkPartnerCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ConnectBulkPartnerCounterpartyHTTPResponse, error) {
+	rsp, err := c.ConnectBulkPartnerCounterpartyWithBody(ctx, params, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseConnectBulkPartnerMemberCompanyHTTPResponse(rsp)
+	return ParseConnectBulkPartnerCounterpartyHTTPResponse(rsp)
 }
 
-func (c *ClientWithResponses) ConnectBulkPartnerMemberCompanyWithResponse(ctx context.Context, params *ConnectBulkPartnerMemberCompanyParams, body ConnectBulkPartnerMemberCompanyJSONRequestBody, reqEditors ...RequestEditorFn) (*ConnectBulkPartnerMemberCompanyHTTPResponse, error) {
-	rsp, err := c.ConnectBulkPartnerMemberCompany(ctx, params, body, reqEditors...)
+func (c *ClientWithResponses) ConnectBulkPartnerCounterpartyWithResponse(ctx context.Context, params *ConnectBulkPartnerCounterpartyParams, body ConnectBulkPartnerCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*ConnectBulkPartnerCounterpartyHTTPResponse, error) {
+	rsp, err := c.ConnectBulkPartnerCounterparty(ctx, params, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseConnectBulkPartnerMemberCompanyHTTPResponse(rsp)
+	return ParseConnectBulkPartnerCounterpartyHTTPResponse(rsp)
 }
 
-// ConnectPartnerMemberCompanyWithResponse request returning *ConnectPartnerMemberCompanyHTTPResponse
-func (c *ClientWithResponses) ConnectPartnerMemberCompanyWithResponse(ctx context.Context, id string, params *ConnectPartnerMemberCompanyParams, reqEditors ...RequestEditorFn) (*ConnectPartnerMemberCompanyHTTPResponse, error) {
-	rsp, err := c.ConnectPartnerMemberCompany(ctx, id, params, reqEditors...)
+// ConnectPartnerCounterpartyWithResponse request returning *ConnectPartnerCounterpartyHTTPResponse
+func (c *ClientWithResponses) ConnectPartnerCounterpartyWithResponse(ctx context.Context, id string, params *ConnectPartnerCounterpartyParams, reqEditors ...RequestEditorFn) (*ConnectPartnerCounterpartyHTTPResponse, error) {
+	rsp, err := c.ConnectPartnerCounterparty(ctx, id, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseConnectPartnerMemberCompanyHTTPResponse(rsp)
+	return ParseConnectPartnerCounterpartyHTTPResponse(rsp)
 }
 
-// DisconnectBulkPartnerMemberCompanyWithBodyWithResponse request with arbitrary body returning *DisconnectBulkPartnerMemberCompanyHTTPResponse
-func (c *ClientWithResponses) DisconnectBulkPartnerMemberCompanyWithBodyWithResponse(ctx context.Context, params *DisconnectBulkPartnerMemberCompanyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DisconnectBulkPartnerMemberCompanyHTTPResponse, error) {
-	rsp, err := c.DisconnectBulkPartnerMemberCompanyWithBody(ctx, params, contentType, body, reqEditors...)
+// DisconnectBulkPartnerCounterpartyWithBodyWithResponse request with arbitrary body returning *DisconnectBulkPartnerCounterpartyHTTPResponse
+func (c *ClientWithResponses) DisconnectBulkPartnerCounterpartyWithBodyWithResponse(ctx context.Context, params *DisconnectBulkPartnerCounterpartyParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DisconnectBulkPartnerCounterpartyHTTPResponse, error) {
+	rsp, err := c.DisconnectBulkPartnerCounterpartyWithBody(ctx, params, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseDisconnectBulkPartnerMemberCompanyHTTPResponse(rsp)
+	return ParseDisconnectBulkPartnerCounterpartyHTTPResponse(rsp)
 }
 
-func (c *ClientWithResponses) DisconnectBulkPartnerMemberCompanyWithResponse(ctx context.Context, params *DisconnectBulkPartnerMemberCompanyParams, body DisconnectBulkPartnerMemberCompanyJSONRequestBody, reqEditors ...RequestEditorFn) (*DisconnectBulkPartnerMemberCompanyHTTPResponse, error) {
-	rsp, err := c.DisconnectBulkPartnerMemberCompany(ctx, params, body, reqEditors...)
+func (c *ClientWithResponses) DisconnectBulkPartnerCounterpartyWithResponse(ctx context.Context, params *DisconnectBulkPartnerCounterpartyParams, body DisconnectBulkPartnerCounterpartyJSONRequestBody, reqEditors ...RequestEditorFn) (*DisconnectBulkPartnerCounterpartyHTTPResponse, error) {
+	rsp, err := c.DisconnectBulkPartnerCounterparty(ctx, params, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseDisconnectBulkPartnerMemberCompanyHTTPResponse(rsp)
+	return ParseDisconnectBulkPartnerCounterpartyHTTPResponse(rsp)
 }
 
-// DisconnectPartnerMemberCompanyWithResponse request returning *DisconnectPartnerMemberCompanyHTTPResponse
-func (c *ClientWithResponses) DisconnectPartnerMemberCompanyWithResponse(ctx context.Context, id string, params *DisconnectPartnerMemberCompanyParams, reqEditors ...RequestEditorFn) (*DisconnectPartnerMemberCompanyHTTPResponse, error) {
-	rsp, err := c.DisconnectPartnerMemberCompany(ctx, id, params, reqEditors...)
+// DisconnectPartnerCounterpartyWithResponse request returning *DisconnectPartnerCounterpartyHTTPResponse
+func (c *ClientWithResponses) DisconnectPartnerCounterpartyWithResponse(ctx context.Context, id string, params *DisconnectPartnerCounterpartyParams, reqEditors ...RequestEditorFn) (*DisconnectPartnerCounterpartyHTTPResponse, error) {
+	rsp, err := c.DisconnectPartnerCounterparty(ctx, id, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseDisconnectPartnerMemberCompanyHTTPResponse(rsp)
+	return ParseDisconnectPartnerCounterpartyHTTPResponse(rsp)
 }
 
 // SchedulePlatformPartnersWithBodyWithResponse request with arbitrary body returning *SchedulePlatformPartnersHTTPResponse
@@ -61032,6 +68520,501 @@ func ParseGetB2bBusinessInfosHTTPResponse(rsp *http.Response) (*GetB2bBusinessIn
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
 		var dest GetB2bBusinessInfosError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetB2bCounterpartiesHTTPResponse parses an HTTP response from a GetB2bCounterpartiesWithResponse call
+func ParseGetB2bCounterpartiesHTTPResponse(rsp *http.Response) (*GetB2bCounterpartiesHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetB2bCounterpartiesHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetB2bCounterpartiesResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest GetB2bCounterpartiesError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest GetB2bCounterpartiesError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest GetB2bCounterpartiesError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest GetB2bCounterpartiesError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateB2bCounterpartyHTTPResponse parses an HTTP response from a CreateB2bCounterpartyWithResponse call
+func ParseCreateB2bCounterpartyHTTPResponse(rsp *http.Response) (*CreateB2bCounterpartyHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateB2bCounterpartyHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CreateB2bCounterpartyResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest CreateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest CreateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest CreateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest CreateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest CreateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest CreateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetB2bCounterpartyCertificateHTTPResponse parses an HTTP response from a GetB2bCounterpartyCertificateWithResponse call
+func ParseGetB2bCounterpartyCertificateHTTPResponse(rsp *http.Response) (*GetB2bCounterpartyCertificateHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetB2bCounterpartyCertificateHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest B2bCertificate
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest GetB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest GetB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest GetB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest GetB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest GetB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetB2bCounterpartyCertificateRegistrationUrlHTTPResponse parses an HTTP response from a GetB2bCounterpartyCertificateRegistrationUrlWithResponse call
+func ParseGetB2bCounterpartyCertificateRegistrationUrlHTTPResponse(rsp *http.Response) (*GetB2bCounterpartyCertificateRegistrationUrlHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetB2bCounterpartyCertificateRegistrationUrlHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetB2bCounterpartyCertificateRegistrationUrlResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest GetB2bCounterpartyCertificateRegistrationUrlError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest GetB2bCounterpartyCertificateRegistrationUrlError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest GetB2bCounterpartyCertificateRegistrationUrlError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest GetB2bCounterpartyCertificateRegistrationUrlError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest GetB2bCounterpartyCertificateRegistrationUrlError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseValidateB2bCounterpartyCertificateHTTPResponse parses an HTTP response from a ValidateB2bCounterpartyCertificateWithResponse call
+func ParseValidateB2bCounterpartyCertificateHTTPResponse(rsp *http.Response) (*ValidateB2bCounterpartyCertificateHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ValidateB2bCounterpartyCertificateHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ValidateB2bCounterpartyCertificateResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ValidateB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ValidateB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ValidateB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ValidateB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest ValidateB2bCounterpartyCertificateError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteB2bCounterpartyHTTPResponse parses an HTTP response from a DeleteB2bCounterpartyWithResponse call
+func ParseDeleteB2bCounterpartyHTTPResponse(rsp *http.Response) (*DeleteB2bCounterpartyHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteB2bCounterpartyHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DeleteB2bCounterpartyResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest DeleteB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest DeleteB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest DeleteB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest DeleteB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest DeleteB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest DeleteB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetB2bCounterpartyHTTPResponse parses an HTTP response from a GetB2bCounterpartyWithResponse call
+func ParseGetB2bCounterpartyHTTPResponse(rsp *http.Response) (*GetB2bCounterpartyHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetB2bCounterpartyHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest B2bCounterparty
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest GetB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest GetB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest GetB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest GetB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest GetB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateB2bCounterpartyHTTPResponse parses an HTTP response from a UpdateB2bCounterpartyWithResponse call
+func ParseUpdateB2bCounterpartyHTTPResponse(rsp *http.Response) (*UpdateB2bCounterpartyHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateB2bCounterpartyHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest UpdateB2bCounterpartyResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest UpdateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest UpdateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest UpdateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest UpdateB2bCounterpartyError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest UpdateB2bCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -63248,6 +71231,154 @@ func ParseGetAllPaymentEventsByCursorHTTPResponse(rsp *http.Response) (*GetAllPa
 	return response, nil
 }
 
+// ParseGetPgCardPromotionsHTTPResponse parses an HTTP response from a GetPgCardPromotionsWithResponse call
+func ParseGetPgCardPromotionsHTTPResponse(rsp *http.Response) (*GetPgCardPromotionsHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetPgCardPromotionsHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetPgCardPromotionsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest GetPgCardPromotionsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest GetPgCardPromotionsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest GetPgCardPromotionsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest GetPgCardPromotionsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetPaymentReconciliationSettlementVatReportHTTPResponse parses an HTTP response from a GetPaymentReconciliationSettlementVatReportWithResponse call
+func ParseGetPaymentReconciliationSettlementVatReportHTTPResponse(rsp *http.Response) (*GetPaymentReconciliationSettlementVatReportHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetPaymentReconciliationSettlementVatReportHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetPaymentReconciliationSettlementVatReportResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest GetPaymentReconciliationSettlementVatReportError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest GetPaymentReconciliationSettlementVatReportError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest GetPaymentReconciliationSettlementVatReportError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetPaymentReconciliationTransactionVatReportHTTPResponse parses an HTTP response from a GetPaymentReconciliationTransactionVatReportWithResponse call
+func ParseGetPaymentReconciliationTransactionVatReportHTTPResponse(rsp *http.Response) (*GetPaymentReconciliationTransactionVatReportHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetPaymentReconciliationTransactionVatReportHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GetPaymentReconciliationTransactionVatReportResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest GetPaymentReconciliationTransactionVatReportError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest GetPaymentReconciliationTransactionVatReportError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest GetPaymentReconciliationTransactionVatReportError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseRevokePaymentSchedulesHTTPResponse parses an HTTP response from a RevokePaymentSchedulesWithResponse call
 func ParseRevokePaymentSchedulesHTTPResponse(rsp *http.Response) (*RevokePaymentSchedulesHTTPResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -63684,6 +71815,74 @@ func ParseCancelPaymentHTTPResponse(rsp *http.Response) (*CancelPaymentHTTPRespo
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
 		var dest CancelPaymentError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseStopPaymentCancellationHTTPResponse parses an HTTP response from a StopPaymentCancellationWithResponse call
+func ParseStopPaymentCancellationHTTPResponse(rsp *http.Response) (*StopPaymentCancellationHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StopPaymentCancellationHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest StopPaymentCancellationResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest StopPaymentCancellationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest StopPaymentCancellationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest StopPaymentCancellationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest StopPaymentCancellationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest StopPaymentCancellationError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest StopPaymentCancellationError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -64570,6 +72769,53 @@ func ParseCloseVirtualAccountHTTPResponse(rsp *http.Response) (*CloseVirtualAcco
 			return nil, err
 		}
 		response.JSON502 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseConfirmPaymentwallDeliveryHTTPResponse parses an HTTP response from a ConfirmPaymentwallDeliveryWithResponse call
+func ParseConfirmPaymentwallDeliveryHTTPResponse(rsp *http.Response) (*ConfirmPaymentwallDeliveryHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ConfirmPaymentwallDeliveryHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ConfirmPaymentwallDeliveryResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ConfirmPaymentwallDeliveryError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ConfirmPaymentwallDeliveryError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ConfirmPaymentwallDeliveryError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
 
 	}
 
@@ -66635,6 +74881,121 @@ func ParseGetPlatformPartnerSettlementsHTTPResponse(rsp *http.Response) (*GetPla
 	return response, nil
 }
 
+// ParseCompletePlatformPayoutByPartnerSettlementIdsHTTPResponse parses an HTTP response from a CompletePlatformPayoutByPartnerSettlementIdsWithResponse call
+func ParseCompletePlatformPayoutByPartnerSettlementIdsHTTPResponse(rsp *http.Response) (*CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CompletePlatformPayoutByPartnerSettlementIdsHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CompletePlatformPayoutByPartnerSettlementIdsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest CompletePlatformPayoutByPartnerSettlementIdsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest CompletePlatformPayoutByPartnerSettlementIdsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest CompletePlatformPayoutByPartnerSettlementIdsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest CompletePlatformPayoutByPartnerSettlementIdsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest CompletePlatformPayoutByPartnerSettlementIdsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeletePlatformPartnerSettlementsHTTPResponse parses an HTTP response from a DeletePlatformPartnerSettlementsWithResponse call
+func ParseDeletePlatformPartnerSettlementsHTTPResponse(rsp *http.Response) (*DeletePlatformPartnerSettlementsHTTPResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeletePlatformPartnerSettlementsHTTPResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DeletePlatformPartnerSettlementsResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest DeletePlatformPartnerSettlementsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest DeletePlatformPartnerSettlementsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest DeletePlatformPartnerSettlementsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest DeletePlatformPartnerSettlementsError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetPlatformPartnersHTTPResponse parses an HTTP response from a GetPlatformPartnersWithResponse call
 func ParseGetPlatformPartnersHTTPResponse(rsp *http.Response) (*GetPlatformPartnersHTTPResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -66804,57 +75165,57 @@ func ParseCreatePlatformPartnersHTTPResponse(rsp *http.Response) (*CreatePlatfor
 	return response, nil
 }
 
-// ParseConnectBulkPartnerMemberCompanyHTTPResponse parses an HTTP response from a ConnectBulkPartnerMemberCompanyWithResponse call
-func ParseConnectBulkPartnerMemberCompanyHTTPResponse(rsp *http.Response) (*ConnectBulkPartnerMemberCompanyHTTPResponse, error) {
+// ParseConnectBulkPartnerCounterpartyHTTPResponse parses an HTTP response from a ConnectBulkPartnerCounterpartyWithResponse call
+func ParseConnectBulkPartnerCounterpartyHTTPResponse(rsp *http.Response) (*ConnectBulkPartnerCounterpartyHTTPResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ConnectBulkPartnerMemberCompanyHTTPResponse{
+	response := &ConnectBulkPartnerCounterpartyHTTPResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest ConnectBulkPartnerMemberCompanyResponse
+		var dest ConnectBulkPartnerCounterpartyResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest ConnectBulkPartnerMemberCompanyError
+		var dest ConnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON400 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
-		var dest ConnectBulkPartnerMemberCompanyError
+		var dest ConnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON401 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
-		var dest ConnectBulkPartnerMemberCompanyError
+		var dest ConnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON403 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
-		var dest ConnectBulkPartnerMemberCompanyError
+		var dest ConnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON404 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 503:
-		var dest ConnectBulkPartnerMemberCompanyError
+		var dest ConnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -66865,64 +75226,64 @@ func ParseConnectBulkPartnerMemberCompanyHTTPResponse(rsp *http.Response) (*Conn
 	return response, nil
 }
 
-// ParseConnectPartnerMemberCompanyHTTPResponse parses an HTTP response from a ConnectPartnerMemberCompanyWithResponse call
-func ParseConnectPartnerMemberCompanyHTTPResponse(rsp *http.Response) (*ConnectPartnerMemberCompanyHTTPResponse, error) {
+// ParseConnectPartnerCounterpartyHTTPResponse parses an HTTP response from a ConnectPartnerCounterpartyWithResponse call
+func ParseConnectPartnerCounterpartyHTTPResponse(rsp *http.Response) (*ConnectPartnerCounterpartyHTTPResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ConnectPartnerMemberCompanyHTTPResponse{
+	response := &ConnectPartnerCounterpartyHTTPResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest ConnectPartnerMemberCompanyResponse
+		var dest ConnectPartnerCounterpartyResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest ConnectPartnerMemberCompanyError
+		var dest ConnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON400 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
-		var dest ConnectPartnerMemberCompanyError
+		var dest ConnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON401 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
-		var dest ConnectPartnerMemberCompanyError
+		var dest ConnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON403 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
-		var dest ConnectPartnerMemberCompanyError
+		var dest ConnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON404 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
-		var dest ConnectPartnerMemberCompanyError
+		var dest ConnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON409 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 503:
-		var dest ConnectPartnerMemberCompanyError
+		var dest ConnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -66933,57 +75294,57 @@ func ParseConnectPartnerMemberCompanyHTTPResponse(rsp *http.Response) (*ConnectP
 	return response, nil
 }
 
-// ParseDisconnectBulkPartnerMemberCompanyHTTPResponse parses an HTTP response from a DisconnectBulkPartnerMemberCompanyWithResponse call
-func ParseDisconnectBulkPartnerMemberCompanyHTTPResponse(rsp *http.Response) (*DisconnectBulkPartnerMemberCompanyHTTPResponse, error) {
+// ParseDisconnectBulkPartnerCounterpartyHTTPResponse parses an HTTP response from a DisconnectBulkPartnerCounterpartyWithResponse call
+func ParseDisconnectBulkPartnerCounterpartyHTTPResponse(rsp *http.Response) (*DisconnectBulkPartnerCounterpartyHTTPResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &DisconnectBulkPartnerMemberCompanyHTTPResponse{
+	response := &DisconnectBulkPartnerCounterpartyHTTPResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest DisconnectBulkPartnerMemberCompanyResponse
+		var dest DisconnectBulkPartnerCounterpartyResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest DisconnectBulkPartnerMemberCompanyError
+		var dest DisconnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON400 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
-		var dest DisconnectBulkPartnerMemberCompanyError
+		var dest DisconnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON401 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
-		var dest DisconnectBulkPartnerMemberCompanyError
+		var dest DisconnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON403 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
-		var dest DisconnectBulkPartnerMemberCompanyError
+		var dest DisconnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON404 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 503:
-		var dest DisconnectBulkPartnerMemberCompanyError
+		var dest DisconnectBulkPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -66994,64 +75355,64 @@ func ParseDisconnectBulkPartnerMemberCompanyHTTPResponse(rsp *http.Response) (*D
 	return response, nil
 }
 
-// ParseDisconnectPartnerMemberCompanyHTTPResponse parses an HTTP response from a DisconnectPartnerMemberCompanyWithResponse call
-func ParseDisconnectPartnerMemberCompanyHTTPResponse(rsp *http.Response) (*DisconnectPartnerMemberCompanyHTTPResponse, error) {
+// ParseDisconnectPartnerCounterpartyHTTPResponse parses an HTTP response from a DisconnectPartnerCounterpartyWithResponse call
+func ParseDisconnectPartnerCounterpartyHTTPResponse(rsp *http.Response) (*DisconnectPartnerCounterpartyHTTPResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &DisconnectPartnerMemberCompanyHTTPResponse{
+	response := &DisconnectPartnerCounterpartyHTTPResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest DisconnectPartnerMemberCompanyResponse
+		var dest DisconnectPartnerCounterpartyResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest DisconnectPartnerMemberCompanyError
+		var dest DisconnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON400 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
-		var dest DisconnectPartnerMemberCompanyError
+		var dest DisconnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON401 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
-		var dest DisconnectPartnerMemberCompanyError
+		var dest DisconnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON403 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
-		var dest DisconnectPartnerMemberCompanyError
+		var dest DisconnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON404 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
-		var dest DisconnectPartnerMemberCompanyError
+		var dest DisconnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON409 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 503:
-		var dest DisconnectPartnerMemberCompanyError
+		var dest DisconnectPartnerCounterpartyError
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -67347,6 +75708,13 @@ func ParseRecoverPlatformPartnerHTTPResponse(rsp *http.Response) (*RecoverPlatfo
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest RecoverPlatformPartnerError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
 
 	}
 
@@ -67852,6 +76220,13 @@ func ParseCreatePlatformManualTransferHTTPResponse(rsp *http.Response) (*CreateP
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest CreatePlatformManualTransferError
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
 
 	}
 

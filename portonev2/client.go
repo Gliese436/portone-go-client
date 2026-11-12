@@ -1,3 +1,10 @@
+// Package portonev2 는 포트원 REST API V2 Go 클라이언트입니다.
+//
+// 타입과 API 메서드는 server-sdk 서브모듈의 openapi.json 으로부터
+// codegen/main.ts 가 생성합니다(*.gen.go). 이 파일은 HTTP 처리 등 수작업 코드입니다.
+//
+//	client := portonev2.NewClient(os.Getenv("PORTONE_API_SECRET"))
+//	p, err := client.Payment().GetPayment(ctx, &payment.GetPaymentOptions{PaymentId: "order-1"})
 package portonev2
 
 import (
@@ -9,9 +16,6 @@ import (
 	"net/http"
 	"net/url"
 	"time"
-
-	"github.com/Gliese436/portone-go-client/portonev2/common"
-	"github.com/Gliese436/portone-go-client/portonev2/platform"
 )
 
 const (
@@ -21,221 +25,190 @@ const (
 	// DefaultTimeout 기본 타임아웃
 	DefaultTimeout = 30 * time.Second
 
-	// UserAgent 사용자 에이전트
+	// UserAgent 기본 User-Agent
 	UserAgent = "portone-go-sdk/2.0.0"
 )
 
-// Client PortOne API 클라이언트
+// Client 포트원 API 클라이언트입니다. 여러 고루틴에서 동시에 사용해도 안전합니다.
 type Client struct {
-	// 설정
-	secret  string
-	baseURL string
-	storeID string
-	http    *http.Client
+	secret    string
+	baseURL   string
+	storeID   string
+	userAgent string
+	http      *http.Client
 
-	// 서브 클라이언트 (지연 초기화)
-	payment              *PaymentClient
-	identityVerification *IdentityVerificationClient
-	auth                 *AuthClient
-	b2b                  *B2BClient
-	platformClient       *platform.Client
-	pgSpecific           *PgSpecificClient
+	clients clients
 }
 
 // ClientOption 클라이언트 옵션
 type ClientOption func(*Client)
 
-// WithBaseURL 기본 URL 설정
+// WithBaseURL 기본 URL(origin)을 설정합니다.
 func WithBaseURL(baseURL string) ClientOption {
 	return func(c *Client) {
 		c.baseURL = baseURL
 	}
 }
 
-// WithStoreID 상점 ID 설정
+// WithStoreID 상점 아이디를 설정합니다.
+//
+// 하위 상점을 대상으로 포트원 기능을 사용할 때 필수입니다.
+// 각 API 의 StoreId 파라미터를 지정하지 않으면 이 값이 사용됩니다.
 func WithStoreID(storeID string) ClientOption {
 	return func(c *Client) {
 		c.storeID = storeID
 	}
 }
 
-// WithHTTPClient HTTP 클라이언트 설정
+// WithHTTPClient HTTP 클라이언트를 설정합니다.
 func WithHTTPClient(httpClient *http.Client) ClientOption {
 	return func(c *Client) {
 		c.http = httpClient
 	}
 }
 
-// WithTimeout 타임아웃 설정
+// WithTimeout HTTP 타임아웃을 설정합니다.
 func WithTimeout(timeout time.Duration) ClientOption {
 	return func(c *Client) {
 		c.http.Timeout = timeout
 	}
 }
 
-// NewClient 새 클라이언트를 생성합니다.
+// WithUserAgent User-Agent 헤더 값을 설정합니다.
+func WithUserAgent(userAgent string) ClientOption {
+	return func(c *Client) {
+		c.userAgent = userAgent
+	}
+}
+
+// NewClient 새 클라이언트를 생성합니다. secret 은 포트원 API Secret 입니다.
 func NewClient(secret string, opts ...ClientOption) *Client {
 	c := &Client{
-		secret:  secret,
-		baseURL: DefaultBaseURL,
+		secret:    secret,
+		baseURL:   DefaultBaseURL,
+		userAgent: UserAgent,
 		http: &http.Client{
 			Timeout: DefaultTimeout,
 		},
 	}
-
 	for _, opt := range opts {
 		opt(c)
 	}
-
+	c.initClients()
 	return c
 }
 
-// Payment Payment API 클라이언트를 반환합니다.
-func (c *Client) Payment() *PaymentClient {
-	if c.payment == nil {
-		c.payment = NewPaymentClient(c)
-	}
-	return c.payment
-}
-
-// IdentityVerification 본인인증 API 클라이언트를 반환합니다.
-func (c *Client) IdentityVerification() *IdentityVerificationClient {
-	if c.identityVerification == nil {
-		c.identityVerification = NewIdentityVerificationClient(c)
-	}
-	return c.identityVerification
-}
-
-// Auth 인증 API 클라이언트를 반환합니다.
-func (c *Client) Auth() *AuthClient {
-	if c.auth == nil {
-		c.auth = NewAuthClient(c)
-	}
-	return c.auth
-}
-
-// B2B B2B API 클라이언트를 반환합니다.
-func (c *Client) B2B() *B2BClient {
-	if c.b2b == nil {
-		c.b2b = NewB2BClient(c)
-	}
-	return c.b2b
-}
-
-// Platform Platform API 클라이언트를 반환합니다.
-func (c *Client) Platform() *platform.Client {
-	if c.platformClient == nil {
-		c.platformClient = platform.NewClient(c)
-	}
-	return c.platformClient
-}
-
-// PgSpecific PG사별 API 클라이언트를 반환합니다.
-func (c *Client) PgSpecific() *PgSpecificClient {
-	if c.pgSpecific == nil {
-		c.pgSpecific = NewPgSpecificClient(c)
-	}
-	return c.pgSpecific
-}
-
-// GetStoreID 상점 ID를 반환합니다.
+// GetStoreID 설정된 상점 아이디를 반환합니다.
 func (c *Client) GetStoreID() string {
 	return c.storeID
 }
 
-// Request HTTP 요청을 수행합니다.
-func (c *Client) Request(ctx context.Context, method, path string, query url.Values, body interface{}, result interface{}) error {
-	// URL 생성
+// storeIDPtr 지정된 값이 없으면 클라이언트의 상점 아이디를 사용합니다.
+func (c *Client) storeIDPtr(storeID *string) *string {
+	if storeID != nil {
+		return storeID
+	}
+	if c.storeID != "" {
+		v := c.storeID
+		return &v
+	}
+	return nil
+}
+
+// storeIDValue 지정된 값이 비어 있으면 클라이언트의 상점 아이디를 사용합니다.
+func (c *Client) storeIDValue(storeID string) string {
+	if storeID != "" {
+		return storeID
+	}
+	return c.storeID
+}
+
+// setRequestBodyQuery GET/DELETE 요청의 바디를 requestBody 쿼리 파라미터(JSON)로 설정합니다.
+func setRequestBodyQuery(query url.Values, body any) error {
+	encoded, err := json.Marshal(body)
+	if err != nil {
+		return fmt.Errorf("portone: 요청 본문 직렬화 실패: %w", err)
+	}
+	query.Set("requestBody", string(encoded))
+	return nil
+}
+
+func (c *Client) send(ctx context.Context, method, path string, query url.Values, body any) ([]byte, error) {
 	u, err := url.Parse(c.baseURL + path)
 	if err != nil {
-		return fmt.Errorf("URL 파싱 실패: %w", err)
+		return nil, fmt.Errorf("portone: URL 파싱 실패: %w", err)
 	}
-
-	if query != nil {
-		u.RawQuery = query.Encode()
-	}
-
-	// 요청 본문 생성
-	var bodyReader io.Reader
-	if body != nil {
-		bodyBytes, err := json.Marshal(body)
-		if err != nil {
-			return fmt.Errorf("요청 본문 직렬화 실패: %w", err)
+	if len(query) > 0 {
+		q := u.Query()
+		for k, vs := range query {
+			for _, v := range vs {
+				q.Add(k, v)
+			}
 		}
-		bodyReader = bytes.NewReader(bodyBytes)
+		u.RawQuery = q.Encode()
 	}
 
-	// HTTP 요청 생성
-	req, err := http.NewRequestWithContext(ctx, method, u.String(), bodyReader)
+	var reader io.Reader
+	if body != nil {
+		encoded, err := json.Marshal(body)
+		if err != nil {
+			return nil, fmt.Errorf("portone: 요청 본문 직렬화 실패: %w", err)
+		}
+		reader = bytes.NewReader(encoded)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, method, u.String(), reader)
 	if err != nil {
-		return fmt.Errorf("HTTP 요청 생성 실패: %w", err)
+		return nil, fmt.Errorf("portone: HTTP 요청 생성 실패: %w", err)
 	}
-
-	// 헤더 설정
 	req.Header.Set("Authorization", "PortOne "+c.secret)
-	req.Header.Set("User-Agent", UserAgent)
+	req.Header.Set("User-Agent", c.userAgent)
 	if body != nil {
 		req.Header.Set("Content-Type", "application/json")
 	}
 
-	// 요청 수행
 	resp, err := c.http.Do(req)
 	if err != nil {
-		return fmt.Errorf("HTTP 요청 실패: %w", err)
+		return nil, fmt.Errorf("portone: HTTP 요청 실패: %w", err)
 	}
 	defer resp.Body.Close()
 
-	// 응답 읽기
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return fmt.Errorf("응답 읽기 실패: %w", err)
+		return nil, fmt.Errorf("portone: 응답 읽기 실패: %w", err)
 	}
-
-	// 에러 처리
-	if resp.StatusCode >= 400 {
-		return NewAPIError(resp.StatusCode, respBody)
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+		return nil, NewAPIError(resp.StatusCode, respBody)
 	}
+	return respBody, nil
+}
 
-	// 결과 파싱
-	if result != nil && len(respBody) > 0 {
+// do 요청을 보내고 JSON 응답을 result 로 역직렬화합니다. result 가 nil 이면 응답 본문을 무시합니다.
+func (c *Client) do(ctx context.Context, method, path string, query url.Values, body any, result any) error {
+	respBody, err := c.send(ctx, method, path, query, body)
+	if err != nil {
+		return err
+	}
+	if result != nil && len(bytes.TrimSpace(respBody)) > 0 {
 		if err := json.Unmarshal(respBody, result); err != nil {
-			return fmt.Errorf("응답 파싱 실패: %w", err)
+			return fmt.Errorf("portone: 응답 파싱 실패: %w", err)
 		}
 	}
-
 	return nil
 }
 
-// Get GET 요청을 수행합니다.
-func (c *Client) Get(ctx context.Context, path string, query url.Values, result interface{}) error {
-	return c.Request(ctx, http.MethodGet, path, query, nil, result)
-}
-
-// Post POST 요청을 수행합니다.
-func (c *Client) Post(ctx context.Context, path string, body interface{}, result interface{}) error {
-	return c.Request(ctx, http.MethodPost, path, nil, body, result)
-}
-
-// Delete DELETE 요청을 수행합니다.
-func (c *Client) Delete(ctx context.Context, path string, query url.Values, result interface{}) error {
-	return c.Request(ctx, http.MethodDelete, path, query, nil, result)
-}
-
-// Patch PATCH 요청을 수행합니다.
-func (c *Client) Patch(ctx context.Context, path string, body interface{}, result interface{}) error {
-	return c.Request(ctx, http.MethodPatch, path, nil, body, result)
-}
-
-// Put PUT 요청을 수행합니다.
-func (c *Client) Put(ctx context.Context, path string, body interface{}, result interface{}) error {
-	return c.Request(ctx, http.MethodPut, path, nil, body, result)
-}
-
-// GetBankInfos 은행 정보를 조회합니다.
-func (c *Client) GetBankInfos(ctx context.Context) (*common.GetBankInfosResponse, error) {
-	var result common.GetBankInfosResponse
-	if err := c.Get(ctx, "/banks", nil, &result); err != nil {
-		return nil, err
+// doText 요청을 보내고 응답 본문(CSV 등)을 문자열로 반환합니다.
+func (c *Client) doText(ctx context.Context, method, path string, query url.Values, body any) (string, error) {
+	respBody, err := c.send(ctx, method, path, query, body)
+	if err != nil {
+		return "", err
 	}
-	return &result, nil
+	return string(respBody), nil
+}
+
+// Request 임의의 API 를 호출합니다. 생성된 메서드가 없는 API 를 호출할 때 사용합니다.
+//
+// body 가 nil 이 아니면 JSON 으로 직렬화하여 전송하고, 응답은 result 로 역직렬화합니다.
+func (c *Client) Request(ctx context.Context, method, path string, query url.Values, body any, result any) error {
+	return c.do(ctx, method, path, query, body, result)
 }
